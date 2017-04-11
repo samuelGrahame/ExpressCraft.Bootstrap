@@ -27,6 +27,9 @@ namespace ExpressCraft.Bootstrap
 							new BootstrapSelectionDiv(
 								new FormGroupList(
 									new TextBox("Textbox"),
+									new TextBox("true", InputType.Checkbox),
+									new TextBox("11/04/2017", InputType.Date),
+									new TextBox("Password", InputType.Password),
 									new Button("Basic", BootstrapTheme.None) { OnClick = buttonClick },
 									new Button("Default", BootstrapTheme.Default) { OnClick = buttonClick },
 									new Button("Primary", BootstrapTheme.Primary) { OnClick = buttonClick },

@@ -202,7 +202,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
             var buttonClick = $asm.$.ExpressCraft.Bootstrap.Program.f1;
 
-            ExpressCraft.Application.run(Bridge.merge(new ExpressCraft.Bootstrap.BootstrapForm([new ExpressCraft.Bootstrap.Panel(ExpressCraft.Bootstrap.BootstrapTheme.Default, [new ExpressCraft.Bootstrap.PanelHeading(["Welcome to ExpressCraft-Bootstrap"]), new ExpressCraft.Bootstrap.PanelBody([new ExpressCraft.Bootstrap.BootstrapSelectionDiv([new ExpressCraft.Bootstrap.FormGroupList([new ExpressCraft.Bootstrap.TextBox("Textbox"), Bridge.merge(new ExpressCraft.Bootstrap.Button("Basic", ExpressCraft.Bootstrap.BootstrapTheme.None), {
+            ExpressCraft.Application.run(Bridge.merge(new ExpressCraft.Bootstrap.BootstrapForm([new ExpressCraft.Bootstrap.Panel(ExpressCraft.Bootstrap.BootstrapTheme.Default, [new ExpressCraft.Bootstrap.PanelHeading(["Welcome to ExpressCraft-Bootstrap"]), new ExpressCraft.Bootstrap.PanelBody([new ExpressCraft.Bootstrap.BootstrapSelectionDiv([new ExpressCraft.Bootstrap.FormGroupList([new ExpressCraft.Bootstrap.TextBox("Textbox"), new ExpressCraft.Bootstrap.TextBox("true", "checkbox"), new ExpressCraft.Bootstrap.TextBox("11/04/2017", "date"), new ExpressCraft.Bootstrap.TextBox("Password", "password"), Bridge.merge(new ExpressCraft.Bootstrap.Button("Basic", ExpressCraft.Bootstrap.BootstrapTheme.None), {
                 setOnClick: buttonClick
             } ), Bridge.merge(new ExpressCraft.Bootstrap.Button("Default", ExpressCraft.Bootstrap.BootstrapTheme.Default), {
                 setOnClick: buttonClick
@@ -256,6 +256,85 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         }
     });
 
+    Bridge.define("ExpressCraft.Bootstrap.TextArea", {
+        inherits: [ExpressCraft.Control],
+        prevText: "",
+        onTextChanged: null,
+        onKeyDown: null,
+        onKeyUp: null,
+        onKeyPress: null,
+        ctor: function (text, rows) {
+            if (text === void 0) { text = ""; }
+            if (rows === void 0) { rows = 1; }
+
+            this.$initialize();
+            ExpressCraft.Control.ctor.call(this, Bridge.merge(document.createElement('textarea'), {
+                className: "form-control"
+            } ));
+            this.setText(text);
+            this.content.rows = Math.max(rows, 1);
+            this.content.onchange = Bridge.fn.bind(this, $asm.$.ExpressCraft.Bootstrap.TextArea.f1);
+            this.content.oncontextmenu = $asm.$.ExpressCraft.Bootstrap.TextArea.f2;
+            this.content.onkeypress = Bridge.fn.bind(this, $asm.$.ExpressCraft.Bootstrap.TextArea.f3);
+            this.content.onkeydown = Bridge.fn.bind(this, $asm.$.ExpressCraft.Bootstrap.TextArea.f4);
+            this.content.onkeyup = Bridge.fn.bind(this, $asm.$.ExpressCraft.Bootstrap.TextArea.f5);
+            this.content.addEventListener("paste", Bridge.fn.bind(this, $asm.$.ExpressCraft.Bootstrap.TextArea.f6));
+            this.content.addEventListener("cut", Bridge.fn.bind(this, $asm.$.ExpressCraft.Bootstrap.TextArea.f6));
+        },
+        getText: function () {
+            return this.content.innerHTML;
+        },
+        setText: function (value) {
+            this.content.innerHTML = value;
+
+            this.checkTextChanged();
+        },
+        checkTextChanged: function () {
+            if (!Bridge.referenceEquals(this.getText(), this.prevText)) {
+                if (!Bridge.staticEquals(this.onTextChanged, null)) {
+                    this.onTextChanged(this);
+                }
+                this.prevText = this.getText();
+            }
+        },
+        render: function () {
+            ExpressCraft.Control.prototype.render.call(this);
+            this.prevText = this.getText();
+        }
+    });
+
+    Bridge.ns("ExpressCraft.Bootstrap.TextArea", $asm.$);
+
+    Bridge.apply($asm.$.ExpressCraft.Bootstrap.TextArea, {
+        f1: function (ev) {
+            this.checkTextChanged();
+        },
+        f2: function (ev) {
+            ev.stopPropagation();
+        },
+        f3: function (ev) {
+            this.checkTextChanged();
+            if (!Bridge.staticEquals(this.onKeyPress, null)) {
+                this.onKeyPress(this, ev);
+            }
+        },
+        f4: function (ev) {
+            this.checkTextChanged();
+            if (!Bridge.staticEquals(this.onKeyDown, null)) {
+                this.onKeyDown(this, ev);
+            }
+        },
+        f5: function (ev) {
+            this.checkTextChanged();
+            if (!Bridge.staticEquals(this.onKeyUp, null)) {
+                this.onKeyUp(this, ev);
+            }
+        },
+        f6: function () {
+            this.checkTextChanged();
+        }
+    });
+
     Bridge.define("ExpressCraft.Bootstrap.TextBox", {
         inherits: [ExpressCraft.TextInput],
         ctor: function (text, type) {
@@ -266,8 +345,17 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             ExpressCraft.TextInput.ctor.call(this, type, false);
             this.content.className = "form-control";
             if (!System.String.isNullOrWhiteSpace(text)) {
-                this.setText(text);
+                if (type === "date" || type === "datetime" || type === "datetime-local") {
+                    this.setDate(text);
+                } else {
+                    if (type === "checkbox") {
+                        ExpressCraft.Helper.setChecked$1(this, text);
+                    } else {
+                        this.setText(text);
+                    }
+                }
             }
+
         }
     });
 

@@ -14,7 +14,15 @@ namespace ExpressCraft.Bootstrap
 		{
 			Content.ClassName = "form-control";
 			if (!string.IsNullOrWhiteSpace(text))
-				this.Text = text;
+			{
+				if(type == InputType.Date || type == InputType.DateTime || type == InputType.DateTimeLocal)
+					this.SetDate(text);
+				else if(type == InputType.Checkbox)
+					this.SetChecked(text);
+				else
+					this.Text = text;
+			}
+				
 		}
 	}
 }

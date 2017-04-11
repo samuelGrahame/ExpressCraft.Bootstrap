@@ -80,6 +80,7 @@
     <Compile Include="Abbr.cs" />
     <Compile Include="ParagraphList.cs" />
     <Compile Include="Small.cs" />
+    <Compile Include="TextArea.cs" />
     <Compile Include="TextBox.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Heading.cs" />
