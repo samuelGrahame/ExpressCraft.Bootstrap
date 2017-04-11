@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Bridge.Html5;
 using ExpressCraft;
-using ExpressCraft.Bootstrap.Typography;
+
+using ExpressCraft.Bootstrap;
 
 namespace ExpressCraft.Bootstrap
 {
@@ -17,13 +18,13 @@ namespace ExpressCraft.Bootstrap
 			Application.SetApplicationDefinition();
 			
 			Application.Run(
-				new BootstrapForm().AppendChild(new Panel(BootstrapTheme.Default).AppendChildren(
+				new BootstrapForm(new Panel(BootstrapTheme.Default,
 					new PanelHeading("Welcome to ExpressCraft-Bootstrap"),
-					new PanelBody().AppendChildren(
+					new PanelBody(
 						new Button("Hello World", BootstrapTheme.Success) { ItemClick = (but) => { Global.Alert("Welcome"); } },
 						new TextBox("hello World")
 						),
-					new PanelFooter().AppendChild(						
+					new PanelFooter(
 						new BootstrapDiv(
 							new Heading(HeadingType.H2, "Heading"),
 							new Code("Code"),
@@ -32,9 +33,7 @@ namespace ExpressCraft.Bootstrap
 						)
 					)
 				)
-			);
-
-
+			);			
 		}
 	}
 }

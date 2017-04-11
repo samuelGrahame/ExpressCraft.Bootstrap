@@ -7,9 +7,10 @@ using Bridge;
 using Bridge.Html5;
 using ExpressCraft;
 
+
 namespace ExpressCraft.Bootstrap
 {
-	public class PanelHeading : BootstrapDiv
+	public class PanelHeading : BootstrapStyleDiv
 	{
 		public PanelHeading(params Union<string, Control, HTMLElement>[] typos) : base("panel-heading", typos)
 		{

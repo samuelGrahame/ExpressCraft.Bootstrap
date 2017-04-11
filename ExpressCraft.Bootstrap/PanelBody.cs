@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 using Bridge;
 using Bridge.Html5;
 using ExpressCraft;
-using ExpressCraft.Bootstrap.Typography;
+
+using ExpressCraft.Bootstrap;
 
 namespace ExpressCraft.Bootstrap
 {

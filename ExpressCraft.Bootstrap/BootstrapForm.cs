@@ -7,6 +7,8 @@ using Bridge;
 using Bridge.Html5;
 using ExpressCraft;
 
+using ExpressCraft.Bootstrap;
+
 namespace ExpressCraft.Bootstrap
 {
 	public class BootstrapForm : Form

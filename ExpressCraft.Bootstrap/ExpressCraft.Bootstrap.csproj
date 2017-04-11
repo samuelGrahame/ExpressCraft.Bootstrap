@@ -65,21 +65,21 @@
     <Compile Include="PanelGroup.cs" />
     <Compile Include="PanelHeading.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Typography\Blockquote.cs" />
-    <Compile Include="Typography\Pre.cs" />
-    <Compile Include="Typography\Kbd.cs" />
-    <Compile Include="Typography\Code.cs" />
-    <Compile Include="Typography\DescriptionList.cs" />
-    <Compile Include="Typography\DescriptionDetail.cs" />
-    <Compile Include="Typography\DescriptionTitle.cs" />
-    <Compile Include="Typography\Footer.cs" />
-    <Compile Include="Typography\Mark.cs" />
-    <Compile Include="Typography\Abbr.cs" />
-    <Compile Include="Typography\Paragraph.cs" />
-    <Compile Include="Typography\Small.cs" />
+    <Compile Include="Blockquote.cs" />
+    <Compile Include="Pre.cs" />
+    <Compile Include="Kbd.cs" />
+    <Compile Include="Code.cs" />
+    <Compile Include="DescriptionList.cs" />
+    <Compile Include="DescriptionDetail.cs" />
+    <Compile Include="DescriptionTitle.cs" />
+    <Compile Include="Footer.cs" />
+    <Compile Include="Mark.cs" />
+    <Compile Include="Abbr.cs" />
+    <Compile Include="Paragraph.cs" />
+    <Compile Include="Small.cs" />
     <Compile Include="TextBox.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Typography\Heading.cs" />
+    <Compile Include="Heading.cs" />
     <Compile Include="BootstrapDiv.cs" />
   </ItemGroup>
   <ItemGroup>

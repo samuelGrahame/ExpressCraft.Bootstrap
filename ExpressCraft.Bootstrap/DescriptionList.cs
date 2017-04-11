@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 using Bridge;
 using Bridge.Html5;
 
-namespace ExpressCraft.Bootstrap.Typography
+
+namespace ExpressCraft.Bootstrap
 {
 	public class DescriptionList : BootstrapDiv
 	{

@@ -5,9 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Bridge;
 using Bridge.Html5;
-using ExpressCraft.Bootstrap.Typography;
 
-namespace ExpressCraft.Bootstrap.Typography
+using ExpressCraft.Bootstrap;
+
+namespace ExpressCraft.Bootstrap
 {
 	public class Paragraph : BootstrapDiv
 	{
