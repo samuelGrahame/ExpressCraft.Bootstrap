@@ -10,9 +10,9 @@ namespace ExpressCraft.Bootstrap
 {
 	public class TextBox : TextInput
 	{
-		public TextBox(string text = "", InputType type = InputType.Text) : base(type, false)
-		{
-			Content.ClassName = "form-control";
+		public TextBox(string text = "", InputType type = InputType.Text, string className = "form-control") : base(type, false)
+		{			
+			Content.ClassName = className;
 			if (!string.IsNullOrWhiteSpace(text))
 			{
 				if(type == InputType.Date || type == InputType.DateTime || type == InputType.DateTimeLocal)

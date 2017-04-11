@@ -29,9 +29,10 @@ namespace ExpressCraft.Bootstrap
 							new BootstrapSelectionDiv(
 								new FormGroupList(
 									new TextBox("Textbox"),
-									new TextBox("true", InputType.Checkbox),
+									new CheckBox("checkbox", "true"),
 									new TextBox("11/04/2017", InputType.Date),
 									new TextBox("Password", InputType.Password),
+									new TextArea("TextArea", 4),
 									new Button("Basic", BootstrapTheme.None) { OnClick = buttonClick },
 									new Button("Default", BootstrapTheme.Default) { OnClick = buttonClick },
 									new Button("Primary", BootstrapTheme.Primary) { OnClick = buttonClick },
@@ -39,7 +40,7 @@ namespace ExpressCraft.Bootstrap
 									new Button("Info", BootstrapTheme.Info) { OnClick = buttonClick },
 									new Button("Warning", BootstrapTheme.Warning) { OnClick = buttonClick },
 									new Button("Danger", BootstrapTheme.Danger) { OnClick = buttonClick },
-									new Button("Link", BootstrapTheme.Link) { OnClick = buttonClick }
+									new Button("Link", BootstrapTheme.Link) { OnClick = buttonClick }									
 								),
 								new Heading(HeadingType.H2, "Heading", new Small(" - Heading Small")),
 									new ParagraphList(

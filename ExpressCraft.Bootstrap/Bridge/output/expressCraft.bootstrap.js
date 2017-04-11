@@ -220,7 +220,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
             ExpressCraft.Bootstrap.BootstrapForm.setupMetaTags();
 
-            ExpressCraft.Application.run(Bridge.merge(new ExpressCraft.Bootstrap.BootstrapForm([new ExpressCraft.Bootstrap.Panel(ExpressCraft.Bootstrap.BootstrapTheme.Default, [new ExpressCraft.Bootstrap.PanelHeading(["Welcome to ExpressCraft-Bootstrap"]), new ExpressCraft.Bootstrap.PanelBody([new ExpressCraft.Bootstrap.BootstrapSelectionDiv([new ExpressCraft.Bootstrap.FormGroupList([new ExpressCraft.Bootstrap.TextBox("Textbox"), new ExpressCraft.Bootstrap.TextBox("true", "checkbox"), new ExpressCraft.Bootstrap.TextBox("11/04/2017", "date"), new ExpressCraft.Bootstrap.TextBox("Password", "password"), Bridge.merge(new ExpressCraft.Bootstrap.Button("Basic", ExpressCraft.Bootstrap.BootstrapTheme.None), {
+            ExpressCraft.Application.run(Bridge.merge(new ExpressCraft.Bootstrap.BootstrapForm([new ExpressCraft.Bootstrap.Panel(ExpressCraft.Bootstrap.BootstrapTheme.Default, [new ExpressCraft.Bootstrap.PanelHeading(["Welcome to ExpressCraft-Bootstrap"]), new ExpressCraft.Bootstrap.PanelBody([new ExpressCraft.Bootstrap.BootstrapSelectionDiv([new ExpressCraft.Bootstrap.FormGroupList([new ExpressCraft.Bootstrap.TextBox("Textbox"), new ExpressCraft.Bootstrap.CheckBox("checkbox", "true"), new ExpressCraft.Bootstrap.TextBox("11/04/2017", "date"), new ExpressCraft.Bootstrap.TextBox("Password", "password"), new ExpressCraft.Bootstrap.TextArea("TextArea", 4), Bridge.merge(new ExpressCraft.Bootstrap.Button("Basic", ExpressCraft.Bootstrap.BootstrapTheme.None), {
                 setOnClick: buttonClick
             } ), Bridge.merge(new ExpressCraft.Bootstrap.Button("Default", ExpressCraft.Bootstrap.BootstrapTheme.Default), {
                 setOnClick: buttonClick
@@ -355,13 +355,14 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
     Bridge.define("ExpressCraft.Bootstrap.TextBox", {
         inherits: [ExpressCraft.TextInput],
-        ctor: function (text, type) {
+        ctor: function (text, type, className) {
             if (text === void 0) { text = ""; }
             if (type === void 0) { type = 19; }
+            if (className === void 0) { className = "form-control"; }
 
             this.$initialize();
             ExpressCraft.TextInput.ctor.call(this, type, false);
-            this.content.className = "form-control";
+            this.content.className = className;
             if (!System.String.isNullOrWhiteSpace(text)) {
                 if (type === "date" || type === "datetime" || type === "datetime-local") {
                     this.setDate(text);
@@ -561,6 +562,17 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         }
     });
 
+    Bridge.define("ExpressCraft.Bootstrap.Label", {
+        inherits: [ExpressCraft.Bootstrap.BootstrapDiv],
+        ctor: function (typos) {
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, document.createElement("label"), typos);
+
+        }
+    });
+
     Bridge.define("ExpressCraft.Bootstrap.Mark", {
         inherits: [ExpressCraft.Bootstrap.BootstrapDiv],
         ctor: function (typos) {
@@ -633,6 +645,18 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             this.$initialize();
             ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, document.createElement("small"), typos);
 
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.CheckBox", {
+        inherits: [ExpressCraft.Bootstrap.BootstrapStyleDiv],
+        checkBox: null,
+        ctor: function (label, value) {
+            if (value === void 0) { value = ""; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootstrapStyleDiv.ctor.call(this, "checkbox");
+            ExpressCraft.Bootstrap.BootstrapDiv.appendTypos$1(this, [new ExpressCraft.Bootstrap.Label([(this.checkBox = new ExpressCraft.Bootstrap.TextBox(value, "checkbox", "")), label])]);
         }
     });
 
