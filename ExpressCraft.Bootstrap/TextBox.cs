@@ -10,8 +10,8 @@ namespace ExpressCraft.Bootstrap
 {
 	public class TextBox : TextInput
 	{
-		public TextBox(string text = "", InputType type = InputType.Text, string className = "form-control") : base(type, false)
-		{			
+		public TextBox(string text, InputType type = InputType.Text, string className = "form-control") : base(type, false)
+		{
 			Content.ClassName = className;
 			if (!string.IsNullOrWhiteSpace(text))
 			{
@@ -21,8 +21,11 @@ namespace ExpressCraft.Bootstrap
 					this.SetChecked(text);
 				else
 					this.Text = text;
-			}
-				
+			}				
+		}
+		public TextBox(InputType type = InputType.Text, string className = "form-control") : base(type, false)
+		{
+			Content.ClassName = className;			
 		}
 	}
 }

@@ -18,6 +18,13 @@ namespace ExpressCraft.Bootstrap
 		Link
 	}
 
+	public enum bootstrapForm
+	{
+		None,
+		Inline,
+		Horizontal
+	}
+
 	public static class Extension
 	{
 		public static string GetClassTheme(string cls, BootstrapTheme type)

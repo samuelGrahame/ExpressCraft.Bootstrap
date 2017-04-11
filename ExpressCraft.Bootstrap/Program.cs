@@ -15,14 +15,16 @@ namespace ExpressCraft.Bootstrap
 		public static void Main()
 		{
 			Settings.IncludeFocusRegion = false;
-			Application.SetApplicationDefinition();
+			Settings.AllowCloseWithoutQuestion = true;
 
+			Application.SetApplicationDefinition();
+			
 			Action<MouseEvent> buttonClick = (ev) => { Global.Alert(ev.CurrentTarget.As<HTMLElement>().InnerHTML); };
 
-			BootstrapForm.SetupMetaTags();
+			BootstrapWindow.SetupMetaTags();
 
 			Application.Run(
-				new BootstrapForm(
+				new BootstrapWindow(
 					new Panel(BootstrapTheme.Default,
 						new PanelHeading("Welcome to ExpressCraft-Bootstrap"),
 						new PanelBody(
@@ -30,9 +32,38 @@ namespace ExpressCraft.Bootstrap
 								new FormGroupList(
 									new TextBox("Textbox"),
 									new CheckBox("checkbox", "true"),
+									new FormGroup(
+										new CheckBox("checkbox-inline 1", "true") { Inline = true },
+										new CheckBox("checkbox-inline 2", "false") { Inline = true },
+										new CheckBox("checkbox-inline 3", "true") { Inline = true }
+										),
 									new TextBox("11/04/2017", InputType.Date),
 									new TextBox("Password", InputType.Password),
 									new TextArea("TextArea", 4),
+									new BootstrapForm(bootstrapForm.Inline,
+										new Label(
+											"Email:",
+											new TextBox()
+										),
+										new Label(
+											"Password:",
+											new TextBox(InputType.Password)
+										),
+										new CheckBox("Remeber me"),
+										new Button("Submit", ButtonType.Submit)
+									),
+									new BootstrapForm(bootstrapForm.Horizontal,
+										new Label(
+											"Email:",
+											new TextBox()
+										),
+										new Label(
+											"Password:",
+											new TextBox(InputType.Password)
+										),
+										new CheckBox("Remeber me"),
+										new Button("Submit", ButtonType.Submit)
+									),
 									new Button("Basic", BootstrapTheme.None) { OnClick = buttonClick },
 									new Button("Default", BootstrapTheme.Default) { OnClick = buttonClick },
 									new Button("Primary", BootstrapTheme.Primary) { OnClick = buttonClick },
@@ -40,7 +71,7 @@ namespace ExpressCraft.Bootstrap
 									new Button("Info", BootstrapTheme.Info) { OnClick = buttonClick },
 									new Button("Warning", BootstrapTheme.Warning) { OnClick = buttonClick },
 									new Button("Danger", BootstrapTheme.Danger) { OnClick = buttonClick },
-									new Button("Link", BootstrapTheme.Link) { OnClick = buttonClick }									
+									new Button("Link", BootstrapTheme.Link) { OnClick = buttonClick }																																
 								),
 								new Heading(HeadingType.H2, "Heading", new Small(" - Heading Small")),
 									new ParagraphList(

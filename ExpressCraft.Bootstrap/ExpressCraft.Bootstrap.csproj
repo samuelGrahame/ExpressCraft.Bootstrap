@@ -54,8 +54,9 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Label.cs" />
     <Compile Include="BootstrapForm.cs" />
+    <Compile Include="Label.cs" />
+    <Compile Include="BootstrapWindow.cs" />
     <Compile Include="BootstrapSelectionDiv.cs" />
     <Compile Include="BootstrapStyleDiv.cs" />
     <Compile Include="Button.cs" />

@@ -15,5 +15,14 @@ namespace ExpressCraft.Bootstrap
 		{
 			AppendTypos(this, new Label(checkBox = new TextBox(value, InputType.Checkbox, ""), label));
 		}
+		
+		public bool Inline
+		{
+			get { return GetInline(this, "checkbox"); }
+			set
+			{
+				SetInline(this, "checkbox", value);
+			}
+		}
 	}
 }

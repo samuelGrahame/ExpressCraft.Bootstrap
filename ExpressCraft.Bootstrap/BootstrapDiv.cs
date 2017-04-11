@@ -59,11 +59,26 @@ namespace ExpressCraft.Bootstrap
 				return GetContextual("bg-");
 			}
 			set
-			{
+			{				
 				SetContextual("bg-", value);
 			}
 		}
 
+		public static bool GetInline(Control control, string type)
+		{
+			return control.ClassList.Contains(type + "-inline");
+		}
+		public static void SetInline(Control control, string type, bool value)
+		{
+			if(GetInline(control, type) != value)
+			{
+				if(value)
+					control.ExchangeClass(type, type + "-inline");
+				else
+					control.ExchangeClass(type + "-inline", type);
+			}			
+		}
+		
 		internal string GetContextual(string type)
 		{
 			int length = ClassList.Length;
