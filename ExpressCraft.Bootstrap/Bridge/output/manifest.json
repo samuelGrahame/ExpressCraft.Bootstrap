@@ -1,6 +1,7 @@
 ﻿{
   "short_name": "ExpressCraft Bootstrap",
   "name": "ExpressCraft Bootstrap",
+   "start_url": "https://rawgit.com/samuelGrahame/ExpressCraft.Bootstrap/master/ExpressCraft.Bootstrap/Bridge/www/rawprev.html",
   "display": "standalone",
   "orientation": "portrait"
 }
