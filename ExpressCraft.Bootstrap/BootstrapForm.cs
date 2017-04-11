@@ -13,6 +13,19 @@ namespace ExpressCraft.Bootstrap
 {
 	public class BootstrapForm : Form
 	{
+		private static bool hasSetupMetaTags = false;
+
+		public static void SetupMetaTags()
+		{
+			if(hasSetupMetaTags)
+				return;
+
+			hasSetupMetaTags = true;
+			Document.Head.AppendChild(new HTMLMetaElement() { Name = "viewport", Content = "width=device-width, initial-scale=1" });
+				//<meta name="viewport" content="width=device-width, initial-scale=1">
+
+			}
+
 		public BootstrapForm(params Union<string, Control, HTMLElement>[] typos) : base("")
 		{		
 			var x = (HTMLDivElement)(new BootstrapStyleDiv("container")).Content;

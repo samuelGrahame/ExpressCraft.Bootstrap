@@ -83,6 +83,22 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
     Bridge.define("ExpressCraft.Bootstrap.BootstrapForm", {
         inherits: [ExpressCraft.Form],
+        statics: {
+            hasSetupMetaTags: false,
+            setupMetaTags: function () {
+                if (ExpressCraft.Bootstrap.BootstrapForm.hasSetupMetaTags) {
+                    return;
+                }
+
+                ExpressCraft.Bootstrap.BootstrapForm.hasSetupMetaTags = true;
+                document.head.appendChild(Bridge.merge(document.createElement('meta'), {
+                    name: "viewport",
+                    content: "width=device-width, initial-scale=1"
+                } ));
+                //<meta name="viewport" content="width=device-width, initial-scale=1">
+
+            }
+        },
         ctor: function (typos) {
             if (typos === void 0) { typos = []; }
 
@@ -201,6 +217,8 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             ExpressCraft.Application.setApplicationDefinition();
 
             var buttonClick = $asm.$.ExpressCraft.Bootstrap.Program.f1;
+
+            ExpressCraft.Bootstrap.BootstrapForm.setupMetaTags();
 
             ExpressCraft.Application.run(Bridge.merge(new ExpressCraft.Bootstrap.BootstrapForm([new ExpressCraft.Bootstrap.Panel(ExpressCraft.Bootstrap.BootstrapTheme.Default, [new ExpressCraft.Bootstrap.PanelHeading(["Welcome to ExpressCraft-Bootstrap"]), new ExpressCraft.Bootstrap.PanelBody([new ExpressCraft.Bootstrap.BootstrapSelectionDiv([new ExpressCraft.Bootstrap.FormGroupList([new ExpressCraft.Bootstrap.TextBox("Textbox"), new ExpressCraft.Bootstrap.TextBox("true", "checkbox"), new ExpressCraft.Bootstrap.TextBox("11/04/2017", "date"), new ExpressCraft.Bootstrap.TextBox("Password", "password"), Bridge.merge(new ExpressCraft.Bootstrap.Button("Basic", ExpressCraft.Bootstrap.BootstrapTheme.None), {
                 setOnClick: buttonClick

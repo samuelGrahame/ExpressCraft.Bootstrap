@@ -19,6 +19,8 @@ namespace ExpressCraft.Bootstrap
 
 			Action<MouseEvent> buttonClick = (ev) => { Global.Alert(ev.CurrentTarget.As<HTMLElement>().InnerHTML); };
 
+			BootstrapForm.SetupMetaTags();
+
 			Application.Run(
 				new BootstrapForm(
 					new Panel(BootstrapTheme.Default,
