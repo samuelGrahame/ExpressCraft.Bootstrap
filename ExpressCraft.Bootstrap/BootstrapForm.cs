@@ -19,14 +19,33 @@ namespace ExpressCraft.Bootstrap
 
 			this.BackColor = Color.White;
 			this.Body.AppendChild(x);
-
-			this.Body = x;
-			this.BodyStyle.Padding = "0";
-
-			//this.Body.ClassName = "container " + this.Body.ClassName;			
-			//this.Body.SetBounds(1, 29, "calc(100% - 2px)", "calc(100% - 30px)");			
-			BootstrapDiv.AppendTypos(this.Body, typos);
 			this.BodyStyle.OverflowY = Overflow.Auto;
+
+			this.Body = x;						
+			this.BodyStyle.Padding = "0";
+			SetCalcSize();
+
+			BootstrapDiv.AppendTypos(this.Body, typos);			
+		}
+
+		protected void SetCalcSize()
+		{
+			this.Body.SetSize("calc(100% - 28px)", this.Body.Style.Height);
+		}
+
+		protected override void OnResizing()
+		{
+			base.OnResizing();
+
+			var x = this.Content.GetBoundingClientRect();
+			if(x.Width - 2 < 1170)
+			{
+				SetCalcSize();
+			}
+			else
+			{
+				this.Body.SetSize("", this.Body.Style.Height);
+			}
 		}
 	}
 }
