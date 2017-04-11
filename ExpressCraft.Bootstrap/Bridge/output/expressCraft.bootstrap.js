@@ -8,16 +8,66 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
     Bridge.define("ExpressCraft.Bootstrap.BootstrapDiv", {
         inherits: [ExpressCraft.Control],
-        ctor: function (className) {
+        $ctor1: function (typos) {
+            if (typos === void 0) { typos = []; }
+
+            ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, document.createElement('div'), typos);
+
+        },
+        ctor: function (element, typos) {
+            if (typos === void 0) { typos = []; }
+
             this.$initialize();
-            ExpressCraft.Control.$ctor4.call(this, className, false);
-            this.getStyle().position = "relative";
+            ExpressCraft.Control.ctor.call(this, element);
+            if (typos != null) {
+                var length = typos.length;
+                for (var i = 0; i < length; i = (i + 1) | 0) {
+                    if (Bridge.is(typos[i], String)) {
+                        this.content.appendChild(document.createTextNode(typos[i]));
+                    } else {
+                        if (Bridge.is(typos[i], ExpressCraft.Control)) {
+                            ExpressCraft.Helper.appendChild(this, typos[i]);
+                        } else {
+                            if (Bridge.is(typos[i], HTMLElement)) {
+                                this.content.appendChild(typos[i]);
+                            }
+                        }
+                    }
+                }
+            }
         },
-        getInnerHTML: function () {
-            return this.content.innerHTML;
+        getContextualText: function () {
+            return this.getContextual("text-");
         },
-        setInnerHTML: function (value) {
-            this.content.innerHTML = value;
+        setContextualText: function (value) {
+            this.setContextual("text-", value);
+        },
+        getContextualBackground: function () {
+            return this.getContextual("bg-");
+        },
+        setContextualBackground: function (value) {
+            this.setContextual("bg-", value);
+        },
+        getContextual: function (type) {
+            var length = this.getClassList().length;
+            for (var i = 0; i < length; i = (i + 1) | 0) {
+                if (System.String.startsWith(this.getClassList()[i], type)) {
+                    return this.getClassList()[i];
+                }
+            }
+            return "";
+        },
+        setContextual: function (type, value) {
+            var length = this.getClassList().length;
+            for (var i = 0; i < length; i = (i + 1) | 0) {
+                if (System.String.startsWith(this.getClassList()[i], type)) {
+                    this.getClassList().remove(this.getClassList()[i]);
+                    break;
+                }
+            }
+            if (!System.String.isNullOrWhiteSpace(value) && System.String.startsWith(value, "text-")) {
+                this.getClassList().add(value);
+            }
         }
     });
 
@@ -62,6 +112,29 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         }
     });
 
+    Bridge.define("ExpressCraft.Bootstrap.Contextual");
+
+    Bridge.define("ExpressCraft.Bootstrap.Contextual.Background", {
+        statics: {
+            Primary: "bg-primary",
+            Success: "bg-success",
+            Info: "bg-info",
+            Warning: "bg-warning",
+            Danger: "bg-danger"
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.Contextual.Text", {
+        statics: {
+            Muted: "text-muted",
+            Primary: "text-primary",
+            Success: "text-success",
+            Info: "text-info",
+            Warning: "text-warning",
+            Danger: "text-danger"
+        }
+    });
+
     Bridge.define("ExpressCraft.Bootstrap.Extension", {
         statics: {
             getClassTheme: function (cls, type) {
@@ -77,7 +150,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         inherits: [ExpressCraft.Control],
         ctor: function () {
             this.$initialize();
-            ExpressCraft.Control.$ctor4.call(this, "form-group");
+            ExpressCraft.Control.$ctor5.call(this, "form-group");
             this.getStyle().position = "relative";
             this.getClassList().remove("control");
         }
@@ -89,7 +162,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             if (type === void 0) { type = 1; }
 
             this.$initialize();
-            ExpressCraft.Control.$ctor4.call(this, System.String.concat("panel", ExpressCraft.Bootstrap.Extension.getClassTheme(" panel-", type)), false);
+            ExpressCraft.Control.$ctor5.call(this, System.String.concat("panel", ExpressCraft.Bootstrap.Extension.getClassTheme(" panel-", type)), false);
             this.getStyle().position = "relative";
         }
     });
@@ -101,7 +174,9 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
             ExpressCraft.Application.run(new ExpressCraft.Bootstrap.BootstrapForm().appendChild$1(ExpressCraft.Helper.appendChildren(new ExpressCraft.Bootstrap.Panel(ExpressCraft.Bootstrap.BootstrapTheme.Default), [new ExpressCraft.Bootstrap.PanelHeading("Welcome to ExpressCraft-Bootstrap"), ExpressCraft.Helper.appendChildren(new ExpressCraft.Bootstrap.PanelBody(), [Bridge.merge(new ExpressCraft.Bootstrap.Button("Hello World", ExpressCraft.Bootstrap.BootstrapTheme.Success), {
                 itemClick: $asm.$.ExpressCraft.Bootstrap.Program.f1
-            } ), new ExpressCraft.Bootstrap.TextBox("hello World")])])));
+            } ), new ExpressCraft.Bootstrap.TextBox("hello World")]), ExpressCraft.Helper.appendChild(new ExpressCraft.Bootstrap.PanelFooter(), new ExpressCraft.Bootstrap.BootstrapDiv.$ctor1([new ExpressCraft.Bootstrap.Typography.Heading("h2", ["Heading"]), new ExpressCraft.Bootstrap.Typography.Code(["Code"]), "Text"]))])));
+
+
         }
     });
 
@@ -129,34 +204,14 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         }
     });
 
-    Bridge.define("ExpressCraft.Bootstrap.PanelBody", {
+    Bridge.define("ExpressCraft.Bootstrap.BootstrapStyleDiv", {
         inherits: [ExpressCraft.Bootstrap.BootstrapDiv],
-        ctor: function (body) {
-            if (body === void 0) { body = ""; }
+        ctor: function (className, typos) {
+            if (typos === void 0) { typos = []; }
 
             this.$initialize();
-            ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, "panel-body");
-            this.setInnerHTML(body);
-        }
-    });
-
-    Bridge.define("ExpressCraft.Bootstrap.PanelFooter", {
-        inherits: [ExpressCraft.Bootstrap.BootstrapDiv],
-        ctor: function (footer) {
-            if (footer === void 0) { footer = ""; }
-
-            this.$initialize();
-            ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, "panel-footer");
-            this.setInnerHTML(footer);
-        }
-    });
-
-    Bridge.define("ExpressCraft.Bootstrap.PanelGroup", {
-        inherits: [ExpressCraft.Bootstrap.BootstrapDiv],
-        ctor: function () {
-            this.$initialize();
-            ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, "panel-group");
-
+            ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, document.createElement('div'), typos);
+            this.getClassList().add(className);
         }
     });
 
@@ -166,8 +221,39 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             if (heading === void 0) { heading = ""; }
 
             this.$initialize();
-            ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, "panel-heading");
-            this.setInnerHTML(heading);
+            ExpressCraft.Bootstrap.BootstrapDiv.$ctor1.call(this, ["panel-heading", heading]);
+
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.PanelBody", {
+        inherits: [ExpressCraft.Bootstrap.BootstrapStyleDiv],
+        ctor: function (body) {
+            if (body === void 0) { body = ""; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootstrapStyleDiv.ctor.call(this, "panel-body", [body]);
+
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.PanelFooter", {
+        inherits: [ExpressCraft.Bootstrap.BootstrapStyleDiv],
+        ctor: function (footer) {
+            if (footer === void 0) { footer = ""; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootstrapStyleDiv.ctor.call(this, "panel-footer", [footer]);
+
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.PanelGroup", {
+        inherits: [ExpressCraft.Bootstrap.BootstrapStyleDiv],
+        ctor: function () {
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootstrapStyleDiv.ctor.call(this, "panel-group");
+
         }
     });
 });

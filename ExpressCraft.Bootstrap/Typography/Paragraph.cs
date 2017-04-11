@@ -5,14 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using Bridge;
 using Bridge.Html5;
-using ExpressCraft;
 using ExpressCraft.Bootstrap.Typography;
 
-namespace ExpressCraft.Bootstrap
+namespace ExpressCraft.Bootstrap.Typography
 {
-	public class PanelBody : BootstrapStyleDiv
+	public class Paragraph : BootstrapDiv
 	{
-		public PanelBody(params Union<string, Control, HTMLElement>[] typos) : base("panel-body", typos)
+		public Paragraph(params Union<string, Control, HTMLElement>[] typos) : base(new HTMLParagraphElement(), typos)
 		{
 			
 		}

@@ -5,16 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using Bridge;
 using Bridge.Html5;
-using ExpressCraft;
 using ExpressCraft.Bootstrap.Typography;
 
-namespace ExpressCraft.Bootstrap
+namespace ExpressCraft.Bootstrap.Typography
 {
-	public class PanelBody : BootstrapStyleDiv
+	public class Mark : BootstrapDiv
 	{
-		public PanelBody(params Union<string, Control, HTMLElement>[] typos) : base("panel-body", typos)
+		public Mark(params Union<string, Control, HTMLElement>[] typos) : base(Document.CreateElement("mark"), typos)
 		{
-			
+
 		}
 	}
 }
