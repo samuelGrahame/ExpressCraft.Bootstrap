@@ -17,11 +17,11 @@ namespace ExpressCraft.Bootstrap
 			
 		}
 				
-		public bool BlockquoteReverse
+		public bool Reverse
 		{
 			get { return ClassList.Contains("blockquote-reverse"); }
 			set {
-				if(value == BlockquoteReverse)
+				if(value == Reverse)
 				{
 					return;
 				}

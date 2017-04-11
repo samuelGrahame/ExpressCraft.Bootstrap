@@ -88,10 +88,18 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
             this.$initialize();
             ExpressCraft.Form.ctor.call(this, "");
-            this.getBody().className = System.String.concat("container ", this.getBody().className);
-            ExpressCraft.Helper.setBounds$1(this.getBody(), 0, 29, "100%", "calc(100% - 29px)");
+            var x = Bridge.cast((new ExpressCraft.Bootstrap.BootstrapStyleDiv("container")).content, HTMLDivElement);
 
+            this.setBackColor(ExpressCraft.Color.op_Implicit$1(ExpressCraft.Color.getWhite().$clone()));
+            this.getBody().appendChild(x);
+
+            this.setBody(x);
+            this.getBodyStyle().padding = "0";
+
+            //this.Body.ClassName = "container " + this.Body.ClassName;			
+            //this.Body.SetBounds(1, 29, "calc(100% - 2px)", "calc(100% - 30px)");			
             ExpressCraft.Bootstrap.BootstrapDiv.appendTypos(this.getBody(), typos);
+            this.getBodyStyle().overflowY = "auto";
         }
     });
 
@@ -165,9 +173,11 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             ExpressCraft.Settings.setIncludeFocusRegion(false);
             ExpressCraft.Application.setApplicationDefinition();
 
-            ExpressCraft.Application.run(new ExpressCraft.Bootstrap.BootstrapForm([new ExpressCraft.Bootstrap.Panel(ExpressCraft.Bootstrap.BootstrapTheme.Default, [new ExpressCraft.Bootstrap.PanelHeading(["Welcome to ExpressCraft-Bootstrap"]), new ExpressCraft.Bootstrap.PanelBody([Bridge.merge(new ExpressCraft.Bootstrap.Button("Hello World", ExpressCraft.Bootstrap.BootstrapTheme.Success), {
+            ExpressCraft.Application.run(new ExpressCraft.Bootstrap.BootstrapForm([new ExpressCraft.Bootstrap.Panel(ExpressCraft.Bootstrap.BootstrapTheme.Default, [new ExpressCraft.Bootstrap.PanelHeading(["Welcome to ExpressCraft-Bootstrap"]), new ExpressCraft.Bootstrap.PanelBody([new ExpressCraft.Bootstrap.FormGroup([new ExpressCraft.Bootstrap.TextBox("hello World")]), new ExpressCraft.Bootstrap.FormGroup([Bridge.merge(new ExpressCraft.Bootstrap.Button("Hello World", ExpressCraft.Bootstrap.BootstrapTheme.Success), {
                 itemClick: $asm.$.ExpressCraft.Bootstrap.Program.f1
-            } ), new ExpressCraft.Bootstrap.TextBox("hello World")]), new ExpressCraft.Bootstrap.PanelFooter([new ExpressCraft.Bootstrap.BootstrapDiv.$ctor1([new ExpressCraft.Bootstrap.Heading("h2", ["Heading"]), new ExpressCraft.Bootstrap.Code(["Code"]), "Text"])])])]));
+            } )]), new ExpressCraft.Bootstrap.Heading("h2", ["Heading", new ExpressCraft.Bootstrap.Small([" - Heading Small"])]), new ExpressCraft.Bootstrap.ParagraphList(["Text", new ExpressCraft.Bootstrap.Abbr("Abbr hover", ["Abbr"]), new ExpressCraft.Bootstrap.Small(["Small"]), new ExpressCraft.Bootstrap.Blockquote("Block Quote Content", "Block Quote From"), Bridge.merge(new ExpressCraft.Bootstrap.Blockquote("Block Quote Content Reverse", "Block Quote From Reverse"), {
+                setReverse: true
+            } ), new ExpressCraft.Bootstrap.DescriptionList([new ExpressCraft.Bootstrap.DescriptionTitle(["Description Title 1"]), new ExpressCraft.Bootstrap.DescriptionDetail(["- Description Detail 1"]), new ExpressCraft.Bootstrap.DescriptionTitle(["Description Title 2"]), new ExpressCraft.Bootstrap.DescriptionDetail(["- Description Detail 2"])])]), new ExpressCraft.Bootstrap.Paragraph(["The following HTML elements: ", new ExpressCraft.Bootstrap.Code(["span"]), ", ", new ExpressCraft.Bootstrap.Code(["section"]), ", and ", new ExpressCraft.Bootstrap.Code(["div"]), " defines a section in a document."]), new ExpressCraft.Bootstrap.Paragraph(["Use ", new ExpressCraft.Bootstrap.Kbd(["ctrl + p"]), " to open the Print dialog box."]), new ExpressCraft.Bootstrap.Pre(["Text in a pre element\r\nis displayed in a fixed-width\r\nfont, and it preserves\r\nboth      spaces and\r\nline breaks."])]), new ExpressCraft.Bootstrap.PanelFooter(["Footer"])])]));
         }
     });
 
@@ -175,7 +185,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
     Bridge.apply($asm.$.ExpressCraft.Bootstrap.Program, {
         f1: function (but) {
-            Bridge.global.alert("Welcome");
+            Bridge.global.alert("Hello World");
         }
     });
 
@@ -197,12 +207,15 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
     Bridge.define("ExpressCraft.Bootstrap.Abbr", {
         inherits: [ExpressCraft.Bootstrap.BootstrapDiv],
-        ctor: function (typos) {
+        ctor: function (title, typos) {
+            if (title === void 0) { title = ""; }
             if (typos === void 0) { typos = []; }
 
             this.$initialize();
             ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, document.createElement("abbr"), typos);
-
+            if (!System.String.isNullOrWhiteSpace(title)) {
+                this.content.title = title;
+            }
         }
     });
 
@@ -227,11 +240,11 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, document.createElement("blockquote"), ExpressCraft.Bootstrap.Blockquote.createBlock(paragraph, footer, typos));
 
         },
-        getBlockquoteReverse: function () {
+        getReverse: function () {
             return this.getClassList().contains("blockquote-reverse");
         },
-        setBlockquoteReverse: function (value) {
-            if (value === this.getBlockquoteReverse()) {
+        setReverse: function (value) {
+            if (value === this.getReverse()) {
                 return;
             }
             if (value) {
@@ -239,6 +252,19 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             } else {
                 this.getClassList().remove("blockquote-reverse");
             }
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.BootstrapSelectionDiv", {
+        inherits: [ExpressCraft.Bootstrap.BootstrapDiv],
+        ctor: function (typos) {
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, Bridge.merge(document.createElement('div'), {
+                className: "selection"
+            } ), typos);
+
         }
     });
 
@@ -351,6 +377,37 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             this.$initialize();
             ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, document.createElement('p'), typos);
 
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.ParagraphList", {
+        inherits: [ExpressCraft.Bootstrap.BootstrapDiv],
+        ctor: function (typos) {
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, document.createElement('div'));
+            if (typos == null || typos.length === 0) {
+                return;
+            }
+
+            var length = typos.length;
+            var list = System.Array.init(length, null, Object);
+
+            for (var i = 0; i < length; i = (i + 1) | 0) {
+                if (typos[i] == null) {
+                    list[i] = new ExpressCraft.Bootstrap.Paragraph();
+                    continue;
+                }
+
+                if (Bridge.is(typos[i], ExpressCraft.Bootstrap.Paragraph)) {
+                    list[i] = typos[i];
+                } else {
+                    list[i] = new ExpressCraft.Bootstrap.Paragraph([typos[i]]);
+                }
+
+            }
+            ExpressCraft.Bootstrap.BootstrapDiv.appendTypos$1(this, list);
         }
     });
 

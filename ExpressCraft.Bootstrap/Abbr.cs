@@ -12,9 +12,10 @@ namespace ExpressCraft.Bootstrap
 {
 	public class Abbr : BootstrapDiv
 	{
-		public Abbr(params Union<string, Control, HTMLElement>[] typos) : base(Document.CreateElement("abbr"), typos)
+		public Abbr(string title = string.Empty, params Union<string, Control, HTMLElement>[] typos) : base(Document.CreateElement("abbr"), typos)
 		{
-			
+			if(!string.IsNullOrWhiteSpace(title))
+				this.Content.Title = title;
 		}
 	}
 }
