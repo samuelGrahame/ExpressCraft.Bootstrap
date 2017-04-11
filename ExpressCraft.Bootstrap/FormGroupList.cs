@@ -5,14 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Bridge;
 using Bridge.Html5;
+using ExpressCraft;
 
-using ExpressCraft.Bootstrap;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class ParagraphList : BootstrapDiv
+	public class FormGroupList : BootstrapDiv
 	{
-		public ParagraphList(params Union<string, Control, HTMLElement>[] typos) : base(new HTMLDivElement())
+		public FormGroupList(params Union<string, Control, HTMLElement>[] typos) : base()
 		{
 			if(typos == null || typos.Length == 0)
 				return;
@@ -24,19 +24,19 @@ namespace ExpressCraft.Bootstrap
 			{
 				if(typos[i] == null)
 				{
-					list[i] = new Paragraph();
+					list[i] = new FormGroup();
 					continue;
 				}
-					
-				if(typos[i].Is<Paragraph>())
+
+				if(typos[i].Is<FormGroup>())
 				{
 					list[i] = typos[i];
 				}
 				else
 				{
-					list[i] = new Paragraph(typos[i]);
+					list[i] = new FormGroup(typos[i]);
 				}
-				
+
 			}
 			BootstrapDiv.AppendTypos(this, list);
 		}

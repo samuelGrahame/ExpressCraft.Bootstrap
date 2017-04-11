@@ -17,17 +17,24 @@ namespace ExpressCraft.Bootstrap
 			Settings.IncludeFocusRegion = false;
 			Application.SetApplicationDefinition();
 
+			Action<MouseEvent> buttonClick = (ev) => { Global.Alert(ev.CurrentTarget.As<HTMLElement>().InnerHTML); };
+
 			Application.Run(
-				new BootstrapForm(					
-					new Panel(BootstrapTheme.Default,					
+				new BootstrapForm(
+					new Panel(BootstrapTheme.Default,
 						new PanelHeading("Welcome to ExpressCraft-Bootstrap"),
 						new PanelBody(
 							new BootstrapSelectionDiv(
-								new FormGroup(
-									new TextBox("hello World")
-								),
-								new FormGroup(
-									new Button("Hello World", BootstrapTheme.Success) { ItemClick = (but) => { Global.Alert("Hello World"); } }
+								new FormGroupList(
+									new TextBox("Textbox"),
+									new Button("Basic", BootstrapTheme.None) { OnClick = buttonClick },
+									new Button("Default", BootstrapTheme.Default) { OnClick = buttonClick },
+									new Button("Primary", BootstrapTheme.Primary) { OnClick = buttonClick },
+									new Button("Success", BootstrapTheme.Success) { OnClick = buttonClick },
+									new Button("Info", BootstrapTheme.Info) { OnClick = buttonClick },
+									new Button("Warning", BootstrapTheme.Warning) { OnClick = buttonClick },
+									new Button("Danger", BootstrapTheme.Danger) { OnClick = buttonClick },
+									new Button("Link", BootstrapTheme.Link) { OnClick = buttonClick }
 								),
 								new Heading(HeadingType.H2, "Heading", new Small(" - Heading Small")),
 									new ParagraphList(
@@ -40,8 +47,7 @@ namespace ExpressCraft.Bootstrap
 											new DescriptionTitle("Description Title 1"),
 											new DescriptionDetail("- Description Detail 1"),
 											new DescriptionTitle("Description Title 2"),
-											new DescriptionDetail("- Description Detail 2"))
-										),
+											new DescriptionDetail("- Description Detail 2")),
 										new Paragraph("The following HTML elements: ", new Code("span"), ", ", new Code("section"), ", and ", new Code("div"), " defines a section in a document."),
 										new Paragraph("Use ", new Kbd("ctrl + p"), " to open the Print dialog box."),
 										new Pre(
@@ -49,14 +55,37 @@ namespace ExpressCraft.Bootstrap
 is displayed in a fixed-width
 font, and it preserves
 both      spaces and
-line breaks.")
-							)
+line breaks."),
+										new Paragraph(
+											new ParagraphList(
+												new Heading(HeadingType.H2, "Contextual Colors"),
+												new Paragraph("This text is muted.") { ContextualText = Contextual.Text.Muted },
+												new Paragraph("This text is important.") { ContextualText = Contextual.Text.Primary },
+												new Paragraph("This text indicates success.") { ContextualText = Contextual.Text.Success },
+												new Paragraph("This text represents some information.") { ContextualText = Contextual.Text.Info },
+												new Paragraph("This text represents a warning.") { ContextualText = Contextual.Text.Warning },
+												new Paragraph("This text represents danger.") { ContextualText = Contextual.Text.Danger }
+											)
+										),
+										new Paragraph(
+											new ParagraphList(
+												new Heading(HeadingType.H2, "Contextual Backgrounds"),
+												new Paragraph("This text is important.") { ContextualBackground = Contextual.Background.Primary },
+												new Paragraph("This text indicates success.") { ContextualBackground = Contextual.Background.Success },
+												new Paragraph("This text represents some information.") { ContextualBackground = Contextual.Background.Info },
+												new Paragraph("This text represents a warning.") { ContextualBackground = Contextual.Background.Warning },
+												new Paragraph("This text represents danger.") { ContextualBackground = Contextual.Background.Danger }
+											)
+										)
+									)
+								)
 						),
 						new PanelFooter(
 							"Footer"
 							)
 						)
-				)				
+				)
+				{ Windowstate = WindowState.Maximized }				
 			);			
 		}
 	}

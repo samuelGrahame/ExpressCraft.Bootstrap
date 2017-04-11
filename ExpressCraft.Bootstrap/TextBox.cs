@@ -12,8 +12,7 @@ namespace ExpressCraft.Bootstrap
 	{
 		public TextBox(string text = "", InputType type = InputType.Text) : base(type, false)
 		{
-			Style.Position = Position.Relative;
-			Content.ClassName = ("form-control" + Content.ClassName.Replace("inputcontrol", "")).Trim();
+			Content.ClassName = "form-control";
 			if (!string.IsNullOrWhiteSpace(text))
 				this.Text = text;
 		}

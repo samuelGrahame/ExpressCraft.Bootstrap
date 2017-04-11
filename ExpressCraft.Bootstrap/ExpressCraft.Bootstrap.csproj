@@ -59,13 +59,14 @@
     <Compile Include="BootstrapStyleDiv.cs" />
     <Compile Include="Button.cs" />
     <Compile Include="Enums.cs" />
+    <Compile Include="FormGroupList.cs" />
     <Compile Include="FormGroup.cs" />
     <Compile Include="Panel.cs" />
     <Compile Include="PanelBody.cs" />
     <Compile Include="PanelFooter.cs" />
     <Compile Include="PanelGroup.cs" />
     <Compile Include="PanelHeading.cs" />
-    <Compile Include="ParagraphList.cs" />
+    <Compile Include="Paragraph.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Blockquote.cs" />
     <Compile Include="Pre.cs" />
@@ -77,7 +78,7 @@
     <Compile Include="Footer.cs" />
     <Compile Include="Mark.cs" />
     <Compile Include="Abbr.cs" />
-    <Compile Include="Paragraph.cs" />
+    <Compile Include="ParagraphList.cs" />
     <Compile Include="Small.cs" />
     <Compile Include="TextBox.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -86,7 +86,7 @@ namespace ExpressCraft.Bootstrap
 					break;
 				}
 			}
-			if(!string.IsNullOrWhiteSpace(value) && value.StartsWith("text-"))
+			if(!string.IsNullOrWhiteSpace(value) && value.StartsWith(type))
 			{
 				ClassList.Add(value);
 			}

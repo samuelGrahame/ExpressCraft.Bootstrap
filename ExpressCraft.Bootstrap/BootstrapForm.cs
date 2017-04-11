@@ -33,10 +33,8 @@ namespace ExpressCraft.Bootstrap
 			this.Body.SetSize("calc(100% - 28px)", this.Body.Style.Height);
 		}
 
-		protected override void OnResizing()
+		private void CalcSizeOnChange()
 		{
-			base.OnResizing();
-
 			var x = this.Content.GetBoundingClientRect();
 			if(x.Width - 2 < 1170)
 			{
@@ -46,6 +44,20 @@ namespace ExpressCraft.Bootstrap
 			{
 				this.Body.SetSize("", this.Body.Style.Height);
 			}
+		}
+
+		protected override void OnShowed()
+		{
+			base.OnShowed();
+
+			CalcSizeOnChange();
+		}
+
+		protected override void OnResizing()
+		{
+			base.OnResizing();
+
+			CalcSizeOnChange();
 		}
 	}
 }

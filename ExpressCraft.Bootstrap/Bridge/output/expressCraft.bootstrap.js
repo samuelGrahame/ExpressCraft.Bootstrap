@@ -75,7 +75,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
                     break;
                 }
             }
-            if (!System.String.isNullOrWhiteSpace(value) && System.String.startsWith(value, "text-")) {
+            if (!System.String.isNullOrWhiteSpace(value) && System.String.startsWith(value, type)) {
                 this.getClassList().add(value);
             }
         }
@@ -97,22 +97,29 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             this.setBody(x);
             this.getBodyStyle().padding = "0";
             this.setCalcSize();
-            //this.Body.ClassName = "container " + this.Body.ClassName;			
-            //this.Body.SetBounds(1, 29, "calc(100% - 2px)", "calc(100% - 30px)");			
+
             ExpressCraft.Bootstrap.BootstrapDiv.appendTypos(this.getBody(), typos);
         },
         setCalcSize: function () {
             ExpressCraft.Helper.setSize$1(this.getBody(), "calc(100% - 28px)", this.getBody().style.height);
         },
-        onResizing: function () {
-            ExpressCraft.Form.prototype.onResizing.call(this);
-
+        calcSizeOnChange: function () {
             var x = this.content.getBoundingClientRect();
             if (x.width - 2 < 1170) {
                 this.setCalcSize();
             } else {
                 ExpressCraft.Helper.setSize$1(this.getBody(), "", this.getBody().style.height);
             }
+        },
+        onShowed: function () {
+            ExpressCraft.Form.prototype.onShowed.call(this);
+
+            this.calcSizeOnChange();
+        },
+        onResizing: function () {
+            ExpressCraft.Form.prototype.onResizing.call(this);
+
+            this.calcSizeOnChange();
         }
     });
 
@@ -131,19 +138,26 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
     });
 
     Bridge.define("ExpressCraft.Bootstrap.Button", {
-        inherits: [ExpressCraft.SimpleButton],
+        inherits: [ExpressCraft.Control],
         ctor: function (text, type) {
             if (text === void 0) { text = ""; }
             if (type === void 0) { type = 1; }
 
             this.$initialize();
-            ExpressCraft.SimpleButton.ctor.call(this, "button", false);
-            this.getStyle().position = "relative";
-            this.content.className = (System.String.concat("btn", ExpressCraft.Bootstrap.Extension.getClassTheme(" btn-", type), System.String.replaceAll(this.content.className, "simplebutton", ""))).trim();
+            ExpressCraft.Control.ctor.call(this, Bridge.merge(document.createElement('button'), {
+                type: "button",
+                className: System.String.concat("btn", ExpressCraft.Bootstrap.Extension.getClassTheme(" btn-", type))
+            } ));
             if (!System.String.isNullOrWhiteSpace(text)) {
-                this.setText(text);
+                this.content.innerHTML = text;
             }
             this.setSize(new ExpressCraft.Vector2.$ctor1("", ""));
+        },
+        getOnClick: function () {
+            return this.content.onclick;
+        },
+        setOnClick: function (value) {
+            this.content.onclick = value;
         }
     });
 
@@ -186,19 +200,59 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             ExpressCraft.Settings.setIncludeFocusRegion(false);
             ExpressCraft.Application.setApplicationDefinition();
 
-            ExpressCraft.Application.run(new ExpressCraft.Bootstrap.BootstrapForm([new ExpressCraft.Bootstrap.Panel(ExpressCraft.Bootstrap.BootstrapTheme.Default, [new ExpressCraft.Bootstrap.PanelHeading(["Welcome to ExpressCraft-Bootstrap"]), new ExpressCraft.Bootstrap.PanelBody([new ExpressCraft.Bootstrap.BootstrapSelectionDiv([new ExpressCraft.Bootstrap.FormGroup([new ExpressCraft.Bootstrap.TextBox("hello World")]), new ExpressCraft.Bootstrap.FormGroup([Bridge.merge(new ExpressCraft.Bootstrap.Button("Hello World", ExpressCraft.Bootstrap.BootstrapTheme.Success), {
-                itemClick: $asm.$.ExpressCraft.Bootstrap.Program.f1
+            var buttonClick = $asm.$.ExpressCraft.Bootstrap.Program.f1;
+
+            ExpressCraft.Application.run(Bridge.merge(new ExpressCraft.Bootstrap.BootstrapForm([new ExpressCraft.Bootstrap.Panel(ExpressCraft.Bootstrap.BootstrapTheme.Default, [new ExpressCraft.Bootstrap.PanelHeading(["Welcome to ExpressCraft-Bootstrap"]), new ExpressCraft.Bootstrap.PanelBody([new ExpressCraft.Bootstrap.BootstrapSelectionDiv([new ExpressCraft.Bootstrap.FormGroupList([new ExpressCraft.Bootstrap.TextBox("Textbox"), Bridge.merge(new ExpressCraft.Bootstrap.Button("Basic", ExpressCraft.Bootstrap.BootstrapTheme.None), {
+                setOnClick: buttonClick
+            } ), Bridge.merge(new ExpressCraft.Bootstrap.Button("Default", ExpressCraft.Bootstrap.BootstrapTheme.Default), {
+                setOnClick: buttonClick
+            } ), Bridge.merge(new ExpressCraft.Bootstrap.Button("Primary", ExpressCraft.Bootstrap.BootstrapTheme.Primary), {
+                setOnClick: buttonClick
+            } ), Bridge.merge(new ExpressCraft.Bootstrap.Button("Success", ExpressCraft.Bootstrap.BootstrapTheme.Success), {
+                setOnClick: buttonClick
+            } ), Bridge.merge(new ExpressCraft.Bootstrap.Button("Info", ExpressCraft.Bootstrap.BootstrapTheme.Info), {
+                setOnClick: buttonClick
+            } ), Bridge.merge(new ExpressCraft.Bootstrap.Button("Warning", ExpressCraft.Bootstrap.BootstrapTheme.Warning), {
+                setOnClick: buttonClick
+            } ), Bridge.merge(new ExpressCraft.Bootstrap.Button("Danger", ExpressCraft.Bootstrap.BootstrapTheme.Danger), {
+                setOnClick: buttonClick
+            } ), Bridge.merge(new ExpressCraft.Bootstrap.Button("Link", ExpressCraft.Bootstrap.BootstrapTheme.Link), {
+                setOnClick: buttonClick
             } )]), new ExpressCraft.Bootstrap.Heading("h2", ["Heading", new ExpressCraft.Bootstrap.Small([" - Heading Small"])]), new ExpressCraft.Bootstrap.ParagraphList(["Text", new ExpressCraft.Bootstrap.Abbr("Abbr hover", ["Abbr"]), new ExpressCraft.Bootstrap.Small(["Small"]), new ExpressCraft.Bootstrap.Blockquote("Block Quote Content", "Block Quote From"), Bridge.merge(new ExpressCraft.Bootstrap.Blockquote("Block Quote Content Reverse", "Block Quote From Reverse"), {
                 setReverse: true
-            } ), new ExpressCraft.Bootstrap.DescriptionList([new ExpressCraft.Bootstrap.DescriptionTitle(["Description Title 1"]), new ExpressCraft.Bootstrap.DescriptionDetail(["- Description Detail 1"]), new ExpressCraft.Bootstrap.DescriptionTitle(["Description Title 2"]), new ExpressCraft.Bootstrap.DescriptionDetail(["- Description Detail 2"])])]), new ExpressCraft.Bootstrap.Paragraph(["The following HTML elements: ", new ExpressCraft.Bootstrap.Code(["span"]), ", ", new ExpressCraft.Bootstrap.Code(["section"]), ", and ", new ExpressCraft.Bootstrap.Code(["div"]), " defines a section in a document."]), new ExpressCraft.Bootstrap.Paragraph(["Use ", new ExpressCraft.Bootstrap.Kbd(["ctrl + p"]), " to open the Print dialog box."]), new ExpressCraft.Bootstrap.Pre(["Text in a pre element\r\nis displayed in a fixed-width\r\nfont, and it preserves\r\nboth      spaces and\r\nline breaks."])])]), new ExpressCraft.Bootstrap.PanelFooter(["Footer"])])]));
+            } ), new ExpressCraft.Bootstrap.DescriptionList([new ExpressCraft.Bootstrap.DescriptionTitle(["Description Title 1"]), new ExpressCraft.Bootstrap.DescriptionDetail(["- Description Detail 1"]), new ExpressCraft.Bootstrap.DescriptionTitle(["Description Title 2"]), new ExpressCraft.Bootstrap.DescriptionDetail(["- Description Detail 2"])]), new ExpressCraft.Bootstrap.Paragraph(["The following HTML elements: ", new ExpressCraft.Bootstrap.Code(["span"]), ", ", new ExpressCraft.Bootstrap.Code(["section"]), ", and ", new ExpressCraft.Bootstrap.Code(["div"]), " defines a section in a document."]), new ExpressCraft.Bootstrap.Paragraph(["Use ", new ExpressCraft.Bootstrap.Kbd(["ctrl + p"]), " to open the Print dialog box."]), new ExpressCraft.Bootstrap.Pre(["Text in a pre element\r\nis displayed in a fixed-width\r\nfont, and it preserves\r\nboth      spaces and\r\nline breaks."]), new ExpressCraft.Bootstrap.Paragraph([new ExpressCraft.Bootstrap.ParagraphList([new ExpressCraft.Bootstrap.Heading("h2", ["Contextual Colors"]), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph(["This text is muted."]), {
+                setContextualText: ExpressCraft.Bootstrap.Contextual.Text.Muted
+            } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph(["This text is important."]), {
+                setContextualText: ExpressCraft.Bootstrap.Contextual.Text.Primary
+            } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph(["This text indicates success."]), {
+                setContextualText: ExpressCraft.Bootstrap.Contextual.Text.Success
+            } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph(["This text represents some information."]), {
+                setContextualText: ExpressCraft.Bootstrap.Contextual.Text.Info
+            } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph(["This text represents a warning."]), {
+                setContextualText: ExpressCraft.Bootstrap.Contextual.Text.Warning
+            } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph(["This text represents danger."]), {
+                setContextualText: ExpressCraft.Bootstrap.Contextual.Text.Danger
+            } )])]), new ExpressCraft.Bootstrap.Paragraph([new ExpressCraft.Bootstrap.ParagraphList([new ExpressCraft.Bootstrap.Heading("h2", ["Contextual Backgrounds"]), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph(["This text is important."]), {
+                setContextualBackground: ExpressCraft.Bootstrap.Contextual.Background.Primary
+            } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph(["This text indicates success."]), {
+                setContextualBackground: ExpressCraft.Bootstrap.Contextual.Background.Success
+            } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph(["This text represents some information."]), {
+                setContextualBackground: ExpressCraft.Bootstrap.Contextual.Background.Info
+            } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph(["This text represents a warning."]), {
+                setContextualBackground: ExpressCraft.Bootstrap.Contextual.Background.Warning
+            } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph(["This text represents danger."]), {
+                setContextualBackground: ExpressCraft.Bootstrap.Contextual.Background.Danger
+            } )])])])])]), new ExpressCraft.Bootstrap.PanelFooter(["Footer"])])]), {
+                setWindowstate: ExpressCraft.WindowState.Maximized
+            } ));
         }
     });
 
     Bridge.ns("ExpressCraft.Bootstrap.Program", $asm.$);
 
     Bridge.apply($asm.$.ExpressCraft.Bootstrap.Program, {
-        f1: function (but) {
-            Bridge.global.alert("Hello World");
+        f1: function (ev) {
+            Bridge.global.alert(ev.currentTarget.innerHTML);
         }
     });
 
@@ -210,8 +264,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
             this.$initialize();
             ExpressCraft.TextInput.ctor.call(this, type, false);
-            this.getStyle().position = "relative";
-            this.content.className = (System.String.concat("form-control", System.String.replaceAll(this.content.className, "inputcontrol", ""))).trim();
+            this.content.className = "form-control";
             if (!System.String.isNullOrWhiteSpace(text)) {
                 this.setText(text);
             }
@@ -346,6 +399,37 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             this.$initialize();
             ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, document.createElement("footer"), typos);
 
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.FormGroupList", {
+        inherits: [ExpressCraft.Bootstrap.BootstrapDiv],
+        ctor: function (typos) {
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootstrapDiv.$ctor1.call(this);
+            if (typos == null || typos.length === 0) {
+                return;
+            }
+
+            var length = typos.length;
+            var list = System.Array.init(length, null, Object);
+
+            for (var i = 0; i < length; i = (i + 1) | 0) {
+                if (typos[i] == null) {
+                    list[i] = new ExpressCraft.Bootstrap.FormGroup();
+                    continue;
+                }
+
+                if (Bridge.is(typos[i], ExpressCraft.Bootstrap.FormGroup)) {
+                    list[i] = typos[i];
+                } else {
+                    list[i] = new ExpressCraft.Bootstrap.FormGroup([typos[i]]);
+                }
+
+            }
+            ExpressCraft.Bootstrap.BootstrapDiv.appendTypos$1(this, list);
         }
     });
 

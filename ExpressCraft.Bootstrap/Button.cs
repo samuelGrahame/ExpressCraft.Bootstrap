@@ -8,14 +8,13 @@ using ExpressCraft;
 
 namespace ExpressCraft.Bootstrap
 {
-    public class Button : SimpleButton
-    {		
-		public Button(string text = "", BootstrapTheme type = BootstrapTheme.Default) : base(Bridge.Html5.ButtonType.Button, false)
-		{
-			Style.Position = Position.Relative;
-			Content.ClassName = ( "btn" + Extension.GetClassTheme(" btn-", type) + Content.ClassName.Replace("simplebutton", "")).Trim();			
+    public class Button : Control
+    {
+		public Action<MouseEvent> OnClick { get { return this.Content.OnClick;  } set { this.Content.OnClick = value; } }
+		public Button(string text = "", BootstrapTheme type = BootstrapTheme.Default) : base(new HTMLButtonElement() { Type = ButtonType.Button, ClassName = "btn" + Extension.GetClassTheme(" btn-", type)})
+		{									
 			if (!string.IsNullOrWhiteSpace(text))			
-				Text = text;
+				Content.InnerHTML = text;
 			this.Size = new Vector2("", "");
 		}		
 	}
