@@ -1,6 +1,6 @@
 # ExpressCraft.Bootstrap
 
-# Demo https://rawgit.com/samuelGrahame/ExpressCraft/master/ExpressCraftDesign/Bridge/www/rawprev.html
+# Demo https://rawgit.com/samuelGrahame/ExpressCraft.Bootstrap/master/ExpressCraft.Bootstrap/Bridge/www/rawprev.html
 # ExpressCraft https://github.com/samuelGrahame/ExpressCraft
 ```csharp
 BootstrapWindow.SetupMetaTags();
