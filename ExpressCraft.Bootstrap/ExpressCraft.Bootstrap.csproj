@@ -91,6 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Bridge\bridge.json" />
+    <None Include="Bridge\output\manifest.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

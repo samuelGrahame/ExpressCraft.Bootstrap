@@ -1,0 +1,7 @@
+﻿{
+  "short_name": "ExpressCraft Bootstrap",
+  "name": "ExpressCraft Bootstrap",
+  "start_url": "/rawprev.html",
+  "display": "standalone",
+  "orientation": "portrait"
+}
