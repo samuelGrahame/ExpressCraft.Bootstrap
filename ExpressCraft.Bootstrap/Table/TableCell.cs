@@ -15,7 +15,7 @@ namespace ExpressCraft.Bootstrap
 
 		}
 
-		public TableCell(BootstrapRowCellTheme theme, params Union<string, Control, HTMLElement>[] typos) : base(new HTMLTableDataCellElement() { ClassName = theme.ToString("G") }, typos)
+		public TableCell(BootRowCellTheme theme, params Union<string, Control, HTMLElement>[] typos) : base(new HTMLTableDataCellElement() { ClassName = theme.ToString("G") }, typos)
 		{
 
 		}
@@ -56,16 +56,16 @@ namespace ExpressCraft.Bootstrap
 
 		public void ClearTheme()
 		{
-			ClearEnumClassValue(typeof(BootstrapRowCellTheme));
+			ClearEnumClassValue(typeof(BootRowCellTheme));
 		}
 
-		public BootstrapRowCellTheme Theme
+		public BootRowCellTheme Theme
 		{
 			get
 			{
-				return GetEnumClassValue(typeof(BootstrapRowCellTheme)).As<BootstrapRowCellTheme>();
+				return GetEnumClassValue(typeof(BootRowCellTheme)).As<BootRowCellTheme>();
 			}
-			set { SetEnumClassValue(typeof(BootstrapRowCellTheme), value.ToString("G").ToLower()); }
+			set { SetEnumClassValue(typeof(BootRowCellTheme), value.ToString("G").ToLower()); }
 		}
 	}
 }

@@ -26,7 +26,7 @@ namespace ExpressCraft.Bootstrap
 
 			Application.Run(
 				new BootWindow(
-					new Panel(BootstrapTheme.Default,
+					new Panel(BootTheme.Default,
 						new PanelHeading("Welcome to ExpressCraft-Bootstrap"),
 						new PanelBody(
 							new BootSelectionWidget(
@@ -41,7 +41,7 @@ namespace ExpressCraft.Bootstrap
 									new TextBox("11/04/2017", InputType.Date),
 									new TextBox("Password", InputType.Password),
 									new TextArea("TextArea", 4),
-									new BootForm(bootstrapForm.Inline,
+									new BootForm(BootFormType.Inline,
 										new Label(
 											"Email:",
 											new TextBox()
@@ -53,7 +53,7 @@ namespace ExpressCraft.Bootstrap
 										new CheckBox("Remeber me"),
 										new Button("Submit", ButtonType.Submit)
 									),
-									new BootForm(bootstrapForm.Horizontal,
+									new BootForm(BootFormType.Horizontal,
 										new Label(
 											"Email:",
 											new TextBox()
@@ -65,14 +65,14 @@ namespace ExpressCraft.Bootstrap
 										new CheckBox("Remeber me"),
 										new Button("Submit", ButtonType.Submit)
 									),
-									new Button("Basic", BootstrapTheme.None) { OnClick = buttonClick },
-									new Button("Default", BootstrapTheme.Default) { OnClick = buttonClick },
-									new Button("Primary", BootstrapTheme.Primary) { OnClick = buttonClick },
-									new Button("Success", BootstrapTheme.Success) { OnClick = buttonClick },
-									new Button("Info", BootstrapTheme.Info) { OnClick = buttonClick },
-									new Button("Warning", BootstrapTheme.Warning) { OnClick = buttonClick },
-									new Button("Danger", BootstrapTheme.Danger) { OnClick = buttonClick },
-									new Button("Link", BootstrapTheme.Link) { OnClick = buttonClick }																																
+									new Button("Basic", BootTheme.None) { OnClick = buttonClick },
+									new Button("Default", BootTheme.Default) { OnClick = buttonClick },
+									new Button("Primary", BootTheme.Primary) { OnClick = buttonClick },
+									new Button("Success", BootTheme.Success) { OnClick = buttonClick },
+									new Button("Info", BootTheme.Info) { OnClick = buttonClick },
+									new Button("Warning", BootTheme.Warning) { OnClick = buttonClick },
+									new Button("Danger", BootTheme.Danger) { OnClick = buttonClick },
+									new Button("Link", BootTheme.Link) { OnClick = buttonClick }																																
 								),
 								new Heading(HeadingType.H2, "Heading", new Small(" - Heading Small")),
 									new ParagraphList(
@@ -116,7 +116,7 @@ line breaks."),
 											)
 										)
 									),
-									new Panel(BootstrapTheme.Default,
+									new Panel(BootTheme.Default,
 										new PanelHeading(
 											new Heading(HeadingType.H3, "Table Demo", new Small(" - Table options below.")),
 											new FormGroup(
@@ -154,11 +154,11 @@ line breaks."),
 														if(s.Checked)
 														{
 															var body = tbl.TableBody;
-															body.Row(0).Theme = BootstrapRowCellTheme.Active;
-															body.Row(2).Theme = BootstrapRowCellTheme.Success;
-															body.Row(4).Theme = BootstrapRowCellTheme.Info;
-															body.Row(6).Theme = BootstrapRowCellTheme.Warning;
-															body.Row(8).Theme = BootstrapRowCellTheme.Danger;
+															body.Row(0).Theme = BootRowCellTheme.Active;
+															body.Row(2).Theme = BootRowCellTheme.Success;
+															body.Row(4).Theme = BootRowCellTheme.Info;
+															body.Row(6).Theme = BootRowCellTheme.Warning;
+															body.Row(8).Theme = BootRowCellTheme.Danger;
 														}
 														else
 														{

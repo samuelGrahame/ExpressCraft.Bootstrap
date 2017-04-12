@@ -33,7 +33,7 @@ namespace ExpressCraft.Bootstrap
 					continue;
 				}
 
-				if(typos[i].Is<FormGroup>() || typos[i].Is<bootstrapForm>())
+				if(typos[i].Is<FormGroup>() || typos[i].Is<BootFormType>())
 				{
 					list[i] = typos[i];
 				}

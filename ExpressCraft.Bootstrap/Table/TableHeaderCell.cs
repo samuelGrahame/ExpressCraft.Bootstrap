@@ -15,23 +15,23 @@ namespace ExpressCraft.Bootstrap
 
 		}
 
-		public TableHeaderCell(BootstrapRowCellTheme theme, params Union<string, Control, HTMLElement>[] typos) : base(new HTMLTableHeaderCellElement() { ClassName = theme.ToString("G") }, typos)
+		public TableHeaderCell(BootRowCellTheme theme, params Union<string, Control, HTMLElement>[] typos) : base(new HTMLTableHeaderCellElement() { ClassName = theme.ToString("G") }, typos)
 		{
 
 		}
 
 		public void ClearTheme()
 		{
-			ClearEnumClassValue(typeof(BootstrapRowCellTheme));
+			ClearEnumClassValue(typeof(BootRowCellTheme));
 		}
 
-		public BootstrapRowCellTheme Theme
+		public BootRowCellTheme Theme
 		{
 			get
 			{
-				return GetEnumClassValue(typeof(BootstrapRowCellTheme)).As<BootstrapRowCellTheme>();
+				return GetEnumClassValue(typeof(BootRowCellTheme)).As<BootRowCellTheme>();
 			}
-			set { SetEnumClassValue(typeof(BootstrapRowCellTheme), value.ToString("G").ToLower()); }
+			set { SetEnumClassValue(typeof(BootRowCellTheme), value.ToString("G").ToLower()); }
 		}
 
 		public static void AppendHeaderDataRow(Control control, params Union<string, Control, HTMLElement>[] typos)

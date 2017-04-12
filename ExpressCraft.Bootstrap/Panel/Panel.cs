@@ -12,7 +12,7 @@ namespace ExpressCraft.Bootstrap
 {
 	public class Panel : BootStyleWidget
 	{		
-		public Panel(BootstrapTheme type = BootstrapTheme.Default, params Union<string, Control, HTMLElement>[] typos) : base("panel" + Extension.GetClassTheme(" panel-", type), typos)
+		public Panel(BootTheme type = BootTheme.Default, params Union<string, Control, HTMLElement>[] typos) : base("panel" + Extension.GetClassTheme(" panel-", type), typos)
 		{			
 								
 		}

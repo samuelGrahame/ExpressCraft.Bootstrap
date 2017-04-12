@@ -162,14 +162,14 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
             this.$initialize();
             ExpressCraft.Control.ctor.call(this, document.createElement('form'));
-            if (formType !== ExpressCraft.Bootstrap.bootstrapForm.None) {
-                this.content.className = System.String.concat("form-", System.Enum.format(ExpressCraft.Bootstrap.bootstrapForm, formType, "G").toLowerCase());
+            if (formType !== ExpressCraft.Bootstrap.BootFormType.None) {
+                this.content.className = System.String.concat("form-", System.Enum.format(ExpressCraft.Bootstrap.BootFormType, formType, "G").toLowerCase());
             }
             ExpressCraft.Bootstrap.FormGroup.appendGroupList(this, typos);
         }
     });
 
-    Bridge.define("ExpressCraft.Bootstrap.bootstrapForm", {
+    Bridge.define("ExpressCraft.Bootstrap.BootFormType", {
         $kind: "enum",
         statics: {
             None: 0,
@@ -178,7 +178,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         }
     });
 
-    Bridge.define("ExpressCraft.Bootstrap.BootstrapParagraphAlignment", {
+    Bridge.define("ExpressCraft.Bootstrap.BootParagraphAlignment", {
         $kind: "enum",
         statics: {
             Left: 0,
@@ -189,7 +189,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         }
     });
 
-    Bridge.define("ExpressCraft.Bootstrap.BootstrapParagraphTransformation", {
+    Bridge.define("ExpressCraft.Bootstrap.BootParagraphTransformation", {
         $kind: "enum",
         statics: {
             Lowercase: 0,
@@ -198,7 +198,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         }
     });
 
-    Bridge.define("ExpressCraft.Bootstrap.BootstrapRowCellTheme", {
+    Bridge.define("ExpressCraft.Bootstrap.BootRowCellTheme", {
         $kind: "enum",
         statics: {
             Active: 0,
@@ -209,7 +209,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         }
     });
 
-    Bridge.define("ExpressCraft.Bootstrap.BootstrapTheme", {
+    Bridge.define("ExpressCraft.Bootstrap.BootTheme", {
         $kind: "enum",
         statics: {
             None: 0,
@@ -302,7 +302,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             if (text === void 0) { text = ""; }
             if (buttonType === void 0) { buttonType = 2; }
 
-            ExpressCraft.Bootstrap.Button.$ctor1.call(this, text, ExpressCraft.Bootstrap.BootstrapTheme.Default, buttonType);
+            ExpressCraft.Bootstrap.Button.$ctor1.call(this, text, ExpressCraft.Bootstrap.BootTheme.Default, buttonType);
 
         },
         getOnClick: function () {
@@ -782,10 +782,10 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
     Bridge.define("ExpressCraft.Bootstrap.Extension", {
         statics: {
             getClassTheme: function (cls, type) {
-                if (type === ExpressCraft.Bootstrap.BootstrapTheme.None) {
+                if (type === ExpressCraft.Bootstrap.BootTheme.None) {
                     return "";
                 }
-                return System.String.concat(cls, System.Enum.format(ExpressCraft.Bootstrap.BootstrapTheme, type, "G").toLowerCase());
+                return System.String.concat(cls, System.Enum.format(ExpressCraft.Bootstrap.BootTheme, type, "G").toLowerCase());
             }
         }
     });
@@ -801,27 +801,27 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
             ExpressCraft.Bootstrap.BootWindow.setupMetaTags();
 
-            ExpressCraft.Application.run(Bridge.merge(new ExpressCraft.Bootstrap.BootWindow([new ExpressCraft.Bootstrap.Panel(ExpressCraft.Bootstrap.BootstrapTheme.Default, [new ExpressCraft.Bootstrap.PanelHeading(["Welcome to ExpressCraft-Bootstrap"]), new ExpressCraft.Bootstrap.PanelBody([new ExpressCraft.Bootstrap.BootSelectionWidget([new ExpressCraft.Bootstrap.FormGroupList([new ExpressCraft.Bootstrap.TextBox.$ctor1("Textbox"), new ExpressCraft.Bootstrap.CheckBox("checkbox", true), new ExpressCraft.Bootstrap.FormGroup([Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("checkbox-inline 1", true), {
+            ExpressCraft.Application.run(Bridge.merge(new ExpressCraft.Bootstrap.BootWindow([new ExpressCraft.Bootstrap.Panel(ExpressCraft.Bootstrap.BootTheme.Default, [new ExpressCraft.Bootstrap.PanelHeading(["Welcome to ExpressCraft-Bootstrap"]), new ExpressCraft.Bootstrap.PanelBody([new ExpressCraft.Bootstrap.BootSelectionWidget([new ExpressCraft.Bootstrap.FormGroupList([new ExpressCraft.Bootstrap.TextBox.$ctor1("Textbox"), new ExpressCraft.Bootstrap.CheckBox("checkbox", true), new ExpressCraft.Bootstrap.FormGroup([Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("checkbox-inline 1", true), {
                 setInline: true
             } ), Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("checkbox-inline 2", true), {
                 setInline: true
             } ), Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("checkbox-inline 3", true), {
                 setInline: true
-            } )]), new ExpressCraft.Bootstrap.TextBox.$ctor1("11/04/2017", "date"), new ExpressCraft.Bootstrap.TextBox.$ctor1("Password", "password"), new ExpressCraft.Bootstrap.TextArea("TextArea", 4), new ExpressCraft.Bootstrap.BootForm(ExpressCraft.Bootstrap.bootstrapForm.Inline, [new ExpressCraft.Bootstrap.Label(["Email:", new ExpressCraft.Bootstrap.TextBox.ctor()]), new ExpressCraft.Bootstrap.Label(["Password:", new ExpressCraft.Bootstrap.TextBox.ctor("password")]), new ExpressCraft.Bootstrap.CheckBox("Remeber me"), new ExpressCraft.Bootstrap.Button.ctor("Submit", "submit")]), new ExpressCraft.Bootstrap.BootForm(ExpressCraft.Bootstrap.bootstrapForm.Horizontal, [new ExpressCraft.Bootstrap.Label(["Email:", new ExpressCraft.Bootstrap.TextBox.ctor()]), new ExpressCraft.Bootstrap.Label(["Password:", new ExpressCraft.Bootstrap.TextBox.ctor("password")]), new ExpressCraft.Bootstrap.CheckBox("Remeber me"), new ExpressCraft.Bootstrap.Button.ctor("Submit", "submit")]), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Basic", ExpressCraft.Bootstrap.BootstrapTheme.None), {
+            } )]), new ExpressCraft.Bootstrap.TextBox.$ctor1("11/04/2017", "date"), new ExpressCraft.Bootstrap.TextBox.$ctor1("Password", "password"), new ExpressCraft.Bootstrap.TextArea("TextArea", 4), new ExpressCraft.Bootstrap.BootForm(ExpressCraft.Bootstrap.BootFormType.Inline, [new ExpressCraft.Bootstrap.Label(["Email:", new ExpressCraft.Bootstrap.TextBox.ctor()]), new ExpressCraft.Bootstrap.Label(["Password:", new ExpressCraft.Bootstrap.TextBox.ctor("password")]), new ExpressCraft.Bootstrap.CheckBox("Remeber me"), new ExpressCraft.Bootstrap.Button.ctor("Submit", "submit")]), new ExpressCraft.Bootstrap.BootForm(ExpressCraft.Bootstrap.BootFormType.Horizontal, [new ExpressCraft.Bootstrap.Label(["Email:", new ExpressCraft.Bootstrap.TextBox.ctor()]), new ExpressCraft.Bootstrap.Label(["Password:", new ExpressCraft.Bootstrap.TextBox.ctor("password")]), new ExpressCraft.Bootstrap.CheckBox("Remeber me"), new ExpressCraft.Bootstrap.Button.ctor("Submit", "submit")]), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Basic", ExpressCraft.Bootstrap.BootTheme.None), {
                 setOnClick: buttonClick
-            } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Default", ExpressCraft.Bootstrap.BootstrapTheme.Default), {
+            } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Default", ExpressCraft.Bootstrap.BootTheme.Default), {
                 setOnClick: buttonClick
-            } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Primary", ExpressCraft.Bootstrap.BootstrapTheme.Primary), {
+            } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Primary", ExpressCraft.Bootstrap.BootTheme.Primary), {
                 setOnClick: buttonClick
-            } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Success", ExpressCraft.Bootstrap.BootstrapTheme.Success), {
+            } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Success", ExpressCraft.Bootstrap.BootTheme.Success), {
                 setOnClick: buttonClick
-            } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Info", ExpressCraft.Bootstrap.BootstrapTheme.Info), {
+            } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Info", ExpressCraft.Bootstrap.BootTheme.Info), {
                 setOnClick: buttonClick
-            } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Warning", ExpressCraft.Bootstrap.BootstrapTheme.Warning), {
+            } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Warning", ExpressCraft.Bootstrap.BootTheme.Warning), {
                 setOnClick: buttonClick
-            } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Danger", ExpressCraft.Bootstrap.BootstrapTheme.Danger), {
+            } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Danger", ExpressCraft.Bootstrap.BootTheme.Danger), {
                 setOnClick: buttonClick
-            } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Link", ExpressCraft.Bootstrap.BootstrapTheme.Link), {
+            } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Link", ExpressCraft.Bootstrap.BootTheme.Link), {
                 setOnClick: buttonClick
             } )]), new ExpressCraft.Bootstrap.Heading("h2", ["Heading", new ExpressCraft.Bootstrap.Small([" - Heading Small"])]), new ExpressCraft.Bootstrap.ParagraphList(["Text", new ExpressCraft.Bootstrap.Abbr("Abbr hover", ["Abbr"]), new ExpressCraft.Bootstrap.Small(["Small"]), new ExpressCraft.Bootstrap.Blockquote.$ctor2(new ExpressCraft.Bootstrap.Paragraph.ctor(["Block Quote Content"]), new ExpressCraft.Bootstrap.Footer(["Block Quote From"])), Bridge.merge(new ExpressCraft.Bootstrap.Blockquote.$ctor2(new ExpressCraft.Bootstrap.Paragraph.ctor(["Block Quote Content Reverse"]), new ExpressCraft.Bootstrap.Footer(["Block Quote From Reverse"])), {
                 setReverse: true
@@ -847,7 +847,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
                 setContextualBackground: ExpressCraft.Bootstrap.Contextual.Background.Warning
             } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text represents danger."]), {
                 setContextualBackground: ExpressCraft.Bootstrap.Contextual.Background.Danger
-            } )])])]), new ExpressCraft.Bootstrap.Panel(ExpressCraft.Bootstrap.BootstrapTheme.Default, [new ExpressCraft.Bootstrap.PanelHeading([new ExpressCraft.Bootstrap.Heading("h3", ["Table Demo", new ExpressCraft.Bootstrap.Small([" - Table options below."])]), new ExpressCraft.Bootstrap.FormGroup([Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("Striped", false), {
+            } )])])]), new ExpressCraft.Bootstrap.Panel(ExpressCraft.Bootstrap.BootTheme.Default, [new ExpressCraft.Bootstrap.PanelHeading([new ExpressCraft.Bootstrap.Heading("h3", ["Table Demo", new ExpressCraft.Bootstrap.Small([" - Table options below."])]), new ExpressCraft.Bootstrap.FormGroup([Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("Striped", false), {
                 onCheckChanged: $asm.$.ExpressCraft.Bootstrap.Program.f2,
                 setInline: true
             } ), Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("Bordered", false), {
@@ -865,11 +865,11 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
                     var tbl = ExpressCraft.Bootstrap.BootWidget.getWidgetById(ExpressCraft.Bootstrap.Table, "DemoTable");
                     if (s.getChecked()) {
                         var body = tbl.getTableBody();
-                        body.row(0).setTheme(ExpressCraft.Bootstrap.BootstrapRowCellTheme.Active);
-                        body.row(2).setTheme(ExpressCraft.Bootstrap.BootstrapRowCellTheme.Success);
-                        body.row(4).setTheme(ExpressCraft.Bootstrap.BootstrapRowCellTheme.Info);
-                        body.row(6).setTheme(ExpressCraft.Bootstrap.BootstrapRowCellTheme.Warning);
-                        body.row(8).setTheme(ExpressCraft.Bootstrap.BootstrapRowCellTheme.Danger);
+                        body.row(0).setTheme(ExpressCraft.Bootstrap.BootRowCellTheme.Active);
+                        body.row(2).setTheme(ExpressCraft.Bootstrap.BootRowCellTheme.Success);
+                        body.row(4).setTheme(ExpressCraft.Bootstrap.BootRowCellTheme.Info);
+                        body.row(6).setTheme(ExpressCraft.Bootstrap.BootRowCellTheme.Warning);
+                        body.row(8).setTheme(ExpressCraft.Bootstrap.BootRowCellTheme.Danger);
                     } else {
                         $t = Bridge.getEnumerator(tbl.getTableBody().getRows(), ExpressCraft.Bootstrap.TableRow);
                         while ($t.moveNext()) {
@@ -1420,7 +1420,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
             this.$initialize();
             ExpressCraft.Bootstrap.BootWidget.ctor.call(this, Bridge.merge(document.createElement('p'), {
-                className: System.String.concat("text-", System.Enum.format(ExpressCraft.Bootstrap.BootstrapParagraphAlignment, alignment, "G").toLowerCase())
+                className: System.String.concat("text-", System.Enum.format(ExpressCraft.Bootstrap.BootParagraphAlignment, alignment, "G").toLowerCase())
             } ), typos);
 
         },
@@ -1429,7 +1429,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
             this.$initialize();
             ExpressCraft.Bootstrap.BootWidget.ctor.call(this, Bridge.merge(document.createElement('p'), {
-                className: System.String.concat("text-", System.Enum.format(ExpressCraft.Bootstrap.BootstrapParagraphTransformation, transform, "G").toLowerCase(), " ", "text-", System.Enum.format(ExpressCraft.Bootstrap.BootstrapParagraphAlignment, alignment, "G").toLowerCase())
+                className: System.String.concat("text-", System.Enum.format(ExpressCraft.Bootstrap.BootParagraphTransformation, transform, "G").toLowerCase(), " ", "text-", System.Enum.format(ExpressCraft.Bootstrap.BootParagraphAlignment, alignment, "G").toLowerCase())
             } ), typos);
 
         },
@@ -1438,7 +1438,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
             this.$initialize();
             ExpressCraft.Bootstrap.BootWidget.ctor.call(this, Bridge.merge(document.createElement('p'), {
-                className: System.String.concat("text-", System.Enum.format(ExpressCraft.Bootstrap.BootstrapParagraphTransformation, transform, "G").toLowerCase())
+                className: System.String.concat("text-", System.Enum.format(ExpressCraft.Bootstrap.BootParagraphTransformation, transform, "G").toLowerCase())
             } ), typos);
 
         },
@@ -1677,18 +1677,18 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
             this.$initialize();
             ExpressCraft.Bootstrap.BootWidget.ctor.call(this, Bridge.merge(document.createElement('td'), {
-                className: System.Enum.format(ExpressCraft.Bootstrap.BootstrapRowCellTheme, theme, "G")
+                className: System.Enum.format(ExpressCraft.Bootstrap.BootRowCellTheme, theme, "G")
             } ), typos);
 
         },
         getTheme: function () {
-            return this.getEnumClassValue(ExpressCraft.Bootstrap.BootstrapRowCellTheme);
+            return this.getEnumClassValue(ExpressCraft.Bootstrap.BootRowCellTheme);
         },
         setTheme: function (value) {
-            this.setEnumClassValue(ExpressCraft.Bootstrap.BootstrapRowCellTheme, System.Enum.format(ExpressCraft.Bootstrap.BootstrapRowCellTheme, value, "G").toLowerCase());
+            this.setEnumClassValue(ExpressCraft.Bootstrap.BootRowCellTheme, System.Enum.format(ExpressCraft.Bootstrap.BootRowCellTheme, value, "G").toLowerCase());
         },
         clearTheme: function () {
-            this.clearEnumClassValue(ExpressCraft.Bootstrap.BootstrapRowCellTheme);
+            this.clearEnumClassValue(ExpressCraft.Bootstrap.BootRowCellTheme);
         }
     });
 
@@ -1765,18 +1765,18 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
             this.$initialize();
             ExpressCraft.Bootstrap.BootWidget.ctor.call(this, Bridge.merge(document.createElement('th'), {
-                className: System.Enum.format(ExpressCraft.Bootstrap.BootstrapRowCellTheme, theme, "G")
+                className: System.Enum.format(ExpressCraft.Bootstrap.BootRowCellTheme, theme, "G")
             } ), typos);
 
         },
         getTheme: function () {
-            return this.getEnumClassValue(ExpressCraft.Bootstrap.BootstrapRowCellTheme);
+            return this.getEnumClassValue(ExpressCraft.Bootstrap.BootRowCellTheme);
         },
         setTheme: function (value) {
-            this.setEnumClassValue(ExpressCraft.Bootstrap.BootstrapRowCellTheme, System.Enum.format(ExpressCraft.Bootstrap.BootstrapRowCellTheme, value, "G").toLowerCase());
+            this.setEnumClassValue(ExpressCraft.Bootstrap.BootRowCellTheme, System.Enum.format(ExpressCraft.Bootstrap.BootRowCellTheme, value, "G").toLowerCase());
         },
         clearTheme: function () {
-            this.clearEnumClassValue(ExpressCraft.Bootstrap.BootstrapRowCellTheme);
+            this.clearEnumClassValue(ExpressCraft.Bootstrap.BootRowCellTheme);
         }
     });
 
@@ -1794,7 +1794,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
             this.$initialize();
             ExpressCraft.Bootstrap.BootWidget.ctor.call(this, Bridge.merge(document.createElement('tr'), {
-                className: System.Enum.format(ExpressCraft.Bootstrap.BootstrapRowCellTheme, theme, "G")
+                className: System.Enum.format(ExpressCraft.Bootstrap.BootRowCellTheme, theme, "G")
             } ));
             ExpressCraft.Bootstrap.TableHeaderCell.appendHeaderDataRow(this, typos);
         },
@@ -1807,16 +1807,16 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             return System.Array.toEnumerable($yield);
         },
         getTheme: function () {
-            return this.getEnumClassValue(ExpressCraft.Bootstrap.BootstrapRowCellTheme);
+            return this.getEnumClassValue(ExpressCraft.Bootstrap.BootRowCellTheme);
         },
         setTheme: function (value) {
-            this.setEnumClassValue(ExpressCraft.Bootstrap.BootstrapRowCellTheme, System.Enum.format(ExpressCraft.Bootstrap.BootstrapRowCellTheme, value, "G").toLowerCase());
+            this.setEnumClassValue(ExpressCraft.Bootstrap.BootRowCellTheme, System.Enum.format(ExpressCraft.Bootstrap.BootRowCellTheme, value, "G").toLowerCase());
         },
         headerCell: function (index) {
             return ExpressCraft.Bootstrap.BootWidget.castElement(ExpressCraft.Bootstrap.TableHeaderCell, this.content.children[index]);
         },
         clearTheme: function () {
-            this.clearEnumClassValue(ExpressCraft.Bootstrap.BootstrapRowCellTheme);
+            this.clearEnumClassValue(ExpressCraft.Bootstrap.BootRowCellTheme);
         }
     });
 
@@ -1834,7 +1834,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
             this.$initialize();
             ExpressCraft.Bootstrap.BootWidget.ctor.call(this, Bridge.merge(document.createElement('tr'), {
-                className: System.Enum.format(ExpressCraft.Bootstrap.BootstrapRowCellTheme, theme, "G")
+                className: System.Enum.format(ExpressCraft.Bootstrap.BootRowCellTheme, theme, "G")
             } ));
             ExpressCraft.Bootstrap.TableCell.appendDataRow(this, typos);
         },
@@ -1847,16 +1847,16 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             return System.Array.toEnumerable($yield);
         },
         getTheme: function () {
-            return this.getEnumClassValue(ExpressCraft.Bootstrap.BootstrapRowCellTheme);
+            return this.getEnumClassValue(ExpressCraft.Bootstrap.BootRowCellTheme);
         },
         setTheme: function (value) {
-            this.setEnumClassValue(ExpressCraft.Bootstrap.BootstrapRowCellTheme, System.Enum.format(ExpressCraft.Bootstrap.BootstrapRowCellTheme, value, "G").toLowerCase());
+            this.setEnumClassValue(ExpressCraft.Bootstrap.BootRowCellTheme, System.Enum.format(ExpressCraft.Bootstrap.BootRowCellTheme, value, "G").toLowerCase());
         },
         cell: function (index) {
             return ExpressCraft.Bootstrap.BootWidget.castElement(ExpressCraft.Bootstrap.TableCell, this.content.children[index]);
         },
         clearTheme: function () {
-            this.clearEnumClassValue(ExpressCraft.Bootstrap.BootstrapRowCellTheme);
+            this.clearEnumClassValue(ExpressCraft.Bootstrap.BootRowCellTheme);
         }
     });
 
@@ -1990,7 +1990,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
                         continue;
                     }
 
-                    if (Bridge.is(typos[i], ExpressCraft.Bootstrap.FormGroup) || Bridge.is(typos[i], ExpressCraft.Bootstrap.bootstrapForm)) {
+                    if (Bridge.is(typos[i], ExpressCraft.Bootstrap.FormGroup) || Bridge.is(typos[i], ExpressCraft.Bootstrap.BootFormType)) {
                         list[i] = typos[i];
                     } else {
                         list[i] = new ExpressCraft.Bootstrap.FormGroup([typos[i]]);

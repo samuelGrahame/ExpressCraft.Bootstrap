@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExpressCraft.Bootstrap
 {
-	public enum BootstrapTheme
+	public enum BootTheme
 	{
 		None,
 		Default,
@@ -18,7 +18,7 @@ namespace ExpressCraft.Bootstrap
 		Link
 	}
 
-	public enum BootstrapRowCellTheme
+	public enum BootRowCellTheme
 	{		
 		Active,
 		Success,
@@ -27,7 +27,7 @@ namespace ExpressCraft.Bootstrap
 		Info
 	}
 
-	public enum BootstrapParagraphAlignment
+	public enum BootParagraphAlignment
 	{
 		Left,
 		Center,
@@ -36,14 +36,14 @@ namespace ExpressCraft.Bootstrap
 		Nowrap
 	}
 
-	public enum BootstrapParagraphTransformation
+	public enum BootParagraphTransformation
 	{
 		Lowercase,
 		Uppercase,
 		Capitalize,		
 	}
 
-	public enum bootstrapForm
+	public enum BootFormType
 	{
 		None,
 		Inline,
@@ -52,9 +52,9 @@ namespace ExpressCraft.Bootstrap
 
 	public static class Extension
 	{
-		public static string GetClassTheme(string cls, BootstrapTheme type)
+		public static string GetClassTheme(string cls, BootTheme type)
 		{
-			if (type == BootstrapTheme.None)
+			if (type == BootTheme.None)
 				return string.Empty;
 			return cls + type.ToString("G").ToLower();
 		}

@@ -10,9 +10,9 @@ namespace ExpressCraft.Bootstrap
 {
 	public class BootForm : Control
 	{
-		public BootForm(bootstrapForm formType = bootstrapForm.None, params Union<string, Control, HTMLElement>[] typos) : base(new HTMLFormElement() )
+		public BootForm(BootFormType formType = BootFormType.None, params Union<string, Control, HTMLElement>[] typos) : base(new HTMLFormElement() )
 		{			
-			if(formType != bootstrapForm.None)
+			if(formType != BootFormType.None)
 				Content.ClassName = "form-" + formType.ToString("G").ToLower();
 			FormGroup.AppendGroupList(this, typos);			
 		}

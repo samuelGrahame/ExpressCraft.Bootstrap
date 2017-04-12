@@ -16,15 +16,15 @@ namespace ExpressCraft.Bootstrap
 		{
 			
 		}
-		public Paragraph(BootstrapParagraphAlignment alignment, params Union<string, Control, HTMLElement>[] typos) : base(new HTMLParagraphElement() { ClassName = "text-" + alignment.ToString("G").ToLower() }, typos)
+		public Paragraph(BootParagraphAlignment alignment, params Union<string, Control, HTMLElement>[] typos) : base(new HTMLParagraphElement() { ClassName = "text-" + alignment.ToString("G").ToLower() }, typos)
 		{
 
 		}
-		public Paragraph(BootstrapParagraphAlignment alignment, BootstrapParagraphTransformation transform, params Union<string, Control, HTMLElement>[] typos) : base(new HTMLParagraphElement() { ClassName = "text-" + transform.ToString("G").ToLower() + " " + "text-" + alignment.ToString("G").ToLower() }, typos)
+		public Paragraph(BootParagraphAlignment alignment, BootParagraphTransformation transform, params Union<string, Control, HTMLElement>[] typos) : base(new HTMLParagraphElement() { ClassName = "text-" + transform.ToString("G").ToLower() + " " + "text-" + alignment.ToString("G").ToLower() }, typos)
 		{
 
 		}
-		public Paragraph(BootstrapParagraphTransformation transform, params Union<string, Control, HTMLElement>[] typos) : base(new HTMLParagraphElement() { ClassName = "text-" + transform.ToString("G").ToLower() }, typos)
+		public Paragraph(BootParagraphTransformation transform, params Union<string, Control, HTMLElement>[] typos) : base(new HTMLParagraphElement() { ClassName = "text-" + transform.ToString("G").ToLower() }, typos)
 		{
 
 		}
