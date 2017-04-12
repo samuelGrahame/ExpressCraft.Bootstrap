@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Bridge;
 using Bridge.Html5;
 using ExpressCraft;
 
@@ -114,7 +115,96 @@ line breaks."),
 												new Paragraph("This text represents danger.") { ContextualBackground = Contextual.Background.Danger }
 											)
 										)
-									)
+									),
+									new Table(
+										new TableHeader(
+											new TableHeaderRow(
+												"#",
+												"Table heading",
+												"Table heading",
+												"Table heading",
+												"Table heading",
+												"Table heading",
+												"Table heading"
+												)
+											),
+											new TableBody(
+											Enumerable.Range(0, 6).Select((x, index) => (Union<string, Control, HTMLElement>)new TableRow(
+												(index + 1).ToString(), "Table cell", "Table cell", "Table cell", "Table cell", "Table cell", "Table cell")).ToArray()
+											)
+										),
+									new Table(
+										new TableHeader(
+											new TableHeaderRow(
+												"#",
+												"Table heading",
+												"Table heading",
+												"Table heading",
+												"Table heading",
+												"Table heading",
+												"Table heading"
+												)
+											),
+											new TableBody(
+											Enumerable.Range(0, 6).Select((x, index) => (Union<string, Control, HTMLElement>)new TableRow(
+												(index + 1).ToString(), "Table cell", "Table cell", "Table cell", "Table cell", "Table cell", "Table cell")).ToArray()
+											)
+										)
+									{  Bordered = true },
+									new Table(
+										new TableHeader(
+											new TableHeaderRow(
+												"#",
+												"Table heading",
+												"Table heading",
+												"Table heading",
+												"Table heading",
+												"Table heading",
+												"Table heading"
+												)
+											),
+											new TableBody(
+											Enumerable.Range(0, 6).Select((x, index) => (Union<string, Control, HTMLElement>)new TableRow(
+												(index + 1).ToString(), "Table cell", "Table cell", "Table cell", "Table cell", "Table cell", "Table cell")).ToArray()
+											)
+										)
+									{ Condensed = true },
+									new Table(
+										new TableHeader(
+											new TableHeaderRow(
+												"#",
+												"Table heading",
+												"Table heading",
+												"Table heading",
+												"Table heading",
+												"Table heading",
+												"Table heading"
+												)
+											),
+											new TableBody(
+											Enumerable.Range(0, 6).Select((x, index) => (Union<string, Control, HTMLElement>)new TableRow(
+												(index + 1).ToString(), "Table cell", "Table cell", "Table cell", "Table cell", "Table cell", "Table cell")).ToArray()
+											)
+										)
+									{ Hover = true },
+									new Table(
+										new TableHeader(
+											new TableHeaderRow(
+												"#",
+												"Table heading",
+												"Table heading",
+												"Table heading",
+												"Table heading",
+												"Table heading",
+												"Table heading"
+												)
+											),
+											new TableBody(
+											Enumerable.Range(0, 6).Select((x, index) => (Union<string, Control, HTMLElement>)new TableRow(
+												(index + 1).ToString(), "Table cell", "Table cell", "Table cell", "Table cell", "Table cell", "Table cell")).ToArray()
+											)
+										)
+									{ Striped = true }
 								)
 						),
 						new PanelFooter(

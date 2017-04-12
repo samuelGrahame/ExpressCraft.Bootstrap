@@ -130,6 +130,37 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         }
     });
 
+    Bridge.define("ExpressCraft.Bootstrap.BootstrapParagraphAlignment", {
+        $kind: "enum",
+        statics: {
+            Left: 0,
+            Center: 1,
+            Right: 2,
+            Justify: 3,
+            Nowrap: 4
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.BootstrapParagraphTransformation", {
+        $kind: "enum",
+        statics: {
+            Lowercase: 0,
+            Uppercase: 1,
+            Capitalize: 2
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.BootstrapRowCellTheme", {
+        $kind: "enum",
+        statics: {
+            Active: 0,
+            Success: 1,
+            Warning: 2,
+            Danger: 3,
+            Info: 4
+        }
+    });
+
     Bridge.define("ExpressCraft.Bootstrap.BootstrapTheme", {
         $kind: "enum",
         statics: {
@@ -744,31 +775,39 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
                 setOnClick: buttonClick
             } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Link", ExpressCraft.Bootstrap.BootstrapTheme.Link), {
                 setOnClick: buttonClick
-            } )]), new ExpressCraft.Bootstrap.Heading("h2", ["Heading", new ExpressCraft.Bootstrap.Small([" - Heading Small"])]), new ExpressCraft.Bootstrap.ParagraphList(["Text", new ExpressCraft.Bootstrap.Abbr("Abbr hover", ["Abbr"]), new ExpressCraft.Bootstrap.Small(["Small"]), new ExpressCraft.Bootstrap.Blockquote("Block Quote Content", "Block Quote From"), Bridge.merge(new ExpressCraft.Bootstrap.Blockquote("Block Quote Content Reverse", "Block Quote From Reverse"), {
+            } )]), new ExpressCraft.Bootstrap.Heading("h2", ["Heading", new ExpressCraft.Bootstrap.Small([" - Heading Small"])]), new ExpressCraft.Bootstrap.ParagraphList(["Text", new ExpressCraft.Bootstrap.Abbr("Abbr hover", ["Abbr"]), new ExpressCraft.Bootstrap.Small(["Small"]), new ExpressCraft.Bootstrap.Blockquote.$ctor2(new ExpressCraft.Bootstrap.Paragraph.ctor(["Block Quote Content"]), new ExpressCraft.Bootstrap.Footer(["Block Quote From"])), Bridge.merge(new ExpressCraft.Bootstrap.Blockquote.$ctor2(new ExpressCraft.Bootstrap.Paragraph.ctor(["Block Quote Content Reverse"]), new ExpressCraft.Bootstrap.Footer(["Block Quote From Reverse"])), {
                 setReverse: true
-            } ), new ExpressCraft.Bootstrap.DescriptionList([new ExpressCraft.Bootstrap.DescriptionTitle(["Description Title 1"]), new ExpressCraft.Bootstrap.DescriptionDetail(["- Description Detail 1"]), new ExpressCraft.Bootstrap.DescriptionTitle(["Description Title 2"]), new ExpressCraft.Bootstrap.DescriptionDetail(["- Description Detail 2"])]), new ExpressCraft.Bootstrap.Paragraph(["The following HTML elements: ", new ExpressCraft.Bootstrap.Code(["span"]), ", ", new ExpressCraft.Bootstrap.Code(["section"]), ", and ", new ExpressCraft.Bootstrap.Code(["div"]), " defines a section in a document."]), new ExpressCraft.Bootstrap.Paragraph(["Use ", new ExpressCraft.Bootstrap.Kbd(["ctrl + p"]), " to open the Print dialog box."]), new ExpressCraft.Bootstrap.Pre(["Text in a pre element\r\nis displayed in a fixed-width\r\nfont, and it preserves\r\nboth      spaces and\r\nline breaks."]), new ExpressCraft.Bootstrap.Paragraph([new ExpressCraft.Bootstrap.ParagraphList([new ExpressCraft.Bootstrap.Heading("h2", ["Contextual Colors"]), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph(["This text is muted."]), {
+            } ), new ExpressCraft.Bootstrap.DescriptionList([new ExpressCraft.Bootstrap.DescriptionTitle(["Description Title 1"]), new ExpressCraft.Bootstrap.DescriptionDetail(["- Description Detail 1"]), new ExpressCraft.Bootstrap.DescriptionTitle(["Description Title 2"]), new ExpressCraft.Bootstrap.DescriptionDetail(["- Description Detail 2"])]), new ExpressCraft.Bootstrap.Paragraph.ctor(["The following HTML elements: ", new ExpressCraft.Bootstrap.Code(["span"]), ", ", new ExpressCraft.Bootstrap.Code(["section"]), ", and ", new ExpressCraft.Bootstrap.Code(["div"]), " defines a section in a document."]), new ExpressCraft.Bootstrap.Paragraph.ctor(["Use ", new ExpressCraft.Bootstrap.Kbd(["ctrl + p"]), " to open the Print dialog box."]), new ExpressCraft.Bootstrap.Pre(["Text in a pre element\r\nis displayed in a fixed-width\r\nfont, and it preserves\r\nboth      spaces and\r\nline breaks."]), new ExpressCraft.Bootstrap.Paragraph.ctor([new ExpressCraft.Bootstrap.ParagraphList([new ExpressCraft.Bootstrap.Heading("h2", ["Contextual Colors"]), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text is muted."]), {
                 setContextualText: ExpressCraft.Bootstrap.Contextual.Text.Muted
-            } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph(["This text is important."]), {
+            } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text is important."]), {
                 setContextualText: ExpressCraft.Bootstrap.Contextual.Text.Primary
-            } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph(["This text indicates success."]), {
+            } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text indicates success."]), {
                 setContextualText: ExpressCraft.Bootstrap.Contextual.Text.Success
-            } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph(["This text represents some information."]), {
+            } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text represents some information."]), {
                 setContextualText: ExpressCraft.Bootstrap.Contextual.Text.Info
-            } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph(["This text represents a warning."]), {
+            } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text represents a warning."]), {
                 setContextualText: ExpressCraft.Bootstrap.Contextual.Text.Warning
-            } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph(["This text represents danger."]), {
+            } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text represents danger."]), {
                 setContextualText: ExpressCraft.Bootstrap.Contextual.Text.Danger
-            } )])]), new ExpressCraft.Bootstrap.Paragraph([new ExpressCraft.Bootstrap.ParagraphList([new ExpressCraft.Bootstrap.Heading("h2", ["Contextual Backgrounds"]), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph(["This text is important."]), {
+            } )])]), new ExpressCraft.Bootstrap.Paragraph.ctor([new ExpressCraft.Bootstrap.ParagraphList([new ExpressCraft.Bootstrap.Heading("h2", ["Contextual Backgrounds"]), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text is important."]), {
                 setContextualBackground: ExpressCraft.Bootstrap.Contextual.Background.Primary
-            } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph(["This text indicates success."]), {
+            } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text indicates success."]), {
                 setContextualBackground: ExpressCraft.Bootstrap.Contextual.Background.Success
-            } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph(["This text represents some information."]), {
+            } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text represents some information."]), {
                 setContextualBackground: ExpressCraft.Bootstrap.Contextual.Background.Info
-            } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph(["This text represents a warning."]), {
+            } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text represents a warning."]), {
                 setContextualBackground: ExpressCraft.Bootstrap.Contextual.Background.Warning
-            } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph(["This text represents danger."]), {
+            } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text represents danger."]), {
                 setContextualBackground: ExpressCraft.Bootstrap.Contextual.Background.Danger
-            } )])])])])]), new ExpressCraft.Bootstrap.PanelFooter(["Footer"])])]), {
+            } )])])]), new ExpressCraft.Bootstrap.Table([new ExpressCraft.Bootstrap.TableHeader([new ExpressCraft.Bootstrap.TableHeaderRow.ctor(["#", "Table heading", "Table heading", "Table heading", "Table heading", "Table heading", "Table heading"])]), new ExpressCraft.Bootstrap.TableBody(System.Linq.Enumerable.range(0, 6).select($asm.$.ExpressCraft.Bootstrap.Program.f2).toArray())]), Bridge.merge(new ExpressCraft.Bootstrap.Table([new ExpressCraft.Bootstrap.TableHeader([new ExpressCraft.Bootstrap.TableHeaderRow.ctor(["#", "Table heading", "Table heading", "Table heading", "Table heading", "Table heading", "Table heading"])]), new ExpressCraft.Bootstrap.TableBody(System.Linq.Enumerable.range(0, 6).select($asm.$.ExpressCraft.Bootstrap.Program.f2).toArray())]), {
+                setBordered: true
+            } ), Bridge.merge(new ExpressCraft.Bootstrap.Table([new ExpressCraft.Bootstrap.TableHeader([new ExpressCraft.Bootstrap.TableHeaderRow.ctor(["#", "Table heading", "Table heading", "Table heading", "Table heading", "Table heading", "Table heading"])]), new ExpressCraft.Bootstrap.TableBody(System.Linq.Enumerable.range(0, 6).select($asm.$.ExpressCraft.Bootstrap.Program.f2).toArray())]), {
+                setCondensed: true
+            } ), Bridge.merge(new ExpressCraft.Bootstrap.Table([new ExpressCraft.Bootstrap.TableHeader([new ExpressCraft.Bootstrap.TableHeaderRow.ctor(["#", "Table heading", "Table heading", "Table heading", "Table heading", "Table heading", "Table heading"])]), new ExpressCraft.Bootstrap.TableBody(System.Linq.Enumerable.range(0, 6).select($asm.$.ExpressCraft.Bootstrap.Program.f2).toArray())]), {
+                setHover: true
+            } ), Bridge.merge(new ExpressCraft.Bootstrap.Table([new ExpressCraft.Bootstrap.TableHeader([new ExpressCraft.Bootstrap.TableHeaderRow.ctor(["#", "Table heading", "Table heading", "Table heading", "Table heading", "Table heading", "Table heading"])]), new ExpressCraft.Bootstrap.TableBody(System.Linq.Enumerable.range(0, 6).select($asm.$.ExpressCraft.Bootstrap.Program.f2).toArray())]), {
+                setStriped: true
+            } )])]), new ExpressCraft.Bootstrap.PanelFooter(["Footer"])])]), {
                 setWindowstate: ExpressCraft.WindowState.Maximized
             } ));
         }
@@ -779,6 +818,9 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
     Bridge.apply($asm.$.ExpressCraft.Bootstrap.Program, {
         f1: function (ev) {
             Bridge.global.alert(ev.currentTarget.innerHTML);
+        },
+        f2: function (x, index) {
+            return new ExpressCraft.Bootstrap.TableRow.ctor([(((index + 1) | 0)).toString(), "Table cell", "Table cell", "Table cell", "Table cell", "Table cell", "Table cell"]);
         }
     });
 
@@ -793,29 +835,72 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             if (!System.String.isNullOrWhiteSpace(title)) {
                 this.content.title = title;
             }
+        },
+        getInitialism: function () {
+            return this.getClassTrue("initialism");
+        },
+        setInitialism: function (value) {
+            this.setClassTrue("initialism", value);
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.Address", {
+        inherits: [ExpressCraft.Bootstrap.BootstrapDiv],
+        ctor: function (typos) {
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, document.createElement("address"), typos);
+
         }
     });
 
     Bridge.define("ExpressCraft.Bootstrap.Blockquote", {
         inherits: [ExpressCraft.Bootstrap.BootstrapDiv],
-        statics: {
-            createBlock: function (paragraph, footer, typos) {
-                if (typos === void 0) { typos = []; }
-                var a = new (System.Collections.Generic.List$1(Object))();
-
-                a.add(new ExpressCraft.Bootstrap.Paragraph([paragraph]));
-                a.add(new ExpressCraft.Bootstrap.Footer([footer]));
-                a.addRange(typos);
-
-                return a.toArray();
-            }
-        },
-        ctor: function (paragraph, footer, typos) {
+        ctor: function (typos) {
             if (typos === void 0) { typos = []; }
 
             this.$initialize();
-            ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, document.createElement("blockquote"), ExpressCraft.Bootstrap.Blockquote.createBlock(paragraph, footer, typos));
+            ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, document.createElement("blockquote"), typos);
 
+        },
+        $ctor1: function (para, typos) {
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, document.createElement("blockquote"));
+            var x = new (System.Collections.Generic.List$1(Object))();
+
+            x.add(para);
+            x.addRange(typos);
+
+            ExpressCraft.Bootstrap.BootstrapDiv.appendTypos$1(this, x.toArray());
+        },
+        $ctor2: function (para, footer, typos) {
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, document.createElement("blockquote"));
+            var x = new (System.Collections.Generic.List$1(Object))();
+
+            x.add(para);
+            x.add(footer);
+            x.addRange(typos);
+
+            ExpressCraft.Bootstrap.BootstrapDiv.appendTypos$1(this, x.toArray());
+        },
+        $ctor3: function (para, footer, source, typos) {
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, document.createElement("blockquote"));
+            var x = new (System.Collections.Generic.List$1(Object))();
+
+            x.add(para);
+            x.add(ExpressCraft.Helper.appendChild(footer, source));
+            x.addRange(typos);
+
+            ExpressCraft.Bootstrap.BootstrapDiv.appendTypos$1(this, x.toArray());
         },
         getReverse: function () {
             return this.getClassTrue("blockquote-reverse");
@@ -923,6 +1008,20 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         }
     });
 
+    Bridge.define("ExpressCraft.Bootstrap.Cite", {
+        inherits: [ExpressCraft.Bootstrap.BootstrapDiv],
+        ctor: function (title, typos) {
+            if (title === void 0) { title = ""; }
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, document.createElement("cite"), typos);
+            if (!System.String.isNullOrWhiteSpace(title)) {
+                this.content.title = title;
+            }
+        }
+    });
+
     Bridge.define("ExpressCraft.Bootstrap.Code", {
         inherits: [ExpressCraft.Bootstrap.BootstrapDiv],
         ctor: function (typos) {
@@ -1008,6 +1107,17 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         }
     });
 
+    Bridge.define("ExpressCraft.Bootstrap.Deleted", {
+        inherits: [ExpressCraft.Bootstrap.BootstrapDiv],
+        ctor: function (typos) {
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, document.createElement("del"), typos);
+
+        }
+    });
+
     Bridge.define("ExpressCraft.Bootstrap.DescriptionDetail", {
         inherits: [ExpressCraft.Bootstrap.BootstrapDiv],
         ctor: function (typos) {
@@ -1027,6 +1137,12 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             this.$initialize();
             ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, document.createElement("dl"), typos);
 
+        },
+        getHorizontal: function () {
+            return this.getClassTrue("dl-horizontal");
+        },
+        setHorizontal: function (value) {
+            this.setClassTrue("dl-horizontal", value);
         }
     });
 
@@ -1037,6 +1153,17 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
             this.$initialize();
             ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, document.createElement("dt"), typos);
+
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.Emphasizing", {
+        inherits: [ExpressCraft.Bootstrap.BootstrapDiv],
+        ctor: function (typos) {
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, document.createElement("em"), typos);
 
         }
     });
@@ -1074,6 +1201,17 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         }
     });
 
+    Bridge.define("ExpressCraft.Bootstrap.Inserted", {
+        inherits: [ExpressCraft.Bootstrap.BootstrapDiv],
+        ctor: function (typos) {
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, document.createElement("ins"), typos);
+
+        }
+    });
+
     Bridge.define("ExpressCraft.Bootstrap.Kbd", {
         inherits: [ExpressCraft.Bootstrap.BootstrapDiv],
         ctor: function (typos) {
@@ -1093,6 +1231,49 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             this.$initialize();
             ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, document.createElement("label"), typos);
 
+        },
+        getSourceOnly: function () {
+            return this.getClassTrue("sr-only");
+        },
+        setSourceOnly: function (value) {
+            this.setClassTrue("sr-only", value);
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.ListItem", {
+        inherits: [ExpressCraft.Bootstrap.BootstrapDiv],
+        statics: {
+            appendItemList: function (control, typos) {
+                if (typos === void 0) { typos = []; }
+                if (typos == null || typos.length === 0) {
+                    return;
+                }
+
+                var length = typos.length;
+                var list = System.Array.init(length, null, Object);
+
+                for (var i = 0; i < length; i = (i + 1) | 0) {
+                    if (typos[i] == null) {
+                        list[i] = new ExpressCraft.Bootstrap.ListItem();
+                        continue;
+                    }
+
+                    if (Bridge.is(typos[i], ExpressCraft.Bootstrap.ListItem)) {
+                        list[i] = typos[i];
+                    } else {
+                        list[i] = new ExpressCraft.Bootstrap.ListItem([typos[i]]);
+                    }
+
+                }
+                ExpressCraft.Bootstrap.BootstrapDiv.appendTypos$1(control, list);
+            }
+        },
+        ctor: function (typos) {
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, document.createElement("li"), typos);
+
         }
     });
 
@@ -1107,6 +1288,29 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         }
     });
 
+    Bridge.define("ExpressCraft.Bootstrap.OrderedList", {
+        inherits: [ExpressCraft.Bootstrap.BootstrapDiv],
+        ctor: function (typos) {
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, document.createElement("ol"), typos);
+            ExpressCraft.Bootstrap.ListItem.appendItemList(this, typos);
+        },
+        getUnstyled: function () {
+            return this.getClassTrue("list-unstyled");
+        },
+        setUnstyled: function (value) {
+            this.setClassTrue("list-unstyled", value);
+        },
+        getInline: function () {
+            return this.getClassTrue("list-inline");
+        },
+        setInline: function (value) {
+            this.setClassTrue("list-inline", value);
+        }
+    });
+
     Bridge.define("ExpressCraft.Bootstrap.Paragraph", {
         inherits: [ExpressCraft.Bootstrap.BootstrapDiv],
         ctor: function (typos) {
@@ -1115,6 +1319,51 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             this.$initialize();
             ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, document.createElement('p'), typos);
 
+        },
+        $ctor1: function (alignment, typos) {
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, Bridge.merge(document.createElement('p'), {
+                className: System.String.concat("text-", System.Enum.format(ExpressCraft.Bootstrap.BootstrapParagraphAlignment, alignment, "G").toLowerCase())
+            } ), typos);
+
+        },
+        $ctor2: function (alignment, transform, typos) {
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, Bridge.merge(document.createElement('p'), {
+                className: System.String.concat("text-", System.Enum.format(ExpressCraft.Bootstrap.BootstrapParagraphTransformation, transform, "G").toLowerCase(), " ", "text-", System.Enum.format(ExpressCraft.Bootstrap.BootstrapParagraphAlignment, alignment, "G").toLowerCase())
+            } ), typos);
+
+        },
+        $ctor3: function (transform, typos) {
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, Bridge.merge(document.createElement('p'), {
+                className: System.String.concat("text-", System.Enum.format(ExpressCraft.Bootstrap.BootstrapParagraphTransformation, transform, "G").toLowerCase())
+            } ), typos);
+
+        },
+        getInitialism: function () {
+            return this.getClassTrue("initialism");
+        },
+        setInitialism: function (value) {
+            this.setClassTrue("initialism", value);
+        },
+        getLead: function () {
+            return this.getClassTrue("lead");
+        },
+        setLead: function (value) {
+            this.setClassTrue("lead", value);
+        },
+        getHelp: function () {
+            return this.getClassTrue("help-block");
+        },
+        setHelp: function (value) {
+            this.setClassTrue("help-block", value);
         }
     });
 
@@ -1134,14 +1383,14 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
             for (var i = 0; i < length; i = (i + 1) | 0) {
                 if (typos[i] == null) {
-                    list[i] = new ExpressCraft.Bootstrap.Paragraph();
+                    list[i] = new ExpressCraft.Bootstrap.Paragraph.ctor();
                     continue;
                 }
 
                 if (Bridge.is(typos[i], ExpressCraft.Bootstrap.Paragraph)) {
                     list[i] = typos[i];
                 } else {
-                    list[i] = new ExpressCraft.Bootstrap.Paragraph([typos[i]]);
+                    list[i] = new ExpressCraft.Bootstrap.Paragraph.ctor([typos[i]]);
                 }
 
             }
@@ -1160,6 +1409,17 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         }
     });
 
+    Bridge.define("ExpressCraft.Bootstrap.Samp", {
+        inherits: [ExpressCraft.Bootstrap.BootstrapDiv],
+        ctor: function (typos) {
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, document.createElement("samp"), typos);
+
+        }
+    });
+
     Bridge.define("ExpressCraft.Bootstrap.Small", {
         inherits: [ExpressCraft.Bootstrap.BootstrapDiv],
         ctor: function (typos) {
@@ -1167,6 +1427,28 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
             this.$initialize();
             ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, document.createElement("small"), typos);
+
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.Strikethrough", {
+        inherits: [ExpressCraft.Bootstrap.BootstrapDiv],
+        ctor: function (typos) {
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, document.createElement("s"), typos);
+
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.Strong", {
+        inherits: [ExpressCraft.Bootstrap.BootstrapDiv],
+        ctor: function (typos) {
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, document.createElement("strong"), typos);
 
         }
     });
@@ -1187,6 +1469,24 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         },
         setStriped: function (value) {
             this.setClassTrue("table-striped", value);
+        },
+        getBordered: function () {
+            return this.getClassTrue("table-bordered");
+        },
+        setBordered: function (value) {
+            this.setClassTrue("table-bordered", value);
+        },
+        getHover: function () {
+            return this.getClassTrue("table-hover");
+        },
+        setHover: function (value) {
+            this.setClassTrue("table-hover", value);
+        },
+        getCondensed: function () {
+            return this.getClassTrue("table-condensed");
+        },
+        setCondensed: function (value) {
+            this.setClassTrue("table-condensed", value);
         }
     });
 
@@ -1201,8 +1501,34 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         }
     });
 
-    Bridge.define("ExpressCraft.Bootstrap.TableData", {
+    Bridge.define("ExpressCraft.Bootstrap.TableCell", {
         inherits: [ExpressCraft.Bootstrap.BootstrapDiv],
+        statics: {
+            appendDataRow: function (control, typos) {
+                if (typos === void 0) { typos = []; }
+                if (typos == null || typos.length === 0) {
+                    return;
+                }
+
+                var length = typos.length;
+                var list = System.Array.init(length, null, Object);
+
+                for (var i = 0; i < length; i = (i + 1) | 0) {
+                    if (typos[i] == null) {
+                        list[i] = new ExpressCraft.Bootstrap.TableCell.ctor();
+                        continue;
+                    }
+
+                    if (Bridge.is(typos[i], ExpressCraft.Bootstrap.TableCell)) {
+                        list[i] = typos[i];
+                    } else {
+                        list[i] = new ExpressCraft.Bootstrap.TableCell.ctor([typos[i]]);
+                    }
+
+                }
+                ExpressCraft.Bootstrap.BootstrapDiv.appendTypos$1(control, list);
+            }
+        },
         ctor: function (typos) {
             if (typos === void 0) { typos = []; }
 
@@ -1215,7 +1541,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
             this.$initialize();
             ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, Bridge.merge(document.createElement('td'), {
-                className: System.Enum.format(ExpressCraft.Bootstrap.BootstrapTheme, theme, "G")
+                className: System.Enum.format(ExpressCraft.Bootstrap.BootstrapRowCellTheme, theme, "G")
             } ), typos);
 
         }
@@ -1243,22 +1569,113 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         }
     });
 
-    Bridge.define("ExpressCraft.Bootstrap.TableRow", {
+    Bridge.define("ExpressCraft.Bootstrap.TableHeaderData", {
         inherits: [ExpressCraft.Bootstrap.BootstrapDiv],
+        statics: {
+            appendHeaderDataRow: function (control, typos) {
+                if (typos === void 0) { typos = []; }
+                if (typos == null || typos.length === 0) {
+                    return;
+                }
+
+                var length = typos.length;
+                var list = System.Array.init(length, null, Object);
+
+                for (var i = 0; i < length; i = (i + 1) | 0) {
+                    if (typos[i] == null) {
+                        list[i] = new ExpressCraft.Bootstrap.TableHeaderData.ctor();
+                        continue;
+                    }
+
+                    if (Bridge.is(typos[i], ExpressCraft.Bootstrap.TableHeaderData)) {
+                        list[i] = typos[i];
+                    } else {
+                        list[i] = new ExpressCraft.Bootstrap.TableHeaderData.ctor([typos[i]]);
+                    }
+
+                }
+                ExpressCraft.Bootstrap.BootstrapDiv.appendTypos$1(control, list);
+            }
+        },
         ctor: function (typos) {
             if (typos === void 0) { typos = []; }
 
             this.$initialize();
-            ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, document.createElement('tr'), typos);
+            ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, document.createElement('th'), typos);
 
         },
         $ctor1: function (theme, typos) {
             if (typos === void 0) { typos = []; }
 
             this.$initialize();
-            ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, Bridge.merge(document.createElement('tr'), {
-                className: System.Enum.format(ExpressCraft.Bootstrap.BootstrapTheme, theme, "G")
+            ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, Bridge.merge(document.createElement('th'), {
+                className: System.Enum.format(ExpressCraft.Bootstrap.BootstrapRowCellTheme, theme, "G")
             } ), typos);
+
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.TableRow", {
+        inherits: [ExpressCraft.Bootstrap.BootstrapDiv],
+        ctor: function (typos) {
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, document.createElement('tr'));
+            ExpressCraft.Bootstrap.TableCell.appendDataRow(this, typos);
+        },
+        $ctor1: function (theme, typos) {
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, Bridge.merge(document.createElement('tr'), {
+                className: System.Enum.format(ExpressCraft.Bootstrap.BootstrapRowCellTheme, theme, "G")
+            } ));
+            ExpressCraft.Bootstrap.TableCell.appendDataRow(this, typos);
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.Underlined", {
+        inherits: [ExpressCraft.Bootstrap.BootstrapDiv],
+        ctor: function (typos) {
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, document.createElement("u"), typos);
+
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.UnorderedList", {
+        inherits: [ExpressCraft.Bootstrap.BootstrapDiv],
+        ctor: function (typos) {
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, document.createElement("ul"), typos);
+            ExpressCraft.Bootstrap.ListItem.appendItemList(this, typos);
+        },
+        getUnstyled: function () {
+            return this.getClassTrue("list-unstyled");
+        },
+        setUnstyled: function (value) {
+            this.setClassTrue("list-unstyled", value);
+        },
+        getInline: function () {
+            return this.getClassTrue("list-inline");
+        },
+        setInline: function (value) {
+            this.setClassTrue("list-inline", value);
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.Var", {
+        inherits: [ExpressCraft.Bootstrap.BootstrapDiv],
+        ctor: function (typos) {
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, document.createElement("var"), typos);
 
         }
     });
@@ -1411,6 +1828,35 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
             this.$initialize();
             ExpressCraft.Bootstrap.BootstrapStyleDiv.ctor.call(this, "row", typos);
+
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.TableHeaderRow", {
+        inherits: [ExpressCraft.Bootstrap.TableRow],
+        ctor: function (typos) {
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.TableRow.ctor.call(this);
+            ExpressCraft.Bootstrap.TableHeaderData.appendHeaderDataRow(this, typos);
+        },
+        $ctor1: function (theme, typos) {
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.TableRow.$ctor1.call(this, theme);
+            ExpressCraft.Bootstrap.TableHeaderData.appendHeaderDataRow(this, typos);
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.TableResponsive", {
+        inherits: [ExpressCraft.Bootstrap.BootstrapStyleDiv],
+        ctor: function (typos) {
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootstrapStyleDiv.ctor.call(this, "table-responsive", typos);
 
         }
     });

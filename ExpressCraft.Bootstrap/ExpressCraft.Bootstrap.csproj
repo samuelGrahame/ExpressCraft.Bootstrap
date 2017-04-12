@@ -73,10 +73,11 @@
     <Compile Include="Panel\PanelFooter.cs" />
     <Compile Include="Panel\PanelGroup.cs" />
     <Compile Include="Panel\PanelHeading.cs" />
-    <Compile Include="Table\TableHeaderData.cs" />
+    <Compile Include="Table\TableHeaderRow.cs" />
+    <Compile Include="Table\TableHeaderCell.cs" />
     <Compile Include="Table\TableResponsive.cs" />
     <Compile Include="Table\TableFooter.cs" />
-    <Compile Include="Table\TableData.cs" />
+    <Compile Include="Table\TableCell.cs" />
     <Compile Include="Table\TableBody.cs" />
     <Compile Include="Table\TableHeader.cs" />
     <Compile Include="Table\TableRow.cs" />

@@ -10,14 +10,16 @@ namespace ExpressCraft.Bootstrap
 {
 	public class TableRow : BootstrapDiv
 	{
-		public TableRow(params Union<string, Control, HTMLElement>[] typos) : base(new HTMLTableRowElement(), typos)
+		public TableRow(params Union<string, Control, HTMLElement>[] typos) : base(new HTMLTableRowElement())
 		{
-
+			TableCell.AppendDataRow(this, typos);
 		}
 
-		public TableRow(BootstrapRowCellTheme theme, params Union<string, Control, HTMLElement>[] typos) : base(new HTMLTableRowElement() { ClassName = theme.ToString("G") }, typos)
+		public TableRow(BootstrapRowCellTheme theme, params Union<string, Control, HTMLElement>[] typos) : base(new HTMLTableRowElement() { ClassName = theme.ToString("G") })
 		{
-
+			TableCell.AppendDataRow(this, typos);
 		}
+
+
 	}
 }
