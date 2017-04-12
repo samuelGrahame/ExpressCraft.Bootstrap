@@ -221,41 +221,446 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         }
     });
 
-    Bridge.define("ExpressCraft.Bootstrap.ColTier", {
-        $kind: "struct",
+    Bridge.define("ExpressCraft.Bootstrap.ColClass", {
         statics: {
+            XS1: null,
+            XS2: null,
+            XS3: null,
+            XS4: null,
+            XS5: null,
+            XS6: null,
+            XS7: null,
+            XS8: null,
+            XS9: null,
+            XS10: null,
+            XS11: null,
+            XS12: null,
+            XSO1: null,
+            XSO2: null,
+            XSO3: null,
+            XSO4: null,
+            XSO5: null,
+            XSO6: null,
+            XSO7: null,
+            XSO8: null,
+            XSO9: null,
+            XSO10: null,
+            XSO11: null,
+            XSO12: null,
+            XSPL1: null,
+            XSPL2: null,
+            XSPL3: null,
+            XSPL4: null,
+            XSPL5: null,
+            XSPL6: null,
+            XSPL7: null,
+            XSPL8: null,
+            XSPL9: null,
+            XSPL10: null,
+            XSPL11: null,
+            XSPL12: null,
+            XSPS1: null,
+            XSPS2: null,
+            XSPS3: null,
+            XSPS4: null,
+            XSPS5: null,
+            XSPS6: null,
+            XSPS7: null,
+            XSPS8: null,
+            XSPS9: null,
+            XSPS10: null,
+            XSPS11: null,
+            XSPS12: null,
+            SM1: null,
+            SM2: null,
+            SM3: null,
+            SM4: null,
+            SM5: null,
+            SM6: null,
+            SM7: null,
+            SM8: null,
+            SM9: null,
+            SM10: null,
+            SM11: null,
+            SM12: null,
+            SMO1: null,
+            SMO2: null,
+            SMO3: null,
+            SMO4: null,
+            SMO5: null,
+            SMO6: null,
+            SMO7: null,
+            SMO8: null,
+            SMO9: null,
+            SMO10: null,
+            SMO11: null,
+            SMO12: null,
+            SMPL1: null,
+            SMPL2: null,
+            SMPL3: null,
+            SMPL4: null,
+            SMPL5: null,
+            SMPL6: null,
+            SMPL7: null,
+            SMPL8: null,
+            SMPL9: null,
+            SMPL10: null,
+            SMPL11: null,
+            SMPL12: null,
+            SMPS1: null,
+            SMPS2: null,
+            SMPS3: null,
+            SMPS4: null,
+            SMPS5: null,
+            SMPS6: null,
+            SMPS7: null,
+            SMPS8: null,
+            SMPS9: null,
+            SMPS10: null,
+            SMPS11: null,
+            SMPS12: null,
+            MD1: null,
+            MD2: null,
+            MD3: null,
+            MD4: null,
+            MD5: null,
+            MD6: null,
+            MD7: null,
+            MD8: null,
+            MD9: null,
+            MD10: null,
+            MD11: null,
+            MD12: null,
+            MDO1: null,
+            MDO2: null,
+            MDO3: null,
+            MDO4: null,
+            MDO5: null,
+            MDO6: null,
+            MDO7: null,
+            MDO8: null,
+            MDO9: null,
+            MDO10: null,
+            MDO11: null,
+            MDO12: null,
+            MDPL1: null,
+            MDPL2: null,
+            MDPL3: null,
+            MDPL4: null,
+            MDPL5: null,
+            MDPL6: null,
+            MDPL7: null,
+            MDPL8: null,
+            MDPL9: null,
+            MDPL10: null,
+            MDPL11: null,
+            MDPL12: null,
+            MDPS1: null,
+            MDPS2: null,
+            MDPS3: null,
+            MDPS4: null,
+            MDPS5: null,
+            MDPS6: null,
+            MDPS7: null,
+            MDPS8: null,
+            MDPS9: null,
+            MDPS10: null,
+            MDPS11: null,
+            MDPS12: null,
+            LG1: null,
+            LG2: null,
+            LG3: null,
+            LG4: null,
+            LG5: null,
+            LG6: null,
+            LG7: null,
+            LG8: null,
+            LG9: null,
+            LG10: null,
+            LG11: null,
+            LG12: null,
+            LGO1: null,
+            LGO2: null,
+            LGO3: null,
+            LGO4: null,
+            LGO5: null,
+            LGO6: null,
+            LGO7: null,
+            LGO8: null,
+            LGO9: null,
+            LGO10: null,
+            LGO11: null,
+            LGO12: null,
+            LGPL1: null,
+            LGPL2: null,
+            LGPL3: null,
+            LGPL4: null,
+            LGPL5: null,
+            LGPL6: null,
+            LGPL7: null,
+            LGPL8: null,
+            LGPL9: null,
+            LGPL10: null,
+            LGPL11: null,
+            LGPL12: null,
+            LGPS1: null,
+            LGPS2: null,
+            LGPS3: null,
+            LGPS4: null,
+            LGPS5: null,
+            LGPS6: null,
+            LGPS7: null,
+            LGPS8: null,
+            LGPS9: null,
+            LGPS10: null,
+            LGPS11: null,
+            LGPS12: null,
             config: {
                 init: function () {
-                    this.XS = new ExpressCraft.Bootstrap.ColTier.$ctor1("-xs-");
-                    this.SM = new ExpressCraft.Bootstrap.ColTier.$ctor1("-sm-");
-                    this.MD = new ExpressCraft.Bootstrap.ColTier.$ctor1("-md-");
-                    this.LG = new ExpressCraft.Bootstrap.ColTier.$ctor1("-lg-");
+                    this.XS1 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.XS, 1);
+                    this.XS2 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.XS, 2);
+                    this.XS3 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.XS, 3);
+                    this.XS4 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.XS, 4);
+                    this.XS5 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.XS, 5);
+                    this.XS6 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.XS, 6);
+                    this.XS7 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.XS, 7);
+                    this.XS8 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.XS, 8);
+                    this.XS9 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.XS, 9);
+                    this.XS10 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.XS, 10);
+                    this.XS11 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.XS, 11);
+                    this.XS12 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.XS, 12);
+                    this.XSO1 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 1, "offset-");
+                    this.XSO2 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 2, "offset-");
+                    this.XSO3 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 3, "offset-");
+                    this.XSO4 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 4, "offset-");
+                    this.XSO5 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 5, "offset-");
+                    this.XSO6 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 6, "offset-");
+                    this.XSO7 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 7, "offset-");
+                    this.XSO8 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 8, "offset-");
+                    this.XSO9 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 9, "offset-");
+                    this.XSO10 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 10, "offset-");
+                    this.XSO11 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 11, "offset-");
+                    this.XSO12 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 12, "offset-");
+                    this.XSPL1 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 1, "pull-");
+                    this.XSPL2 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 2, "pull-");
+                    this.XSPL3 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 3, "pull-");
+                    this.XSPL4 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 4, "pull-");
+                    this.XSPL5 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 5, "pull-");
+                    this.XSPL6 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 6, "pull-");
+                    this.XSPL7 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 7, "pull-");
+                    this.XSPL8 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 8, "pull-");
+                    this.XSPL9 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 9, "pull-");
+                    this.XSPL10 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 10, "pull-");
+                    this.XSPL11 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 11, "pull-");
+                    this.XSPL12 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 12, "pull-");
+                    this.XSPS1 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 1, "push-");
+                    this.XSPS2 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 2, "push-");
+                    this.XSPS3 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 3, "push-");
+                    this.XSPS4 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 4, "push-");
+                    this.XSPS5 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 5, "push-");
+                    this.XSPS6 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 6, "push-");
+                    this.XSPS7 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 7, "push-");
+                    this.XSPS8 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 8, "push-");
+                    this.XSPS9 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 9, "push-");
+                    this.XSPS10 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 10, "push-");
+                    this.XSPS11 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 11, "push-");
+                    this.XSPS12 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 12, "push-");
+                    this.SM1 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.SM, 1);
+                    this.SM2 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.SM, 2);
+                    this.SM3 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.SM, 3);
+                    this.SM4 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.SM, 4);
+                    this.SM5 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.SM, 5);
+                    this.SM6 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.SM, 6);
+                    this.SM7 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.SM, 7);
+                    this.SM8 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.SM, 8);
+                    this.SM9 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.SM, 9);
+                    this.SM10 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.SM, 10);
+                    this.SM11 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.SM, 11);
+                    this.SM12 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.SM, 12);
+                    this.SMO1 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 1, "offset-");
+                    this.SMO2 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 2, "offset-");
+                    this.SMO3 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 3, "offset-");
+                    this.SMO4 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 4, "offset-");
+                    this.SMO5 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 5, "offset-");
+                    this.SMO6 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 6, "offset-");
+                    this.SMO7 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 7, "offset-");
+                    this.SMO8 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 8, "offset-");
+                    this.SMO9 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 9, "offset-");
+                    this.SMO10 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 10, "offset-");
+                    this.SMO11 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 11, "offset-");
+                    this.SMO12 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 12, "offset-");
+                    this.SMPL1 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 1, "pull-");
+                    this.SMPL2 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 2, "pull-");
+                    this.SMPL3 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 3, "pull-");
+                    this.SMPL4 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 4, "pull-");
+                    this.SMPL5 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 5, "pull-");
+                    this.SMPL6 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 6, "pull-");
+                    this.SMPL7 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 7, "pull-");
+                    this.SMPL8 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 8, "pull-");
+                    this.SMPL9 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 9, "pull-");
+                    this.SMPL10 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 10, "pull-");
+                    this.SMPL11 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 11, "pull-");
+                    this.SMPL12 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 12, "pull-");
+                    this.SMPS1 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 1, "push-");
+                    this.SMPS2 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 2, "push-");
+                    this.SMPS3 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 3, "push-");
+                    this.SMPS4 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 4, "push-");
+                    this.SMPS5 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 5, "push-");
+                    this.SMPS6 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 6, "push-");
+                    this.SMPS7 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 7, "push-");
+                    this.SMPS8 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 8, "push-");
+                    this.SMPS9 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 9, "push-");
+                    this.SMPS10 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 10, "push-");
+                    this.SMPS11 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 11, "push-");
+                    this.SMPS12 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 12, "push-");
+                    this.MD1 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.MD, 1);
+                    this.MD2 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.MD, 2);
+                    this.MD3 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.MD, 3);
+                    this.MD4 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.MD, 4);
+                    this.MD5 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.MD, 5);
+                    this.MD6 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.MD, 6);
+                    this.MD7 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.MD, 7);
+                    this.MD8 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.MD, 8);
+                    this.MD9 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.MD, 9);
+                    this.MD10 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.MD, 10);
+                    this.MD11 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.MD, 11);
+                    this.MD12 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.MD, 12);
+                    this.MDO1 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 1, "offset-");
+                    this.MDO2 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 2, "offset-");
+                    this.MDO3 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 3, "offset-");
+                    this.MDO4 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 4, "offset-");
+                    this.MDO5 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 5, "offset-");
+                    this.MDO6 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 6, "offset-");
+                    this.MDO7 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 7, "offset-");
+                    this.MDO8 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 8, "offset-");
+                    this.MDO9 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 9, "offset-");
+                    this.MDO10 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 10, "offset-");
+                    this.MDO11 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 11, "offset-");
+                    this.MDO12 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 12, "offset-");
+                    this.MDPL1 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 1, "pull-");
+                    this.MDPL2 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 2, "pull-");
+                    this.MDPL3 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 3, "pull-");
+                    this.MDPL4 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 4, "pull-");
+                    this.MDPL5 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 5, "pull-");
+                    this.MDPL6 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 6, "pull-");
+                    this.MDPL7 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 7, "pull-");
+                    this.MDPL8 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 8, "pull-");
+                    this.MDPL9 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 9, "pull-");
+                    this.MDPL10 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 10, "pull-");
+                    this.MDPL11 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 11, "pull-");
+                    this.MDPL12 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 12, "pull-");
+                    this.MDPS1 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 1, "push-");
+                    this.MDPS2 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 2, "push-");
+                    this.MDPS3 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 3, "push-");
+                    this.MDPS4 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 4, "push-");
+                    this.MDPS5 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 5, "push-");
+                    this.MDPS6 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 6, "push-");
+                    this.MDPS7 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 7, "push-");
+                    this.MDPS8 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 8, "push-");
+                    this.MDPS9 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 9, "push-");
+                    this.MDPS10 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 10, "push-");
+                    this.MDPS11 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 11, "push-");
+                    this.MDPS12 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 12, "push-");
+                    this.LG1 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.LG, 1);
+                    this.LG2 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.LG, 2);
+                    this.LG3 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.LG, 3);
+                    this.LG4 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.LG, 4);
+                    this.LG5 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.LG, 5);
+                    this.LG6 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.LG, 6);
+                    this.LG7 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.LG, 7);
+                    this.LG8 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.LG, 8);
+                    this.LG9 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.LG, 9);
+                    this.LG10 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.LG, 10);
+                    this.LG11 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.LG, 11);
+                    this.LG12 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.LG, 12);
+                    this.LGO1 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 1, "offset-");
+                    this.LGO2 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 2, "offset-");
+                    this.LGO3 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 3, "offset-");
+                    this.LGO4 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 4, "offset-");
+                    this.LGO5 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 5, "offset-");
+                    this.LGO6 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 6, "offset-");
+                    this.LGO7 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 7, "offset-");
+                    this.LGO8 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 8, "offset-");
+                    this.LGO9 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 9, "offset-");
+                    this.LGO10 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 10, "offset-");
+                    this.LGO11 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 11, "offset-");
+                    this.LGO12 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 12, "offset-");
+                    this.LGPL1 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 1, "pull-");
+                    this.LGPL2 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 2, "pull-");
+                    this.LGPL3 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 3, "pull-");
+                    this.LGPL4 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 4, "pull-");
+                    this.LGPL5 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 5, "pull-");
+                    this.LGPL6 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 6, "pull-");
+                    this.LGPL7 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 7, "pull-");
+                    this.LGPL8 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 8, "pull-");
+                    this.LGPL9 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 9, "pull-");
+                    this.LGPL10 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 10, "pull-");
+                    this.LGPL11 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 11, "pull-");
+                    this.LGPL12 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 12, "pull-");
+                    this.LGPS1 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 1, "push-");
+                    this.LGPS2 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 2, "push-");
+                    this.LGPS3 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 3, "push-");
+                    this.LGPS4 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 4, "push-");
+                    this.LGPS5 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 5, "push-");
+                    this.LGPS6 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 6, "push-");
+                    this.LGPS7 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 7, "push-");
+                    this.LGPS8 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 8, "push-");
+                    this.LGPS9 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 9, "push-");
+                    this.LGPS10 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 10, "push-");
+                    this.LGPS11 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 11, "push-");
+                    this.LGPS12 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 12, "push-");
                 }
-            },
-            getDefaultValue: function () { return new ExpressCraft.Bootstrap.ColTier(); }
+            }
         },
         value: null,
-        $ctor1: function (_value) {
+        $ctor1: function (_tier, _colIndex, bonus) {
+            this.$initialize();
+            this.value = System.String.concat("col", _tier.value, bonus, _colIndex);
+        },
+        ctor: function (_tier, _colIndex) {
+            ExpressCraft.Bootstrap.ColClass.$ctor1.call(this, _tier, _colIndex, "");
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.ColTier", {
+        statics: {
+            /**
+             * Phones
+             *
+             * @instance
+             */
+            XS: null,
+            /**
+             * Tablets
+             *
+             * @instance
+             */
+            SM: null,
+            /**
+             * Desktops
+             *
+             * @instance
+             */
+            MD: null,
+            /**
+             * Larger Desktops
+             *
+             * @instance
+             */
+            LG: null,
+            config: {
+                init: function () {
+                    this.XS = new ExpressCraft.Bootstrap.ColTier("-xs-");
+                    this.SM = new ExpressCraft.Bootstrap.ColTier("-sm-");
+                    this.MD = new ExpressCraft.Bootstrap.ColTier("-md-");
+                    this.LG = new ExpressCraft.Bootstrap.ColTier("-lg-");
+                }
+            }
+        },
+        value: null,
+        ctor: function (_value) {
             this.$initialize();
             this.value = _value;
-        },
-        ctor: function () {
-            this.$initialize();
-        },
-        getHashCode: function () {
-            var h = Bridge.addHash([1423889580, this.value]);
-            return h;
-        },
-        equals: function (o) {
-            if (!Bridge.is(o, ExpressCraft.Bootstrap.ColTier)) {
-                return false;
-            }
-            return Bridge.equals(this.value, o.value);
-        },
-        $clone: function (to) {
-            var s = to || new ExpressCraft.Bootstrap.ColTier();
-            s.value = this.value;
-            return s;
         }
     });
 
@@ -525,6 +930,80 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         }
     });
 
+    Bridge.define("ExpressCraft.Bootstrap.Col", {
+        inherits: [ExpressCraft.Bootstrap.BootstrapDiv],
+        $ctor8: function (colClasses, typos) {
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootstrapDiv.$ctor1.call(this, typos);
+            var length;
+            if (colClasses != null && ((length = colClasses.length)) > 0) {
+                var builder = new System.Text.StringBuilder();
+
+                for (var i = 0; i < length; i = (i + 1) | 0) {
+                    builder.append(System.String.concat(colClasses[i].value, " "));
+                }
+                builder.setLength((builder.getLength() - 1) | 0);
+                this.content.className = builder.toString();
+            }
+        },
+        $ctor9: function (colClasses, typos) {
+            if (typos === void 0) { typos = []; }
+
+            ExpressCraft.Bootstrap.Col.$ctor8.call(this, colClasses.toArray(), typos);
+
+        },
+        ctor: function (colClass1, typos) {
+            if (typos === void 0) { typos = []; }
+
+            ExpressCraft.Bootstrap.Col.$ctor8.call(this, System.Array.init([colClass1], ExpressCraft.Bootstrap.ColClass), typos);
+
+        },
+        $ctor1: function (colClass1, colClass2, typos) {
+            if (typos === void 0) { typos = []; }
+
+            ExpressCraft.Bootstrap.Col.$ctor8.call(this, System.Array.init([colClass1, colClass2], ExpressCraft.Bootstrap.ColClass), typos);
+
+        },
+        $ctor2: function (colClass1, colClass2, colClass3, typos) {
+            if (typos === void 0) { typos = []; }
+
+            ExpressCraft.Bootstrap.Col.$ctor8.call(this, System.Array.init([colClass1, colClass2, colClass3], ExpressCraft.Bootstrap.ColClass), typos);
+
+        },
+        $ctor3: function (colClass1, colClass2, colClass3, colClass4, typos) {
+            if (typos === void 0) { typos = []; }
+
+            ExpressCraft.Bootstrap.Col.$ctor8.call(this, System.Array.init([colClass1, colClass2, colClass3, colClass4], ExpressCraft.Bootstrap.ColClass), typos);
+
+        },
+        $ctor4: function (colClass1, colClass2, colClass3, colClass4, colClass5, typos) {
+            if (typos === void 0) { typos = []; }
+
+            ExpressCraft.Bootstrap.Col.$ctor8.call(this, System.Array.init([colClass1, colClass2, colClass3, colClass4, colClass5], ExpressCraft.Bootstrap.ColClass), typos);
+
+        },
+        $ctor5: function (colClass1, colClass2, colClass3, colClass4, colClass5, colClass6, typos) {
+            if (typos === void 0) { typos = []; }
+
+            ExpressCraft.Bootstrap.Col.$ctor8.call(this, System.Array.init([colClass1, colClass2, colClass3, colClass4, colClass5, colClass6], ExpressCraft.Bootstrap.ColClass), typos);
+
+        },
+        $ctor6: function (colClass1, colClass2, colClass3, colClass4, colClass5, colClass6, colClass7, typos) {
+            if (typos === void 0) { typos = []; }
+
+            ExpressCraft.Bootstrap.Col.$ctor8.call(this, System.Array.init([colClass1, colClass2, colClass3, colClass4, colClass5, colClass6, colClass7], ExpressCraft.Bootstrap.ColClass), typos);
+
+        },
+        $ctor7: function (colClass1, colClass2, colClass3, colClass4, colClass5, colClass6, colClass7, colClass8, typos) {
+            if (typos === void 0) { typos = []; }
+
+            ExpressCraft.Bootstrap.Col.$ctor8.call(this, System.Array.init([colClass1, colClass2, colClass3, colClass4, colClass5, colClass6, colClass7, colClass8], ExpressCraft.Bootstrap.ColClass), typos);
+
+        }
+    });
+
     Bridge.define("ExpressCraft.Bootstrap.DescriptionDetail", {
         inherits: [ExpressCraft.Bootstrap.BootstrapDiv],
         ctor: function (typos) {
@@ -725,13 +1204,13 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         }
     });
 
-    Bridge.define("ExpressCraft.Bootstrap.Col", {
+    Bridge.define("ExpressCraft.Bootstrap.ClearFix", {
         inherits: [ExpressCraft.Bootstrap.BootstrapStyleDiv],
-        ctor: function (colId, tier, typos) {
+        ctor: function (tier, typos) {
             if (typos === void 0) { typos = []; }
 
             this.$initialize();
-            ExpressCraft.Bootstrap.BootstrapStyleDiv.ctor.call(this, 'col' + tier.value + colId, typos);
+            ExpressCraft.Bootstrap.BootstrapStyleDiv.ctor.call(this, 'clearfix visible' + tier.value + 'block', typos);
 
         }
     });

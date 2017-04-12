@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Bridge;
 using Bridge.Html5;
 
-namespace ExpressCraft.Bootstrap.Grid
+namespace ExpressCraft.Bootstrap
 {
 	public class ClearFix : BootstrapStyleDiv
 	{
