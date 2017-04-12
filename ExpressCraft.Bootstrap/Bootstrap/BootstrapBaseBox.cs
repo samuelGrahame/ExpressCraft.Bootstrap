@@ -17,9 +17,7 @@ namespace ExpressCraft.Bootstrap
 		public Action<BootstrapBaseBox, KeyboardEvent> OnKeyPress = null;
 		
 		public BootstrapBaseBox(HTMLElement element) : base(element)
-		{
-			Content.ClassName = "form-control";
-
+		{			
 			this.Content.OnChange = (ev) => {
 				CheckTextChanged();
 			};

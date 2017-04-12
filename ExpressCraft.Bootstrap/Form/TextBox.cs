@@ -11,7 +11,7 @@ namespace ExpressCraft.Bootstrap
 {
 	public class TextBox : BootstrapBaseBox
 	{
-		public TextBox(string text, InputType type = InputType.Text) : base(new HTMLInputElement() { Type = Browser.IsIE ? InputType.Text : type })
+		public TextBox(string text, InputType type = InputType.Text) : base(new HTMLInputElement() { Type = Browser.IsIE ? InputType.Text : type, ClassName = "form-control" })
 		{			
 			if (!string.IsNullOrWhiteSpace(text))
 			{

@@ -9,7 +9,7 @@ namespace ExpressCraft.Bootstrap
 {
 	public class TextArea : BootstrapBaseBox
 	{		
-		public TextArea(string text = "", int rows = 1) : base(new HTMLTextAreaElement())
+		public TextArea(string text = "", int rows = 1) : base(new HTMLTextAreaElement() { ClassName = "form-control" })
 		{
 			Text = text;
 			Content.As<HTMLTextAreaElement>().Rows = Math.Max(rows, 1);			

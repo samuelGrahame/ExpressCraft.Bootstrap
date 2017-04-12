@@ -829,8 +829,6 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         ctor: function (element) {
             this.$initialize();
             ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, element);
-            this.content.className = "form-control";
-
             this.content.onchange = Bridge.fn.bind(this, $asm.$.ExpressCraft.Bootstrap.BootstrapBaseBox.f1);
             this.content.oncontextmenu = $asm.$.ExpressCraft.Bootstrap.BootstrapBaseBox.f2;
             this.content.onkeypress = Bridge.fn.bind(this, $asm.$.ExpressCraft.Bootstrap.BootstrapBaseBox.f3);
@@ -1326,7 +1324,9 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             if (rows === void 0) { rows = 1; }
 
             this.$initialize();
-            ExpressCraft.Bootstrap.BootstrapBaseBox.ctor.call(this, document.createElement('textarea'));
+            ExpressCraft.Bootstrap.BootstrapBaseBox.ctor.call(this, Bridge.merge(document.createElement('textarea'), {
+                className: "form-control"
+            } ));
             this.setText(text);
             this.content.rows = Math.max(rows, 1);
         }
@@ -1339,7 +1339,8 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
             this.$initialize();
             ExpressCraft.Bootstrap.BootstrapBaseBox.ctor.call(this, Bridge.merge(document.createElement('input'), {
-                type: Bridge.Browser.isIE ? "text" : type
+                type: Bridge.Browser.isIE ? "text" : type,
+                className: "form-control"
             } ));
             if (!System.String.isNullOrWhiteSpace(text)) {
                 this.setText(text);
