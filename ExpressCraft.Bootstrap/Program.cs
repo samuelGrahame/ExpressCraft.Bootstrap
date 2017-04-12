@@ -31,11 +31,11 @@ namespace ExpressCraft.Bootstrap
 							new BootstrapSelectionDiv(
 								new FormGroupList(
 									new TextBox("Textbox"),
-									new CheckBox("checkbox", "true"),
+									new CheckBox("checkbox", true),
 									new FormGroup(
-										new CheckBox("checkbox-inline 1", "true") { Inline = true },
-										new CheckBox("checkbox-inline 2", "false") { Inline = true },
-										new CheckBox("checkbox-inline 3", "true") { Inline = true }
+										new CheckBox("checkbox-inline 1", true) { Inline = true },
+										new CheckBox("checkbox-inline 2", true) { Inline = true },
+										new CheckBox("checkbox-inline 3", true) { Inline = true }
 										),
 									new TextBox("11/04/2017", InputType.Date),
 									new TextBox("Password", InputType.Password),

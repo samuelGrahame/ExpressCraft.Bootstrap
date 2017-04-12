@@ -3,29 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Bridge;
 using Bridge.Html5;
 using ExpressCraft;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class TextBox : TextInput
+	public class TextBox : BootstrapBaseBox
 	{
-		public TextBox(string text, InputType type = InputType.Text, string className = "form-control") : base(type, false)
-		{
-			Content.ClassName = className;
+		public TextBox(string text, InputType type = InputType.Text) : base(new HTMLInputElement() { Type = Browser.IsIE ? InputType.Text : type })
+		{			
 			if (!string.IsNullOrWhiteSpace(text))
 			{
-				if(type == InputType.Date || type == InputType.DateTime || type == InputType.DateTimeLocal)
-					this.SetDate(text);
-				else if(type == InputType.Checkbox)
-					this.SetChecked(text);
-				else
-					this.Text = text;
-			}				
+				this.Text = text;
+			}
 		}
-		public TextBox(InputType type = InputType.Text, string className = "form-control") : base(type, false)
+		public TextBox(InputType type = InputType.Text) : this(string.Empty, type)
 		{
-			Content.ClassName = className;			
+			
 		}
 	}
 }

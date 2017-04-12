@@ -10,10 +10,10 @@ namespace ExpressCraft.Bootstrap
 {
 	public class CheckBox : BootstrapStyleDiv
 	{
-		private TextBox checkBox;
-		public CheckBox(string label, string value = "") : base("checkbox")
+		private CheckBoxBase checkBox;
+		public CheckBox(string label, bool value = false) : base("checkbox")
 		{
-			AppendTypos(this, new Label(checkBox = new TextBox(value, InputType.Checkbox, ""), label));
+			AppendTypos(this, new Label(checkBox = new CheckBoxBase(value), label));
 		}
 		
 		public bool Inline

@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BootstrapForm.cs" />
+    <Compile Include="CheckBoxBase.cs" />
     <Compile Include="Label.cs" />
     <Compile Include="BootstrapWindow.cs" />
     <Compile Include="BootstrapSelectionDiv.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Abbr.cs" />
     <Compile Include="ParagraphList.cs" />
     <Compile Include="Small.cs" />
+    <Compile Include="BootstrapBaseBox.cs" />
     <Compile Include="TextArea.cs" />
     <Compile Include="TextBox.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
