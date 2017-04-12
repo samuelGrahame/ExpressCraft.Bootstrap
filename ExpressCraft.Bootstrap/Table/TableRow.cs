@@ -20,6 +20,21 @@ namespace ExpressCraft.Bootstrap
 			TableCell.AppendDataRow(this, typos);
 		}
 
+		public TableCell Cell(int index)
+		{
+			return CastElement<TableCell>(Content.Children[index]);
+		}
 
+		public IEnumerable<TableCell> Cells
+		{
+			get
+			{
+				int length = Content.ChildElementCount;
+				for(int i = 0; i < length; i++)
+				{
+					yield return Cell(i);
+				}
+			}
+		}
 	}
 }

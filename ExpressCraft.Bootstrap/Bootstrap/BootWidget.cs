@@ -26,10 +26,13 @@ namespace ExpressCraft.Bootstrap
 
 		public static T GetWidgetById<T>(string id)
 		{
-			var widget = Document.GetElementById(id);
+			return CastElement<T>(Document.GetElementById(id));			
+		}
+
+		public static T CastElement<T>(HTMLElement widget)
+		{
 			if(widget == null)
 				return default(T);
-
 			dynamic x = Activator.CreateInstance<T>();
 			x.content = widget;
 			return x;

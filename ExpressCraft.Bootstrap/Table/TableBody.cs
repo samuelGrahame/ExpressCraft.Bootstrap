@@ -14,5 +14,22 @@ namespace ExpressCraft.Bootstrap
 		{
 
 		}
+
+		public TableRow Row(int index)
+		{
+			return CastElement<TableRow>(Content.Children[index]);
+		}
+
+		public IEnumerable<TableRow> Rows
+		{
+			get
+			{
+				int length = Content.ChildElementCount;
+				for(int i = 0; i < length; i++)
+				{
+					yield return Row(i);
+				}
+			}
+		}
 	}
 }

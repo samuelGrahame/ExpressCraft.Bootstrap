@@ -8,14 +8,14 @@ using Bridge.Html5;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class TableHeaderData : BootWidget
+	public class TableHeaderCell : BootWidget
 	{
-		public TableHeaderData(params Union<string, Control, HTMLElement>[] typos) : base(new HTMLTableHeaderCellElement(), typos)
+		public TableHeaderCell(params Union<string, Control, HTMLElement>[] typos) : base(new HTMLTableHeaderCellElement(), typos)
 		{
 
 		}
 
-		public TableHeaderData(BootstrapRowCellTheme theme, params Union<string, Control, HTMLElement>[] typos) : base(new HTMLTableHeaderCellElement() { ClassName = theme.ToString("G") }, typos)
+		public TableHeaderCell(BootstrapRowCellTheme theme, params Union<string, Control, HTMLElement>[] typos) : base(new HTMLTableHeaderCellElement() { ClassName = theme.ToString("G") }, typos)
 		{
 
 		}
@@ -32,17 +32,17 @@ namespace ExpressCraft.Bootstrap
 			{
 				if(typos[i] == null)
 				{
-					list[i] = new TableHeaderData();
+					list[i] = new TableHeaderCell();
 					continue;
 				}
 
-				if(typos[i].Is<TableHeaderData>())
+				if(typos[i].Is<TableHeaderCell>())
 				{
 					list[i] = typos[i];
 				}
 				else
 				{
-					list[i] = new TableHeaderData(typos[i]);
+					list[i] = new TableHeaderCell(typos[i]);
 				}
 
 			}

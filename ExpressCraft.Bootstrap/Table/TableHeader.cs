@@ -14,5 +14,22 @@ namespace ExpressCraft.Bootstrap
 		{
 
 		}
+
+		public TableHeaderRow HeaderRow(int index)
+		{
+			return CastElement<TableHeaderRow>(Content.Children[index]);
+		}
+
+		public IEnumerable<TableHeaderRow> HeaderRows
+		{
+			get
+			{
+				int length = Content.ChildElementCount;
+				for(int i = 0; i < length; i++)
+				{
+					yield return HeaderRow(i);
+				}
+			}
+		}
 	}
 }

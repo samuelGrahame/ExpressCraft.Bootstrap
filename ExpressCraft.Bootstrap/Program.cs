@@ -116,34 +116,39 @@ line breaks."),
 											)
 										)
 									),
-									new Panel(BootstrapTheme.Primary,
+									new Panel(BootstrapTheme.Default,
 										new PanelHeading(
-											"Table Demo",
-											new FormGroupList(
-													new CheckBox("Striped", false)
-													{ OnCheckChanged = (s) => {
-														BootWidget.GetWidgetById<Table>("DemoTable").Striped = s.Checked;
-														}
+											new Heading(HeadingType.H3, "Table Demo", new Small(" - Table options below.")),
+											new FormGroup(
+												new CheckBox("Striped", false)
+												{ OnCheckChanged = (s) => {
+													BootWidget.GetWidgetById<Table>("DemoTable").Striped = s.Checked;
 													},
-													new CheckBox("Bordered", false)
-													{
-														OnCheckChanged = (s) => {
-															BootWidget.GetWidgetById<Table>("DemoTable").Bordered = s.Checked;
-														}
+													Inline = true
+												},
+												new CheckBox("Bordered", false)
+												{
+													OnCheckChanged = (s) => {
+														BootWidget.GetWidgetById<Table>("DemoTable").Bordered = s.Checked;
 													},
-													new CheckBox("Hover", false)
-													{
-														OnCheckChanged = (s) => {
-															BootWidget.GetWidgetById<Table>("DemoTable").Hover = s.Checked;
-														}
+													Inline = true
+												},
+												new CheckBox("Hover", false)
+												{
+													OnCheckChanged = (s) => {
+														BootWidget.GetWidgetById<Table>("DemoTable").Hover = s.Checked;
 													},
-													new CheckBox("Condensed", false)
-													{
-														OnCheckChanged = (s) => {
-															BootWidget.GetWidgetById<Table>("DemoTable").Condensed = s.Checked;
-														}
-													}
-												)),
+													Inline = true
+												},
+												new CheckBox("Condensed", false)
+												{
+													OnCheckChanged = (s) => {
+														BootWidget.GetWidgetById<Table>("DemoTable").Condensed = s.Checked;
+													},
+													Inline = true
+												}
+											) 
+										),
 										new PanelBody(
 											new Table(
 												new TableHeader(

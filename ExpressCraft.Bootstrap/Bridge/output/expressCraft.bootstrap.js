@@ -17,11 +17,12 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
                 return new ExpressCraft.Bootstrap.BootWidget.ctor(widget);
             },
             getWidgetById: function (T, id) {
-                var widget = document.getElementById(id);
+                return ExpressCraft.Bootstrap.BootWidget.castElement(T, document.getElementById(id));
+            },
+            castElement: function (T, widget) {
                 if (widget == null) {
                     return Bridge.getDefaultValue(T);
                 }
-
                 var x = Bridge.createInstance(T);
                 x.content = widget;
                 return x;
@@ -822,14 +823,18 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
                 setContextualBackground: ExpressCraft.Bootstrap.Contextual.Background.Warning
             } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text represents danger."]), {
                 setContextualBackground: ExpressCraft.Bootstrap.Contextual.Background.Danger
-            } )])])]), new ExpressCraft.Bootstrap.Panel(ExpressCraft.Bootstrap.BootstrapTheme.Primary, [new ExpressCraft.Bootstrap.PanelHeading(["Table Demo", new ExpressCraft.Bootstrap.FormGroupList([Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("Striped", false), {
-                onCheckChanged: $asm.$.ExpressCraft.Bootstrap.Program.f2
+            } )])])]), new ExpressCraft.Bootstrap.Panel(ExpressCraft.Bootstrap.BootstrapTheme.Default, [new ExpressCraft.Bootstrap.PanelHeading([new ExpressCraft.Bootstrap.Heading("h3", ["Table Demo", new ExpressCraft.Bootstrap.Small([" - Table options below."])]), new ExpressCraft.Bootstrap.FormGroup([Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("Striped", false), {
+                onCheckChanged: $asm.$.ExpressCraft.Bootstrap.Program.f2,
+                setInline: true
             } ), Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("Bordered", false), {
-                onCheckChanged: $asm.$.ExpressCraft.Bootstrap.Program.f3
+                onCheckChanged: $asm.$.ExpressCraft.Bootstrap.Program.f3,
+                setInline: true
             } ), Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("Hover", false), {
-                onCheckChanged: $asm.$.ExpressCraft.Bootstrap.Program.f4
+                onCheckChanged: $asm.$.ExpressCraft.Bootstrap.Program.f4,
+                setInline: true
             } ), Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("Condensed", false), {
-                onCheckChanged: $asm.$.ExpressCraft.Bootstrap.Program.f5
+                onCheckChanged: $asm.$.ExpressCraft.Bootstrap.Program.f5,
+                setInline: true
             } )])]), new ExpressCraft.Bootstrap.PanelBody([Bridge.merge(new ExpressCraft.Bootstrap.Table([new ExpressCraft.Bootstrap.TableHeader([new ExpressCraft.Bootstrap.TableHeaderRow.ctor(["#", "Table heading", "Table heading", "Table heading", "Table heading", "Table heading", "Table heading"])]), new ExpressCraft.Bootstrap.TableBody(System.Linq.Enumerable.range(0, 6).select($asm.$.ExpressCraft.Bootstrap.Program.f6).toArray())]), {
                 setId: "DemoTable"
             } )])])])]), new ExpressCraft.Bootstrap.PanelFooter(["Footer"])])]), {
@@ -1510,6 +1515,12 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             } ), typos);
 
         },
+        getTableBody: function () {
+            return ExpressCraft.Bootstrap.BootWidget.castElement(ExpressCraft.Bootstrap.TableBody, this.getSection("tbody"));
+        },
+        getTableHeader: function () {
+            return ExpressCraft.Bootstrap.BootWidget.castElement(ExpressCraft.Bootstrap.TableHeader, this.getSection("thead"));
+        },
         getStriped: function () {
             return this.getClassTrue("table-striped");
         },
@@ -1533,6 +1544,25 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         },
         setCondensed: function (value) {
             this.setClassTrue("table-condensed", value);
+        },
+        hasRows: function () {
+            var obj = this.getSection("tbody");
+            return obj != null && obj.childElementCount > 0;
+        },
+        hasColumns: function () {
+            var obj = this.getSection("thead");
+            return obj != null && obj.childElementCount > 0;
+        },
+        getSection: function (name) {
+            var $t;
+            $t = Bridge.getEnumerator(this.content.children);
+            while ($t.moveNext()) {
+                var item = $t.getCurrent();
+                if (item != null && Bridge.referenceEquals(item.tagName, name)) {
+                    return Bridge.cast(item, HTMLTableSectionElement);
+                }
+            }
+            return null;
         }
     });
 
@@ -1544,6 +1574,17 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             this.$initialize();
             ExpressCraft.Bootstrap.BootWidget.ctor.call(this, document.createElement("tbody"), typos);
 
+        },
+        getRows: function () {
+            var $yield = [];
+            var length = this.content.childElementCount;
+            for (var i = 0; i < length; i = (i + 1) | 0) {
+                $yield.push(this.row(i));
+            }
+            return System.Array.toEnumerable($yield);
+        },
+        row: function (index) {
+            return ExpressCraft.Bootstrap.BootWidget.castElement(ExpressCraft.Bootstrap.TableRow, this.content.children[index]);
         }
     });
 
@@ -1612,10 +1653,21 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             this.$initialize();
             ExpressCraft.Bootstrap.BootWidget.ctor.call(this, document.createElement("thead"), typos);
 
+        },
+        getHeaderRows: function () {
+            var $yield = [];
+            var length = this.content.childElementCount;
+            for (var i = 0; i < length; i = (i + 1) | 0) {
+                $yield.push(this.headerRow(i));
+            }
+            return System.Array.toEnumerable($yield);
+        },
+        headerRow: function (index) {
+            return ExpressCraft.Bootstrap.BootWidget.castElement(ExpressCraft.Bootstrap.TableHeaderRow, this.content.children[index]);
         }
     });
 
-    Bridge.define("ExpressCraft.Bootstrap.TableHeaderData", {
+    Bridge.define("ExpressCraft.Bootstrap.TableHeaderCell", {
         inherits: [ExpressCraft.Bootstrap.BootWidget],
         statics: {
             appendHeaderDataRow: function (control, typos) {
@@ -1629,14 +1681,14 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
                 for (var i = 0; i < length; i = (i + 1) | 0) {
                     if (typos[i] == null) {
-                        list[i] = new ExpressCraft.Bootstrap.TableHeaderData.ctor();
+                        list[i] = new ExpressCraft.Bootstrap.TableHeaderCell.ctor();
                         continue;
                     }
 
-                    if (Bridge.is(typos[i], ExpressCraft.Bootstrap.TableHeaderData)) {
+                    if (Bridge.is(typos[i], ExpressCraft.Bootstrap.TableHeaderCell)) {
                         list[i] = typos[i];
                     } else {
-                        list[i] = new ExpressCraft.Bootstrap.TableHeaderData.ctor([typos[i]]);
+                        list[i] = new ExpressCraft.Bootstrap.TableHeaderCell.ctor([typos[i]]);
                     }
 
                 }
@@ -1661,6 +1713,37 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         }
     });
 
+    Bridge.define("ExpressCraft.Bootstrap.TableHeaderRow", {
+        inherits: [ExpressCraft.Bootstrap.BootWidget],
+        ctor: function (typos) {
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootWidget.ctor.call(this, document.createElement('tr'));
+            ExpressCraft.Bootstrap.TableHeaderCell.appendHeaderDataRow(this, typos);
+        },
+        $ctor1: function (theme, typos) {
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootWidget.ctor.call(this, Bridge.merge(document.createElement('tr'), {
+                className: System.Enum.format(ExpressCraft.Bootstrap.BootstrapRowCellTheme, theme, "G")
+            } ));
+            ExpressCraft.Bootstrap.TableHeaderCell.appendHeaderDataRow(this, typos);
+        },
+        getHeaderCells: function () {
+            var $yield = [];
+            var length = this.content.childElementCount;
+            for (var i = 0; i < length; i = (i + 1) | 0) {
+                $yield.push(this.headerCell(i));
+            }
+            return System.Array.toEnumerable($yield);
+        },
+        headerCell: function (index) {
+            return ExpressCraft.Bootstrap.BootWidget.castElement(ExpressCraft.Bootstrap.TableHeaderCell, this.content.children[index]);
+        }
+    });
+
     Bridge.define("ExpressCraft.Bootstrap.TableRow", {
         inherits: [ExpressCraft.Bootstrap.BootWidget],
         ctor: function (typos) {
@@ -1678,6 +1761,17 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
                 className: System.Enum.format(ExpressCraft.Bootstrap.BootstrapRowCellTheme, theme, "G")
             } ));
             ExpressCraft.Bootstrap.TableCell.appendDataRow(this, typos);
+        },
+        getCells: function () {
+            var $yield = [];
+            var length = this.content.childElementCount;
+            for (var i = 0; i < length; i = (i + 1) | 0) {
+                $yield.push(this.cell(i));
+            }
+            return System.Array.toEnumerable($yield);
+        },
+        cell: function (index) {
+            return ExpressCraft.Bootstrap.BootWidget.castElement(ExpressCraft.Bootstrap.TableCell, this.content.children[index]);
         }
     });
 
@@ -1894,24 +1988,6 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             this.$initialize();
             ExpressCraft.Bootstrap.BootStyleWidget.ctor.call(this, "row", typos);
 
-        }
-    });
-
-    Bridge.define("ExpressCraft.Bootstrap.TableHeaderRow", {
-        inherits: [ExpressCraft.Bootstrap.TableRow],
-        ctor: function (typos) {
-            if (typos === void 0) { typos = []; }
-
-            this.$initialize();
-            ExpressCraft.Bootstrap.TableRow.ctor.call(this);
-            ExpressCraft.Bootstrap.TableHeaderData.appendHeaderDataRow(this, typos);
-        },
-        $ctor1: function (theme, typos) {
-            if (typos === void 0) { typos = []; }
-
-            this.$initialize();
-            ExpressCraft.Bootstrap.TableRow.$ctor1.call(this, theme);
-            ExpressCraft.Bootstrap.TableHeaderData.appendHeaderDataRow(this, typos);
         }
     });
 

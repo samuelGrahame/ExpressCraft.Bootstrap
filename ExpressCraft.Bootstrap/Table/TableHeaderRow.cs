@@ -8,17 +8,33 @@ using Bridge.Html5;
 
 namespace ExpressCraft.Bootstrap
 {	
-	public class TableHeaderRow : TableRow
+	public class TableHeaderRow : BootWidget
 	{
-		public TableHeaderRow(params Union<string, Control, HTMLElement>[] typos)
+		public TableHeaderRow(params Union<string, Control, HTMLElement>[] typos) : base(new HTMLTableRowElement())
 		{
-			TableHeaderData.AppendHeaderDataRow(this, typos);
+			TableHeaderCell.AppendHeaderDataRow(this, typos);
 		}
 
-		public TableHeaderRow(BootstrapRowCellTheme theme, params Union<string, Control, HTMLElement>[] typos) : base(theme)
+		public TableHeaderRow(BootstrapRowCellTheme theme, params Union<string, Control, HTMLElement>[] typos) : base(new HTMLTableRowElement() { ClassName = theme.ToString("G") })
 		{
-			TableHeaderData.AppendHeaderDataRow(this, typos);
+			TableHeaderCell.AppendHeaderDataRow(this, typos);
 		}
 
+		public TableHeaderCell HeaderCell(int index)
+		{
+			return CastElement<TableHeaderCell>(Content.Children[index]);
+		}
+
+		public IEnumerable<TableHeaderCell> HeaderCells
+		{
+			get
+			{
+				int length = Content.ChildElementCount;
+				for(int i = 0; i < length; i++)
+				{
+					yield return HeaderCell(i);
+				}
+			}
+		}
 	}
 }

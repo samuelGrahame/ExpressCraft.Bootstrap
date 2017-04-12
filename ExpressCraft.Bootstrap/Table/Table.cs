@@ -10,6 +10,40 @@ namespace ExpressCraft.Bootstrap
 {
 	public class Table : BootWidget
 	{
+		public TableBody TableBody
+		{			
+			get { return CastElement<TableBody>(GetSection("tbody")); }
+		}
+
+		public bool HasRows()
+		{
+			var obj = GetSection("tbody");
+			return obj != null && obj.ChildElementCount > 0;
+		}
+
+		public TableHeader TableHeader
+		{
+			get { return CastElement<TableHeader>(GetSection("thead")); }
+		}
+
+		public bool HasColumns()
+		{
+			var obj = GetSection("thead");
+			return obj != null && obj.ChildElementCount > 0;
+		}
+
+		protected HTMLTableSectionElement GetSection(string name)
+		{
+			foreach(var item in this.Content.Children)
+			{
+				if(item != null && item.TagName == name)
+				{
+					return (HTMLTableSectionElement)item;
+				}
+			}
+			return null;
+		}
+
 		public Table(params Union<string, Control, HTMLElement>[] typos) : base(new HTMLTableElement() { ClassName = "table" }, typos)
 		{
 
