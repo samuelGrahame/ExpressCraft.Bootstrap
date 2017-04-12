@@ -881,7 +881,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
                 setInline: true
             } )])]), new ExpressCraft.Bootstrap.PanelBody([Bridge.merge(new ExpressCraft.Bootstrap.Table([new ExpressCraft.Bootstrap.TableHeader([new ExpressCraft.Bootstrap.TableHeaderRow.ctor(["#", "Table heading", "Table heading", "Table heading", "Table heading", "Table heading", "Table heading"])]), new ExpressCraft.Bootstrap.TableBody(System.Linq.Enumerable.range(0, 9).select($asm.$.ExpressCraft.Bootstrap.Program.f6).toArray())]), {
                 setId: "DemoTable"
-            } )])])])]), new ExpressCraft.Bootstrap.PanelFooter(["Footer"])])]), {
+            } )]), new ExpressCraft.Bootstrap.PanelFooter([new ExpressCraft.Bootstrap.Heading("h3", ["How to access the table."]), new ExpressCraft.Bootstrap.Pre(["var tbl = BootWidget.GetWidgetById<Table>(\"DemoTable\");\r\nvar body = tbl.TableBody;\r\nbody.Row(0).Theme = BootRowCellTheme.Active;\r\nbody.Row(2).Theme = BootRowCellTheme.Success;\r\nbody.Row(4).Theme = BootRowCellTheme.Info;\r\nbody.Row(6).Theme = BootRowCellTheme.Warning;\r\nbody.Row(8).Theme = BootRowCellTheme.Danger;\r\n"])])])])]), new ExpressCraft.Bootstrap.PanelFooter(["Footer"])])]), {
                 setWindowstate: ExpressCraft.WindowState.Maximized
             } ));
         }

@@ -191,6 +191,19 @@ line breaks."),
 												)
 											)
 											{ Id = "DemoTable" }
+										),
+										new PanelFooter(
+											new Heading(HeadingType.H3, "How to access the table."),
+											new Pre(
+@"var tbl = BootWidget.GetWidgetById<Table>(""DemoTable"");
+var body = tbl.TableBody;
+body.Row(0).Theme = BootRowCellTheme.Active;
+body.Row(2).Theme = BootRowCellTheme.Success;
+body.Row(4).Theme = BootRowCellTheme.Info;
+body.Row(6).Theme = BootRowCellTheme.Warning;
+body.Row(8).Theme = BootRowCellTheme.Danger;
+"
+											)
 										)										
 									)
 									
