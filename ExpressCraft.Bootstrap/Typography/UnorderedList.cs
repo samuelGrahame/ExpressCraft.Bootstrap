@@ -14,7 +14,7 @@ namespace ExpressCraft.Bootstrap
 	{
 		public UnorderedList(params Union<string, Control, HTMLElement>[] typos) : base(Document.CreateElement("ul"), typos)
 		{
-
+			ListItem.AppendItemList(this, typos);
 		}
 		
 		public bool Unstyled
