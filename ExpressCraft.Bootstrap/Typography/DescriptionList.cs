@@ -15,5 +15,14 @@ namespace ExpressCraft.Bootstrap
 		{
 
 		}
+		
+		public bool Horizontal
+		{
+			get { return GetClassTrue("dl-horizontal"); }
+			set
+			{
+				SetClassTrue("dl-horizontal", value);
+			}
+		}
 	}
 }

@@ -18,6 +18,31 @@ namespace ExpressCraft.Bootstrap
 		Link
 	}
 
+	public enum BootstrapRowCellTheme
+	{		
+		Active,
+		Success,
+		Warning,
+		Danger,
+		Info
+	}
+
+	public enum BootstrapParagraphAlignment
+	{
+		Left,
+		Center,
+		Right,
+		Justify,
+		Nowrap
+	}
+
+	public enum BootstrapParagraphTransformation
+	{
+		Lowercase,
+		Uppercase,
+		Capitalize,		
+	}
+
 	public enum bootstrapForm
 	{
 		None,

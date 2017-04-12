@@ -17,5 +17,14 @@ namespace ExpressCraft.Bootstrap
 			if(!string.IsNullOrWhiteSpace(title))
 				this.Content.Title = title;
 		}
+
+		public bool Initialism
+		{
+			get { return GetClassTrue("initialism"); }
+			set
+			{
+				SetClassTrue("initialism", value);
+			}
+		}
 	}
 }

@@ -12,35 +12,49 @@ namespace ExpressCraft.Bootstrap
 {
 	public class Blockquote : BootstrapDiv
 	{
-		public Blockquote(string paragraph, string footer, params Union<string, Control, HTMLElement>[] typos) : base(Document.CreateElement("blockquote"), CreateBlock(paragraph, footer, typos))
+		public Blockquote(params Union<string, Control, HTMLElement>[] typos) : base(Document.CreateElement("blockquote"), typos)
 		{
 			
 		}
-				
+
+		public Blockquote(Paragraph para, params Union<string, Control, HTMLElement>[] typos) : base(Document.CreateElement("blockquote"))
+		{
+			var x = new List<Union<string, Control, HTMLElement>>();
+			
+			x.Add(para);
+			x.AddRange(typos);
+
+			AppendTypos(this, x.ToArray());
+		}
+
+		public Blockquote(Paragraph para, Footer footer, params Union<string, Control, HTMLElement>[] typos) : base(Document.CreateElement("blockquote"))
+		{
+			var x = new List<Union<string, Control, HTMLElement>>();
+
+			x.Add(para);
+			x.Add(footer);
+			x.AddRange(typos);
+
+			AppendTypos(this, x.ToArray());
+		}
+
+		public Blockquote(Paragraph para, Footer footer, Cite source, params Union<string, Control, HTMLElement>[] typos) : base(Document.CreateElement("blockquote"))
+		{
+			var x = new List<Union<string, Control, HTMLElement>>();
+
+			x.Add(para);
+			x.Add(footer.AppendChild(source));
+			x.AddRange(typos);
+
+			AppendTypos(this, x.ToArray());
+		}
+
 		public bool Reverse
 		{
-			get { return ClassList.Contains("blockquote-reverse"); }
+			get { return GetClassTrue("blockquote-reverse"); }
 			set {
-				if(value == Reverse)
-				{
-					return;
-				}
-				if(value)
-					ClassList.Add("blockquote-reverse");
-				else
-					ClassList.Remove("blockquote-reverse");				
+				SetClassTrue("blockquote-reverse", value);				
 			}
-		}
-		
-		internal static Union<string, Control, HTMLElement>[] CreateBlock(string paragraph, string footer, params Union<string, Control, HTMLElement>[] typos)
-		{
-			var a = new List<Union<string, Control, HTMLElement>>();
-
-			a.Add(new Paragraph(paragraph));
-			a.Add(new Footer(footer));
-			a.AddRange(typos);
-
-			return a.ToArray();
 		}
 	}
 }

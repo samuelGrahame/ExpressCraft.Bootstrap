@@ -16,5 +16,14 @@ namespace ExpressCraft.Bootstrap
 		{
 			
 		}
+		
+		public bool SourceOnly
+		{
+			get { return GetClassTrue("sr-only"); }
+			set
+			{
+				SetClassTrue("sr-only", value);
+			}
+		}
 	}
 }

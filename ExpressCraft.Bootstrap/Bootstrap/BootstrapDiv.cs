@@ -9,7 +9,23 @@ using Bridge.Html5;
 namespace ExpressCraft.Bootstrap
 {
 	public class BootstrapDiv : Control
-	{		
+	{
+		public bool GetClassTrue(string classStr)
+		{
+			return ClassList.Contains(classStr);
+		}
+		public void SetClassTrue(string classStr, bool value)
+		{
+			if(value == GetClassTrue(classStr))
+			{
+				return;
+			}
+			if(value)
+				ClassList.Add(classStr);
+			else
+				ClassList.Remove(classStr);
+		}		
+
 		public BootstrapDiv(params Union<string, Control, HTMLElement>[] typos) : this(new HTMLDivElement(), typos)
 		{
 			

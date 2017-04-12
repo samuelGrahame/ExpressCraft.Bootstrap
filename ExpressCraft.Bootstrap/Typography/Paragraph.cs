@@ -16,5 +16,44 @@ namespace ExpressCraft.Bootstrap
 		{
 			
 		}
+		public Paragraph(BootstrapParagraphAlignment alignment, params Union<string, Control, HTMLElement>[] typos) : base(new HTMLParagraphElement() { ClassName = "text-" + alignment.ToString("G").ToLower() }, typos)
+		{
+
+		}
+		public Paragraph(BootstrapParagraphAlignment alignment, BootstrapParagraphTransformation transform, params Union<string, Control, HTMLElement>[] typos) : base(new HTMLParagraphElement() { ClassName = "text-" + transform.ToString("G").ToLower() + " " + "text-" + alignment.ToString("G").ToLower() }, typos)
+		{
+
+		}
+		public Paragraph(BootstrapParagraphTransformation transform, params Union<string, Control, HTMLElement>[] typos) : base(new HTMLParagraphElement() { ClassName = "text-" + transform.ToString("G").ToLower() }, typos)
+		{
+
+		}
+		
+		public bool Initialism
+		{
+			get { return GetClassTrue("initialism"); }
+			set
+			{
+				SetClassTrue("initialism", value);
+			}
+		}
+
+		public bool Lead
+		{
+			get { return GetClassTrue("lead"); }
+			set
+			{
+				SetClassTrue("lead", value);
+			}
+		}
+
+		public bool Help
+		{
+			get { return GetClassTrue("help-block"); }
+			set
+			{
+				SetClassTrue("help-block", value);
+			}
+		}
 	}
 }

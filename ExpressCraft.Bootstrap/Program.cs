@@ -78,8 +78,8 @@ namespace ExpressCraft.Bootstrap
 										"Text",
 										new Abbr("Abbr hover", "Abbr"),
 										new Small("Small"),
-										new Blockquote("Block Quote Content", "Block Quote From"),
-										new Blockquote("Block Quote Content Reverse", "Block Quote From Reverse") { Reverse = true },
+										new Blockquote(new Paragraph("Block Quote Content"), new Footer("Block Quote From")),
+										new Blockquote(new Paragraph("Block Quote Content Reverse"), new Footer("Block Quote From Reverse")) { Reverse = true },
 										new DescriptionList(
 											new DescriptionTitle("Description Title 1"),
 											new DescriptionDetail("- Description Detail 1"),
