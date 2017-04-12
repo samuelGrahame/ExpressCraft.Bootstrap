@@ -8,12 +8,19 @@ using Bridge.Html5;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class CheckBox : BootstrapStyleDiv
+	public class CheckBox : BootStyleWidget
 	{
-		private CheckBoxBase checkBox;
+		public Action<CheckBox> OnCheckChanged = null;
+		
 		public CheckBox(string label, bool value = false) : base("checkbox")
 		{
-			AppendTypos(this, new Label(checkBox = new CheckBoxBase(value), label));
+			var x = new CheckBoxBase(value);
+			AppendTypos(this, new Label(x, label));
+
+			x.OnTextChanged = (obj) => {
+				if(OnCheckChanged != null)
+					OnCheckChanged(this);
+			};
 		}
 		
 		public bool Inline
@@ -22,6 +29,18 @@ namespace ExpressCraft.Bootstrap
 			set
 			{
 				SetInline(this, "checkbox", value);
+			}
+		}
+
+		public bool Checked
+		{
+			get
+			{
+				return this.Content.FirstChild.FirstChild.As<HTMLInputElement>().Checked.ToString().IsTrue() == 1;
+			}
+			set
+			{
+				this.Content.FirstChild.FirstChild.As<HTMLInputElement>().Checked = value;
 			}
 		}
 	}

@@ -11,7 +11,7 @@ using ExpressCraft.Bootstrap;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class BootstrapWindow : Form
+	public class BootWindow : Form
 	{
 		private static bool hasSetupMetaTags = false;
 
@@ -26,9 +26,9 @@ namespace ExpressCraft.Bootstrap
 
 			}
 
-		public BootstrapWindow(params Union<string, Control, HTMLElement>[] typos) : base("")
+		public BootWindow(params Union<string, Control, HTMLElement>[] typos) : base("")
 		{		
-			var x = (HTMLDivElement)(new BootstrapStyleDiv("container")).Content;
+			var x = (HTMLDivElement)(new BootStyleWidget("container")).Content;
 
 			this.BackColor = Color.White;
 			this.Body.AppendChild(x);
@@ -38,7 +38,7 @@ namespace ExpressCraft.Bootstrap
 			this.BodyStyle.Padding = "0";
 			SetCalcSize();
 
-			BootstrapDiv.AppendTypos(this.Body, typos);			
+			BootWidget.AppendTypos(this.Body, typos);			
 		}
 
 		protected void SetCalcSize()

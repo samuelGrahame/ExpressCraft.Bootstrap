@@ -10,7 +10,7 @@ using ExpressCraft.Bootstrap;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class Paragraph : BootstrapDiv
+	public class Paragraph : BootWidget
 	{
 		public Paragraph(params Union<string, Control, HTMLElement>[] typos) : base(new HTMLParagraphElement(), typos)
 		{

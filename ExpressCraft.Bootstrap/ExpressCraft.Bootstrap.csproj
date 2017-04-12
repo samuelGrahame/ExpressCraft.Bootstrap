@@ -54,12 +54,12 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bootstrap\BootstrapForm.cs" />
+    <Compile Include="Bootstrap\BootForm.cs" />
     <Compile Include="Form\CheckBoxBase.cs" />
     <Compile Include="Form\Label.cs" />
-    <Compile Include="Bootstrap\BootstrapWindow.cs" />
-    <Compile Include="Bootstrap\BootstrapSelectionDiv.cs" />
-    <Compile Include="Bootstrap\BootstrapStyleDiv.cs" />
+    <Compile Include="Bootstrap\BootWindow.cs" />
+    <Compile Include="Bootstrap\BootSelectionWidget.cs" />
+    <Compile Include="Bootstrap\BootStyleWidget.cs" />
     <Compile Include="Form\Button.cs" />
     <Compile Include="Form\CheckBox.cs" />
     <Compile Include="Bootstrap\Enums.cs" />
@@ -109,12 +109,12 @@
     <Compile Include="Typography\Address.cs" />
     <Compile Include="Typography\Var.cs" />
     <Compile Include="Typography\Small.cs" />
-    <Compile Include="Bootstrap\BootstrapBaseBox.cs" />
+    <Compile Include="Bootstrap\BootBaseBox.cs" />
     <Compile Include="Form\TextArea.cs" />
     <Compile Include="Form\TextBox.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Typography\Heading.cs" />
-    <Compile Include="Bootstrap\BootstrapDiv.cs" />
+    <Compile Include="Bootstrap\BootWidget.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Bridge\bridge.json" />

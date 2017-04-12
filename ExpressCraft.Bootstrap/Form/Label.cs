@@ -10,7 +10,7 @@ using ExpressCraft.Bootstrap;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class Label : BootstrapDiv
+	public class Label : BootWidget
 	{
 		public Label(params Union<string, Control, HTMLElement>[] typos) : base(Document.CreateElement("label"), typos)
 		{

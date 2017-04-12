@@ -9,7 +9,7 @@ using Bridge.Html5;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class Footer : BootstrapDiv
+	public class Footer : BootWidget
 	{
 		public Footer(params Union<string, Control, HTMLElement>[] typos) : base(Document.CreateElement("footer"), typos)
 		{

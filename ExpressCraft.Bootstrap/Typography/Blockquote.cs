@@ -10,7 +10,7 @@ using ExpressCraft.Bootstrap;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class Blockquote : BootstrapDiv
+	public class Blockquote : BootWidget
 	{
 		public Blockquote(params Union<string, Control, HTMLElement>[] typos) : base(Document.CreateElement("blockquote"), typos)
 		{

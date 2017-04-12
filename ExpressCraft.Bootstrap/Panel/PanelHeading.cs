@@ -10,7 +10,7 @@ using ExpressCraft;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class PanelHeading : BootstrapStyleDiv
+	public class PanelHeading : BootStyleWidget
 	{
 		public PanelHeading(params Union<string, Control, HTMLElement>[] typos) : base("panel-heading", typos)
 		{

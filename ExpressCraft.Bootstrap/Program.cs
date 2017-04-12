@@ -22,14 +22,14 @@ namespace ExpressCraft.Bootstrap
 			
 			Action<MouseEvent> buttonClick = (ev) => { Global.Alert(ev.CurrentTarget.As<HTMLElement>().InnerHTML); };
 
-			BootstrapWindow.SetupMetaTags();
+			BootWindow.SetupMetaTags();
 
 			Application.Run(
-				new BootstrapWindow(
+				new BootWindow(
 					new Panel(BootstrapTheme.Default,
 						new PanelHeading("Welcome to ExpressCraft-Bootstrap"),
 						new PanelBody(
-							new BootstrapSelectionDiv(
+							new BootSelectionWidget(
 								new FormGroupList(
 									new TextBox("Textbox"),
 									new CheckBox("checkbox", true),
@@ -41,7 +41,7 @@ namespace ExpressCraft.Bootstrap
 									new TextBox("11/04/2017", InputType.Date),
 									new TextBox("Password", InputType.Password),
 									new TextArea("TextArea", 4),
-									new BootstrapForm(bootstrapForm.Inline,
+									new BootForm(bootstrapForm.Inline,
 										new Label(
 											"Email:",
 											new TextBox()
@@ -53,7 +53,7 @@ namespace ExpressCraft.Bootstrap
 										new CheckBox("Remeber me"),
 										new Button("Submit", ButtonType.Submit)
 									),
-									new BootstrapForm(bootstrapForm.Horizontal,
+									new BootForm(bootstrapForm.Horizontal,
 										new Label(
 											"Email:",
 											new TextBox()
@@ -116,95 +116,56 @@ line breaks."),
 											)
 										)
 									),
-									new Table(
-										new TableHeader(
-											new TableHeaderRow(
-												"#",
-												"Table heading",
-												"Table heading",
-												"Table heading",
-												"Table heading",
-												"Table heading",
-												"Table heading"
+									new Panel(BootstrapTheme.Primary,
+										new PanelHeading(
+											"Table Demo",
+											new FormGroupList(
+													new CheckBox("Striped", false)
+													{ OnCheckChanged = (s) => {
+														BootWidget.GetWidgetById<Table>("DemoTable").Striped = s.Checked;
+														}
+													},
+													new CheckBox("Bordered", false)
+													{
+														OnCheckChanged = (s) => {
+															BootWidget.GetWidgetById<Table>("DemoTable").Bordered = s.Checked;
+														}
+													},
+													new CheckBox("Hover", false)
+													{
+														OnCheckChanged = (s) => {
+															BootWidget.GetWidgetById<Table>("DemoTable").Hover = s.Checked;
+														}
+													},
+													new CheckBox("Condensed", false)
+													{
+														OnCheckChanged = (s) => {
+															BootWidget.GetWidgetById<Table>("DemoTable").Condensed = s.Checked;
+														}
+													}
+												)),
+										new PanelBody(
+											new Table(
+												new TableHeader(
+													new TableHeaderRow(
+														"#",
+														"Table heading",
+														"Table heading",
+														"Table heading",
+														"Table heading",
+														"Table heading",
+														"Table heading"
+														)
+													),
+												new TableBody(
+													Enumerable.Range(0, 6).Select((x, index) => (Union<string, Control, HTMLElement>)new TableRow(
+													(index + 1).ToString(), "Table cell", "Table cell", "Table cell", "Table cell", "Table cell", "Table cell")).ToArray()
 												)
-											),
-											new TableBody(
-											Enumerable.Range(0, 6).Select((x, index) => (Union<string, Control, HTMLElement>)new TableRow(
-												(index + 1).ToString(), "Table cell", "Table cell", "Table cell", "Table cell", "Table cell", "Table cell")).ToArray()
 											)
-										),
-									new Table(
-										new TableHeader(
-											new TableHeaderRow(
-												"#",
-												"Table heading",
-												"Table heading",
-												"Table heading",
-												"Table heading",
-												"Table heading",
-												"Table heading"
-												)
-											),
-											new TableBody(
-											Enumerable.Range(0, 6).Select((x, index) => (Union<string, Control, HTMLElement>)new TableRow(
-												(index + 1).ToString(), "Table cell", "Table cell", "Table cell", "Table cell", "Table cell", "Table cell")).ToArray()
-											)
-										)
-									{  Bordered = true },
-									new Table(
-										new TableHeader(
-											new TableHeaderRow(
-												"#",
-												"Table heading",
-												"Table heading",
-												"Table heading",
-												"Table heading",
-												"Table heading",
-												"Table heading"
-												)
-											),
-											new TableBody(
-											Enumerable.Range(0, 6).Select((x, index) => (Union<string, Control, HTMLElement>)new TableRow(
-												(index + 1).ToString(), "Table cell", "Table cell", "Table cell", "Table cell", "Table cell", "Table cell")).ToArray()
-											)
-										)
-									{ Condensed = true },
-									new Table(
-										new TableHeader(
-											new TableHeaderRow(
-												"#",
-												"Table heading",
-												"Table heading",
-												"Table heading",
-												"Table heading",
-												"Table heading",
-												"Table heading"
-												)
-											),
-											new TableBody(
-											Enumerable.Range(0, 6).Select((x, index) => (Union<string, Control, HTMLElement>)new TableRow(
-												(index + 1).ToString(), "Table cell", "Table cell", "Table cell", "Table cell", "Table cell", "Table cell")).ToArray()
-											)
-										)
-									{ Hover = true },
-									new Table(
-										new TableHeader(
-											new TableHeaderRow(
-												"#",
-												"Table heading",
-												"Table heading",
-												"Table heading",
-												"Table heading",
-												"Table heading",
-												"Table heading"
-												)
-											),
-											new TableBody(
-											Enumerable.Range(0, 6).Select((x, index) => (Union<string, Control, HTMLElement>)new TableRow(
-												(index + 1).ToString(), "Table cell", "Table cell", "Table cell", "Table cell", "Table cell", "Table cell")).ToArray()
-											)
-										)
-									{ Striped = true }
+											{ Id = "DemoTable" }
+										)										
+									)
+									
 								)
 						),
 						new PanelFooter(

@@ -10,7 +10,7 @@ using ExpressCraft;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class Panel : BootstrapStyleDiv
+	public class Panel : BootStyleWidget
 	{		
 		public Panel(BootstrapTheme type = BootstrapTheme.Default, params Union<string, Control, HTMLElement>[] typos) : base("panel" + Extension.GetClassTheme(" panel-", type), typos)
 		{			

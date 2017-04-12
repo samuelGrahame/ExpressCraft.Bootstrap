@@ -8,9 +8,9 @@ using Bridge.Html5;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class BootstrapForm : Control
+	public class BootForm : Control
 	{
-		public BootstrapForm(bootstrapForm formType = bootstrapForm.None, params Union<string, Control, HTMLElement>[] typos) : base(new HTMLFormElement() )
+		public BootForm(bootstrapForm formType = bootstrapForm.None, params Union<string, Control, HTMLElement>[] typos) : base(new HTMLFormElement() )
 		{			
 			if(formType != bootstrapForm.None)
 				Content.ClassName = "form-" + formType.ToString("G").ToLower();

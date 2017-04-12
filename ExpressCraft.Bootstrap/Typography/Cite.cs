@@ -10,7 +10,7 @@ using ExpressCraft.Bootstrap;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class Cite : BootstrapDiv
+	public class Cite : BootWidget
 	{
 		public Cite(string title = string.Empty, params Union<string, Control, HTMLElement>[] typos) : base(Document.CreateElement("cite"), typos)
 		{

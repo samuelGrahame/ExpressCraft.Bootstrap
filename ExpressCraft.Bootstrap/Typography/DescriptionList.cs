@@ -9,7 +9,7 @@ using Bridge.Html5;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class DescriptionList : BootstrapDiv
+	public class DescriptionList : BootWidget
 	{
 		public DescriptionList(params Union<string, Control, HTMLElement>[] typos) : base(Document.CreateElement("dl"), typos)
 		{

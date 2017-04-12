@@ -8,7 +8,7 @@ using Bridge.Html5;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class Row : BootstrapStyleDiv
+	public class Row : BootStyleWidget
 	{
 		public Row(params Union<string, Control, HTMLElement>[] typos) : base("row", typos)
 		{

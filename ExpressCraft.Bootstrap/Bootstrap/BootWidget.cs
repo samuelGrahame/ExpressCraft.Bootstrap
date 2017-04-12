@@ -8,8 +8,33 @@ using Bridge.Html5;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class BootstrapDiv : Control
-	{
+	public class BootWidget : Control
+	{		
+		public string Id
+		{
+			get { return Content.Id; }
+			set { Content.Id = value; }
+		}		
+
+		public static BootWidget GetWidgetById(string id)
+		{
+			var widget = Document.GetElementById(id);
+			if(widget == null)
+				return null;
+			return new BootWidget(widget);
+		}
+
+		public static T GetWidgetById<T>(string id)
+		{
+			var widget = Document.GetElementById(id);
+			if(widget == null)
+				return default(T);
+
+			dynamic x = Activator.CreateInstance<T>();
+			x.content = widget;
+			return x;
+		}
+
 		public bool GetClassTrue(string classStr)
 		{
 			return ClassList.Contains(classStr);
@@ -26,12 +51,12 @@ namespace ExpressCraft.Bootstrap
 				ClassList.Remove(classStr);
 		}		
 
-		public BootstrapDiv(params Union<string, Control, HTMLElement>[] typos) : this(new HTMLDivElement(), typos)
+		public BootWidget(params Union<string, Control, HTMLElement>[] typos) : this(new HTMLDivElement(), typos)
 		{
 			
 		}
 		
-		public BootstrapDiv(HTMLElement element, params Union<string, Control, HTMLElement>[] typos) : base(element)
+		public BootWidget(HTMLElement element, params Union<string, Control, HTMLElement>[] typos) : base(element)
 		{
 			AppendTypos(this, typos);			
 		}

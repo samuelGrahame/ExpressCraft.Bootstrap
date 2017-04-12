@@ -9,7 +9,7 @@ using Bridge.Html5;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class Heading : BootstrapDiv
+	public class Heading : BootWidget
 	{
 		public Heading(HeadingType ht, params Union<string, Control, HTMLElement>[] typos) : base(new HTMLHeadingElement(ht), typos)
 		{

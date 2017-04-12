@@ -7,7 +7,7 @@ using Bridge.Html5;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class TextArea : BootstrapBaseBox
+	public class TextArea : BootBaseBox
 	{		
 		public TextArea(string text = "", int rows = 1) : base(new HTMLTextAreaElement() { ClassName = "form-control" })
 		{

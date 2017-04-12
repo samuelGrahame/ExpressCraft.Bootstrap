@@ -10,7 +10,7 @@ using ExpressCraft.Bootstrap;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class Strikethrough : BootstrapDiv
+	public class Strikethrough : BootWidget
 	{
 		public Strikethrough(params Union<string, Control, HTMLElement>[] typos) : base(Document.CreateElement("s"), typos)
 		{

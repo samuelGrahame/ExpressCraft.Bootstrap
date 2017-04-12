@@ -9,7 +9,7 @@ using Bridge.Html5;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class Pre : BootstrapDiv
+	public class Pre : BootWidget
 	{
 		public Pre(params Union<string, Control, HTMLElement>[] typos) : base(Document.CreateElement("pre"), typos)
 		{

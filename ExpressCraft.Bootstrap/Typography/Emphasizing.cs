@@ -10,7 +10,7 @@ using ExpressCraft.Bootstrap;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class Emphasizing : BootstrapDiv
+	public class Emphasizing : BootWidget
 	{
 		public Emphasizing(params Union<string, Control, HTMLElement>[] typos) : base(Document.CreateElement("em"), typos)
 		{

@@ -7,16 +7,16 @@ using Bridge.Html5;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class BootstrapBaseBox : BootstrapDiv
+	public class BootBaseBox : BootWidget
 	{
 		private string prevText = "";
 
-		public Action<BootstrapBaseBox> OnTextChanged = null;
-		public Action<BootstrapBaseBox, KeyboardEvent> OnKeyDown = null;
-		public Action<BootstrapBaseBox, KeyboardEvent> OnKeyUp = null;
-		public Action<BootstrapBaseBox, KeyboardEvent> OnKeyPress = null;
+		public Action<BootBaseBox> OnTextChanged = null;
+		public Action<BootBaseBox, KeyboardEvent> OnKeyDown = null;
+		public Action<BootBaseBox, KeyboardEvent> OnKeyUp = null;
+		public Action<BootBaseBox, KeyboardEvent> OnKeyPress = null;
 		
-		public BootstrapBaseBox(HTMLElement element) : base(element)
+		public BootBaseBox(HTMLElement element) : base(element)
 		{			
 			this.Content.OnChange = (ev) => {
 				CheckTextChanged();
@@ -71,14 +71,29 @@ namespace ExpressCraft.Bootstrap
 		{
 			get
 			{
-				return this.Content.As<HTMLInputElement>().InnerHTML;
+				if(this.Content.Is<HTMLInputElement>() && this.Content.As<HTMLInputElement>().Type == InputType.Checkbox)
+				{
+					return this.Content.As<HTMLInputElement>().Checked.ToString();
+				}
+				else
+				{
+					return this.Content.As<HTMLInputElement>().Value;
+				}
 			}
 			set
 			{
-				this.Content.As<HTMLInputElement>().InnerHTML = value;
-				
+				if(this.Content.Is<HTMLInputElement>() && this.Content.As<HTMLInputElement>().Type == InputType.Checkbox)
+				{
+					value = value.ToLower();
+					this.Content.As<HTMLInputElement>().Checked = value.IsTrue() == 1;
+				}
+				else
+				{
+					this.Content.As<HTMLInputElement>().Value = value;
+				}
+
 				CheckTextChanged();
 			}
-		}		
+		}
 	}
 }

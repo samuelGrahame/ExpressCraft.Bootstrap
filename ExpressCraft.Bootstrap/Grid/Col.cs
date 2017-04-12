@@ -8,7 +8,7 @@ using Bridge.Html5;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class Col : BootstrapDiv
+	public class Col : BootWidget
 	{		
 		public Col(ColClass[] colClasses, params Union<string, Control, HTMLElement>[] typos) : base(typos)
 		{

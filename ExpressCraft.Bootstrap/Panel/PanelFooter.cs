@@ -10,7 +10,7 @@ using ExpressCraft;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class PanelFooter : BootstrapStyleDiv
+	public class PanelFooter : BootStyleWidget
 	{
 		public PanelFooter(params Union<string, Control, HTMLElement>[] typos) : base("panel-footer", typos)
 		{

@@ -8,7 +8,7 @@ using Bridge.Html5;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class TableHeaderData : BootstrapDiv
+	public class TableHeaderData : BootWidget
 	{
 		public TableHeaderData(params Union<string, Control, HTMLElement>[] typos) : base(new HTMLTableHeaderCellElement(), typos)
 		{
@@ -46,7 +46,7 @@ namespace ExpressCraft.Bootstrap
 				}
 
 			}
-			BootstrapDiv.AppendTypos(control, list);
+			BootWidget.AppendTypos(control, list);
 		}
 	}
 }

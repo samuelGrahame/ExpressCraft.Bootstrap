@@ -10,7 +10,7 @@ using ExpressCraft.Bootstrap;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class Underlined : BootstrapDiv
+	public class Underlined : BootWidget
 	{
 		public Underlined(params Union<string, Control, HTMLElement>[] typos) : base(Document.CreateElement("u"), typos)
 		{

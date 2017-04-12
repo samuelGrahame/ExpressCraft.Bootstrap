@@ -11,7 +11,7 @@ using ExpressCraft.Bootstrap;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class PanelBody : BootstrapStyleDiv
+	public class PanelBody : BootStyleWidget
 	{
 		public PanelBody(params Union<string, Control, HTMLElement>[] typos) : base("panel-body", typos)
 		{

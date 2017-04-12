@@ -7,7 +7,7 @@ using Bridge.Html5;
 
 namespace ExpressCraft.Bootstrap
 {
-	internal class CheckBoxBase : BootstrapBaseBox
+	internal class CheckBoxBase : BootBaseBox
 	{
 		public CheckBoxBase(bool value = false) : base(new HTMLInputElement() { Type = InputType.Checkbox })
 		{

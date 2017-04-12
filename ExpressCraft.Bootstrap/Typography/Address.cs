@@ -10,7 +10,7 @@ using ExpressCraft.Bootstrap;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class Address : BootstrapDiv
+	public class Address : BootWidget
 	{
 		public Address(params Union<string, Control, HTMLElement>[] typos) : base(Document.CreateElement("address"), typos)
 		{

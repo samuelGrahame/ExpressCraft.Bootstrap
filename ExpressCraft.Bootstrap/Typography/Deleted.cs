@@ -10,7 +10,7 @@ using ExpressCraft.Bootstrap;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class Deleted : BootstrapDiv
+	public class Deleted : BootWidget
 	{
 		public Deleted(params Union<string, Control, HTMLElement>[] typos) : base(Document.CreateElement("del"), typos)
 		{

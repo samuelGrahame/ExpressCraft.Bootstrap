@@ -10,7 +10,7 @@ using ExpressCraft.Bootstrap;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class ParagraphList : BootstrapDiv
+	public class ParagraphList : BootWidget
 	{
 		public ParagraphList(params Union<string, Control, HTMLElement>[] typos) : base(new HTMLDivElement())
 		{
@@ -38,7 +38,7 @@ namespace ExpressCraft.Bootstrap
 				}
 				
 			}
-			BootstrapDiv.AppendTypos(this, list);
+			BootWidget.AppendTypos(this, list);
 		}
 	}
 }

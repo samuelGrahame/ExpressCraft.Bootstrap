@@ -8,7 +8,7 @@ using Bridge.Html5;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class TableResponsive : BootstrapStyleDiv
+	public class TableResponsive : BootStyleWidget
 	{
 		public TableResponsive(params Union<string, Control, HTMLElement>[] typos) : base("table-responsive", typos)
 		{

@@ -10,7 +10,7 @@ using ExpressCraft.Bootstrap;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class Abbr : BootstrapDiv
+	public class Abbr : BootWidget
 	{
 		public Abbr(string title = string.Empty, params Union<string, Control, HTMLElement>[] typos) : base(Document.CreateElement("abbr"), typos)
 		{

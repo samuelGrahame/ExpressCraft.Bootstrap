@@ -9,9 +9,9 @@ using ExpressCraft.Bootstrap;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class BootstrapStyleDiv : BootstrapDiv
+	public class BootStyleWidget : BootWidget
 	{
-		public BootstrapStyleDiv(string className, params Union<string, Control, HTMLElement>[] typos) : base(new HTMLDivElement() { ClassName = className }, typos)
+		public BootStyleWidget(string className, params Union<string, Control, HTMLElement>[] typos) : base(new HTMLDivElement() { ClassName = className }, typos)
 		{
 			
 		}

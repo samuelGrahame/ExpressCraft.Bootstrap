@@ -10,7 +10,7 @@ using ExpressCraft.Bootstrap;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class OrderedList : BootstrapDiv
+	public class OrderedList : BootWidget
 	{
 		public OrderedList(params Union<string, Control, HTMLElement>[] typos) : base(Document.CreateElement("ol"), typos)
 		{			

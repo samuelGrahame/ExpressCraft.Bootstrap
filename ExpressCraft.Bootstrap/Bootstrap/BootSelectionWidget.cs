@@ -8,9 +8,9 @@ using Bridge.Html5;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class BootstrapSelectionDiv : BootstrapDiv
+	public class BootSelectionWidget : BootWidget
 	{
-		public BootstrapSelectionDiv(params Union<string, Control, HTMLElement>[] typos) : base(new HTMLDivElement() { ClassName = "selection" }, typos)
+		public BootSelectionWidget(params Union<string, Control, HTMLElement>[] typos) : base(new HTMLDivElement() { ClassName = "selection" }, typos)
 		{
 			
 		}

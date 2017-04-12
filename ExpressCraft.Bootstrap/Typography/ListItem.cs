@@ -10,7 +10,7 @@ using ExpressCraft.Bootstrap;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class ListItem : BootstrapDiv
+	public class ListItem : BootWidget
 	{
 		public ListItem(params Union<string, Control, HTMLElement>[] typos) : base(Document.CreateElement("li"), typos)
 		{
@@ -43,7 +43,7 @@ namespace ExpressCraft.Bootstrap
 				}
 
 			}
-			BootstrapDiv.AppendTypos(control, list);
+			BootWidget.AppendTypos(control, list);
 		}
 	}
 }

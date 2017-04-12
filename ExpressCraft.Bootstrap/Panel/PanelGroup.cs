@@ -10,7 +10,7 @@ using ExpressCraft;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class PanelGroup : BootstrapStyleDiv
+	public class PanelGroup : BootStyleWidget
 	{
 		public PanelGroup(params Union<string, Control, HTMLElement>[] typos) : base("panel-group", typos)
 		{

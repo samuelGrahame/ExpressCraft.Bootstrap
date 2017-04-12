@@ -10,7 +10,7 @@ using ExpressCraft.Bootstrap;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class UnorderedList : BootstrapDiv
+	public class UnorderedList : BootWidget
 	{
 		public UnorderedList(params Union<string, Control, HTMLElement>[] typos) : base(Document.CreateElement("ul"), typos)
 		{

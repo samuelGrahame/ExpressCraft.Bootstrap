@@ -10,7 +10,7 @@ using ExpressCraft;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class FormGroupList : BootstrapDiv
+	public class FormGroupList : BootWidget
 	{
 		public FormGroupList(params Union<string, Control, HTMLElement>[] typos) : base()
 		{
