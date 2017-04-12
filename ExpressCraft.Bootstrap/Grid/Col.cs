@@ -8,13 +8,13 @@ using Bridge.Html5;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class Col : BootWidget
-	{		
-		public Col(ColClass[] colClasses, params Union<string, Control, HTMLElement>[] typos) : base(typos)
+	public static class ColExtentions
+	{
+		public static void ApplyColumns(this BootWidget widget, params ColClass[] colClasses)
 		{
 			int length;
-			if(colClasses != null && (length = colClasses.Length) > 0)
-			{				
+			if(widget != null && colClasses != null && (length = colClasses.Length) > 0)
+			{
 				var builder = new StringBuilder();
 
 				for(int i = 0; i < length; i++)
@@ -22,9 +22,17 @@ namespace ExpressCraft.Bootstrap
 					builder.Append(colClasses[i].value + " ");
 				}
 				builder.Length--;
-				this.Content.ClassName = builder.ToString();
-			}			
+				widget.Content.ClassName = builder.ToString();
+			}
 		}
+	}
+
+	public class Col : BootWidget
+	{		
+		public Col(ColClass[] colClasses, params Union<string, Control, HTMLElement>[] typos) : base(typos)
+		{
+			this.ApplyColumns(colClasses);			
+		}		
 
 		public Col(List<ColClass> colClasses, params Union<string, Control, HTMLElement>[] typos) : this(colClasses.ToArray(), typos)
 		{
