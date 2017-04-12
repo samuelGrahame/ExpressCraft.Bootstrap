@@ -65,6 +65,9 @@
     <Compile Include="Bootstrap\Enums.cs" />
     <Compile Include="Form\FormGroupList.cs" />
     <Compile Include="Form\FormGroup.cs" />
+    <Compile Include="Grid\ClearFix.cs" />
+    <Compile Include="Grid\Col.cs" />
+    <Compile Include="Grid\Row.cs" />
     <Compile Include="Panel\Panel.cs" />
     <Compile Include="Panel\PanelBody.cs" />
     <Compile Include="Panel\PanelFooter.cs" />

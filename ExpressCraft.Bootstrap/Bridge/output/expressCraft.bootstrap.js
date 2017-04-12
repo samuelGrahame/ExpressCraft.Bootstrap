@@ -221,6 +221,44 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         }
     });
 
+    Bridge.define("ExpressCraft.Bootstrap.ColTier", {
+        $kind: "struct",
+        statics: {
+            config: {
+                init: function () {
+                    this.XS = new ExpressCraft.Bootstrap.ColTier.$ctor1("-xs-");
+                    this.SM = new ExpressCraft.Bootstrap.ColTier.$ctor1("-sm-");
+                    this.MD = new ExpressCraft.Bootstrap.ColTier.$ctor1("-md-");
+                    this.LG = new ExpressCraft.Bootstrap.ColTier.$ctor1("-lg-");
+                }
+            },
+            getDefaultValue: function () { return new ExpressCraft.Bootstrap.ColTier(); }
+        },
+        value: null,
+        $ctor1: function (_value) {
+            this.$initialize();
+            this.value = _value;
+        },
+        ctor: function () {
+            this.$initialize();
+        },
+        getHashCode: function () {
+            var h = Bridge.addHash([1423889580, this.value]);
+            return h;
+        },
+        equals: function (o) {
+            if (!Bridge.is(o, ExpressCraft.Bootstrap.ColTier)) {
+                return false;
+            }
+            return Bridge.equals(this.value, o.value);
+        },
+        $clone: function (to) {
+            var s = to || new ExpressCraft.Bootstrap.ColTier();
+            s.value = this.value;
+            return s;
+        }
+    });
+
     Bridge.define("ExpressCraft.Bootstrap.Contextual");
 
     Bridge.define("ExpressCraft.Bootstrap.Contextual.Background", {
@@ -266,11 +304,11 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
             ExpressCraft.Bootstrap.BootstrapWindow.setupMetaTags();
 
-            ExpressCraft.Application.run(Bridge.merge(new ExpressCraft.Bootstrap.BootstrapWindow([new ExpressCraft.Bootstrap.Panel(ExpressCraft.Bootstrap.BootstrapTheme.Default, [new ExpressCraft.Bootstrap.PanelHeading(["Welcome to ExpressCraft-Bootstrap"]), new ExpressCraft.Bootstrap.PanelBody([new ExpressCraft.Bootstrap.BootstrapSelectionDiv([new ExpressCraft.Bootstrap.FormGroupList([new ExpressCraft.Bootstrap.TextBox.$ctor1("Textbox"), new ExpressCraft.Bootstrap.CheckBox("checkbox", "true"), new ExpressCraft.Bootstrap.FormGroup([Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("checkbox-inline 1", "true"), {
+            ExpressCraft.Application.run(Bridge.merge(new ExpressCraft.Bootstrap.BootstrapWindow([new ExpressCraft.Bootstrap.Panel(ExpressCraft.Bootstrap.BootstrapTheme.Default, [new ExpressCraft.Bootstrap.PanelHeading(["Welcome to ExpressCraft-Bootstrap"]), new ExpressCraft.Bootstrap.PanelBody([new ExpressCraft.Bootstrap.BootstrapSelectionDiv([new ExpressCraft.Bootstrap.FormGroupList([new ExpressCraft.Bootstrap.TextBox.$ctor1("Textbox"), new ExpressCraft.Bootstrap.CheckBox("checkbox", true), new ExpressCraft.Bootstrap.FormGroup([Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("checkbox-inline 1", true), {
                 setInline: true
-            } ), Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("checkbox-inline 2", "false"), {
+            } ), Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("checkbox-inline 2", true), {
                 setInline: true
-            } ), Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("checkbox-inline 3", "true"), {
+            } ), Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("checkbox-inline 3", true), {
                 setInline: true
             } )]), new ExpressCraft.Bootstrap.TextBox.$ctor1("11/04/2017", "date"), new ExpressCraft.Bootstrap.TextBox.$ctor1("Password", "password"), new ExpressCraft.Bootstrap.TextArea("TextArea", 4), new ExpressCraft.Bootstrap.BootstrapForm(ExpressCraft.Bootstrap.bootstrapForm.Inline, [new ExpressCraft.Bootstrap.Label(["Email:", new ExpressCraft.Bootstrap.TextBox.ctor()]), new ExpressCraft.Bootstrap.Label(["Password:", new ExpressCraft.Bootstrap.TextBox.ctor("password")]), new ExpressCraft.Bootstrap.CheckBox("Remeber me"), new ExpressCraft.Bootstrap.Button.ctor("Submit", "submit")]), new ExpressCraft.Bootstrap.BootstrapForm(ExpressCraft.Bootstrap.bootstrapForm.Horizontal, [new ExpressCraft.Bootstrap.Label(["Email:", new ExpressCraft.Bootstrap.TextBox.ctor()]), new ExpressCraft.Bootstrap.Label(["Password:", new ExpressCraft.Bootstrap.TextBox.ctor("password")]), new ExpressCraft.Bootstrap.CheckBox("Remeber me"), new ExpressCraft.Bootstrap.Button.ctor("Submit", "submit")]), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Basic", ExpressCraft.Bootstrap.BootstrapTheme.None), {
                 setOnClick: buttonClick
@@ -326,116 +364,6 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         }
     });
 
-    Bridge.define("ExpressCraft.Bootstrap.TextArea", {
-        inherits: [ExpressCraft.Control],
-        prevText: "",
-        onTextChanged: null,
-        onKeyDown: null,
-        onKeyUp: null,
-        onKeyPress: null,
-        ctor: function (text, rows) {
-            if (text === void 0) { text = ""; }
-            if (rows === void 0) { rows = 1; }
-
-            this.$initialize();
-            ExpressCraft.Control.ctor.call(this, Bridge.merge(document.createElement('textarea'), {
-                className: "form-control"
-            } ));
-            this.setText(text);
-            this.content.rows = Math.max(rows, 1);
-            this.content.onchange = Bridge.fn.bind(this, $asm.$.ExpressCraft.Bootstrap.TextArea.f1);
-            this.content.oncontextmenu = $asm.$.ExpressCraft.Bootstrap.TextArea.f2;
-            this.content.onkeypress = Bridge.fn.bind(this, $asm.$.ExpressCraft.Bootstrap.TextArea.f3);
-            this.content.onkeydown = Bridge.fn.bind(this, $asm.$.ExpressCraft.Bootstrap.TextArea.f4);
-            this.content.onkeyup = Bridge.fn.bind(this, $asm.$.ExpressCraft.Bootstrap.TextArea.f5);
-            this.content.addEventListener("paste", Bridge.fn.bind(this, $asm.$.ExpressCraft.Bootstrap.TextArea.f6));
-            this.content.addEventListener("cut", Bridge.fn.bind(this, $asm.$.ExpressCraft.Bootstrap.TextArea.f6));
-        },
-        getText: function () {
-            return this.content.innerHTML;
-        },
-        setText: function (value) {
-            this.content.innerHTML = value;
-
-            this.checkTextChanged();
-        },
-        checkTextChanged: function () {
-            if (!Bridge.referenceEquals(this.getText(), this.prevText)) {
-                if (!Bridge.staticEquals(this.onTextChanged, null)) {
-                    this.onTextChanged(this);
-                }
-                this.prevText = this.getText();
-            }
-        },
-        render: function () {
-            ExpressCraft.Control.prototype.render.call(this);
-            this.prevText = this.getText();
-        }
-    });
-
-    Bridge.ns("ExpressCraft.Bootstrap.TextArea", $asm.$);
-
-    Bridge.apply($asm.$.ExpressCraft.Bootstrap.TextArea, {
-        f1: function (ev) {
-            this.checkTextChanged();
-        },
-        f2: function (ev) {
-            ev.stopPropagation();
-        },
-        f3: function (ev) {
-            this.checkTextChanged();
-            if (!Bridge.staticEquals(this.onKeyPress, null)) {
-                this.onKeyPress(this, ev);
-            }
-        },
-        f4: function (ev) {
-            this.checkTextChanged();
-            if (!Bridge.staticEquals(this.onKeyDown, null)) {
-                this.onKeyDown(this, ev);
-            }
-        },
-        f5: function (ev) {
-            this.checkTextChanged();
-            if (!Bridge.staticEquals(this.onKeyUp, null)) {
-                this.onKeyUp(this, ev);
-            }
-        },
-        f6: function () {
-            this.checkTextChanged();
-        }
-    });
-
-    Bridge.define("ExpressCraft.Bootstrap.TextBox", {
-        inherits: [ExpressCraft.TextInput],
-        $ctor1: function (text, type, className) {
-            if (type === void 0) { type = 19; }
-            if (className === void 0) { className = "form-control"; }
-
-            this.$initialize();
-            ExpressCraft.TextInput.ctor.call(this, type, false);
-            this.content.className = className;
-            if (!System.String.isNullOrWhiteSpace(text)) {
-                if (type === "date" || type === "datetime" || type === "datetime-local") {
-                    this.setDate(text);
-                } else {
-                    if (type === "checkbox") {
-                        ExpressCraft.Helper.setChecked$1(this, text);
-                    } else {
-                        this.setText(text);
-                    }
-                }
-            }
-        },
-        ctor: function (type, className) {
-            if (type === void 0) { type = 19; }
-            if (className === void 0) { className = "form-control"; }
-
-            this.$initialize();
-            ExpressCraft.TextInput.ctor.call(this, type, false);
-            this.content.className = className;
-        }
-    });
-
     Bridge.define("ExpressCraft.Bootstrap.Abbr", {
         inherits: [ExpressCraft.Bootstrap.BootstrapDiv],
         ctor: function (title, typos) {
@@ -483,6 +411,80 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             } else {
                 this.getClassList().remove("blockquote-reverse");
             }
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.BootstrapBaseBox", {
+        inherits: [ExpressCraft.Bootstrap.BootstrapDiv],
+        prevText: "",
+        onTextChanged: null,
+        onKeyDown: null,
+        onKeyUp: null,
+        onKeyPress: null,
+        ctor: function (element) {
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootstrapDiv.ctor.call(this, element);
+            this.content.className = "form-control";
+
+            this.content.onchange = Bridge.fn.bind(this, $asm.$.ExpressCraft.Bootstrap.BootstrapBaseBox.f1);
+            this.content.oncontextmenu = $asm.$.ExpressCraft.Bootstrap.BootstrapBaseBox.f2;
+            this.content.onkeypress = Bridge.fn.bind(this, $asm.$.ExpressCraft.Bootstrap.BootstrapBaseBox.f3);
+            this.content.onkeydown = Bridge.fn.bind(this, $asm.$.ExpressCraft.Bootstrap.BootstrapBaseBox.f4);
+            this.content.onkeyup = Bridge.fn.bind(this, $asm.$.ExpressCraft.Bootstrap.BootstrapBaseBox.f5);
+            this.content.addEventListener("paste", Bridge.fn.bind(this, $asm.$.ExpressCraft.Bootstrap.BootstrapBaseBox.f6));
+            this.content.addEventListener("cut", Bridge.fn.bind(this, $asm.$.ExpressCraft.Bootstrap.BootstrapBaseBox.f6));
+        },
+        getText: function () {
+            return this.content.innerHTML;
+        },
+        setText: function (value) {
+            this.content.innerHTML = value;
+
+            this.checkTextChanged();
+        },
+        checkTextChanged: function () {
+            if (!Bridge.referenceEquals(this.getText(), this.prevText)) {
+                if (!Bridge.staticEquals(this.onTextChanged, null)) {
+                    this.onTextChanged(this);
+                }
+                this.prevText = this.getText();
+            }
+        },
+        render: function () {
+            ExpressCraft.Bootstrap.BootstrapDiv.prototype.render.call(this);
+            this.prevText = this.getText();
+        }
+    });
+
+    Bridge.ns("ExpressCraft.Bootstrap.BootstrapBaseBox", $asm.$);
+
+    Bridge.apply($asm.$.ExpressCraft.Bootstrap.BootstrapBaseBox, {
+        f1: function (ev) {
+            this.checkTextChanged();
+        },
+        f2: function (ev) {
+            ev.stopPropagation();
+        },
+        f3: function (ev) {
+            this.checkTextChanged();
+            if (!Bridge.staticEquals(this.onKeyPress, null)) {
+                this.onKeyPress(this, ev);
+            }
+        },
+        f4: function (ev) {
+            this.checkTextChanged();
+            if (!Bridge.staticEquals(this.onKeyDown, null)) {
+                this.onKeyDown(this, ev);
+            }
+        },
+        f5: function (ev) {
+            this.checkTextChanged();
+            if (!Bridge.staticEquals(this.onKeyUp, null)) {
+                this.onKeyUp(this, ev);
+            }
+        },
+        f6: function () {
+            this.checkTextChanged();
         }
     });
 
@@ -690,17 +692,47 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         inherits: [ExpressCraft.Bootstrap.BootstrapStyleDiv],
         checkBox: null,
         ctor: function (label, value) {
-            if (value === void 0) { value = ""; }
+            if (value === void 0) { value = false; }
 
             this.$initialize();
             ExpressCraft.Bootstrap.BootstrapStyleDiv.ctor.call(this, "checkbox");
-            ExpressCraft.Bootstrap.BootstrapDiv.appendTypos$1(this, [new ExpressCraft.Bootstrap.Label([(this.checkBox = new ExpressCraft.Bootstrap.TextBox.$ctor1(value, "checkbox", "")), label])]);
+            ExpressCraft.Bootstrap.BootstrapDiv.appendTypos$1(this, [new ExpressCraft.Bootstrap.Label([(this.checkBox = new ExpressCraft.Bootstrap.CheckBoxBase(value)), label])]);
         },
         getInline: function () {
             return ExpressCraft.Bootstrap.BootstrapDiv.getInline(this, "checkbox");
         },
         setInline: function (value) {
             ExpressCraft.Bootstrap.BootstrapDiv.setInline(this, "checkbox", value);
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.CheckBoxBase", {
+        inherits: [ExpressCraft.Bootstrap.BootstrapBaseBox],
+        ctor: function (value) {
+            if (value === void 0) { value = false; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootstrapBaseBox.ctor.call(this, Bridge.merge(document.createElement('input'), {
+                type: "checkbox"
+            } ));
+            this.setChecked(value);
+        },
+        getChecked: function () {
+            return ExpressCraft.Helper.isTrue(System.Boolean.toString(this.content.checked)) === 1;
+        },
+        setChecked: function (value) {
+            this.content.checked = value;
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.Col", {
+        inherits: [ExpressCraft.Bootstrap.BootstrapStyleDiv],
+        ctor: function (colId, tier, typos) {
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootstrapStyleDiv.ctor.call(this, 'col' + tier.value + colId, typos);
+
         }
     });
 
@@ -793,6 +825,51 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
             this.$initialize();
             ExpressCraft.Bootstrap.BootstrapStyleDiv.ctor.call(this, "panel-heading", typos);
+
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.Row", {
+        inherits: [ExpressCraft.Bootstrap.BootstrapStyleDiv],
+        ctor: function (typos) {
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootstrapStyleDiv.ctor.call(this, "row", typos);
+
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.TextArea", {
+        inherits: [ExpressCraft.Bootstrap.BootstrapBaseBox],
+        ctor: function (text, rows) {
+            if (text === void 0) { text = ""; }
+            if (rows === void 0) { rows = 1; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootstrapBaseBox.ctor.call(this, document.createElement('textarea'));
+            this.setText(text);
+            this.content.rows = Math.max(rows, 1);
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.TextBox", {
+        inherits: [ExpressCraft.Bootstrap.BootstrapBaseBox],
+        $ctor1: function (text, type) {
+            if (type === void 0) { type = 19; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootstrapBaseBox.ctor.call(this, Bridge.merge(document.createElement('input'), {
+                type: Bridge.Browser.isIE ? "text" : type
+            } ));
+            if (!System.String.isNullOrWhiteSpace(text)) {
+                this.setText(text);
+            }
+        },
+        ctor: function (type) {
+            if (type === void 0) { type = 19; }
+
+            ExpressCraft.Bootstrap.TextBox.$ctor1.call(this, "", type);
 
         }
     });
