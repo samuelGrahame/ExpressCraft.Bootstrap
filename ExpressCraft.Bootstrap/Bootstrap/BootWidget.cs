@@ -37,6 +37,35 @@ namespace ExpressCraft.Bootstrap
 			x.content = widget;
 			return x;
 		}
+		
+		public Enum GetEnumClassValue(Type type)
+		{
+			var names = Enum.GetNames(type);
+			for(int i = 0; i < names.Length; i++)
+			{
+				foreach(var item1 in this.ClassList)
+				{
+					if(item1 == names[i].ToLower())
+						return Enum.GetValues(type)[i].As<Enum>();
+				}
+			}
+			return null;
+		}
+
+		public void ClearEnumClassValue(Type type)
+		{			
+			var names = Enum.GetNames(type);
+			for(int i = 0; i < names.Length; i++)
+			{
+				this.ClassList.Remove(names[i].ToLower());
+			}			
+		}
+
+		public void SetEnumClassValue(Type type, string value)
+		{
+			ClearEnumClassValue(type);			
+			this.ClassList.Add(value);
+		}
 
 		public bool GetClassTrue(string classStr)
 		{

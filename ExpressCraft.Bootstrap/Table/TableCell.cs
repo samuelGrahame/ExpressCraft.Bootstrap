@@ -39,6 +39,11 @@ namespace ExpressCraft.Bootstrap
 				if(typos[i].Is<TableCell>())
 				{
 					list[i] = typos[i];
+				}else if (typos[i].Is<TableHeader>())
+				{
+					var x = ((TableHeader)typos[i]);
+					list[i] = x;
+					x.Content.SetAttribute("scope", "row");
 				}
 				else
 				{
@@ -47,6 +52,20 @@ namespace ExpressCraft.Bootstrap
 
 			}
 			BootWidget.AppendTypos(control, list);
+		}
+
+		public void ClearTheme()
+		{
+			ClearEnumClassValue(typeof(BootstrapRowCellTheme));
+		}
+
+		public BootstrapRowCellTheme Theme
+		{
+			get
+			{
+				return GetEnumClassValue(typeof(BootstrapRowCellTheme)).As<BootstrapRowCellTheme>();
+			}
+			set { SetEnumClassValue(typeof(BootstrapRowCellTheme), value.ToString("G").ToLower()); }
 		}
 	}
 }

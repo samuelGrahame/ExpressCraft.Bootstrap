@@ -146,6 +146,29 @@ line breaks."),
 														BootWidget.GetWidgetById<Table>("DemoTable").Condensed = s.Checked;
 													},
 													Inline = true
+												},
+												new CheckBox("Contextual classes", false)
+												{
+													OnCheckChanged = (s) => {
+														var tbl = BootWidget.GetWidgetById<Table>("DemoTable");
+														if(s.Checked)
+														{
+															var body = tbl.TableBody;
+															body.Row(0).Theme = BootstrapRowCellTheme.Active;
+															body.Row(2).Theme = BootstrapRowCellTheme.Success;
+															body.Row(4).Theme = BootstrapRowCellTheme.Info;
+															body.Row(6).Theme = BootstrapRowCellTheme.Warning;
+															body.Row(8).Theme = BootstrapRowCellTheme.Danger;
+														}
+														else
+														{
+															foreach(var item in tbl.TableBody.Rows)
+															{
+																item.ClearTheme();
+															}
+														}														
+													},
+													Inline = true
 												}
 											) 
 										),
@@ -163,8 +186,8 @@ line breaks."),
 														)
 													),
 												new TableBody(
-													Enumerable.Range(0, 6).Select((x, index) => (Union<string, Control, HTMLElement>)new TableRow(
-													(index + 1).ToString(), "Table cell", "Table cell", "Table cell", "Table cell", "Table cell", "Table cell")).ToArray()
+													Enumerable.Range(0, 9).Select((x, index) => (Union<string, Control, HTMLElement>)new TableRow(
+													new TableHeaderCell((index + 1).ToString()), "Table cell", "Table cell", "Table cell", "Table cell", "Table cell", "Table cell")).ToArray()
 												)
 											)
 											{ Id = "DemoTable" }

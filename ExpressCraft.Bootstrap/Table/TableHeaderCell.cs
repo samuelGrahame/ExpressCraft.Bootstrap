@@ -20,6 +20,20 @@ namespace ExpressCraft.Bootstrap
 
 		}
 
+		public void ClearTheme()
+		{
+			ClearEnumClassValue(typeof(BootstrapRowCellTheme));
+		}
+
+		public BootstrapRowCellTheme Theme
+		{
+			get
+			{
+				return GetEnumClassValue(typeof(BootstrapRowCellTheme)).As<BootstrapRowCellTheme>();
+			}
+			set { SetEnumClassValue(typeof(BootstrapRowCellTheme), value.ToString("G").ToLower()); }
+		}
+
 		public static void AppendHeaderDataRow(Control control, params Union<string, Control, HTMLElement>[] typos)
 		{
 			if(typos == null || typos.Length == 0)

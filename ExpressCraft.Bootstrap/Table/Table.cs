@@ -34,9 +34,10 @@ namespace ExpressCraft.Bootstrap
 
 		protected HTMLTableSectionElement GetSection(string name)
 		{
+			name = name.ToLower();
 			foreach(var item in this.Content.Children)
 			{
-				if(item != null && item.TagName == name)
+				if(item != null && item.TagName.ToLower() == name)
 				{
 					return (HTMLTableSectionElement)item;
 				}

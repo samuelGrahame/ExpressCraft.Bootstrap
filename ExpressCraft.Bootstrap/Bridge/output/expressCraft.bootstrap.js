@@ -94,6 +94,30 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         setContextualBackground: function (value) {
             this.setContextual("bg-", value);
         },
+        getEnumClassValue: function (type) {
+            var $t;
+            var names = System.Enum.getNames(type);
+            for (var i = 0; i < names.length; i = (i + 1) | 0) {
+                $t = Bridge.getEnumerator(this.getClassList());
+                while ($t.moveNext()) {
+                    var item1 = $t.getCurrent();
+                    if (Bridge.referenceEquals(item1, names[i].toLowerCase())) {
+                        return System.Enum.getValues(type)[i];
+                    }
+                }
+            }
+            return null;
+        },
+        clearEnumClassValue: function (type) {
+            var names = System.Enum.getNames(type);
+            for (var i = 0; i < names.length; i = (i + 1) | 0) {
+                this.getClassList().remove(names[i].toLowerCase());
+            }
+        },
+        setEnumClassValue: function (type, value) {
+            this.clearEnumClassValue(type);
+            this.getClassList().add(value);
+        },
         getClassTrue: function (classStr) {
             return this.getClassList().contains(classStr);
         },
@@ -835,7 +859,27 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             } ), Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("Condensed", false), {
                 onCheckChanged: $asm.$.ExpressCraft.Bootstrap.Program.f5,
                 setInline: true
-            } )])]), new ExpressCraft.Bootstrap.PanelBody([Bridge.merge(new ExpressCraft.Bootstrap.Table([new ExpressCraft.Bootstrap.TableHeader([new ExpressCraft.Bootstrap.TableHeaderRow.ctor(["#", "Table heading", "Table heading", "Table heading", "Table heading", "Table heading", "Table heading"])]), new ExpressCraft.Bootstrap.TableBody(System.Linq.Enumerable.range(0, 6).select($asm.$.ExpressCraft.Bootstrap.Program.f6).toArray())]), {
+            } ), Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("Contextual classes", false), {
+                onCheckChanged: function (s) {
+                    var $t;
+                    var tbl = ExpressCraft.Bootstrap.BootWidget.getWidgetById(ExpressCraft.Bootstrap.Table, "DemoTable");
+                    if (s.getChecked()) {
+                        var body = tbl.getTableBody();
+                        body.row(0).setTheme(ExpressCraft.Bootstrap.BootstrapRowCellTheme.Active);
+                        body.row(2).setTheme(ExpressCraft.Bootstrap.BootstrapRowCellTheme.Success);
+                        body.row(4).setTheme(ExpressCraft.Bootstrap.BootstrapRowCellTheme.Info);
+                        body.row(6).setTheme(ExpressCraft.Bootstrap.BootstrapRowCellTheme.Warning);
+                        body.row(8).setTheme(ExpressCraft.Bootstrap.BootstrapRowCellTheme.Danger);
+                    } else {
+                        $t = Bridge.getEnumerator(tbl.getTableBody().getRows(), ExpressCraft.Bootstrap.TableRow);
+                        while ($t.moveNext()) {
+                            var item = $t.getCurrent();
+                            item.clearTheme();
+                        }
+                    }
+                },
+                setInline: true
+            } )])]), new ExpressCraft.Bootstrap.PanelBody([Bridge.merge(new ExpressCraft.Bootstrap.Table([new ExpressCraft.Bootstrap.TableHeader([new ExpressCraft.Bootstrap.TableHeaderRow.ctor(["#", "Table heading", "Table heading", "Table heading", "Table heading", "Table heading", "Table heading"])]), new ExpressCraft.Bootstrap.TableBody(System.Linq.Enumerable.range(0, 9).select($asm.$.ExpressCraft.Bootstrap.Program.f6).toArray())]), {
                 setId: "DemoTable"
             } )])])])]), new ExpressCraft.Bootstrap.PanelFooter(["Footer"])])]), {
                 setWindowstate: ExpressCraft.WindowState.Maximized
@@ -862,7 +906,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             ExpressCraft.Bootstrap.BootWidget.getWidgetById(ExpressCraft.Bootstrap.Table, "DemoTable").setCondensed(s.getChecked());
         },
         f6: function (x, index) {
-            return new ExpressCraft.Bootstrap.TableRow.ctor([(((index + 1) | 0)).toString(), "Table cell", "Table cell", "Table cell", "Table cell", "Table cell", "Table cell"]);
+            return new ExpressCraft.Bootstrap.TableRow.ctor([new ExpressCraft.Bootstrap.TableHeaderCell.ctor([(((index + 1) | 0)).toString()]), "Table cell", "Table cell", "Table cell", "Table cell", "Table cell", "Table cell"]);
         }
     });
 
@@ -1555,10 +1599,11 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         },
         getSection: function (name) {
             var $t;
+            name = name.toLowerCase();
             $t = Bridge.getEnumerator(this.content.children);
             while ($t.moveNext()) {
                 var item = $t.getCurrent();
-                if (item != null && Bridge.referenceEquals(item.tagName, name)) {
+                if (item != null && Bridge.referenceEquals(item.tagName.toLowerCase(), name)) {
                     return Bridge.cast(item, HTMLTableSectionElement);
                 }
             }
@@ -1608,6 +1653,10 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
                     if (Bridge.is(typos[i], ExpressCraft.Bootstrap.TableCell)) {
                         list[i] = typos[i];
+                    } else if (Bridge.is(typos[i], ExpressCraft.Bootstrap.TableHeader)) {
+                        var x = typos[i];
+                        list[i] = x;
+                        x.content.setAttribute("scope", "row");
                     } else {
                         list[i] = new ExpressCraft.Bootstrap.TableCell.ctor([typos[i]]);
                     }
@@ -1631,6 +1680,15 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
                 className: System.Enum.format(ExpressCraft.Bootstrap.BootstrapRowCellTheme, theme, "G")
             } ), typos);
 
+        },
+        getTheme: function () {
+            return this.getEnumClassValue(ExpressCraft.Bootstrap.BootstrapRowCellTheme);
+        },
+        setTheme: function (value) {
+            this.setEnumClassValue(ExpressCraft.Bootstrap.BootstrapRowCellTheme, System.Enum.format(ExpressCraft.Bootstrap.BootstrapRowCellTheme, value, "G").toLowerCase());
+        },
+        clearTheme: function () {
+            this.clearEnumClassValue(ExpressCraft.Bootstrap.BootstrapRowCellTheme);
         }
     });
 
@@ -1710,6 +1768,15 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
                 className: System.Enum.format(ExpressCraft.Bootstrap.BootstrapRowCellTheme, theme, "G")
             } ), typos);
 
+        },
+        getTheme: function () {
+            return this.getEnumClassValue(ExpressCraft.Bootstrap.BootstrapRowCellTheme);
+        },
+        setTheme: function (value) {
+            this.setEnumClassValue(ExpressCraft.Bootstrap.BootstrapRowCellTheme, System.Enum.format(ExpressCraft.Bootstrap.BootstrapRowCellTheme, value, "G").toLowerCase());
+        },
+        clearTheme: function () {
+            this.clearEnumClassValue(ExpressCraft.Bootstrap.BootstrapRowCellTheme);
         }
     });
 
@@ -1739,8 +1806,17 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             }
             return System.Array.toEnumerable($yield);
         },
+        getTheme: function () {
+            return this.getEnumClassValue(ExpressCraft.Bootstrap.BootstrapRowCellTheme);
+        },
+        setTheme: function (value) {
+            this.setEnumClassValue(ExpressCraft.Bootstrap.BootstrapRowCellTheme, System.Enum.format(ExpressCraft.Bootstrap.BootstrapRowCellTheme, value, "G").toLowerCase());
+        },
         headerCell: function (index) {
             return ExpressCraft.Bootstrap.BootWidget.castElement(ExpressCraft.Bootstrap.TableHeaderCell, this.content.children[index]);
+        },
+        clearTheme: function () {
+            this.clearEnumClassValue(ExpressCraft.Bootstrap.BootstrapRowCellTheme);
         }
     });
 
@@ -1770,8 +1846,17 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             }
             return System.Array.toEnumerable($yield);
         },
+        getTheme: function () {
+            return this.getEnumClassValue(ExpressCraft.Bootstrap.BootstrapRowCellTheme);
+        },
+        setTheme: function (value) {
+            this.setEnumClassValue(ExpressCraft.Bootstrap.BootstrapRowCellTheme, System.Enum.format(ExpressCraft.Bootstrap.BootstrapRowCellTheme, value, "G").toLowerCase());
+        },
         cell: function (index) {
             return ExpressCraft.Bootstrap.BootWidget.castElement(ExpressCraft.Bootstrap.TableCell, this.content.children[index]);
+        },
+        clearTheme: function () {
+            this.clearEnumClassValue(ExpressCraft.Bootstrap.BootstrapRowCellTheme);
         }
     });
 
