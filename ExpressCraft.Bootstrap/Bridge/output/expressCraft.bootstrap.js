@@ -714,6 +714,24 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         }
     });
 
+    Bridge.define("ExpressCraft.Bootstrap.ColExtentions", {
+        statics: {
+            applyColumns: function (widget, colClasses) {
+                if (colClasses === void 0) { colClasses = []; }
+                var length;
+                if (widget != null && colClasses != null && ((length = colClasses.length)) > 0) {
+                    var builder = new System.Text.StringBuilder();
+
+                    for (var i = 0; i < length; i = (i + 1) | 0) {
+                        builder.append(System.String.concat(colClasses[i].value, " "));
+                    }
+                    builder.setLength((builder.getLength() - 1) | 0);
+                    widget.content.className = builder.toString();
+                }
+            }
+        }
+    });
+
     Bridge.define("ExpressCraft.Bootstrap.ColTier", {
         statics: {
             /**
@@ -791,99 +809,104 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
     });
 
     Bridge.define("ExpressCraft.Bootstrap.Program", {
-        $main: function () {
-            ExpressCraft.Settings.setIncludeFocusRegion(false);
-            ExpressCraft.Settings.allowCloseWithoutQuestion = true;
+        statics: {
+            demo: function () {
+                ExpressCraft.Settings.setIncludeFocusRegion(false);
+                ExpressCraft.Settings.allowCloseWithoutQuestion = true;
 
-            ExpressCraft.Application.setApplicationDefinition();
+                ExpressCraft.Application.setApplicationDefinition();
 
-            var buttonClick = $asm.$.ExpressCraft.Bootstrap.Program.f1;
+                var buttonClick = $asm.$.ExpressCraft.Bootstrap.Program.f1;
 
-            ExpressCraft.Bootstrap.BootWindow.setupMetaTags();
+                ExpressCraft.Bootstrap.BootWindow.setupMetaTags();
 
-            ExpressCraft.Application.run(Bridge.merge(new ExpressCraft.Bootstrap.BootWindow([new ExpressCraft.Bootstrap.Panel(ExpressCraft.Bootstrap.BootTheme.Default, [new ExpressCraft.Bootstrap.PanelHeading(["Welcome to ExpressCraft-Bootstrap"]), new ExpressCraft.Bootstrap.PanelBody([new ExpressCraft.Bootstrap.BootSelectionWidget([new ExpressCraft.Bootstrap.FormGroupList([new ExpressCraft.Bootstrap.TextBox.$ctor1("Textbox"), new ExpressCraft.Bootstrap.CheckBox("checkbox", true), new ExpressCraft.Bootstrap.FormGroup([Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("checkbox-inline 1", true), {
-                setInline: true
-            } ), Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("checkbox-inline 2", true), {
-                setInline: true
-            } ), Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("checkbox-inline 3", true), {
-                setInline: true
-            } )]), new ExpressCraft.Bootstrap.TextBox.$ctor1("11/04/2017", "date"), new ExpressCraft.Bootstrap.TextBox.$ctor1("Password", "password"), new ExpressCraft.Bootstrap.TextArea("TextArea", 4), new ExpressCraft.Bootstrap.BootForm(ExpressCraft.Bootstrap.BootFormType.Inline, [new ExpressCraft.Bootstrap.Label(["Email:", new ExpressCraft.Bootstrap.TextBox.ctor()]), new ExpressCraft.Bootstrap.Label(["Password:", new ExpressCraft.Bootstrap.TextBox.ctor("password")]), new ExpressCraft.Bootstrap.CheckBox("Remeber me"), new ExpressCraft.Bootstrap.Button.ctor("Submit", "submit")]), new ExpressCraft.Bootstrap.BootForm(ExpressCraft.Bootstrap.BootFormType.Horizontal, [new ExpressCraft.Bootstrap.Label(["Email:", new ExpressCraft.Bootstrap.TextBox.ctor()]), new ExpressCraft.Bootstrap.Label(["Password:", new ExpressCraft.Bootstrap.TextBox.ctor("password")]), new ExpressCraft.Bootstrap.CheckBox("Remeber me"), new ExpressCraft.Bootstrap.Button.ctor("Submit", "submit")]), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Basic", ExpressCraft.Bootstrap.BootTheme.None), {
-                setOnClick: buttonClick
-            } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Default", ExpressCraft.Bootstrap.BootTheme.Default), {
-                setOnClick: buttonClick
-            } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Primary", ExpressCraft.Bootstrap.BootTheme.Primary), {
-                setOnClick: buttonClick
-            } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Success", ExpressCraft.Bootstrap.BootTheme.Success), {
-                setOnClick: buttonClick
-            } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Info", ExpressCraft.Bootstrap.BootTheme.Info), {
-                setOnClick: buttonClick
-            } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Warning", ExpressCraft.Bootstrap.BootTheme.Warning), {
-                setOnClick: buttonClick
-            } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Danger", ExpressCraft.Bootstrap.BootTheme.Danger), {
-                setOnClick: buttonClick
-            } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Link", ExpressCraft.Bootstrap.BootTheme.Link), {
-                setOnClick: buttonClick
-            } )]), new ExpressCraft.Bootstrap.Heading("h2", ["Heading", new ExpressCraft.Bootstrap.Small([" - Heading Small"])]), new ExpressCraft.Bootstrap.ParagraphList(["Text", new ExpressCraft.Bootstrap.Abbr("Abbr hover", ["Abbr"]), new ExpressCraft.Bootstrap.Small(["Small"]), new ExpressCraft.Bootstrap.Blockquote.$ctor2(new ExpressCraft.Bootstrap.Paragraph.ctor(["Block Quote Content"]), new ExpressCraft.Bootstrap.Footer(["Block Quote From"])), Bridge.merge(new ExpressCraft.Bootstrap.Blockquote.$ctor2(new ExpressCraft.Bootstrap.Paragraph.ctor(["Block Quote Content Reverse"]), new ExpressCraft.Bootstrap.Footer(["Block Quote From Reverse"])), {
-                setReverse: true
-            } ), new ExpressCraft.Bootstrap.DescriptionList([new ExpressCraft.Bootstrap.DescriptionTitle(["Description Title 1"]), new ExpressCraft.Bootstrap.DescriptionDetail(["- Description Detail 1"]), new ExpressCraft.Bootstrap.DescriptionTitle(["Description Title 2"]), new ExpressCraft.Bootstrap.DescriptionDetail(["- Description Detail 2"])]), new ExpressCraft.Bootstrap.Paragraph.ctor(["The following HTML elements: ", new ExpressCraft.Bootstrap.Code(["span"]), ", ", new ExpressCraft.Bootstrap.Code(["section"]), ", and ", new ExpressCraft.Bootstrap.Code(["div"]), " defines a section in a document."]), new ExpressCraft.Bootstrap.Paragraph.ctor(["Use ", new ExpressCraft.Bootstrap.Kbd(["ctrl + p"]), " to open the Print dialog box."]), new ExpressCraft.Bootstrap.Pre(["Text in a pre element\r\nis displayed in a fixed-width\r\nfont, and it preserves\r\nboth      spaces and\r\nline breaks."]), new ExpressCraft.Bootstrap.Paragraph.ctor([new ExpressCraft.Bootstrap.ParagraphList([new ExpressCraft.Bootstrap.Heading("h2", ["Contextual Colors"]), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text is muted."]), {
-                setContextualText: ExpressCraft.Bootstrap.Contextual.Text.Muted
-            } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text is important."]), {
-                setContextualText: ExpressCraft.Bootstrap.Contextual.Text.Primary
-            } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text indicates success."]), {
-                setContextualText: ExpressCraft.Bootstrap.Contextual.Text.Success
-            } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text represents some information."]), {
-                setContextualText: ExpressCraft.Bootstrap.Contextual.Text.Info
-            } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text represents a warning."]), {
-                setContextualText: ExpressCraft.Bootstrap.Contextual.Text.Warning
-            } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text represents danger."]), {
-                setContextualText: ExpressCraft.Bootstrap.Contextual.Text.Danger
-            } )])]), new ExpressCraft.Bootstrap.Paragraph.ctor([new ExpressCraft.Bootstrap.ParagraphList([new ExpressCraft.Bootstrap.Heading("h2", ["Contextual Backgrounds"]), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text is important."]), {
-                setContextualBackground: ExpressCraft.Bootstrap.Contextual.Background.Primary
-            } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text indicates success."]), {
-                setContextualBackground: ExpressCraft.Bootstrap.Contextual.Background.Success
-            } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text represents some information."]), {
-                setContextualBackground: ExpressCraft.Bootstrap.Contextual.Background.Info
-            } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text represents a warning."]), {
-                setContextualBackground: ExpressCraft.Bootstrap.Contextual.Background.Warning
-            } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text represents danger."]), {
-                setContextualBackground: ExpressCraft.Bootstrap.Contextual.Background.Danger
-            } )])])]), new ExpressCraft.Bootstrap.Panel(ExpressCraft.Bootstrap.BootTheme.Default, [new ExpressCraft.Bootstrap.PanelHeading([new ExpressCraft.Bootstrap.Heading("h3", ["Table Demo", new ExpressCraft.Bootstrap.Small([" - Table options below."])]), new ExpressCraft.Bootstrap.FormGroup([Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("Striped", false), {
-                onCheckChanged: $asm.$.ExpressCraft.Bootstrap.Program.f2,
-                setInline: true
-            } ), Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("Bordered", false), {
-                onCheckChanged: $asm.$.ExpressCraft.Bootstrap.Program.f3,
-                setInline: true
-            } ), Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("Hover", false), {
-                onCheckChanged: $asm.$.ExpressCraft.Bootstrap.Program.f4,
-                setInline: true
-            } ), Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("Condensed", false), {
-                onCheckChanged: $asm.$.ExpressCraft.Bootstrap.Program.f5,
-                setInline: true
-            } ), Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("Contextual classes", false), {
-                onCheckChanged: function (s) {
-                    var $t;
-                    var tbl = ExpressCraft.Bootstrap.BootWidget.getWidgetById(ExpressCraft.Bootstrap.Table, "DemoTable");
-                    if (s.getChecked()) {
-                        var body = tbl.getTableBody();
-                        body.row(0).setTheme(ExpressCraft.Bootstrap.BootRowCellTheme.Active);
-                        body.row(2).setTheme(ExpressCraft.Bootstrap.BootRowCellTheme.Success);
-                        body.row(4).setTheme(ExpressCraft.Bootstrap.BootRowCellTheme.Info);
-                        body.row(6).setTheme(ExpressCraft.Bootstrap.BootRowCellTheme.Warning);
-                        body.row(8).setTheme(ExpressCraft.Bootstrap.BootRowCellTheme.Danger);
-                    } else {
-                        $t = Bridge.getEnumerator(tbl.getTableBody().getRows(), ExpressCraft.Bootstrap.TableRow);
-                        while ($t.moveNext()) {
-                            var item = $t.getCurrent();
-                            item.clearTheme();
+                ExpressCraft.Application.run(Bridge.merge(new ExpressCraft.Bootstrap.BootWindow([new ExpressCraft.Bootstrap.Panel(ExpressCraft.Bootstrap.BootTheme.Default, [new ExpressCraft.Bootstrap.PanelHeading(["Welcome to ExpressCraft-Bootstrap"]), new ExpressCraft.Bootstrap.PanelBody([new ExpressCraft.Bootstrap.BootSelectionWidget([new ExpressCraft.Bootstrap.FormGroupList([new ExpressCraft.Bootstrap.TextBox.$ctor1("Textbox"), new ExpressCraft.Bootstrap.CheckBox("checkbox", true), new ExpressCraft.Bootstrap.FormGroup([Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("checkbox-inline 1", true), {
+                    setInline: true
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("checkbox-inline 2", true), {
+                    setInline: true
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("checkbox-inline 3", true), {
+                    setInline: true
+                } )]), new ExpressCraft.Bootstrap.TextBox.$ctor1("11/04/2017", "date"), new ExpressCraft.Bootstrap.TextBox.$ctor1("Password", "password"), new ExpressCraft.Bootstrap.TextArea("TextArea", 4), new ExpressCraft.Bootstrap.BootForm(ExpressCraft.Bootstrap.BootFormType.Inline, [new ExpressCraft.Bootstrap.Label(["Email:", new ExpressCraft.Bootstrap.TextBox.ctor()]), new ExpressCraft.Bootstrap.Label(["Password:", new ExpressCraft.Bootstrap.TextBox.ctor("password")]), new ExpressCraft.Bootstrap.CheckBox("Remeber me"), new ExpressCraft.Bootstrap.Button.ctor("Submit", "submit")]), new ExpressCraft.Bootstrap.BootForm(ExpressCraft.Bootstrap.BootFormType.Horizontal, [new ExpressCraft.Bootstrap.Label(["Email:", new ExpressCraft.Bootstrap.TextBox.ctor()]), new ExpressCraft.Bootstrap.Label(["Password:", new ExpressCraft.Bootstrap.TextBox.ctor("password")]), new ExpressCraft.Bootstrap.CheckBox("Remeber me"), new ExpressCraft.Bootstrap.Button.ctor("Submit", "submit")]), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Basic", ExpressCraft.Bootstrap.BootTheme.None), {
+                    setOnClick: buttonClick
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Default", ExpressCraft.Bootstrap.BootTheme.Default), {
+                    setOnClick: buttonClick
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Primary", ExpressCraft.Bootstrap.BootTheme.Primary), {
+                    setOnClick: buttonClick
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Success", ExpressCraft.Bootstrap.BootTheme.Success), {
+                    setOnClick: buttonClick
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Info", ExpressCraft.Bootstrap.BootTheme.Info), {
+                    setOnClick: buttonClick
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Warning", ExpressCraft.Bootstrap.BootTheme.Warning), {
+                    setOnClick: buttonClick
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Danger", ExpressCraft.Bootstrap.BootTheme.Danger), {
+                    setOnClick: buttonClick
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Link", ExpressCraft.Bootstrap.BootTheme.Link), {
+                    setOnClick: buttonClick
+                } )]), new ExpressCraft.Bootstrap.Heading("h2", ["Heading", new ExpressCraft.Bootstrap.Small([" - Heading Small"])]), new ExpressCraft.Bootstrap.ParagraphList(["Text", new ExpressCraft.Bootstrap.Abbr("Abbr hover", ["Abbr"]), new ExpressCraft.Bootstrap.Small(["Small"]), new ExpressCraft.Bootstrap.Blockquote.$ctor2(new ExpressCraft.Bootstrap.Paragraph.ctor(["Block Quote Content"]), new ExpressCraft.Bootstrap.Footer(["Block Quote From"])), Bridge.merge(new ExpressCraft.Bootstrap.Blockquote.$ctor2(new ExpressCraft.Bootstrap.Paragraph.ctor(["Block Quote Content Reverse"]), new ExpressCraft.Bootstrap.Footer(["Block Quote From Reverse"])), {
+                    setReverse: true
+                } ), new ExpressCraft.Bootstrap.DescriptionList([new ExpressCraft.Bootstrap.DescriptionTitle(["Description Title 1"]), new ExpressCraft.Bootstrap.DescriptionDetail(["- Description Detail 1"]), new ExpressCraft.Bootstrap.DescriptionTitle(["Description Title 2"]), new ExpressCraft.Bootstrap.DescriptionDetail(["- Description Detail 2"])]), new ExpressCraft.Bootstrap.Paragraph.ctor(["The following HTML elements: ", new ExpressCraft.Bootstrap.Code(["span"]), ", ", new ExpressCraft.Bootstrap.Code(["section"]), ", and ", new ExpressCraft.Bootstrap.Code(["div"]), " defines a section in a document."]), new ExpressCraft.Bootstrap.Paragraph.ctor(["Use ", new ExpressCraft.Bootstrap.Kbd(["ctrl + p"]), " to open the Print dialog box."]), new ExpressCraft.Bootstrap.Pre(["Text in a pre element\r\nis displayed in a fixed-width\r\nfont, and it preserves\r\nboth      spaces and\r\nline breaks."]), new ExpressCraft.Bootstrap.Paragraph.ctor([new ExpressCraft.Bootstrap.ParagraphList([new ExpressCraft.Bootstrap.Heading("h2", ["Contextual Colors"]), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text is muted."]), {
+                    setContextualText: ExpressCraft.Bootstrap.Contextual.Text.Muted
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text is important."]), {
+                    setContextualText: ExpressCraft.Bootstrap.Contextual.Text.Primary
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text indicates success."]), {
+                    setContextualText: ExpressCraft.Bootstrap.Contextual.Text.Success
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text represents some information."]), {
+                    setContextualText: ExpressCraft.Bootstrap.Contextual.Text.Info
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text represents a warning."]), {
+                    setContextualText: ExpressCraft.Bootstrap.Contextual.Text.Warning
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text represents danger."]), {
+                    setContextualText: ExpressCraft.Bootstrap.Contextual.Text.Danger
+                } )])]), new ExpressCraft.Bootstrap.Paragraph.ctor([new ExpressCraft.Bootstrap.ParagraphList([new ExpressCraft.Bootstrap.Heading("h2", ["Contextual Backgrounds"]), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text is important."]), {
+                    setContextualBackground: ExpressCraft.Bootstrap.Contextual.Background.Primary
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text indicates success."]), {
+                    setContextualBackground: ExpressCraft.Bootstrap.Contextual.Background.Success
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text represents some information."]), {
+                    setContextualBackground: ExpressCraft.Bootstrap.Contextual.Background.Info
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text represents a warning."]), {
+                    setContextualBackground: ExpressCraft.Bootstrap.Contextual.Background.Warning
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text represents danger."]), {
+                    setContextualBackground: ExpressCraft.Bootstrap.Contextual.Background.Danger
+                } )])])]), new ExpressCraft.Bootstrap.Panel(ExpressCraft.Bootstrap.BootTheme.Default, [new ExpressCraft.Bootstrap.PanelHeading([new ExpressCraft.Bootstrap.Heading("h3", ["Table Demo", new ExpressCraft.Bootstrap.Small([" - Table options below."])]), new ExpressCraft.Bootstrap.FormGroup([Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("Striped", false), {
+                    onCheckChanged: $asm.$.ExpressCraft.Bootstrap.Program.f2,
+                    setInline: true
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("Bordered", false), {
+                    onCheckChanged: $asm.$.ExpressCraft.Bootstrap.Program.f3,
+                    setInline: true
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("Hover", false), {
+                    onCheckChanged: $asm.$.ExpressCraft.Bootstrap.Program.f4,
+                    setInline: true
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("Condensed", false), {
+                    onCheckChanged: $asm.$.ExpressCraft.Bootstrap.Program.f5,
+                    setInline: true
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("Contextual classes", false), {
+                    onCheckChanged: function (s) {
+                        var $t;
+                        var tbl = ExpressCraft.Bootstrap.BootWidget.getWidgetById(ExpressCraft.Bootstrap.Table, "DemoTable");
+                        if (s.getChecked()) {
+                            var body = tbl.getTableBody();
+                            body.row(0).setTheme(ExpressCraft.Bootstrap.BootRowCellTheme.Active);
+                            body.row(2).setTheme(ExpressCraft.Bootstrap.BootRowCellTheme.Success);
+                            body.row(4).setTheme(ExpressCraft.Bootstrap.BootRowCellTheme.Info);
+                            body.row(6).setTheme(ExpressCraft.Bootstrap.BootRowCellTheme.Warning);
+                            body.row(8).setTheme(ExpressCraft.Bootstrap.BootRowCellTheme.Danger);
+                        } else {
+                            $t = Bridge.getEnumerator(tbl.getTableBody().getRows(), ExpressCraft.Bootstrap.TableRow);
+                            while ($t.moveNext()) {
+                                var item = $t.getCurrent();
+                                item.clearTheme();
+                            }
                         }
-                    }
-                },
-                setInline: true
-            } )])]), new ExpressCraft.Bootstrap.PanelBody([Bridge.merge(new ExpressCraft.Bootstrap.Table([new ExpressCraft.Bootstrap.TableHeader([new ExpressCraft.Bootstrap.TableHeaderRow.ctor(["#", "Table heading", "Table heading", "Table heading", "Table heading", "Table heading", "Table heading"])]), new ExpressCraft.Bootstrap.TableBody(System.Linq.Enumerable.range(0, 9).select($asm.$.ExpressCraft.Bootstrap.Program.f6).toArray())]), {
-                setId: "DemoTable"
-            } )]), new ExpressCraft.Bootstrap.PanelFooter([new ExpressCraft.Bootstrap.Heading("h3", ["How to access the table."]), new ExpressCraft.Bootstrap.Pre(["var tbl = BootWidget.GetWidgetById<Table>(\"DemoTable\");\r\nvar body = tbl.TableBody;\r\nbody.Row(0).Theme = BootRowCellTheme.Active;\r\nbody.Row(2).Theme = BootRowCellTheme.Success;\r\nbody.Row(4).Theme = BootRowCellTheme.Info;\r\nbody.Row(6).Theme = BootRowCellTheme.Warning;\r\nbody.Row(8).Theme = BootRowCellTheme.Danger;\r\n"])])])])]), new ExpressCraft.Bootstrap.PanelFooter(["Footer"])])]), {
-                setWindowstate: ExpressCraft.WindowState.Maximized
-            } ));
+                    },
+                    setInline: true
+                } )])]), new ExpressCraft.Bootstrap.PanelBody([Bridge.merge(new ExpressCraft.Bootstrap.Table([new ExpressCraft.Bootstrap.TableHeader([new ExpressCraft.Bootstrap.TableHeaderRow.ctor(["#", "Table heading", "Table heading", "Table heading", "Table heading", "Table heading", "Table heading"])]), new ExpressCraft.Bootstrap.TableBody(System.Linq.Enumerable.range(0, 9).select($asm.$.ExpressCraft.Bootstrap.Program.f6).toArray())]), {
+                    setId: "DemoTable"
+                } )]), new ExpressCraft.Bootstrap.PanelFooter([new ExpressCraft.Bootstrap.Heading("h3", ["How to access the table."]), new ExpressCraft.Bootstrap.Pre(["var tbl = BootWidget.GetWidgetById<Table>(\"DemoTable\");\r\nvar body = tbl.TableBody;\r\nbody.Row(0).Theme = BootRowCellTheme.Active;\r\nbody.Row(2).Theme = BootRowCellTheme.Success;\r\nbody.Row(4).Theme = BootRowCellTheme.Info;\r\nbody.Row(6).Theme = BootRowCellTheme.Warning;\r\nbody.Row(8).Theme = BootRowCellTheme.Danger;\r\n"])])])])]), new ExpressCraft.Bootstrap.PanelFooter(["Footer"])])]), {
+                    setWindowstate: ExpressCraft.WindowState.Maximized
+                } ));
+            }
+        },
+        $main: function () {
+
         }
     });
 
@@ -1135,16 +1158,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
             this.$initialize();
             ExpressCraft.Bootstrap.BootWidget.$ctor1.call(this, typos);
-            var length;
-            if (colClasses != null && ((length = colClasses.length)) > 0) {
-                var builder = new System.Text.StringBuilder();
-
-                for (var i = 0; i < length; i = (i + 1) | 0) {
-                    builder.append(System.String.concat(colClasses[i].value, " "));
-                }
-                builder.setLength((builder.getLength() - 1) | 0);
-                this.content.className = builder.toString();
-            }
+            ExpressCraft.Bootstrap.ColExtentions.applyColumns(this, colClasses);
         },
         $ctor9: function (colClasses, typos) {
             if (typos === void 0) { typos = []; }

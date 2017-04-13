@@ -13,13 +13,13 @@ namespace ExpressCraft.Bootstrap
 {
 	public class Program
 	{
-		public static void Main()
+		public static void Demo()
 		{
 			Settings.IncludeFocusRegion = false;
 			Settings.AllowCloseWithoutQuestion = true;
 
 			Application.SetApplicationDefinition();
-			
+
 			Action<MouseEvent> buttonClick = (ev) => { Global.Alert(ev.CurrentTarget.As<HTMLElement>().InnerHTML); };
 
 			BootWindow.SetupMetaTags();
@@ -72,7 +72,7 @@ namespace ExpressCraft.Bootstrap
 									new Button("Info", BootTheme.Info) { OnClick = buttonClick },
 									new Button("Warning", BootTheme.Warning) { OnClick = buttonClick },
 									new Button("Danger", BootTheme.Danger) { OnClick = buttonClick },
-									new Button("Link", BootTheme.Link) { OnClick = buttonClick }																																
+									new Button("Link", BootTheme.Link) { OnClick = buttonClick }
 								),
 								new Heading(HeadingType.H2, "Heading", new Small(" - Heading Small")),
 									new ParagraphList(
@@ -121,8 +121,9 @@ line breaks."),
 											new Heading(HeadingType.H3, "Table Demo", new Small(" - Table options below.")),
 											new FormGroup(
 												new CheckBox("Striped", false)
-												{ OnCheckChanged = (s) => {
-													BootWidget.GetWidgetById<Table>("DemoTable").Striped = s.Checked;
+												{
+													OnCheckChanged = (s) => {
+														BootWidget.GetWidgetById<Table>("DemoTable").Striped = s.Checked;
 													},
 													Inline = true
 												},
@@ -166,11 +167,11 @@ line breaks."),
 															{
 																item.ClearTheme();
 															}
-														}														
+														}
 													},
 													Inline = true
 												}
-											) 
+											)
 										),
 										new PanelBody(
 											new Table(
@@ -204,9 +205,9 @@ body.Row(6).Theme = BootRowCellTheme.Warning;
 body.Row(8).Theme = BootRowCellTheme.Danger;
 "
 											)
-										)										
+										)
 									)
-									
+
 								)
 						),
 						new PanelFooter(
@@ -214,8 +215,13 @@ body.Row(8).Theme = BootRowCellTheme.Danger;
 							)
 						)
 				)
-				{ Windowstate = WindowState.Maximized }				
-			);			
+				{ Windowstate = WindowState.Maximized }
+			);
+		}
+
+		public static void Main()
+		{
+					
 		}
 	}
 }
