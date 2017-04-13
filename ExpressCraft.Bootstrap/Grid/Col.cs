@@ -10,20 +10,19 @@ namespace ExpressCraft.Bootstrap
 {
 	public static class ColExtentions
 	{
-		public static void ApplyColumns(this BootWidget widget, params ColClass[] colClasses)
+		public static BootWidget ApplyColumns(this BootWidget widget, params ColClass[] colClasses)
 		{
 			int length;
 			if(widget != null && colClasses != null && (length = colClasses.Length) > 0)
 			{
 				var builder = new StringBuilder();
-
+				
 				for(int i = 0; i < length; i++)
 				{
-					builder.Append(colClasses[i].value + " ");
-				}
-				builder.Length--;
-				widget.Content.ClassName = builder.ToString();
+					widget.ClassList.Add(colClasses[i].value);
+				}								
 			}
+			return widget;
 		}
 	}
 

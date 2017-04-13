@@ -723,11 +723,10 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
                     var builder = new System.Text.StringBuilder();
 
                     for (var i = 0; i < length; i = (i + 1) | 0) {
-                        builder.append(System.String.concat(colClasses[i].value, " "));
+                        widget.getClassList().add(colClasses[i].value);
                     }
-                    builder.setLength((builder.getLength() - 1) | 0);
-                    widget.content.className = builder.toString();
                 }
+                return widget;
             }
         }
     });
