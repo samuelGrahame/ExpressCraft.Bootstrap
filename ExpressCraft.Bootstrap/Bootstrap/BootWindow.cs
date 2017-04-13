@@ -22,6 +22,8 @@ namespace ExpressCraft.Bootstrap
 
 		private static bool hasSetupMetaTags = false;
 		private static HTMLStyleElement privateSyle;
+		private HTMLDivElement prevBody = null;
+		private HTMLCanvasElement canvas = null;
 
 		public static void SetupMetaTags()
 		{
@@ -30,26 +32,27 @@ namespace ExpressCraft.Bootstrap
 
 			hasSetupMetaTags = true;
 			Document.Head.AppendChild(new HTMLMetaElement() { Name = "viewport", Content = "width=device-width, initial-scale=1" });
-			}
+			privateSyle = new HTMLStyleElement();
+			Document.Body.AppendChild(privateSyle);
+		}
 
 		public BootWindow(params Union<string, Control, HTMLElement>[] typos) : base("")
 		{		
 			var container = (HTMLDivElement)(new BootStyleWidget("container-fluid")).Content;
-			privateSyle = new HTMLStyleElement();
-
-			this.Content.AppendChild(privateSyle);
-
+			
+			
 			this.BackColor = Color.White;
 			this.Body.AppendChild(container);
 			this.BodyStyle.OverflowY = Overflow.Auto;
-			
+			prevBody = this.Body;
+
 			this.Body = container;						
 			this.BodyStyle.Padding = "0";
 
 			SetCalcSize();
 			
-
-			BootWidget.AppendTypos(this.Body, typos);			
+			BootWidget.AppendTypos(this.Body, typos);
+			
 		}
 
 		protected void SetCalcSize()
@@ -57,6 +60,14 @@ namespace ExpressCraft.Bootstrap
 		//	this.Body.SetSize("calc(100% - 28px)", this.Body.Style.Height);
 		}
 
+		protected override void OnGotFocus()
+		{			
+			
+			base.OnGotFocus();
+			CalcSizeOnChange();			
+
+		}
+				
 		private void CalcSizeOnChange()
 		{
 			//var clientRect = this.Content.GetBoundingClientRect();
@@ -99,11 +110,10 @@ namespace ExpressCraft.Bootstrap
 				styleBuilder.Append(Min_Width1200);
 			}
 			
-			
 			var style = styleBuilder.ToString();
 			if(string.Compare(style, prev) != 0)
-			{
-				privateSyle.InnerHTML = style;
+			{				
+				privateSyle.InnerHTML = style;				
 			}			
 		}
 

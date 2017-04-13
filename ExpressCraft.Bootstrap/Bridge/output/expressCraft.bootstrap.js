@@ -244,32 +244,41 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
                     name: "viewport",
                     content: "width=device-width, initial-scale=1"
                 } ));
+                ExpressCraft.Bootstrap.BootWindow.privateSyle = document.createElement('style');
+                document.body.appendChild(ExpressCraft.Bootstrap.BootWindow.privateSyle);
             }
         },
+        prevBody: null,
+        canvas: null,
         ctor: function (typos) {
             if (typos === void 0) { typos = []; }
 
             this.$initialize();
             ExpressCraft.Form.ctor.call(this, "");
             var container = Bridge.cast((new ExpressCraft.Bootstrap.BootStyleWidget("container-fluid")).content, HTMLDivElement);
-            ExpressCraft.Bootstrap.BootWindow.privateSyle = document.createElement('style');
 
-            this.content.appendChild(ExpressCraft.Bootstrap.BootWindow.privateSyle);
 
             this.setBackColor(ExpressCraft.Color.op_Implicit$1(ExpressCraft.Color.getWhite().$clone()));
             this.getBody().appendChild(container);
             this.getBodyStyle().overflowY = "auto";
+            this.prevBody = this.getBody();
 
             this.setBody(container);
             this.getBodyStyle().padding = "0";
 
             this.setCalcSize();
 
-
             ExpressCraft.Bootstrap.BootWidget.appendTypos(this.getBody(), typos);
+
         },
         setCalcSize: function () {
             //	this.Body.SetSize("calc(100% - 28px)", this.Body.Style.Height);
+        },
+        onGotFocus: function () {
+
+            ExpressCraft.Form.prototype.onGotFocus.call(this);
+            this.calcSizeOnChange();
+
         },
         calcSizeOnChange: function () {
             //var clientRect = this.Content.GetBoundingClientRect();
@@ -305,7 +314,6 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             if (clientRect.width >= 1200) {
                 styleBuilder.append(ExpressCraft.Bootstrap.BootWindow.Min_Width1200);
             }
-
 
             var style = styleBuilder.toString();
             if (System.String.compare(style, prev) !== 0) {
