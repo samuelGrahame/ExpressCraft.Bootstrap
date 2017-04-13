@@ -12,7 +12,7 @@ namespace ExpressCraft.Bootstrap
 {
 	public class Label : BootWidget
 	{
-		public Label(params Union<string, Control, HTMLElement>[] typos) : base(Document.CreateElement("label"), typos)
+		public Label(params Union<string, Control, HTMLElement>[] typos) : base(new HTMLLabelElement() { ClassName = "control-label" }, typos)
 		{
 			
 		}
@@ -25,5 +25,12 @@ namespace ExpressCraft.Bootstrap
 				SetClassTrue("sr-only", value);
 			}
 		}
+		
+		public string For
+		{
+			get { return Content.As<HTMLLabelElement>().HtmlFor; }
+			set { Content.As<HTMLLabelElement>().HtmlFor = value; }
+		}
+
 	}
 }

@@ -10,7 +10,7 @@ namespace ExpressCraft.Bootstrap
 {
 	public class ClearFix : BootStyleWidget
 	{
-		public ClearFix(ColTier tier, params Union<string, Control, HTMLElement>[] typos) : base(Script.Write<string>("'clearfix visible' + tier.value + 'block'"), typos)
+		public ClearFix(RuleTier tier, params Union<string, Control, HTMLElement>[] typos) : base(Script.Write<string>("'clearfix visible' + tier.value + 'block'"), typos)
 		{
 
 		}

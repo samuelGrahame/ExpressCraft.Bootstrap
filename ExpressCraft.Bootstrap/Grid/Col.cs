@@ -10,7 +10,7 @@ namespace ExpressCraft.Bootstrap
 {
 	public static class ColExtentions
 	{
-		public static BootWidget ApplyColumns(this BootWidget widget, params ColClass[] colClasses)
+		public static BootWidget ApplyColumns(this BootWidget widget, params Rule[] colClasses)
 		{
 			int length;
 			if(widget != null && colClasses != null && (length = colClasses.Length) > 0)
@@ -28,45 +28,45 @@ namespace ExpressCraft.Bootstrap
 
 	public class Col : BootWidget
 	{		
-		public Col(ColClass[] colClasses, params Union<string, Control, HTMLElement>[] typos) : base(typos)
+		public Col(Rule[] colClasses, params Union<string, Control, HTMLElement>[] typos) : base(typos)
 		{
 			this.ApplyColumns(colClasses);			
 		}		
 
-		public Col(List<ColClass> colClasses, params Union<string, Control, HTMLElement>[] typos) : this(colClasses.ToArray(), typos)
+		public Col(List<Rule> colClasses, params Union<string, Control, HTMLElement>[] typos) : this(colClasses.ToArray(), typos)
 		{
 
 		}
 
-		public Col(ColClass colClass1, params Union<string, Control, HTMLElement>[] typos) : this(new ColClass[] { colClass1 }, typos)
+		public Col(Rule colClass1, params Union<string, Control, HTMLElement>[] typos) : this(new Rule[] { colClass1 }, typos)
 		{
 
 		}
-		public Col(ColClass colClass1, ColClass colClass2, params Union<string, Control, HTMLElement>[] typos) : this(new ColClass[] { colClass1, colClass2 }, typos)
+		public Col(Rule colClass1, Rule colClass2, params Union<string, Control, HTMLElement>[] typos) : this(new Rule[] { colClass1, colClass2 }, typos)
 		{
 
 		}
-		public Col(ColClass colClass1, ColClass colClass2, ColClass colClass3, params Union<string, Control, HTMLElement>[] typos) : this(new ColClass[] { colClass1, colClass2, colClass3 }, typos)
+		public Col(Rule colClass1, Rule colClass2, Rule colClass3, params Union<string, Control, HTMLElement>[] typos) : this(new Rule[] { colClass1, colClass2, colClass3 }, typos)
 		{
 
 		}
-		public Col(ColClass colClass1, ColClass colClass2, ColClass colClass3, ColClass colClass4, params Union<string, Control, HTMLElement>[] typos) : this(new ColClass[] { colClass1, colClass2, colClass3, colClass4 }, typos)
+		public Col(Rule colClass1, Rule colClass2, Rule colClass3, Rule colClass4, params Union<string, Control, HTMLElement>[] typos) : this(new Rule[] { colClass1, colClass2, colClass3, colClass4 }, typos)
 		{
 
 		}
-		public Col(ColClass colClass1, ColClass colClass2, ColClass colClass3, ColClass colClass4, ColClass colClass5, params Union<string, Control, HTMLElement>[] typos) : this(new ColClass[] { colClass1, colClass2, colClass3, colClass4, colClass5}, typos)
+		public Col(Rule colClass1, Rule colClass2, Rule colClass3, Rule colClass4, Rule colClass5, params Union<string, Control, HTMLElement>[] typos) : this(new Rule[] { colClass1, colClass2, colClass3, colClass4, colClass5}, typos)
 		{
 
 		}
-		public Col(ColClass colClass1, ColClass colClass2, ColClass colClass3, ColClass colClass4, ColClass colClass5, ColClass colClass6, params Union<string, Control, HTMLElement>[] typos) : this(new ColClass[] { colClass1, colClass2, colClass3, colClass4, colClass5, colClass6 }, typos)
+		public Col(Rule colClass1, Rule colClass2, Rule colClass3, Rule colClass4, Rule colClass5, Rule colClass6, params Union<string, Control, HTMLElement>[] typos) : this(new Rule[] { colClass1, colClass2, colClass3, colClass4, colClass5, colClass6 }, typos)
 		{
 
 		}
-		public Col(ColClass colClass1, ColClass colClass2, ColClass colClass3, ColClass colClass4, ColClass colClass5, ColClass colClass6, ColClass colClass7, params Union<string, Control, HTMLElement>[] typos) : this(new ColClass[] { colClass1, colClass2, colClass3, colClass4, colClass5, colClass6, colClass7 }, typos)
+		public Col(Rule colClass1, Rule colClass2, Rule colClass3, Rule colClass4, Rule colClass5, Rule colClass6, Rule colClass7, params Union<string, Control, HTMLElement>[] typos) : this(new Rule[] { colClass1, colClass2, colClass3, colClass4, colClass5, colClass6, colClass7 }, typos)
 		{
 
 		}
-		public Col(ColClass colClass1, ColClass colClass2, ColClass colClass3, ColClass colClass4, ColClass colClass5, ColClass colClass6, ColClass colClass7, ColClass colClass8, params Union<string, Control, HTMLElement>[] typos) : this(new ColClass[] { colClass1, colClass2, colClass3, colClass4, colClass5, colClass6, colClass7, colClass8 }, typos)
+		public Col(Rule colClass1, Rule colClass2, Rule colClass3, Rule colClass4, Rule colClass5, Rule colClass6, Rule colClass7, Rule colClass8, params Union<string, Control, HTMLElement>[] typos) : this(new Rule[] { colClass1, colClass2, colClass3, colClass4, colClass5, colClass6, colClass7, colClass8 }, typos)
 		{
 
 		}

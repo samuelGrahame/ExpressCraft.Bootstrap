@@ -60,247 +60,247 @@ namespace ExpressCraft.Bootstrap
 		}
 	}
 
-	public class ColTier
+	public class RuleTier
 	{
 		public string value;
-		public ColTier(string _value)
+		public RuleTier(string _value)
 		{
 			value = _value;
 		}
 		/// <summary>
 		/// Phones
 		/// </summary>
-		public static ColTier XS = new ColTier("-xs-");
+		public static RuleTier XS = new RuleTier("-xs-");
 		/// <summary>
 		/// Tablets
 		/// </summary>
-		public static ColTier SM = new ColTier("-sm-");
+		public static RuleTier SM = new RuleTier("-sm-");
 		/// <summary>
 		/// Desktops
 		/// </summary>
-		public static ColTier MD = new ColTier("-md-");
+		public static RuleTier MD = new RuleTier("-md-");
 		/// <summary>
 		/// Larger Desktops
 		/// </summary>
-		public static ColTier LG = new ColTier("-lg-");
+		public static RuleTier LG = new RuleTier("-lg-");
 	}
 
-	public class ColClass
+	public class Rule
 	{
 		public string value;		
-		public ColClass(ColTier _tier, int _colIndex, string bonus)
+		public Rule(RuleTier _tier, int _colIndex, string bonus)
 		{
 			value = "col" + _tier.value + bonus + _colIndex;			
 		}
-		public ColClass(ColTier _tier, int _colIndex) : this(_tier, _colIndex, string.Empty){ }
+		public Rule(RuleTier _tier, int _colIndex) : this(_tier, _colIndex, string.Empty){ }
 
-		public static ColClass XS1 = new ColClass(ColTier.XS, 1);
-		public static ColClass XS2 = new ColClass(ColTier.XS, 2);
-		public static ColClass XS3 = new ColClass(ColTier.XS, 3);
-		public static ColClass XS4 = new ColClass(ColTier.XS, 4);
-		public static ColClass XS5 = new ColClass(ColTier.XS, 5);
-		public static ColClass XS6 = new ColClass(ColTier.XS, 6);
-		public static ColClass XS7 = new ColClass(ColTier.XS, 7);
-		public static ColClass XS8 = new ColClass(ColTier.XS, 8);
-		public static ColClass XS9 = new ColClass(ColTier.XS, 9);
-		public static ColClass XS10 = new ColClass(ColTier.XS, 10);
-		public static ColClass XS11 = new ColClass(ColTier.XS, 11);
-		public static ColClass XS12 = new ColClass(ColTier.XS, 12);
+		public static Rule XS1 = new Rule(RuleTier.XS, 1);
+		public static Rule XS2 = new Rule(RuleTier.XS, 2);
+		public static Rule XS3 = new Rule(RuleTier.XS, 3);
+		public static Rule XS4 = new Rule(RuleTier.XS, 4);
+		public static Rule XS5 = new Rule(RuleTier.XS, 5);
+		public static Rule XS6 = new Rule(RuleTier.XS, 6);
+		public static Rule XS7 = new Rule(RuleTier.XS, 7);
+		public static Rule XS8 = new Rule(RuleTier.XS, 8);
+		public static Rule XS9 = new Rule(RuleTier.XS, 9);
+		public static Rule XS10 = new Rule(RuleTier.XS, 10);
+		public static Rule XS11 = new Rule(RuleTier.XS, 11);
+		public static Rule XS12 = new Rule(RuleTier.XS, 12);
 
-		public static ColClass XSO1 = new ColClass(ColTier.XS, 1, "offset-");
-		public static ColClass XSO2 = new ColClass(ColTier.XS, 2, "offset-");
-		public static ColClass XSO3 = new ColClass(ColTier.XS, 3, "offset-");
-		public static ColClass XSO4 = new ColClass(ColTier.XS, 4, "offset-");
-		public static ColClass XSO5 = new ColClass(ColTier.XS, 5, "offset-");
-		public static ColClass XSO6 = new ColClass(ColTier.XS, 6, "offset-");
-		public static ColClass XSO7 = new ColClass(ColTier.XS, 7, "offset-");
-		public static ColClass XSO8 = new ColClass(ColTier.XS, 8, "offset-");
-		public static ColClass XSO9 = new ColClass(ColTier.XS, 9, "offset-");
-		public static ColClass XSO10 = new ColClass(ColTier.XS, 10, "offset-");
-		public static ColClass XSO11 = new ColClass(ColTier.XS, 11, "offset-");
-		public static ColClass XSO12 = new ColClass(ColTier.XS, 12, "offset-");
+		public static Rule XSO1 = new Rule(RuleTier.XS, 1, "offset-");
+		public static Rule XSO2 = new Rule(RuleTier.XS, 2, "offset-");
+		public static Rule XSO3 = new Rule(RuleTier.XS, 3, "offset-");
+		public static Rule XSO4 = new Rule(RuleTier.XS, 4, "offset-");
+		public static Rule XSO5 = new Rule(RuleTier.XS, 5, "offset-");
+		public static Rule XSO6 = new Rule(RuleTier.XS, 6, "offset-");
+		public static Rule XSO7 = new Rule(RuleTier.XS, 7, "offset-");
+		public static Rule XSO8 = new Rule(RuleTier.XS, 8, "offset-");
+		public static Rule XSO9 = new Rule(RuleTier.XS, 9, "offset-");
+		public static Rule XSO10 = new Rule(RuleTier.XS, 10, "offset-");
+		public static Rule XSO11 = new Rule(RuleTier.XS, 11, "offset-");
+		public static Rule XSO12 = new Rule(RuleTier.XS, 12, "offset-");
 
-		public static ColClass XSPL1 = new ColClass(ColTier.XS, 1, "pull-");
-		public static ColClass XSPL2 = new ColClass(ColTier.XS, 2, "pull-");
-		public static ColClass XSPL3 = new ColClass(ColTier.XS, 3, "pull-");
-		public static ColClass XSPL4 = new ColClass(ColTier.XS, 4, "pull-");
-		public static ColClass XSPL5 = new ColClass(ColTier.XS, 5, "pull-");
-		public static ColClass XSPL6 = new ColClass(ColTier.XS, 6, "pull-");
-		public static ColClass XSPL7 = new ColClass(ColTier.XS, 7, "pull-");
-		public static ColClass XSPL8 = new ColClass(ColTier.XS, 8, "pull-");
-		public static ColClass XSPL9 = new ColClass(ColTier.XS, 9, "pull-");
-		public static ColClass XSPL10 = new ColClass(ColTier.XS, 10, "pull-");
-		public static ColClass XSPL11 = new ColClass(ColTier.XS, 11, "pull-");
-		public static ColClass XSPL12 = new ColClass(ColTier.XS, 12, "pull-");
+		public static Rule XSPL1 = new Rule(RuleTier.XS, 1, "pull-");
+		public static Rule XSPL2 = new Rule(RuleTier.XS, 2, "pull-");
+		public static Rule XSPL3 = new Rule(RuleTier.XS, 3, "pull-");
+		public static Rule XSPL4 = new Rule(RuleTier.XS, 4, "pull-");
+		public static Rule XSPL5 = new Rule(RuleTier.XS, 5, "pull-");
+		public static Rule XSPL6 = new Rule(RuleTier.XS, 6, "pull-");
+		public static Rule XSPL7 = new Rule(RuleTier.XS, 7, "pull-");
+		public static Rule XSPL8 = new Rule(RuleTier.XS, 8, "pull-");
+		public static Rule XSPL9 = new Rule(RuleTier.XS, 9, "pull-");
+		public static Rule XSPL10 = new Rule(RuleTier.XS, 10, "pull-");
+		public static Rule XSPL11 = new Rule(RuleTier.XS, 11, "pull-");
+		public static Rule XSPL12 = new Rule(RuleTier.XS, 12, "pull-");
 
-		public static ColClass XSPS1 = new ColClass(ColTier.XS, 1, "push-");
-		public static ColClass XSPS2 = new ColClass(ColTier.XS, 2, "push-");
-		public static ColClass XSPS3 = new ColClass(ColTier.XS, 3, "push-");
-		public static ColClass XSPS4 = new ColClass(ColTier.XS, 4, "push-");
-		public static ColClass XSPS5 = new ColClass(ColTier.XS, 5, "push-");
-		public static ColClass XSPS6 = new ColClass(ColTier.XS, 6, "push-");
-		public static ColClass XSPS7 = new ColClass(ColTier.XS, 7, "push-");
-		public static ColClass XSPS8 = new ColClass(ColTier.XS, 8, "push-");
-		public static ColClass XSPS9 = new ColClass(ColTier.XS, 9, "push-");
-		public static ColClass XSPS10 = new ColClass(ColTier.XS, 10, "push-");
-		public static ColClass XSPS11 = new ColClass(ColTier.XS, 11, "push-");
-		public static ColClass XSPS12 = new ColClass(ColTier.XS, 12, "push-");
+		public static Rule XSPS1 = new Rule(RuleTier.XS, 1, "push-");
+		public static Rule XSPS2 = new Rule(RuleTier.XS, 2, "push-");
+		public static Rule XSPS3 = new Rule(RuleTier.XS, 3, "push-");
+		public static Rule XSPS4 = new Rule(RuleTier.XS, 4, "push-");
+		public static Rule XSPS5 = new Rule(RuleTier.XS, 5, "push-");
+		public static Rule XSPS6 = new Rule(RuleTier.XS, 6, "push-");
+		public static Rule XSPS7 = new Rule(RuleTier.XS, 7, "push-");
+		public static Rule XSPS8 = new Rule(RuleTier.XS, 8, "push-");
+		public static Rule XSPS9 = new Rule(RuleTier.XS, 9, "push-");
+		public static Rule XSPS10 = new Rule(RuleTier.XS, 10, "push-");
+		public static Rule XSPS11 = new Rule(RuleTier.XS, 11, "push-");
+		public static Rule XSPS12 = new Rule(RuleTier.XS, 12, "push-");
 
-		public static ColClass SM1 = new ColClass(ColTier.SM, 1);
-		public static ColClass SM2 = new ColClass(ColTier.SM, 2);
-		public static ColClass SM3 = new ColClass(ColTier.SM, 3);
-		public static ColClass SM4 = new ColClass(ColTier.SM, 4);
-		public static ColClass SM5 = new ColClass(ColTier.SM, 5);
-		public static ColClass SM6 = new ColClass(ColTier.SM, 6);
-		public static ColClass SM7 = new ColClass(ColTier.SM, 7);
-		public static ColClass SM8 = new ColClass(ColTier.SM, 8);
-		public static ColClass SM9 = new ColClass(ColTier.SM, 9);
-		public static ColClass SM10 = new ColClass(ColTier.SM, 10);
-		public static ColClass SM11 = new ColClass(ColTier.SM, 11);
-		public static ColClass SM12 = new ColClass(ColTier.SM, 12);
+		public static Rule SM1 = new Rule(RuleTier.SM, 1);
+		public static Rule SM2 = new Rule(RuleTier.SM, 2);
+		public static Rule SM3 = new Rule(RuleTier.SM, 3);
+		public static Rule SM4 = new Rule(RuleTier.SM, 4);
+		public static Rule SM5 = new Rule(RuleTier.SM, 5);
+		public static Rule SM6 = new Rule(RuleTier.SM, 6);
+		public static Rule SM7 = new Rule(RuleTier.SM, 7);
+		public static Rule SM8 = new Rule(RuleTier.SM, 8);
+		public static Rule SM9 = new Rule(RuleTier.SM, 9);
+		public static Rule SM10 = new Rule(RuleTier.SM, 10);
+		public static Rule SM11 = new Rule(RuleTier.SM, 11);
+		public static Rule SM12 = new Rule(RuleTier.SM, 12);
 
-		public static ColClass SMO1 = new ColClass(ColTier.SM, 1, "offset-");
-		public static ColClass SMO2 = new ColClass(ColTier.SM, 2, "offset-");
-		public static ColClass SMO3 = new ColClass(ColTier.SM, 3, "offset-");
-		public static ColClass SMO4 = new ColClass(ColTier.SM, 4, "offset-");
-		public static ColClass SMO5 = new ColClass(ColTier.SM, 5, "offset-");
-		public static ColClass SMO6 = new ColClass(ColTier.SM, 6, "offset-");
-		public static ColClass SMO7 = new ColClass(ColTier.SM, 7, "offset-");
-		public static ColClass SMO8 = new ColClass(ColTier.SM, 8, "offset-");
-		public static ColClass SMO9 = new ColClass(ColTier.SM, 9, "offset-");
-		public static ColClass SMO10 = new ColClass(ColTier.SM, 10, "offset-");
-		public static ColClass SMO11 = new ColClass(ColTier.SM, 11, "offset-");
-		public static ColClass SMO12 = new ColClass(ColTier.SM, 12, "offset-");
+		public static Rule SMO1 = new Rule(RuleTier.SM, 1, "offset-");
+		public static Rule SMO2 = new Rule(RuleTier.SM, 2, "offset-");
+		public static Rule SMO3 = new Rule(RuleTier.SM, 3, "offset-");
+		public static Rule SMO4 = new Rule(RuleTier.SM, 4, "offset-");
+		public static Rule SMO5 = new Rule(RuleTier.SM, 5, "offset-");
+		public static Rule SMO6 = new Rule(RuleTier.SM, 6, "offset-");
+		public static Rule SMO7 = new Rule(RuleTier.SM, 7, "offset-");
+		public static Rule SMO8 = new Rule(RuleTier.SM, 8, "offset-");
+		public static Rule SMO9 = new Rule(RuleTier.SM, 9, "offset-");
+		public static Rule SMO10 = new Rule(RuleTier.SM, 10, "offset-");
+		public static Rule SMO11 = new Rule(RuleTier.SM, 11, "offset-");
+		public static Rule SMO12 = new Rule(RuleTier.SM, 12, "offset-");
 
-		public static ColClass SMPL1 = new ColClass(ColTier.SM, 1, "pull-");
-		public static ColClass SMPL2 = new ColClass(ColTier.SM, 2, "pull-");
-		public static ColClass SMPL3 = new ColClass(ColTier.SM, 3, "pull-");
-		public static ColClass SMPL4 = new ColClass(ColTier.SM, 4, "pull-");
-		public static ColClass SMPL5 = new ColClass(ColTier.SM, 5, "pull-");
-		public static ColClass SMPL6 = new ColClass(ColTier.SM, 6, "pull-");
-		public static ColClass SMPL7 = new ColClass(ColTier.SM, 7, "pull-");
-		public static ColClass SMPL8 = new ColClass(ColTier.SM, 8, "pull-");
-		public static ColClass SMPL9 = new ColClass(ColTier.SM, 9, "pull-");
-		public static ColClass SMPL10 = new ColClass(ColTier.SM, 10, "pull-");
-		public static ColClass SMPL11 = new ColClass(ColTier.SM, 11, "pull-");
-		public static ColClass SMPL12 = new ColClass(ColTier.SM, 12, "pull-");
+		public static Rule SMPL1 = new Rule(RuleTier.SM, 1, "pull-");
+		public static Rule SMPL2 = new Rule(RuleTier.SM, 2, "pull-");
+		public static Rule SMPL3 = new Rule(RuleTier.SM, 3, "pull-");
+		public static Rule SMPL4 = new Rule(RuleTier.SM, 4, "pull-");
+		public static Rule SMPL5 = new Rule(RuleTier.SM, 5, "pull-");
+		public static Rule SMPL6 = new Rule(RuleTier.SM, 6, "pull-");
+		public static Rule SMPL7 = new Rule(RuleTier.SM, 7, "pull-");
+		public static Rule SMPL8 = new Rule(RuleTier.SM, 8, "pull-");
+		public static Rule SMPL9 = new Rule(RuleTier.SM, 9, "pull-");
+		public static Rule SMPL10 = new Rule(RuleTier.SM, 10, "pull-");
+		public static Rule SMPL11 = new Rule(RuleTier.SM, 11, "pull-");
+		public static Rule SMPL12 = new Rule(RuleTier.SM, 12, "pull-");
 
-		public static ColClass SMPS1 = new ColClass(ColTier.SM, 1, "push-");
-		public static ColClass SMPS2 = new ColClass(ColTier.SM, 2, "push-");
-		public static ColClass SMPS3 = new ColClass(ColTier.SM, 3, "push-");
-		public static ColClass SMPS4 = new ColClass(ColTier.SM, 4, "push-");
-		public static ColClass SMPS5 = new ColClass(ColTier.SM, 5, "push-");
-		public static ColClass SMPS6 = new ColClass(ColTier.SM, 6, "push-");
-		public static ColClass SMPS7 = new ColClass(ColTier.SM, 7, "push-");
-		public static ColClass SMPS8 = new ColClass(ColTier.SM, 8, "push-");
-		public static ColClass SMPS9 = new ColClass(ColTier.SM, 9, "push-");
-		public static ColClass SMPS10 = new ColClass(ColTier.SM, 10, "push-");
-		public static ColClass SMPS11 = new ColClass(ColTier.SM, 11, "push-");
-		public static ColClass SMPS12 = new ColClass(ColTier.SM, 12, "push-");
+		public static Rule SMPS1 = new Rule(RuleTier.SM, 1, "push-");
+		public static Rule SMPS2 = new Rule(RuleTier.SM, 2, "push-");
+		public static Rule SMPS3 = new Rule(RuleTier.SM, 3, "push-");
+		public static Rule SMPS4 = new Rule(RuleTier.SM, 4, "push-");
+		public static Rule SMPS5 = new Rule(RuleTier.SM, 5, "push-");
+		public static Rule SMPS6 = new Rule(RuleTier.SM, 6, "push-");
+		public static Rule SMPS7 = new Rule(RuleTier.SM, 7, "push-");
+		public static Rule SMPS8 = new Rule(RuleTier.SM, 8, "push-");
+		public static Rule SMPS9 = new Rule(RuleTier.SM, 9, "push-");
+		public static Rule SMPS10 = new Rule(RuleTier.SM, 10, "push-");
+		public static Rule SMPS11 = new Rule(RuleTier.SM, 11, "push-");
+		public static Rule SMPS12 = new Rule(RuleTier.SM, 12, "push-");
 
-		public static ColClass MD1 = new ColClass(ColTier.MD, 1);
-		public static ColClass MD2 = new ColClass(ColTier.MD, 2);
-		public static ColClass MD3 = new ColClass(ColTier.MD, 3);
-		public static ColClass MD4 = new ColClass(ColTier.MD, 4);
-		public static ColClass MD5 = new ColClass(ColTier.MD, 5);
-		public static ColClass MD6 = new ColClass(ColTier.MD, 6);
-		public static ColClass MD7 = new ColClass(ColTier.MD, 7);
-		public static ColClass MD8 = new ColClass(ColTier.MD, 8);
-		public static ColClass MD9 = new ColClass(ColTier.MD, 9);
-		public static ColClass MD10 = new ColClass(ColTier.MD, 10);
-		public static ColClass MD11 = new ColClass(ColTier.MD, 11);
-		public static ColClass MD12 = new ColClass(ColTier.MD, 12);
+		public static Rule MD1 = new Rule(RuleTier.MD, 1);
+		public static Rule MD2 = new Rule(RuleTier.MD, 2);
+		public static Rule MD3 = new Rule(RuleTier.MD, 3);
+		public static Rule MD4 = new Rule(RuleTier.MD, 4);
+		public static Rule MD5 = new Rule(RuleTier.MD, 5);
+		public static Rule MD6 = new Rule(RuleTier.MD, 6);
+		public static Rule MD7 = new Rule(RuleTier.MD, 7);
+		public static Rule MD8 = new Rule(RuleTier.MD, 8);
+		public static Rule MD9 = new Rule(RuleTier.MD, 9);
+		public static Rule MD10 = new Rule(RuleTier.MD, 10);
+		public static Rule MD11 = new Rule(RuleTier.MD, 11);
+		public static Rule MD12 = new Rule(RuleTier.MD, 12);
 
-		public static ColClass MDO1 = new ColClass(ColTier.MD, 1, "offset-");
-		public static ColClass MDO2 = new ColClass(ColTier.MD, 2, "offset-");
-		public static ColClass MDO3 = new ColClass(ColTier.MD, 3, "offset-");
-		public static ColClass MDO4 = new ColClass(ColTier.MD, 4, "offset-");
-		public static ColClass MDO5 = new ColClass(ColTier.MD, 5, "offset-");
-		public static ColClass MDO6 = new ColClass(ColTier.MD, 6, "offset-");
-		public static ColClass MDO7 = new ColClass(ColTier.MD, 7, "offset-");
-		public static ColClass MDO8 = new ColClass(ColTier.MD, 8, "offset-");
-		public static ColClass MDO9 = new ColClass(ColTier.MD, 9, "offset-");
-		public static ColClass MDO10 = new ColClass(ColTier.MD, 10, "offset-");
-		public static ColClass MDO11 = new ColClass(ColTier.MD, 11, "offset-");
-		public static ColClass MDO12 = new ColClass(ColTier.MD, 12, "offset-");
+		public static Rule MDO1 = new Rule(RuleTier.MD, 1, "offset-");
+		public static Rule MDO2 = new Rule(RuleTier.MD, 2, "offset-");
+		public static Rule MDO3 = new Rule(RuleTier.MD, 3, "offset-");
+		public static Rule MDO4 = new Rule(RuleTier.MD, 4, "offset-");
+		public static Rule MDO5 = new Rule(RuleTier.MD, 5, "offset-");
+		public static Rule MDO6 = new Rule(RuleTier.MD, 6, "offset-");
+		public static Rule MDO7 = new Rule(RuleTier.MD, 7, "offset-");
+		public static Rule MDO8 = new Rule(RuleTier.MD, 8, "offset-");
+		public static Rule MDO9 = new Rule(RuleTier.MD, 9, "offset-");
+		public static Rule MDO10 = new Rule(RuleTier.MD, 10, "offset-");
+		public static Rule MDO11 = new Rule(RuleTier.MD, 11, "offset-");
+		public static Rule MDO12 = new Rule(RuleTier.MD, 12, "offset-");
 
-		public static ColClass MDPL1 = new ColClass(ColTier.MD, 1, "pull-");
-		public static ColClass MDPL2 = new ColClass(ColTier.MD, 2, "pull-");
-		public static ColClass MDPL3 = new ColClass(ColTier.MD, 3, "pull-");
-		public static ColClass MDPL4 = new ColClass(ColTier.MD, 4, "pull-");
-		public static ColClass MDPL5 = new ColClass(ColTier.MD, 5, "pull-");
-		public static ColClass MDPL6 = new ColClass(ColTier.MD, 6, "pull-");
-		public static ColClass MDPL7 = new ColClass(ColTier.MD, 7, "pull-");
-		public static ColClass MDPL8 = new ColClass(ColTier.MD, 8, "pull-");
-		public static ColClass MDPL9 = new ColClass(ColTier.MD, 9, "pull-");
-		public static ColClass MDPL10 = new ColClass(ColTier.MD, 10, "pull-");
-		public static ColClass MDPL11 = new ColClass(ColTier.MD, 11, "pull-");
-		public static ColClass MDPL12 = new ColClass(ColTier.MD, 12, "pull-");
+		public static Rule MDPL1 = new Rule(RuleTier.MD, 1, "pull-");
+		public static Rule MDPL2 = new Rule(RuleTier.MD, 2, "pull-");
+		public static Rule MDPL3 = new Rule(RuleTier.MD, 3, "pull-");
+		public static Rule MDPL4 = new Rule(RuleTier.MD, 4, "pull-");
+		public static Rule MDPL5 = new Rule(RuleTier.MD, 5, "pull-");
+		public static Rule MDPL6 = new Rule(RuleTier.MD, 6, "pull-");
+		public static Rule MDPL7 = new Rule(RuleTier.MD, 7, "pull-");
+		public static Rule MDPL8 = new Rule(RuleTier.MD, 8, "pull-");
+		public static Rule MDPL9 = new Rule(RuleTier.MD, 9, "pull-");
+		public static Rule MDPL10 = new Rule(RuleTier.MD, 10, "pull-");
+		public static Rule MDPL11 = new Rule(RuleTier.MD, 11, "pull-");
+		public static Rule MDPL12 = new Rule(RuleTier.MD, 12, "pull-");
 
-		public static ColClass MDPS1 = new ColClass(ColTier.MD, 1, "push-");
-		public static ColClass MDPS2 = new ColClass(ColTier.MD, 2, "push-");
-		public static ColClass MDPS3 = new ColClass(ColTier.MD, 3, "push-");
-		public static ColClass MDPS4 = new ColClass(ColTier.MD, 4, "push-");
-		public static ColClass MDPS5 = new ColClass(ColTier.MD, 5, "push-");
-		public static ColClass MDPS6 = new ColClass(ColTier.MD, 6, "push-");
-		public static ColClass MDPS7 = new ColClass(ColTier.MD, 7, "push-");
-		public static ColClass MDPS8 = new ColClass(ColTier.MD, 8, "push-");
-		public static ColClass MDPS9 = new ColClass(ColTier.MD, 9, "push-");
-		public static ColClass MDPS10 = new ColClass(ColTier.MD, 10, "push-");
-		public static ColClass MDPS11 = new ColClass(ColTier.MD, 11, "push-");
-		public static ColClass MDPS12 = new ColClass(ColTier.MD, 12, "push-");
+		public static Rule MDPS1 = new Rule(RuleTier.MD, 1, "push-");
+		public static Rule MDPS2 = new Rule(RuleTier.MD, 2, "push-");
+		public static Rule MDPS3 = new Rule(RuleTier.MD, 3, "push-");
+		public static Rule MDPS4 = new Rule(RuleTier.MD, 4, "push-");
+		public static Rule MDPS5 = new Rule(RuleTier.MD, 5, "push-");
+		public static Rule MDPS6 = new Rule(RuleTier.MD, 6, "push-");
+		public static Rule MDPS7 = new Rule(RuleTier.MD, 7, "push-");
+		public static Rule MDPS8 = new Rule(RuleTier.MD, 8, "push-");
+		public static Rule MDPS9 = new Rule(RuleTier.MD, 9, "push-");
+		public static Rule MDPS10 = new Rule(RuleTier.MD, 10, "push-");
+		public static Rule MDPS11 = new Rule(RuleTier.MD, 11, "push-");
+		public static Rule MDPS12 = new Rule(RuleTier.MD, 12, "push-");
 
-		public static ColClass LG1 = new ColClass(ColTier.LG, 1);
-		public static ColClass LG2 = new ColClass(ColTier.LG, 2);
-		public static ColClass LG3 = new ColClass(ColTier.LG, 3);
-		public static ColClass LG4 = new ColClass(ColTier.LG, 4);
-		public static ColClass LG5 = new ColClass(ColTier.LG, 5);
-		public static ColClass LG6 = new ColClass(ColTier.LG, 6);
-		public static ColClass LG7 = new ColClass(ColTier.LG, 7);
-		public static ColClass LG8 = new ColClass(ColTier.LG, 8);
-		public static ColClass LG9 = new ColClass(ColTier.LG, 9);
-		public static ColClass LG10 = new ColClass(ColTier.LG, 10);
-		public static ColClass LG11 = new ColClass(ColTier.LG, 11);
-		public static ColClass LG12 = new ColClass(ColTier.LG, 12);
+		public static Rule LG1 = new Rule(RuleTier.LG, 1);
+		public static Rule LG2 = new Rule(RuleTier.LG, 2);
+		public static Rule LG3 = new Rule(RuleTier.LG, 3);
+		public static Rule LG4 = new Rule(RuleTier.LG, 4);
+		public static Rule LG5 = new Rule(RuleTier.LG, 5);
+		public static Rule LG6 = new Rule(RuleTier.LG, 6);
+		public static Rule LG7 = new Rule(RuleTier.LG, 7);
+		public static Rule LG8 = new Rule(RuleTier.LG, 8);
+		public static Rule LG9 = new Rule(RuleTier.LG, 9);
+		public static Rule LG10 = new Rule(RuleTier.LG, 10);
+		public static Rule LG11 = new Rule(RuleTier.LG, 11);
+		public static Rule LG12 = new Rule(RuleTier.LG, 12);
 
-		public static ColClass LGO1 = new ColClass(ColTier.LG, 1, "offset-");
-		public static ColClass LGO2 = new ColClass(ColTier.LG, 2, "offset-");
-		public static ColClass LGO3 = new ColClass(ColTier.LG, 3, "offset-");
-		public static ColClass LGO4 = new ColClass(ColTier.LG, 4, "offset-");
-		public static ColClass LGO5 = new ColClass(ColTier.LG, 5, "offset-");
-		public static ColClass LGO6 = new ColClass(ColTier.LG, 6, "offset-");
-		public static ColClass LGO7 = new ColClass(ColTier.LG, 7, "offset-");
-		public static ColClass LGO8 = new ColClass(ColTier.LG, 8, "offset-");
-		public static ColClass LGO9 = new ColClass(ColTier.LG, 9, "offset-");
-		public static ColClass LGO10 = new ColClass(ColTier.LG, 10, "offset-");
-		public static ColClass LGO11 = new ColClass(ColTier.LG, 11, "offset-");
-		public static ColClass LGO12 = new ColClass(ColTier.LG, 12, "offset-");
+		public static Rule LGO1 = new Rule(RuleTier.LG, 1, "offset-");
+		public static Rule LGO2 = new Rule(RuleTier.LG, 2, "offset-");
+		public static Rule LGO3 = new Rule(RuleTier.LG, 3, "offset-");
+		public static Rule LGO4 = new Rule(RuleTier.LG, 4, "offset-");
+		public static Rule LGO5 = new Rule(RuleTier.LG, 5, "offset-");
+		public static Rule LGO6 = new Rule(RuleTier.LG, 6, "offset-");
+		public static Rule LGO7 = new Rule(RuleTier.LG, 7, "offset-");
+		public static Rule LGO8 = new Rule(RuleTier.LG, 8, "offset-");
+		public static Rule LGO9 = new Rule(RuleTier.LG, 9, "offset-");
+		public static Rule LGO10 = new Rule(RuleTier.LG, 10, "offset-");
+		public static Rule LGO11 = new Rule(RuleTier.LG, 11, "offset-");
+		public static Rule LGO12 = new Rule(RuleTier.LG, 12, "offset-");
 
-		public static ColClass LGPL1 = new ColClass(ColTier.LG, 1, "pull-");
-		public static ColClass LGPL2 = new ColClass(ColTier.LG, 2, "pull-");
-		public static ColClass LGPL3 = new ColClass(ColTier.LG, 3, "pull-");
-		public static ColClass LGPL4 = new ColClass(ColTier.LG, 4, "pull-");
-		public static ColClass LGPL5 = new ColClass(ColTier.LG, 5, "pull-");
-		public static ColClass LGPL6 = new ColClass(ColTier.LG, 6, "pull-");
-		public static ColClass LGPL7 = new ColClass(ColTier.LG, 7, "pull-");
-		public static ColClass LGPL8 = new ColClass(ColTier.LG, 8, "pull-");
-		public static ColClass LGPL9 = new ColClass(ColTier.LG, 9, "pull-");
-		public static ColClass LGPL10 = new ColClass(ColTier.LG, 10, "pull-");
-		public static ColClass LGPL11 = new ColClass(ColTier.LG, 11, "pull-");
-		public static ColClass LGPL12 = new ColClass(ColTier.LG, 12, "pull-");
+		public static Rule LGPL1 = new Rule(RuleTier.LG, 1, "pull-");
+		public static Rule LGPL2 = new Rule(RuleTier.LG, 2, "pull-");
+		public static Rule LGPL3 = new Rule(RuleTier.LG, 3, "pull-");
+		public static Rule LGPL4 = new Rule(RuleTier.LG, 4, "pull-");
+		public static Rule LGPL5 = new Rule(RuleTier.LG, 5, "pull-");
+		public static Rule LGPL6 = new Rule(RuleTier.LG, 6, "pull-");
+		public static Rule LGPL7 = new Rule(RuleTier.LG, 7, "pull-");
+		public static Rule LGPL8 = new Rule(RuleTier.LG, 8, "pull-");
+		public static Rule LGPL9 = new Rule(RuleTier.LG, 9, "pull-");
+		public static Rule LGPL10 = new Rule(RuleTier.LG, 10, "pull-");
+		public static Rule LGPL11 = new Rule(RuleTier.LG, 11, "pull-");
+		public static Rule LGPL12 = new Rule(RuleTier.LG, 12, "pull-");
 
-		public static ColClass LGPS1 = new ColClass(ColTier.LG, 1, "push-");
-		public static ColClass LGPS2 = new ColClass(ColTier.LG, 2, "push-");
-		public static ColClass LGPS3 = new ColClass(ColTier.LG, 3, "push-");
-		public static ColClass LGPS4 = new ColClass(ColTier.LG, 4, "push-");
-		public static ColClass LGPS5 = new ColClass(ColTier.LG, 5, "push-");
-		public static ColClass LGPS6 = new ColClass(ColTier.LG, 6, "push-");
-		public static ColClass LGPS7 = new ColClass(ColTier.LG, 7, "push-");
-		public static ColClass LGPS8 = new ColClass(ColTier.LG, 8, "push-");
-		public static ColClass LGPS9 = new ColClass(ColTier.LG, 9, "push-");
-		public static ColClass LGPS10 = new ColClass(ColTier.LG, 10, "push-");
-		public static ColClass LGPS11 = new ColClass(ColTier.LG, 11, "push-");
-		public static ColClass LGPS12 = new ColClass(ColTier.LG, 12, "push-");
+		public static Rule LGPS1 = new Rule(RuleTier.LG, 1, "push-");
+		public static Rule LGPS2 = new Rule(RuleTier.LG, 2, "push-");
+		public static Rule LGPS3 = new Rule(RuleTier.LG, 3, "push-");
+		public static Rule LGPS4 = new Rule(RuleTier.LG, 4, "push-");
+		public static Rule LGPS5 = new Rule(RuleTier.LG, 5, "push-");
+		public static Rule LGPS6 = new Rule(RuleTier.LG, 6, "push-");
+		public static Rule LGPS7 = new Rule(RuleTier.LG, 7, "push-");
+		public static Rule LGPS8 = new Rule(RuleTier.LG, 8, "push-");
+		public static Rule LGPS9 = new Rule(RuleTier.LG, 9, "push-");
+		public static Rule LGPS10 = new Rule(RuleTier.LG, 10, "push-");
+		public static Rule LGPS11 = new Rule(RuleTier.LG, 11, "push-");
+		public static Rule LGPS12 = new Rule(RuleTier.LG, 12, "push-");
 
 	}
 }

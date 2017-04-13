@@ -226,7 +226,14 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
     Bridge.define("ExpressCraft.Bootstrap.BootWindow", {
         inherits: [ExpressCraft.Form],
         statics: {
+            Min_Width768: ".dl-horizontal dt,.table-responsive>.table>tbody>tr>td,.table-responsive>.table>tbody>tr>th,.table-responsive>.table>tfoot>tr>td,.table-responsive>.table>tfoot>tr>th,.table-responsive>.table>thead>tr>td,.table-responsive>.table>thead>tr>th{white-space:nowrap}.col-sm-1,.col-sm-10,.col-sm-11,.col-sm-12,.col-sm-2,.col-sm-3,.col-sm-4,.col-sm-5,.col-sm-6,.col-sm-7,.col-sm-8,.col-sm-9,.navbar-header,.navbar-nav,.navbar-nav>li,.navbar-text{float:left}.lead{font-size:21px}.dl-horizontal dt{float:left;width:160px;overflow:hidden;clear:left;text-align:right;text-overflow:ellipsis}.dl-horizontal dd{margin-left:180px}.container{width:750px}.col-sm-12{width:100%}.col-sm-11{width:91.66666667%}.col-sm-10{width:83.33333333%}.col-sm-9{width:75%}.col-sm-8{width:66.66666667%}.col-sm-7{width:58.33333333%}.col-sm-6{width:50%}.col-sm-5{width:41.66666667%}.col-sm-4{width:33.33333333%}.col-sm-3{width:25%}.col-sm-2{width:16.66666667%}.col-sm-1{width:8.33333333%}.col-sm-pull-12{right:100%}.col-sm-pull-11{right:91.66666667%}.col-sm-pull-10{right:83.33333333%}.col-sm-pull-9{right:75%}.col-sm-pull-8{right:66.66666667%}.col-sm-pull-7{right:58.33333333%}.col-sm-pull-6{right:50%}.col-sm-pull-5{right:41.66666667%}.col-sm-pull-4{right:33.33333333%}.col-sm-pull-3{right:25%}.col-sm-pull-2{right:16.66666667%}.col-sm-pull-1{right:8.33333333%}.col-sm-pull-0{right:auto}.col-sm-push-12{left:100%}.col-sm-push-11{left:91.66666667%}.col-sm-push-10{left:83.33333333%}.col-sm-push-9{left:75%}.col-sm-push-8{left:66.66666667%}.col-sm-push-7{left:58.33333333%}.col-sm-push-6{left:50%}.col-sm-push-5{left:41.66666667%}.col-sm-push-4{left:33.33333333%}.col-sm-push-3{left:25%}.col-sm-push-2{left:16.66666667%}.col-sm-push-1{left:8.33333333%}.col-sm-push-0{left:auto}.col-sm-offset-12{margin-left:100%}.col-sm-offset-11{margin-left:91.66666667%}.col-sm-offset-10{margin-left:83.33333333%}.col-sm-offset-9{margin-left:75%}.col-sm-offset-8{margin-left:66.66666667%}.col-sm-offset-7{margin-left:58.33333333%}.col-sm-offset-6{margin-left:50%}.col-sm-offset-5{margin-left:41.66666667%}.col-sm-offset-4{margin-left:33.33333333%}.col-sm-offset-3{margin-left:25%}.col-sm-offset-2{margin-left:16.66666667%}.col-sm-offset-1{margin-left:8.33333333%}.col-sm-offset-0{margin-left:0}.table-responsive{width:100%;margin-bottom:15px;overflow-y:hidden;-ms-overflow-style:-ms-autohiding-scrollbar;border:1px solid #ddd}.nav-justified>li,.nav-tabs.nav-justified>li{display:table-cell;width:1%}.table-responsive>.table{margin-bottom:0}.table-responsive>.table-bordered{border:0}.table-responsive>.table-bordered>tbody>tr>td:first-child,.table-responsive>.table-bordered>tbody>tr>th:first-child,.table-responsive>.table-bordered>tfoot>tr>td:first-child,.table-responsive>.table-bordered>tfoot>tr>th:first-child,.table-responsive>.table-bordered>thead>tr>td:first-child,.table-responsive>.table-bordered>thead>tr>th:first-child{border-left:0}.table-responsive>.table-bordered>tbody>tr>td:last-child,.table-responsive>.table-bordered>tbody>tr>th:last-child,.table-responsive>.table-bordered>tfoot>tr>td:last-child,.table-responsive>.table-bordered>tfoot>tr>th:last-child,.table-responsive>.table-bordered>thead>tr>td:last-child,.table-responsive>.table-bordered>thead>tr>th:last-child{border-right:0}.table-responsive>.table-bordered>tbody>tr:last-child>td,.table-responsive>.table-bordered>tbody>tr:last-child>th,.table-responsive>.table-bordered>tfoot>tr:last-child>td,.table-responsive>.table-bordered>tfoot>tr:last-child>th{border-bottom:0}.form-horizontal .control-label{padding-top:7px;margin-bottom:0;text-align:right}.form-horizontal .form-group-lg .control-label{padding-top:11px;font-size:18px}.form-horizontal .form-group-sm .control-label{padding-top:6px;font-size:12px}.navbar-right .dropdown-menu{right:0;left:auto}.navbar-right .dropdown-menu-left{right:auto;left:0}.nav-tabs.nav-justified>li>a{margin-bottom:0;border-bottom:1px solid #ddd;border-radius:4px 4px 0 0}.nav-tabs.nav-justified>.active>a,.nav-tabs.nav-justified>.active>a:focus,.nav-tabs.nav-justified>.active>a:hover{border-bottom-color:#fff}.nav-justified>li>a{margin-bottom:0}.nav-tabs-justified>li>a{border-bottom:1px solid #ddd;border-radius:4px 4px 0 0}.nav-tabs-justified>.active>a,.nav-tabs-justified>.active>a:focus,.nav-tabs-justified>.active>a:hover{border-bottom-color:#fff}.navbar{border-radius:4px}.navbar-collapse{width:auto;border-top:0;-webkit-box-shadow:none;box-shadow:none}.navbar-collapse.collapse{display:block!important;height:auto!important;padding-bottom:0;overflow:visible!important}.navbar-collapse.in{overflow-y:visible}.navbar-fixed-bottom .navbar-collapse,.navbar-fixed-top .navbar-collapse,.navbar-static-top .navbar-collapse{padding-right:0;padding-left:0}.container-fluid>.navbar-collapse,.container-fluid>.navbar-header,.container>.navbar-collapse,.container>.navbar-header{margin-right:0;margin-left:0}.navbar-fixed-bottom,.navbar-fixed-top,.navbar-static-top{border-radius:0}.navbar>.container .navbar-brand,.navbar>.container-fluid .navbar-brand{margin-left:-15px}.navbar-toggle{display:none}.navbar-nav{margin:0}.navbar-nav>li>a{padding-top:15px;padding-bottom:15px}.navbar-form .form-group{display:inline-block;margin-bottom:0;vertical-align:middle}.navbar-form .form-control{display:inline-block;width:auto;vertical-align:middle}.navbar-form .form-control-static{display:inline-block}.navbar-form .input-group{display:inline-table;vertical-align:middle}.navbar-form .input-group .form-control,.navbar-form .input-group .input-group-addon,.navbar-form .input-group .input-group-btn{width:auto}.navbar-form .input-group>.form-control{width:100%}.navbar-form .control-label{margin-bottom:0;vertical-align:middle}.navbar-form .checkbox,.navbar-form .radio{display:inline-block;margin-top:0;margin-bottom:0;vertical-align:middle}.navbar-form .checkbox label,.navbar-form .radio label{padding-left:0}.navbar-form .checkbox input[type=checkbox],.navbar-form .radio input[type=radio]{position:relative;margin-left:0}.navbar-form .has-feedback .form-control-feedback{top:0}.navbar-form{width:auto;padding-top:0;padding-bottom:0;margin-right:0;margin-left:0;border:0;-webkit-box-shadow:none;box-shadow:none}.navbar-text{margin-right:15px;margin-left:15px}.navbar-left{float:left!important}.navbar-right{float:right!important;margin-right:-15px}.navbar-right~.navbar-right{margin-right:0}.jumbotron{padding-top:48px;padding-bottom:48px}.container .jumbotron,.container-fluid .jumbotron{padding-right:60px;padding-left:60px}.jumbotron .h1,.jumbotron h1{font-size:63px}.modal-dialog{width:600px;margin:30px auto}.modal-content{-webkit-box-shadow:0 5px 15px rgba(0,0,0,.5);box-shadow:0 5px 15px rgba(0,0,0,.5)}.modal-sm{width:300px}.carousel-control .glyphicon-chevron-left,.carousel-control .glyphicon-chevron-right,.carousel-control .icon-next,.carousel-control .icon-prev{width:30px;height:30px;margin-top:-10px;font-size:30px}.carousel-control .glyphicon-chevron-left,.carousel-control .icon-prev{margin-left:-10px}.carousel-control .glyphicon-chevron-right,.carousel-control .icon-next{margin-right:-10px}.carousel-caption{right:20%;left:20%;padding-bottom:30px}.carousel-indicators{bottom:20px}",
+            Min_Width992: ".container{width:970px}.col-md-1,.col-md-10,.col-md-11,.col-md-12,.col-md-2,.col-md-3,.col-md-4,.col-md-5,.col-md-6,.col-md-7,.col-md-8,.col-md-9{float:left}.col-md-12{width:100%}.col-md-11{width:91.66666667%}.col-md-10{width:83.33333333%}.col-md-9{width:75%}.col-md-8{width:66.66666667%}.col-md-7{width:58.33333333%}.col-md-6{width:50%}.col-md-5{width:41.66666667%}.col-md-4{width:33.33333333%}.col-md-3{width:25%}.col-md-2{width:16.66666667%}.col-md-1{width:8.33333333%}.col-md-pull-12{right:100%}.col-md-pull-11{right:91.66666667%}.col-md-pull-10{right:83.33333333%}.col-md-pull-9{right:75%}.col-md-pull-8{right:66.66666667%}.col-md-pull-7{right:58.33333333%}.col-md-pull-6{right:50%}.col-md-pull-5{right:41.66666667%}.col-md-pull-4{right:33.33333333%}.col-md-pull-3{right:25%}.col-md-pull-2{right:16.66666667%}.col-md-pull-1{right:8.33333333%}.col-md-pull-0{right:auto}.col-md-push-12{left:100%}.col-md-push-11{left:91.66666667%}.col-md-push-10{left:83.33333333%}.col-md-push-9{left:75%}.col-md-push-8{left:66.66666667%}.col-md-push-7{left:58.33333333%}.col-md-push-6{left:50%}.col-md-push-5{left:41.66666667%}.col-md-push-4{left:33.33333333%}.col-md-push-3{left:25%}.col-md-push-2{left:16.66666667%}.col-md-push-1{left:8.33333333%}.col-md-push-0{left:auto}.col-md-offset-12{margin-left:100%}.col-md-offset-11{margin-left:91.66666667%}.col-md-offset-10{margin-left:83.33333333%}.col-md-offset-9{margin-left:75%}.col-md-offset-8{margin-left:66.66666667%}.col-md-offset-7{margin-left:58.33333333%}.col-md-offset-6{margin-left:50%}.col-md-offset-5{margin-left:41.66666667%}.col-md-offset-4{margin-left:33.33333333%}.col-md-offset-3{margin-left:25%}.col-md-offset-2{margin-left:16.66666667%}.col-md-offset-1{margin-left:8.33333333%}.col-md-offset-0{margin-left:0}.modal-lg{width:900px}",
+            Min_Width1200: ".container{width:1170px}.col-lg-1,.col-lg-10,.col-lg-11,.col-lg-12,.col-lg-2,.col-lg-3,.col-lg-4,.col-lg-5,.col-lg-6,.col-lg-7,.col-lg-8,.col-lg-9{float:left}.col-lg-12{width:100%}.col-lg-11{width:91.66666667%}.col-lg-10{width:83.33333333%}.col-lg-9{width:75%}.col-lg-8{width:66.66666667%}.col-lg-7{width:58.33333333%}.col-lg-6{width:50%}.col-lg-5{width:41.66666667%}.col-lg-4{width:33.33333333%}.col-lg-3{width:25%}.col-lg-2{width:16.66666667%}.col-lg-1{width:8.33333333%}.col-lg-pull-12{right:100%}.col-lg-pull-11{right:91.66666667%}.col-lg-pull-10{right:83.33333333%}.col-lg-pull-9{right:75%}.col-lg-pull-8{right:66.66666667%}.col-lg-pull-7{right:58.33333333%}.col-lg-pull-6{right:50%}.col-lg-pull-5{right:41.66666667%}.col-lg-pull-4{right:33.33333333%}.col-lg-pull-3{right:25%}.col-lg-pull-2{right:16.66666667%}.col-lg-pull-1{right:8.33333333%}.col-lg-pull-0{right:auto}.col-lg-push-12{left:100%}.col-lg-push-11{left:91.66666667%}.col-lg-push-10{left:83.33333333%}.col-lg-push-9{left:75%}.col-lg-push-8{left:66.66666667%}.col-lg-push-7{left:58.33333333%}.col-lg-push-6{left:50%}.col-lg-push-5{left:41.66666667%}.col-lg-push-4{left:33.33333333%}.col-lg-push-3{left:25%}.col-lg-push-2{left:16.66666667%}.col-lg-push-1{left:8.33333333%}.col-lg-push-0{left:auto}.col-lg-offset-12{margin-left:100%}.col-lg-offset-11{margin-left:91.66666667%}.col-lg-offset-10{margin-left:83.33333333%}.col-lg-offset-9{margin-left:75%}.col-lg-offset-8{margin-left:66.66666667%}.col-lg-offset-7{margin-left:58.33333333%}.col-lg-offset-6{margin-left:50%}.col-lg-offset-5{margin-left:41.66666667%}.col-lg-offset-4{margin-left:33.33333333%}.col-lg-offset-3{margin-left:25%}.col-lg-offset-2{margin-left:16.66666667%}.col-lg-offset-1{margin-left:8.33333333%}.col-lg-offset-0{margin-left:0}.visible-lg{display:block!important}table.visible-lg{display:table!important}tr.visible-lg{display:table-row!important}td.visible-lg,th.visible-lg{display:table-cell!important}.visible-lg-block{display:block!important}.visible-lg-inline{display:inline!important}.visible-lg-inline-block{display:inline-block!important}.hidden-lg{display:none!important}",
+            Min_Width480AndLandscape: ".navbar-fixed-bottom .navbar-collapse,.navbar-fixed-top .navbar-collapse{max-height:200px}",
+            Max_Width767: ".navbar-nav .open .dropdown-menu{position:static;float:none;width:auto;margin-top:0;background-color:transparent;border:0;-webkit-box-shadow:none;box-shadow:none}.navbar-nav .open .dropdown-menu .dropdown-header,.navbar-nav .open .dropdown-menu>li>a{padding:5px 15px 5px 25px}.navbar-nav .open .dropdown-menu>li>a{line-height:20px}.navbar-nav .open .dropdown-menu>li>a:focus,.navbar-nav .open .dropdown-menu>li>a:hover{background-image:none}.navbar-form .form-group{margin-bottom:5px}.navbar-form .form-group:last-child{margin-bottom:0}.navbar-default .navbar-nav .open .dropdown-menu>li>a{color:#777}.navbar-default .navbar-nav .open .dropdown-menu>li>a:focus,.navbar-default .navbar-nav .open .dropdown-menu>li>a:hover{color:#333;background-color:transparent}.navbar-default .navbar-nav .open .dropdown-menu>.active>a,.navbar-default .navbar-nav .open .dropdown-menu>.active>a:focus,.navbar-default .navbar-nav .open .dropdown-menu>.active>a:hover{color:#555;background-color:#e7e7e7}.navbar-default .navbar-nav .open .dropdown-menu>.disabled>a,.navbar-default .navbar-nav .open .dropdown-menu>.disabled>a:focus,.navbar-default .navbar-nav .open .dropdown-menu>.disabled>a:hover{color:#ccc;background-color:transparent}.navbar-inverse .navbar-nav .open .dropdown-menu>.dropdown-header{border-color:#080808}.navbar-inverse .navbar-nav .open .dropdown-menu .divider{background-color:#080808}.navbar-inverse .navbar-nav .open .dropdown-menu>li>a{color:#9d9d9d}.navbar-inverse .navbar-nav .open .dropdown-menu>li>a:focus,.navbar-inverse .navbar-nav .open .dropdown-menu>li>a:hover{color:#fff;background-color:transparent}.navbar-inverse .navbar-nav .open .dropdown-menu>.active>a,.navbar-inverse .navbar-nav .open .dropdown-menu>.active>a:focus,.navbar-inverse .navbar-nav .open .dropdown-menu>.active>a:hover{color:#fff;background-color:#080808}.navbar-inverse .navbar-nav .open .dropdown-menu>.disabled>a,.navbar-inverse .navbar-nav .open .dropdown-menu>.disabled>a:focus,.navbar-inverse .navbar-nav .open .dropdown-menu>.disabled>a:hover{color:#444;background-color:transparent}.visible-xs{display:block!important}table.visible-xs{display:table!important}tr.visible-xs{display:table-row!important}td.visible-xs,th.visible-xs{display:table-cell!important}.visible-xs-block{display:block!important}.visible-xs-inline{display:inline!important}.visible-xs-inline-block{display:inline-block!important}.hidden-xs{display:none!important}",
+            Min_Width768AndMax_Width991: ".visible-sm{display:block!important}table.visible-sm{display:table!important}tr.visible-sm{display:table-row!important}td.visible-sm,th.visible-sm{display:table-cell!important}.visible-sm-block{display:block!important}.visible-sm-inline{display:inline!important}.visible-sm-inline-block{display:inline-block!important}.visible-md{display:block!important}table.visible-md{display:table!important}tr.visible-md{display:table-row!important}td.visible-md,th.visible-md{display:table-cell!important}.visible-md-block{display:block!important}.visible-md-inline{display:inline!important}.visible-md-inline-block{display:inline-block!important}.hidden-md,.hidden-sm{display:none!important}",
             hasSetupMetaTags: false,
+            privateSyle: null,
             setupMetaTags: function () {
                 if (ExpressCraft.Bootstrap.BootWindow.hasSetupMetaTags) {
                     return;
@@ -237,8 +244,6 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
                     name: "viewport",
                     content: "width=device-width, initial-scale=1"
                 } ));
-                //<meta name="viewport" content="width=device-width, initial-scale=1">
-
             }
         },
         ctor: function (typos) {
@@ -246,27 +251,65 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
             this.$initialize();
             ExpressCraft.Form.ctor.call(this, "");
-            var x = Bridge.cast((new ExpressCraft.Bootstrap.BootStyleWidget("container")).content, HTMLDivElement);
+            var container = Bridge.cast((new ExpressCraft.Bootstrap.BootStyleWidget("container-fluid")).content, HTMLDivElement);
+            ExpressCraft.Bootstrap.BootWindow.privateSyle = document.createElement('style');
+
+            this.content.appendChild(ExpressCraft.Bootstrap.BootWindow.privateSyle);
 
             this.setBackColor(ExpressCraft.Color.op_Implicit$1(ExpressCraft.Color.getWhite().$clone()));
-            this.getBody().appendChild(x);
+            this.getBody().appendChild(container);
             this.getBodyStyle().overflowY = "auto";
 
-            this.setBody(x);
+            this.setBody(container);
             this.getBodyStyle().padding = "0";
+
             this.setCalcSize();
+
 
             ExpressCraft.Bootstrap.BootWidget.appendTypos(this.getBody(), typos);
         },
         setCalcSize: function () {
-            ExpressCraft.Helper.setSize$1(this.getBody(), "calc(100% - 28px)", this.getBody().style.height);
+            //	this.Body.SetSize("calc(100% - 28px)", this.Body.Style.Height);
         },
         calcSizeOnChange: function () {
-            var x = this.content.getBoundingClientRect();
-            if (x.width - 2 < 1170) {
-                this.setCalcSize();
-            } else {
-                ExpressCraft.Helper.setSize$1(this.getBody(), "", this.getBody().style.height);
+            //var clientRect = this.Content.GetBoundingClientRect();
+            //if(clientRect.Width - 2 < 1170)
+            //{
+            //	SetCalcSize();
+            //}
+            //else
+            //{
+            //	this.Body.SetSize("", this.Body.Style.Height);
+            //}
+
+            var prev = ExpressCraft.Bootstrap.BootWindow.privateSyle.innerHTML;
+
+            var styleBuilder = new System.Text.StringBuilder();
+            var clientRect = this.getBody().getBoundingClientRect();
+
+            if (clientRect.width >= 480 && window.innerWidth > window.innerHeight) {
+                styleBuilder.append(ExpressCraft.Bootstrap.BootWindow.Min_Width480AndLandscape);
+            }
+            if (clientRect.width <= 767) {
+                styleBuilder.append(ExpressCraft.Bootstrap.BootWindow.Max_Width767);
+            }
+            if (clientRect.width >= 768 && clientRect.width <= 991) {
+                styleBuilder.append(ExpressCraft.Bootstrap.BootWindow.Min_Width768AndMax_Width991);
+            }
+            if (clientRect.width >= 768) {
+                styleBuilder.append(ExpressCraft.Bootstrap.BootWindow.Min_Width768);
+            }
+            if (clientRect.width >= 992) {
+                styleBuilder.append(ExpressCraft.Bootstrap.BootWindow.Min_Width992);
+            }
+            if (clientRect.width >= 1200) {
+                styleBuilder.append(ExpressCraft.Bootstrap.BootWindow.Min_Width1200);
+            }
+
+
+            var style = styleBuilder.toString();
+            if (System.String.compare(style, prev) !== 0) {
+                ExpressCraft.Bootstrap.BootWindow.privateSyle.innerHTML = style;
             }
         },
         onShowed: function () {
@@ -313,7 +356,180 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         }
     });
 
-    Bridge.define("ExpressCraft.Bootstrap.ColClass", {
+    Bridge.define("ExpressCraft.Bootstrap.ColExtentions", {
+        statics: {
+            applyColumns: function (widget, colClasses) {
+                if (colClasses === void 0) { colClasses = []; }
+                var length;
+                if (widget != null && colClasses != null && ((length = colClasses.length)) > 0) {
+                    var builder = new System.Text.StringBuilder();
+
+                    for (var i = 0; i < length; i = (i + 1) | 0) {
+                        widget.getClassList().add(colClasses[i].value);
+                    }
+                }
+                return widget;
+            }
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.Contextual");
+
+    Bridge.define("ExpressCraft.Bootstrap.Contextual.Background", {
+        statics: {
+            Primary: "bg-primary",
+            Success: "bg-success",
+            Info: "bg-info",
+            Warning: "bg-warning",
+            Danger: "bg-danger"
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.Contextual.Text", {
+        statics: {
+            Muted: "text-muted",
+            Primary: "text-primary",
+            Success: "text-success",
+            Info: "text-info",
+            Warning: "text-warning",
+            Danger: "text-danger"
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.Extension", {
+        statics: {
+            getClassTheme: function (cls, type) {
+                if (type === ExpressCraft.Bootstrap.BootTheme.None) {
+                    return "";
+                }
+                return System.String.concat(cls, System.Enum.format(ExpressCraft.Bootstrap.BootTheme, type, "G").toLowerCase());
+            }
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.Program", {
+        statics: {
+            demo: function () {
+                var buttonClick = $asm.$.ExpressCraft.Bootstrap.Program.f1;
+
+                ExpressCraft.Application.run(Bridge.merge(new ExpressCraft.Bootstrap.BootWindow([new ExpressCraft.Bootstrap.Panel(ExpressCraft.Bootstrap.BootTheme.Default, [new ExpressCraft.Bootstrap.PanelHeading(["Welcome to ExpressCraft-Bootstrap"]), new ExpressCraft.Bootstrap.PanelBody([new ExpressCraft.Bootstrap.BootSelectionWidget([new ExpressCraft.Bootstrap.FormGroupList([new ExpressCraft.Bootstrap.TextBox.$ctor1("Textbox"), new ExpressCraft.Bootstrap.CheckBox("checkbox", true), new ExpressCraft.Bootstrap.FormGroup([Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("checkbox-inline 1", true), {
+                    setInline: true
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("checkbox-inline 2", true), {
+                    setInline: true
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("checkbox-inline 3", true), {
+                    setInline: true
+                } )]), new ExpressCraft.Bootstrap.TextBox.$ctor1("11/04/2017", "date"), new ExpressCraft.Bootstrap.TextBox.$ctor1("Password", "password"), new ExpressCraft.Bootstrap.TextArea("TextArea", 4), new ExpressCraft.Bootstrap.BootForm(ExpressCraft.Bootstrap.BootFormType.Inline, [new ExpressCraft.Bootstrap.Label(["Email:", new ExpressCraft.Bootstrap.TextBox.ctor()]), new ExpressCraft.Bootstrap.Label(["Password:", new ExpressCraft.Bootstrap.TextBox.ctor("password")]), new ExpressCraft.Bootstrap.CheckBox("Remeber me"), new ExpressCraft.Bootstrap.Button.ctor("Submit", "submit")]), new ExpressCraft.Bootstrap.BootForm(ExpressCraft.Bootstrap.BootFormType.Horizontal, [new ExpressCraft.Bootstrap.Label(["Email:", new ExpressCraft.Bootstrap.TextBox.ctor()]), new ExpressCraft.Bootstrap.Label(["Password:", new ExpressCraft.Bootstrap.TextBox.ctor("password")]), new ExpressCraft.Bootstrap.CheckBox("Remeber me"), new ExpressCraft.Bootstrap.Button.ctor("Submit", "submit")]), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Basic", ExpressCraft.Bootstrap.BootTheme.None), {
+                    setOnClick: buttonClick
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Default", ExpressCraft.Bootstrap.BootTheme.Default), {
+                    setOnClick: buttonClick
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Primary", ExpressCraft.Bootstrap.BootTheme.Primary), {
+                    setOnClick: buttonClick
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Success", ExpressCraft.Bootstrap.BootTheme.Success), {
+                    setOnClick: buttonClick
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Info", ExpressCraft.Bootstrap.BootTheme.Info), {
+                    setOnClick: buttonClick
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Warning", ExpressCraft.Bootstrap.BootTheme.Warning), {
+                    setOnClick: buttonClick
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Danger", ExpressCraft.Bootstrap.BootTheme.Danger), {
+                    setOnClick: buttonClick
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Link", ExpressCraft.Bootstrap.BootTheme.Link), {
+                    setOnClick: buttonClick
+                } )]), new ExpressCraft.Bootstrap.Heading("h2", ["Heading", new ExpressCraft.Bootstrap.Small([" - Heading Small"])]), new ExpressCraft.Bootstrap.ParagraphList(["Text", new ExpressCraft.Bootstrap.Abbr("Abbr hover", ["Abbr"]), new ExpressCraft.Bootstrap.Small(["Small"]), new ExpressCraft.Bootstrap.Blockquote.$ctor2(new ExpressCraft.Bootstrap.Paragraph.ctor(["Block Quote Content"]), new ExpressCraft.Bootstrap.Footer(["Block Quote From"])), Bridge.merge(new ExpressCraft.Bootstrap.Blockquote.$ctor2(new ExpressCraft.Bootstrap.Paragraph.ctor(["Block Quote Content Reverse"]), new ExpressCraft.Bootstrap.Footer(["Block Quote From Reverse"])), {
+                    setReverse: true
+                } ), new ExpressCraft.Bootstrap.DescriptionList([new ExpressCraft.Bootstrap.DescriptionTitle(["Description Title 1"]), new ExpressCraft.Bootstrap.DescriptionDetail(["- Description Detail 1"]), new ExpressCraft.Bootstrap.DescriptionTitle(["Description Title 2"]), new ExpressCraft.Bootstrap.DescriptionDetail(["- Description Detail 2"])]), new ExpressCraft.Bootstrap.Paragraph.ctor(["The following HTML elements: ", new ExpressCraft.Bootstrap.Code(["span"]), ", ", new ExpressCraft.Bootstrap.Code(["section"]), ", and ", new ExpressCraft.Bootstrap.Code(["div"]), " defines a section in a document."]), new ExpressCraft.Bootstrap.Paragraph.ctor(["Use ", new ExpressCraft.Bootstrap.Kbd(["ctrl + p"]), " to open the Print dialog box."]), new ExpressCraft.Bootstrap.Pre(["Text in a pre element\r\nis displayed in a fixed-width\r\nfont, and it preserves\r\nboth      spaces and\r\nline breaks."]), new ExpressCraft.Bootstrap.Paragraph.ctor([new ExpressCraft.Bootstrap.ParagraphList([new ExpressCraft.Bootstrap.Heading("h2", ["Contextual Colors"]), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text is muted."]), {
+                    setContextualText: ExpressCraft.Bootstrap.Contextual.Text.Muted
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text is important."]), {
+                    setContextualText: ExpressCraft.Bootstrap.Contextual.Text.Primary
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text indicates success."]), {
+                    setContextualText: ExpressCraft.Bootstrap.Contextual.Text.Success
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text represents some information."]), {
+                    setContextualText: ExpressCraft.Bootstrap.Contextual.Text.Info
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text represents a warning."]), {
+                    setContextualText: ExpressCraft.Bootstrap.Contextual.Text.Warning
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text represents danger."]), {
+                    setContextualText: ExpressCraft.Bootstrap.Contextual.Text.Danger
+                } )])]), new ExpressCraft.Bootstrap.Paragraph.ctor([new ExpressCraft.Bootstrap.ParagraphList([new ExpressCraft.Bootstrap.Heading("h2", ["Contextual Backgrounds"]), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text is important."]), {
+                    setContextualBackground: ExpressCraft.Bootstrap.Contextual.Background.Primary
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text indicates success."]), {
+                    setContextualBackground: ExpressCraft.Bootstrap.Contextual.Background.Success
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text represents some information."]), {
+                    setContextualBackground: ExpressCraft.Bootstrap.Contextual.Background.Info
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text represents a warning."]), {
+                    setContextualBackground: ExpressCraft.Bootstrap.Contextual.Background.Warning
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text represents danger."]), {
+                    setContextualBackground: ExpressCraft.Bootstrap.Contextual.Background.Danger
+                } )])])]), new ExpressCraft.Bootstrap.Panel(ExpressCraft.Bootstrap.BootTheme.Default, [new ExpressCraft.Bootstrap.PanelHeading([new ExpressCraft.Bootstrap.Heading("h3", ["Table Demo", new ExpressCraft.Bootstrap.Small([" - Table options below."])]), new ExpressCraft.Bootstrap.FormGroup([Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("Striped", false), {
+                    onCheckChanged: $asm.$.ExpressCraft.Bootstrap.Program.f2,
+                    setInline: true
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("Bordered", false), {
+                    onCheckChanged: $asm.$.ExpressCraft.Bootstrap.Program.f3,
+                    setInline: true
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("Hover", false), {
+                    onCheckChanged: $asm.$.ExpressCraft.Bootstrap.Program.f4,
+                    setInline: true
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("Condensed", false), {
+                    onCheckChanged: $asm.$.ExpressCraft.Bootstrap.Program.f5,
+                    setInline: true
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("Contextual classes", false), {
+                    onCheckChanged: function (s) {
+                        var $t;
+                        var tbl = ExpressCraft.Bootstrap.BootWidget.getWidgetById(ExpressCraft.Bootstrap.Table, "DemoTable");
+                        if (s.getChecked()) {
+                            var body = tbl.getTableBody();
+                            body.row(0).setTheme(ExpressCraft.Bootstrap.BootRowCellTheme.Active);
+                            body.row(2).setTheme(ExpressCraft.Bootstrap.BootRowCellTheme.Success);
+                            body.row(4).setTheme(ExpressCraft.Bootstrap.BootRowCellTheme.Info);
+                            body.row(6).setTheme(ExpressCraft.Bootstrap.BootRowCellTheme.Warning);
+                            body.row(8).setTheme(ExpressCraft.Bootstrap.BootRowCellTheme.Danger);
+                        } else {
+                            $t = Bridge.getEnumerator(tbl.getTableBody().getRows(), ExpressCraft.Bootstrap.TableRow);
+                            while ($t.moveNext()) {
+                                var item = $t.getCurrent();
+                                item.clearTheme();
+                            }
+                        }
+                    },
+                    setInline: true
+                } )])]), new ExpressCraft.Bootstrap.PanelBody([Bridge.merge(new ExpressCraft.Bootstrap.Table([new ExpressCraft.Bootstrap.TableHeader([new ExpressCraft.Bootstrap.TableHeaderRow.ctor(["#", "Table heading", "Table heading", "Table heading", "Table heading", "Table heading", "Table heading"])]), new ExpressCraft.Bootstrap.TableBody(System.Linq.Enumerable.range(0, 9).select($asm.$.ExpressCraft.Bootstrap.Program.f6).toArray())]), {
+                    setId: "DemoTable"
+                } )]), new ExpressCraft.Bootstrap.PanelFooter([new ExpressCraft.Bootstrap.Heading("h3", ["How to access the table."]), new ExpressCraft.Bootstrap.Pre(["var tbl = BootWidget.GetWidgetById<Table>(\"DemoTable\");\r\nvar body = tbl.TableBody;\r\nbody.Row(0).Theme = BootRowCellTheme.Active;\r\nbody.Row(2).Theme = BootRowCellTheme.Success;\r\nbody.Row(4).Theme = BootRowCellTheme.Info;\r\nbody.Row(6).Theme = BootRowCellTheme.Warning;\r\nbody.Row(8).Theme = BootRowCellTheme.Danger;\r\n"])])])])]), new ExpressCraft.Bootstrap.PanelFooter(["Footer"])])]), {
+                    setWindowstate: ExpressCraft.WindowState.Maximized
+                } ));
+            }
+        },
+        $main: function () {
+            ExpressCraft.Settings.setIncludeFocusRegion(false);
+            ExpressCraft.Settings.allowCloseWithoutQuestion = true;
+            ExpressCraft.Application.setApplicationDefinition();
+
+            ExpressCraft.Bootstrap.BootWindow.setupMetaTags();
+        }
+    });
+
+    Bridge.ns("ExpressCraft.Bootstrap.Program", $asm.$);
+
+    Bridge.apply($asm.$.ExpressCraft.Bootstrap.Program, {
+        f1: function (ev) {
+            Bridge.global.alert(ev.currentTarget.innerHTML);
+        },
+        f2: function (s) {
+            ExpressCraft.Bootstrap.BootWidget.getWidgetById(ExpressCraft.Bootstrap.Table, "DemoTable").setStriped(s.getChecked());
+        },
+        f3: function (s) {
+            ExpressCraft.Bootstrap.BootWidget.getWidgetById(ExpressCraft.Bootstrap.Table, "DemoTable").setBordered(s.getChecked());
+        },
+        f4: function (s) {
+            ExpressCraft.Bootstrap.BootWidget.getWidgetById(ExpressCraft.Bootstrap.Table, "DemoTable").setHover(s.getChecked());
+        },
+        f5: function (s) {
+            ExpressCraft.Bootstrap.BootWidget.getWidgetById(ExpressCraft.Bootstrap.Table, "DemoTable").setCondensed(s.getChecked());
+        },
+        f6: function (x, index) {
+            return new ExpressCraft.Bootstrap.TableRow.ctor([new ExpressCraft.Bootstrap.TableHeaderCell.ctor([(((index + 1) | 0)).toString()]), "Table cell", "Table cell", "Table cell", "Table cell", "Table cell", "Table cell"]);
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.Rule", {
         statics: {
             XS1: null,
             XS2: null,
@@ -509,198 +725,198 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             LGPS12: null,
             config: {
                 init: function () {
-                    this.XS1 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.XS, 1);
-                    this.XS2 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.XS, 2);
-                    this.XS3 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.XS, 3);
-                    this.XS4 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.XS, 4);
-                    this.XS5 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.XS, 5);
-                    this.XS6 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.XS, 6);
-                    this.XS7 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.XS, 7);
-                    this.XS8 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.XS, 8);
-                    this.XS9 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.XS, 9);
-                    this.XS10 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.XS, 10);
-                    this.XS11 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.XS, 11);
-                    this.XS12 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.XS, 12);
-                    this.XSO1 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 1, "offset-");
-                    this.XSO2 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 2, "offset-");
-                    this.XSO3 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 3, "offset-");
-                    this.XSO4 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 4, "offset-");
-                    this.XSO5 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 5, "offset-");
-                    this.XSO6 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 6, "offset-");
-                    this.XSO7 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 7, "offset-");
-                    this.XSO8 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 8, "offset-");
-                    this.XSO9 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 9, "offset-");
-                    this.XSO10 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 10, "offset-");
-                    this.XSO11 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 11, "offset-");
-                    this.XSO12 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 12, "offset-");
-                    this.XSPL1 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 1, "pull-");
-                    this.XSPL2 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 2, "pull-");
-                    this.XSPL3 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 3, "pull-");
-                    this.XSPL4 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 4, "pull-");
-                    this.XSPL5 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 5, "pull-");
-                    this.XSPL6 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 6, "pull-");
-                    this.XSPL7 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 7, "pull-");
-                    this.XSPL8 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 8, "pull-");
-                    this.XSPL9 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 9, "pull-");
-                    this.XSPL10 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 10, "pull-");
-                    this.XSPL11 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 11, "pull-");
-                    this.XSPL12 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 12, "pull-");
-                    this.XSPS1 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 1, "push-");
-                    this.XSPS2 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 2, "push-");
-                    this.XSPS3 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 3, "push-");
-                    this.XSPS4 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 4, "push-");
-                    this.XSPS5 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 5, "push-");
-                    this.XSPS6 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 6, "push-");
-                    this.XSPS7 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 7, "push-");
-                    this.XSPS8 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 8, "push-");
-                    this.XSPS9 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 9, "push-");
-                    this.XSPS10 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 10, "push-");
-                    this.XSPS11 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 11, "push-");
-                    this.XSPS12 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.XS, 12, "push-");
-                    this.SM1 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.SM, 1);
-                    this.SM2 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.SM, 2);
-                    this.SM3 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.SM, 3);
-                    this.SM4 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.SM, 4);
-                    this.SM5 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.SM, 5);
-                    this.SM6 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.SM, 6);
-                    this.SM7 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.SM, 7);
-                    this.SM8 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.SM, 8);
-                    this.SM9 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.SM, 9);
-                    this.SM10 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.SM, 10);
-                    this.SM11 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.SM, 11);
-                    this.SM12 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.SM, 12);
-                    this.SMO1 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 1, "offset-");
-                    this.SMO2 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 2, "offset-");
-                    this.SMO3 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 3, "offset-");
-                    this.SMO4 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 4, "offset-");
-                    this.SMO5 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 5, "offset-");
-                    this.SMO6 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 6, "offset-");
-                    this.SMO7 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 7, "offset-");
-                    this.SMO8 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 8, "offset-");
-                    this.SMO9 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 9, "offset-");
-                    this.SMO10 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 10, "offset-");
-                    this.SMO11 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 11, "offset-");
-                    this.SMO12 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 12, "offset-");
-                    this.SMPL1 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 1, "pull-");
-                    this.SMPL2 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 2, "pull-");
-                    this.SMPL3 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 3, "pull-");
-                    this.SMPL4 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 4, "pull-");
-                    this.SMPL5 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 5, "pull-");
-                    this.SMPL6 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 6, "pull-");
-                    this.SMPL7 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 7, "pull-");
-                    this.SMPL8 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 8, "pull-");
-                    this.SMPL9 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 9, "pull-");
-                    this.SMPL10 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 10, "pull-");
-                    this.SMPL11 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 11, "pull-");
-                    this.SMPL12 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 12, "pull-");
-                    this.SMPS1 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 1, "push-");
-                    this.SMPS2 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 2, "push-");
-                    this.SMPS3 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 3, "push-");
-                    this.SMPS4 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 4, "push-");
-                    this.SMPS5 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 5, "push-");
-                    this.SMPS6 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 6, "push-");
-                    this.SMPS7 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 7, "push-");
-                    this.SMPS8 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 8, "push-");
-                    this.SMPS9 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 9, "push-");
-                    this.SMPS10 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 10, "push-");
-                    this.SMPS11 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 11, "push-");
-                    this.SMPS12 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.SM, 12, "push-");
-                    this.MD1 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.MD, 1);
-                    this.MD2 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.MD, 2);
-                    this.MD3 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.MD, 3);
-                    this.MD4 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.MD, 4);
-                    this.MD5 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.MD, 5);
-                    this.MD6 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.MD, 6);
-                    this.MD7 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.MD, 7);
-                    this.MD8 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.MD, 8);
-                    this.MD9 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.MD, 9);
-                    this.MD10 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.MD, 10);
-                    this.MD11 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.MD, 11);
-                    this.MD12 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.MD, 12);
-                    this.MDO1 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 1, "offset-");
-                    this.MDO2 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 2, "offset-");
-                    this.MDO3 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 3, "offset-");
-                    this.MDO4 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 4, "offset-");
-                    this.MDO5 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 5, "offset-");
-                    this.MDO6 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 6, "offset-");
-                    this.MDO7 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 7, "offset-");
-                    this.MDO8 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 8, "offset-");
-                    this.MDO9 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 9, "offset-");
-                    this.MDO10 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 10, "offset-");
-                    this.MDO11 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 11, "offset-");
-                    this.MDO12 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 12, "offset-");
-                    this.MDPL1 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 1, "pull-");
-                    this.MDPL2 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 2, "pull-");
-                    this.MDPL3 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 3, "pull-");
-                    this.MDPL4 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 4, "pull-");
-                    this.MDPL5 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 5, "pull-");
-                    this.MDPL6 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 6, "pull-");
-                    this.MDPL7 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 7, "pull-");
-                    this.MDPL8 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 8, "pull-");
-                    this.MDPL9 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 9, "pull-");
-                    this.MDPL10 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 10, "pull-");
-                    this.MDPL11 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 11, "pull-");
-                    this.MDPL12 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 12, "pull-");
-                    this.MDPS1 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 1, "push-");
-                    this.MDPS2 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 2, "push-");
-                    this.MDPS3 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 3, "push-");
-                    this.MDPS4 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 4, "push-");
-                    this.MDPS5 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 5, "push-");
-                    this.MDPS6 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 6, "push-");
-                    this.MDPS7 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 7, "push-");
-                    this.MDPS8 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 8, "push-");
-                    this.MDPS9 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 9, "push-");
-                    this.MDPS10 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 10, "push-");
-                    this.MDPS11 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 11, "push-");
-                    this.MDPS12 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.MD, 12, "push-");
-                    this.LG1 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.LG, 1);
-                    this.LG2 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.LG, 2);
-                    this.LG3 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.LG, 3);
-                    this.LG4 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.LG, 4);
-                    this.LG5 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.LG, 5);
-                    this.LG6 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.LG, 6);
-                    this.LG7 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.LG, 7);
-                    this.LG8 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.LG, 8);
-                    this.LG9 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.LG, 9);
-                    this.LG10 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.LG, 10);
-                    this.LG11 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.LG, 11);
-                    this.LG12 = new ExpressCraft.Bootstrap.ColClass.ctor(ExpressCraft.Bootstrap.ColTier.LG, 12);
-                    this.LGO1 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 1, "offset-");
-                    this.LGO2 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 2, "offset-");
-                    this.LGO3 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 3, "offset-");
-                    this.LGO4 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 4, "offset-");
-                    this.LGO5 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 5, "offset-");
-                    this.LGO6 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 6, "offset-");
-                    this.LGO7 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 7, "offset-");
-                    this.LGO8 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 8, "offset-");
-                    this.LGO9 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 9, "offset-");
-                    this.LGO10 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 10, "offset-");
-                    this.LGO11 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 11, "offset-");
-                    this.LGO12 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 12, "offset-");
-                    this.LGPL1 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 1, "pull-");
-                    this.LGPL2 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 2, "pull-");
-                    this.LGPL3 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 3, "pull-");
-                    this.LGPL4 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 4, "pull-");
-                    this.LGPL5 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 5, "pull-");
-                    this.LGPL6 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 6, "pull-");
-                    this.LGPL7 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 7, "pull-");
-                    this.LGPL8 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 8, "pull-");
-                    this.LGPL9 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 9, "pull-");
-                    this.LGPL10 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 10, "pull-");
-                    this.LGPL11 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 11, "pull-");
-                    this.LGPL12 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 12, "pull-");
-                    this.LGPS1 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 1, "push-");
-                    this.LGPS2 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 2, "push-");
-                    this.LGPS3 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 3, "push-");
-                    this.LGPS4 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 4, "push-");
-                    this.LGPS5 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 5, "push-");
-                    this.LGPS6 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 6, "push-");
-                    this.LGPS7 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 7, "push-");
-                    this.LGPS8 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 8, "push-");
-                    this.LGPS9 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 9, "push-");
-                    this.LGPS10 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 10, "push-");
-                    this.LGPS11 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 11, "push-");
-                    this.LGPS12 = new ExpressCraft.Bootstrap.ColClass.$ctor1(ExpressCraft.Bootstrap.ColTier.LG, 12, "push-");
+                    this.XS1 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.XS, 1);
+                    this.XS2 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.XS, 2);
+                    this.XS3 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.XS, 3);
+                    this.XS4 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.XS, 4);
+                    this.XS5 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.XS, 5);
+                    this.XS6 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.XS, 6);
+                    this.XS7 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.XS, 7);
+                    this.XS8 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.XS, 8);
+                    this.XS9 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.XS, 9);
+                    this.XS10 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.XS, 10);
+                    this.XS11 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.XS, 11);
+                    this.XS12 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.XS, 12);
+                    this.XSO1 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.XS, 1, "offset-");
+                    this.XSO2 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.XS, 2, "offset-");
+                    this.XSO3 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.XS, 3, "offset-");
+                    this.XSO4 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.XS, 4, "offset-");
+                    this.XSO5 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.XS, 5, "offset-");
+                    this.XSO6 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.XS, 6, "offset-");
+                    this.XSO7 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.XS, 7, "offset-");
+                    this.XSO8 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.XS, 8, "offset-");
+                    this.XSO9 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.XS, 9, "offset-");
+                    this.XSO10 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.XS, 10, "offset-");
+                    this.XSO11 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.XS, 11, "offset-");
+                    this.XSO12 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.XS, 12, "offset-");
+                    this.XSPL1 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.XS, 1, "pull-");
+                    this.XSPL2 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.XS, 2, "pull-");
+                    this.XSPL3 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.XS, 3, "pull-");
+                    this.XSPL4 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.XS, 4, "pull-");
+                    this.XSPL5 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.XS, 5, "pull-");
+                    this.XSPL6 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.XS, 6, "pull-");
+                    this.XSPL7 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.XS, 7, "pull-");
+                    this.XSPL8 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.XS, 8, "pull-");
+                    this.XSPL9 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.XS, 9, "pull-");
+                    this.XSPL10 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.XS, 10, "pull-");
+                    this.XSPL11 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.XS, 11, "pull-");
+                    this.XSPL12 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.XS, 12, "pull-");
+                    this.XSPS1 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.XS, 1, "push-");
+                    this.XSPS2 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.XS, 2, "push-");
+                    this.XSPS3 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.XS, 3, "push-");
+                    this.XSPS4 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.XS, 4, "push-");
+                    this.XSPS5 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.XS, 5, "push-");
+                    this.XSPS6 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.XS, 6, "push-");
+                    this.XSPS7 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.XS, 7, "push-");
+                    this.XSPS8 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.XS, 8, "push-");
+                    this.XSPS9 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.XS, 9, "push-");
+                    this.XSPS10 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.XS, 10, "push-");
+                    this.XSPS11 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.XS, 11, "push-");
+                    this.XSPS12 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.XS, 12, "push-");
+                    this.SM1 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.SM, 1);
+                    this.SM2 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.SM, 2);
+                    this.SM3 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.SM, 3);
+                    this.SM4 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.SM, 4);
+                    this.SM5 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.SM, 5);
+                    this.SM6 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.SM, 6);
+                    this.SM7 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.SM, 7);
+                    this.SM8 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.SM, 8);
+                    this.SM9 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.SM, 9);
+                    this.SM10 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.SM, 10);
+                    this.SM11 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.SM, 11);
+                    this.SM12 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.SM, 12);
+                    this.SMO1 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.SM, 1, "offset-");
+                    this.SMO2 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.SM, 2, "offset-");
+                    this.SMO3 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.SM, 3, "offset-");
+                    this.SMO4 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.SM, 4, "offset-");
+                    this.SMO5 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.SM, 5, "offset-");
+                    this.SMO6 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.SM, 6, "offset-");
+                    this.SMO7 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.SM, 7, "offset-");
+                    this.SMO8 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.SM, 8, "offset-");
+                    this.SMO9 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.SM, 9, "offset-");
+                    this.SMO10 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.SM, 10, "offset-");
+                    this.SMO11 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.SM, 11, "offset-");
+                    this.SMO12 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.SM, 12, "offset-");
+                    this.SMPL1 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.SM, 1, "pull-");
+                    this.SMPL2 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.SM, 2, "pull-");
+                    this.SMPL3 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.SM, 3, "pull-");
+                    this.SMPL4 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.SM, 4, "pull-");
+                    this.SMPL5 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.SM, 5, "pull-");
+                    this.SMPL6 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.SM, 6, "pull-");
+                    this.SMPL7 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.SM, 7, "pull-");
+                    this.SMPL8 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.SM, 8, "pull-");
+                    this.SMPL9 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.SM, 9, "pull-");
+                    this.SMPL10 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.SM, 10, "pull-");
+                    this.SMPL11 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.SM, 11, "pull-");
+                    this.SMPL12 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.SM, 12, "pull-");
+                    this.SMPS1 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.SM, 1, "push-");
+                    this.SMPS2 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.SM, 2, "push-");
+                    this.SMPS3 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.SM, 3, "push-");
+                    this.SMPS4 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.SM, 4, "push-");
+                    this.SMPS5 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.SM, 5, "push-");
+                    this.SMPS6 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.SM, 6, "push-");
+                    this.SMPS7 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.SM, 7, "push-");
+                    this.SMPS8 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.SM, 8, "push-");
+                    this.SMPS9 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.SM, 9, "push-");
+                    this.SMPS10 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.SM, 10, "push-");
+                    this.SMPS11 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.SM, 11, "push-");
+                    this.SMPS12 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.SM, 12, "push-");
+                    this.MD1 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.MD, 1);
+                    this.MD2 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.MD, 2);
+                    this.MD3 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.MD, 3);
+                    this.MD4 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.MD, 4);
+                    this.MD5 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.MD, 5);
+                    this.MD6 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.MD, 6);
+                    this.MD7 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.MD, 7);
+                    this.MD8 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.MD, 8);
+                    this.MD9 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.MD, 9);
+                    this.MD10 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.MD, 10);
+                    this.MD11 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.MD, 11);
+                    this.MD12 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.MD, 12);
+                    this.MDO1 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.MD, 1, "offset-");
+                    this.MDO2 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.MD, 2, "offset-");
+                    this.MDO3 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.MD, 3, "offset-");
+                    this.MDO4 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.MD, 4, "offset-");
+                    this.MDO5 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.MD, 5, "offset-");
+                    this.MDO6 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.MD, 6, "offset-");
+                    this.MDO7 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.MD, 7, "offset-");
+                    this.MDO8 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.MD, 8, "offset-");
+                    this.MDO9 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.MD, 9, "offset-");
+                    this.MDO10 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.MD, 10, "offset-");
+                    this.MDO11 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.MD, 11, "offset-");
+                    this.MDO12 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.MD, 12, "offset-");
+                    this.MDPL1 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.MD, 1, "pull-");
+                    this.MDPL2 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.MD, 2, "pull-");
+                    this.MDPL3 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.MD, 3, "pull-");
+                    this.MDPL4 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.MD, 4, "pull-");
+                    this.MDPL5 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.MD, 5, "pull-");
+                    this.MDPL6 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.MD, 6, "pull-");
+                    this.MDPL7 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.MD, 7, "pull-");
+                    this.MDPL8 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.MD, 8, "pull-");
+                    this.MDPL9 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.MD, 9, "pull-");
+                    this.MDPL10 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.MD, 10, "pull-");
+                    this.MDPL11 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.MD, 11, "pull-");
+                    this.MDPL12 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.MD, 12, "pull-");
+                    this.MDPS1 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.MD, 1, "push-");
+                    this.MDPS2 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.MD, 2, "push-");
+                    this.MDPS3 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.MD, 3, "push-");
+                    this.MDPS4 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.MD, 4, "push-");
+                    this.MDPS5 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.MD, 5, "push-");
+                    this.MDPS6 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.MD, 6, "push-");
+                    this.MDPS7 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.MD, 7, "push-");
+                    this.MDPS8 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.MD, 8, "push-");
+                    this.MDPS9 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.MD, 9, "push-");
+                    this.MDPS10 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.MD, 10, "push-");
+                    this.MDPS11 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.MD, 11, "push-");
+                    this.MDPS12 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.MD, 12, "push-");
+                    this.LG1 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.LG, 1);
+                    this.LG2 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.LG, 2);
+                    this.LG3 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.LG, 3);
+                    this.LG4 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.LG, 4);
+                    this.LG5 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.LG, 5);
+                    this.LG6 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.LG, 6);
+                    this.LG7 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.LG, 7);
+                    this.LG8 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.LG, 8);
+                    this.LG9 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.LG, 9);
+                    this.LG10 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.LG, 10);
+                    this.LG11 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.LG, 11);
+                    this.LG12 = new ExpressCraft.Bootstrap.Rule.ctor(ExpressCraft.Bootstrap.RuleTier.LG, 12);
+                    this.LGO1 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.LG, 1, "offset-");
+                    this.LGO2 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.LG, 2, "offset-");
+                    this.LGO3 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.LG, 3, "offset-");
+                    this.LGO4 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.LG, 4, "offset-");
+                    this.LGO5 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.LG, 5, "offset-");
+                    this.LGO6 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.LG, 6, "offset-");
+                    this.LGO7 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.LG, 7, "offset-");
+                    this.LGO8 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.LG, 8, "offset-");
+                    this.LGO9 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.LG, 9, "offset-");
+                    this.LGO10 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.LG, 10, "offset-");
+                    this.LGO11 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.LG, 11, "offset-");
+                    this.LGO12 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.LG, 12, "offset-");
+                    this.LGPL1 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.LG, 1, "pull-");
+                    this.LGPL2 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.LG, 2, "pull-");
+                    this.LGPL3 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.LG, 3, "pull-");
+                    this.LGPL4 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.LG, 4, "pull-");
+                    this.LGPL5 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.LG, 5, "pull-");
+                    this.LGPL6 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.LG, 6, "pull-");
+                    this.LGPL7 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.LG, 7, "pull-");
+                    this.LGPL8 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.LG, 8, "pull-");
+                    this.LGPL9 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.LG, 9, "pull-");
+                    this.LGPL10 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.LG, 10, "pull-");
+                    this.LGPL11 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.LG, 11, "pull-");
+                    this.LGPL12 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.LG, 12, "pull-");
+                    this.LGPS1 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.LG, 1, "push-");
+                    this.LGPS2 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.LG, 2, "push-");
+                    this.LGPS3 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.LG, 3, "push-");
+                    this.LGPS4 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.LG, 4, "push-");
+                    this.LGPS5 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.LG, 5, "push-");
+                    this.LGPS6 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.LG, 6, "push-");
+                    this.LGPS7 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.LG, 7, "push-");
+                    this.LGPS8 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.LG, 8, "push-");
+                    this.LGPS9 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.LG, 9, "push-");
+                    this.LGPS10 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.LG, 10, "push-");
+                    this.LGPS11 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.LG, 11, "push-");
+                    this.LGPS12 = new ExpressCraft.Bootstrap.Rule.$ctor1(ExpressCraft.Bootstrap.RuleTier.LG, 12, "push-");
                 }
             }
         },
@@ -710,28 +926,11 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             this.value = System.String.concat("col", _tier.value, bonus, _colIndex);
         },
         ctor: function (_tier, _colIndex) {
-            ExpressCraft.Bootstrap.ColClass.$ctor1.call(this, _tier, _colIndex, "");
+            ExpressCraft.Bootstrap.Rule.$ctor1.call(this, _tier, _colIndex, "");
         }
     });
 
-    Bridge.define("ExpressCraft.Bootstrap.ColExtentions", {
-        statics: {
-            applyColumns: function (widget, colClasses) {
-                if (colClasses === void 0) { colClasses = []; }
-                var length;
-                if (widget != null && colClasses != null && ((length = colClasses.length)) > 0) {
-                    var builder = new System.Text.StringBuilder();
-
-                    for (var i = 0; i < length; i = (i + 1) | 0) {
-                        widget.getClassList().add(colClasses[i].value);
-                    }
-                }
-                return widget;
-            }
-        }
-    });
-
-    Bridge.define("ExpressCraft.Bootstrap.ColTier", {
+    Bridge.define("ExpressCraft.Bootstrap.RuleTier", {
         statics: {
             /**
              * Phones
@@ -759,10 +958,10 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             LG: null,
             config: {
                 init: function () {
-                    this.XS = new ExpressCraft.Bootstrap.ColTier("-xs-");
-                    this.SM = new ExpressCraft.Bootstrap.ColTier("-sm-");
-                    this.MD = new ExpressCraft.Bootstrap.ColTier("-md-");
-                    this.LG = new ExpressCraft.Bootstrap.ColTier("-lg-");
+                    this.XS = new ExpressCraft.Bootstrap.RuleTier("-xs-");
+                    this.SM = new ExpressCraft.Bootstrap.RuleTier("-sm-");
+                    this.MD = new ExpressCraft.Bootstrap.RuleTier("-md-");
+                    this.LG = new ExpressCraft.Bootstrap.RuleTier("-lg-");
                 }
             }
         },
@@ -770,162 +969,6 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         ctor: function (_value) {
             this.$initialize();
             this.value = _value;
-        }
-    });
-
-    Bridge.define("ExpressCraft.Bootstrap.Contextual");
-
-    Bridge.define("ExpressCraft.Bootstrap.Contextual.Background", {
-        statics: {
-            Primary: "bg-primary",
-            Success: "bg-success",
-            Info: "bg-info",
-            Warning: "bg-warning",
-            Danger: "bg-danger"
-        }
-    });
-
-    Bridge.define("ExpressCraft.Bootstrap.Contextual.Text", {
-        statics: {
-            Muted: "text-muted",
-            Primary: "text-primary",
-            Success: "text-success",
-            Info: "text-info",
-            Warning: "text-warning",
-            Danger: "text-danger"
-        }
-    });
-
-    Bridge.define("ExpressCraft.Bootstrap.Extension", {
-        statics: {
-            getClassTheme: function (cls, type) {
-                if (type === ExpressCraft.Bootstrap.BootTheme.None) {
-                    return "";
-                }
-                return System.String.concat(cls, System.Enum.format(ExpressCraft.Bootstrap.BootTheme, type, "G").toLowerCase());
-            }
-        }
-    });
-
-    Bridge.define("ExpressCraft.Bootstrap.Program", {
-        statics: {
-            demo: function () {
-                var buttonClick = $asm.$.ExpressCraft.Bootstrap.Program.f1;
-
-                ExpressCraft.Application.run(Bridge.merge(new ExpressCraft.Bootstrap.BootWindow([new ExpressCraft.Bootstrap.Panel(ExpressCraft.Bootstrap.BootTheme.Default, [new ExpressCraft.Bootstrap.PanelHeading(["Welcome to ExpressCraft-Bootstrap"]), new ExpressCraft.Bootstrap.PanelBody([new ExpressCraft.Bootstrap.BootSelectionWidget([new ExpressCraft.Bootstrap.FormGroupList([new ExpressCraft.Bootstrap.TextBox.$ctor1("Textbox"), new ExpressCraft.Bootstrap.CheckBox("checkbox", true), new ExpressCraft.Bootstrap.FormGroup([Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("checkbox-inline 1", true), {
-                    setInline: true
-                } ), Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("checkbox-inline 2", true), {
-                    setInline: true
-                } ), Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("checkbox-inline 3", true), {
-                    setInline: true
-                } )]), new ExpressCraft.Bootstrap.TextBox.$ctor1("11/04/2017", "date"), new ExpressCraft.Bootstrap.TextBox.$ctor1("Password", "password"), new ExpressCraft.Bootstrap.TextArea("TextArea", 4), new ExpressCraft.Bootstrap.BootForm(ExpressCraft.Bootstrap.BootFormType.Inline, [new ExpressCraft.Bootstrap.Label(["Email:", new ExpressCraft.Bootstrap.TextBox.ctor()]), new ExpressCraft.Bootstrap.Label(["Password:", new ExpressCraft.Bootstrap.TextBox.ctor("password")]), new ExpressCraft.Bootstrap.CheckBox("Remeber me"), new ExpressCraft.Bootstrap.Button.ctor("Submit", "submit")]), new ExpressCraft.Bootstrap.BootForm(ExpressCraft.Bootstrap.BootFormType.Horizontal, [new ExpressCraft.Bootstrap.Label(["Email:", new ExpressCraft.Bootstrap.TextBox.ctor()]), new ExpressCraft.Bootstrap.Label(["Password:", new ExpressCraft.Bootstrap.TextBox.ctor("password")]), new ExpressCraft.Bootstrap.CheckBox("Remeber me"), new ExpressCraft.Bootstrap.Button.ctor("Submit", "submit")]), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Basic", ExpressCraft.Bootstrap.BootTheme.None), {
-                    setOnClick: buttonClick
-                } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Default", ExpressCraft.Bootstrap.BootTheme.Default), {
-                    setOnClick: buttonClick
-                } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Primary", ExpressCraft.Bootstrap.BootTheme.Primary), {
-                    setOnClick: buttonClick
-                } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Success", ExpressCraft.Bootstrap.BootTheme.Success), {
-                    setOnClick: buttonClick
-                } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Info", ExpressCraft.Bootstrap.BootTheme.Info), {
-                    setOnClick: buttonClick
-                } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Warning", ExpressCraft.Bootstrap.BootTheme.Warning), {
-                    setOnClick: buttonClick
-                } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Danger", ExpressCraft.Bootstrap.BootTheme.Danger), {
-                    setOnClick: buttonClick
-                } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor1("Link", ExpressCraft.Bootstrap.BootTheme.Link), {
-                    setOnClick: buttonClick
-                } )]), new ExpressCraft.Bootstrap.Heading("h2", ["Heading", new ExpressCraft.Bootstrap.Small([" - Heading Small"])]), new ExpressCraft.Bootstrap.ParagraphList(["Text", new ExpressCraft.Bootstrap.Abbr("Abbr hover", ["Abbr"]), new ExpressCraft.Bootstrap.Small(["Small"]), new ExpressCraft.Bootstrap.Blockquote.$ctor2(new ExpressCraft.Bootstrap.Paragraph.ctor(["Block Quote Content"]), new ExpressCraft.Bootstrap.Footer(["Block Quote From"])), Bridge.merge(new ExpressCraft.Bootstrap.Blockquote.$ctor2(new ExpressCraft.Bootstrap.Paragraph.ctor(["Block Quote Content Reverse"]), new ExpressCraft.Bootstrap.Footer(["Block Quote From Reverse"])), {
-                    setReverse: true
-                } ), new ExpressCraft.Bootstrap.DescriptionList([new ExpressCraft.Bootstrap.DescriptionTitle(["Description Title 1"]), new ExpressCraft.Bootstrap.DescriptionDetail(["- Description Detail 1"]), new ExpressCraft.Bootstrap.DescriptionTitle(["Description Title 2"]), new ExpressCraft.Bootstrap.DescriptionDetail(["- Description Detail 2"])]), new ExpressCraft.Bootstrap.Paragraph.ctor(["The following HTML elements: ", new ExpressCraft.Bootstrap.Code(["span"]), ", ", new ExpressCraft.Bootstrap.Code(["section"]), ", and ", new ExpressCraft.Bootstrap.Code(["div"]), " defines a section in a document."]), new ExpressCraft.Bootstrap.Paragraph.ctor(["Use ", new ExpressCraft.Bootstrap.Kbd(["ctrl + p"]), " to open the Print dialog box."]), new ExpressCraft.Bootstrap.Pre(["Text in a pre element\r\nis displayed in a fixed-width\r\nfont, and it preserves\r\nboth      spaces and\r\nline breaks."]), new ExpressCraft.Bootstrap.Paragraph.ctor([new ExpressCraft.Bootstrap.ParagraphList([new ExpressCraft.Bootstrap.Heading("h2", ["Contextual Colors"]), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text is muted."]), {
-                    setContextualText: ExpressCraft.Bootstrap.Contextual.Text.Muted
-                } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text is important."]), {
-                    setContextualText: ExpressCraft.Bootstrap.Contextual.Text.Primary
-                } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text indicates success."]), {
-                    setContextualText: ExpressCraft.Bootstrap.Contextual.Text.Success
-                } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text represents some information."]), {
-                    setContextualText: ExpressCraft.Bootstrap.Contextual.Text.Info
-                } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text represents a warning."]), {
-                    setContextualText: ExpressCraft.Bootstrap.Contextual.Text.Warning
-                } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text represents danger."]), {
-                    setContextualText: ExpressCraft.Bootstrap.Contextual.Text.Danger
-                } )])]), new ExpressCraft.Bootstrap.Paragraph.ctor([new ExpressCraft.Bootstrap.ParagraphList([new ExpressCraft.Bootstrap.Heading("h2", ["Contextual Backgrounds"]), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text is important."]), {
-                    setContextualBackground: ExpressCraft.Bootstrap.Contextual.Background.Primary
-                } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text indicates success."]), {
-                    setContextualBackground: ExpressCraft.Bootstrap.Contextual.Background.Success
-                } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text represents some information."]), {
-                    setContextualBackground: ExpressCraft.Bootstrap.Contextual.Background.Info
-                } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text represents a warning."]), {
-                    setContextualBackground: ExpressCraft.Bootstrap.Contextual.Background.Warning
-                } ), Bridge.merge(new ExpressCraft.Bootstrap.Paragraph.ctor(["This text represents danger."]), {
-                    setContextualBackground: ExpressCraft.Bootstrap.Contextual.Background.Danger
-                } )])])]), new ExpressCraft.Bootstrap.Panel(ExpressCraft.Bootstrap.BootTheme.Default, [new ExpressCraft.Bootstrap.PanelHeading([new ExpressCraft.Bootstrap.Heading("h3", ["Table Demo", new ExpressCraft.Bootstrap.Small([" - Table options below."])]), new ExpressCraft.Bootstrap.FormGroup([Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("Striped", false), {
-                    onCheckChanged: $asm.$.ExpressCraft.Bootstrap.Program.f2,
-                    setInline: true
-                } ), Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("Bordered", false), {
-                    onCheckChanged: $asm.$.ExpressCraft.Bootstrap.Program.f3,
-                    setInline: true
-                } ), Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("Hover", false), {
-                    onCheckChanged: $asm.$.ExpressCraft.Bootstrap.Program.f4,
-                    setInline: true
-                } ), Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("Condensed", false), {
-                    onCheckChanged: $asm.$.ExpressCraft.Bootstrap.Program.f5,
-                    setInline: true
-                } ), Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("Contextual classes", false), {
-                    onCheckChanged: function (s) {
-                        var $t;
-                        var tbl = ExpressCraft.Bootstrap.BootWidget.getWidgetById(ExpressCraft.Bootstrap.Table, "DemoTable");
-                        if (s.getChecked()) {
-                            var body = tbl.getTableBody();
-                            body.row(0).setTheme(ExpressCraft.Bootstrap.BootRowCellTheme.Active);
-                            body.row(2).setTheme(ExpressCraft.Bootstrap.BootRowCellTheme.Success);
-                            body.row(4).setTheme(ExpressCraft.Bootstrap.BootRowCellTheme.Info);
-                            body.row(6).setTheme(ExpressCraft.Bootstrap.BootRowCellTheme.Warning);
-                            body.row(8).setTheme(ExpressCraft.Bootstrap.BootRowCellTheme.Danger);
-                        } else {
-                            $t = Bridge.getEnumerator(tbl.getTableBody().getRows(), ExpressCraft.Bootstrap.TableRow);
-                            while ($t.moveNext()) {
-                                var item = $t.getCurrent();
-                                item.clearTheme();
-                            }
-                        }
-                    },
-                    setInline: true
-                } )])]), new ExpressCraft.Bootstrap.PanelBody([Bridge.merge(new ExpressCraft.Bootstrap.Table([new ExpressCraft.Bootstrap.TableHeader([new ExpressCraft.Bootstrap.TableHeaderRow.ctor(["#", "Table heading", "Table heading", "Table heading", "Table heading", "Table heading", "Table heading"])]), new ExpressCraft.Bootstrap.TableBody(System.Linq.Enumerable.range(0, 9).select($asm.$.ExpressCraft.Bootstrap.Program.f6).toArray())]), {
-                    setId: "DemoTable"
-                } )]), new ExpressCraft.Bootstrap.PanelFooter([new ExpressCraft.Bootstrap.Heading("h3", ["How to access the table."]), new ExpressCraft.Bootstrap.Pre(["var tbl = BootWidget.GetWidgetById<Table>(\"DemoTable\");\r\nvar body = tbl.TableBody;\r\nbody.Row(0).Theme = BootRowCellTheme.Active;\r\nbody.Row(2).Theme = BootRowCellTheme.Success;\r\nbody.Row(4).Theme = BootRowCellTheme.Info;\r\nbody.Row(6).Theme = BootRowCellTheme.Warning;\r\nbody.Row(8).Theme = BootRowCellTheme.Danger;\r\n"])])])])]), new ExpressCraft.Bootstrap.PanelFooter(["Footer"])])]), {
-                    setWindowstate: ExpressCraft.WindowState.Maximized
-                } ));
-            }
-        },
-        $main: function () {
-            ExpressCraft.Settings.setIncludeFocusRegion(false);
-            ExpressCraft.Settings.allowCloseWithoutQuestion = true;
-            ExpressCraft.Application.setApplicationDefinition();
-
-            ExpressCraft.Bootstrap.BootWindow.setupMetaTags();
-        }
-    });
-
-    Bridge.ns("ExpressCraft.Bootstrap.Program", $asm.$);
-
-    Bridge.apply($asm.$.ExpressCraft.Bootstrap.Program, {
-        f1: function (ev) {
-            Bridge.global.alert(ev.currentTarget.innerHTML);
-        },
-        f2: function (s) {
-            ExpressCraft.Bootstrap.BootWidget.getWidgetById(ExpressCraft.Bootstrap.Table, "DemoTable").setStriped(s.getChecked());
-        },
-        f3: function (s) {
-            ExpressCraft.Bootstrap.BootWidget.getWidgetById(ExpressCraft.Bootstrap.Table, "DemoTable").setBordered(s.getChecked());
-        },
-        f4: function (s) {
-            ExpressCraft.Bootstrap.BootWidget.getWidgetById(ExpressCraft.Bootstrap.Table, "DemoTable").setHover(s.getChecked());
-        },
-        f5: function (s) {
-            ExpressCraft.Bootstrap.BootWidget.getWidgetById(ExpressCraft.Bootstrap.Table, "DemoTable").setCondensed(s.getChecked());
-        },
-        f6: function (x, index) {
-            return new ExpressCraft.Bootstrap.TableRow.ctor([new ExpressCraft.Bootstrap.TableHeaderCell.ctor([(((index + 1) | 0)).toString()]), "Table cell", "Table cell", "Table cell", "Table cell", "Table cell", "Table cell"]);
         }
     });
 
@@ -1165,49 +1208,49 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         ctor: function (colClass1, typos) {
             if (typos === void 0) { typos = []; }
 
-            ExpressCraft.Bootstrap.Col.$ctor8.call(this, System.Array.init([colClass1], ExpressCraft.Bootstrap.ColClass), typos);
+            ExpressCraft.Bootstrap.Col.$ctor8.call(this, System.Array.init([colClass1], ExpressCraft.Bootstrap.Rule), typos);
 
         },
         $ctor1: function (colClass1, colClass2, typos) {
             if (typos === void 0) { typos = []; }
 
-            ExpressCraft.Bootstrap.Col.$ctor8.call(this, System.Array.init([colClass1, colClass2], ExpressCraft.Bootstrap.ColClass), typos);
+            ExpressCraft.Bootstrap.Col.$ctor8.call(this, System.Array.init([colClass1, colClass2], ExpressCraft.Bootstrap.Rule), typos);
 
         },
         $ctor2: function (colClass1, colClass2, colClass3, typos) {
             if (typos === void 0) { typos = []; }
 
-            ExpressCraft.Bootstrap.Col.$ctor8.call(this, System.Array.init([colClass1, colClass2, colClass3], ExpressCraft.Bootstrap.ColClass), typos);
+            ExpressCraft.Bootstrap.Col.$ctor8.call(this, System.Array.init([colClass1, colClass2, colClass3], ExpressCraft.Bootstrap.Rule), typos);
 
         },
         $ctor3: function (colClass1, colClass2, colClass3, colClass4, typos) {
             if (typos === void 0) { typos = []; }
 
-            ExpressCraft.Bootstrap.Col.$ctor8.call(this, System.Array.init([colClass1, colClass2, colClass3, colClass4], ExpressCraft.Bootstrap.ColClass), typos);
+            ExpressCraft.Bootstrap.Col.$ctor8.call(this, System.Array.init([colClass1, colClass2, colClass3, colClass4], ExpressCraft.Bootstrap.Rule), typos);
 
         },
         $ctor4: function (colClass1, colClass2, colClass3, colClass4, colClass5, typos) {
             if (typos === void 0) { typos = []; }
 
-            ExpressCraft.Bootstrap.Col.$ctor8.call(this, System.Array.init([colClass1, colClass2, colClass3, colClass4, colClass5], ExpressCraft.Bootstrap.ColClass), typos);
+            ExpressCraft.Bootstrap.Col.$ctor8.call(this, System.Array.init([colClass1, colClass2, colClass3, colClass4, colClass5], ExpressCraft.Bootstrap.Rule), typos);
 
         },
         $ctor5: function (colClass1, colClass2, colClass3, colClass4, colClass5, colClass6, typos) {
             if (typos === void 0) { typos = []; }
 
-            ExpressCraft.Bootstrap.Col.$ctor8.call(this, System.Array.init([colClass1, colClass2, colClass3, colClass4, colClass5, colClass6], ExpressCraft.Bootstrap.ColClass), typos);
+            ExpressCraft.Bootstrap.Col.$ctor8.call(this, System.Array.init([colClass1, colClass2, colClass3, colClass4, colClass5, colClass6], ExpressCraft.Bootstrap.Rule), typos);
 
         },
         $ctor6: function (colClass1, colClass2, colClass3, colClass4, colClass5, colClass6, colClass7, typos) {
             if (typos === void 0) { typos = []; }
 
-            ExpressCraft.Bootstrap.Col.$ctor8.call(this, System.Array.init([colClass1, colClass2, colClass3, colClass4, colClass5, colClass6, colClass7], ExpressCraft.Bootstrap.ColClass), typos);
+            ExpressCraft.Bootstrap.Col.$ctor8.call(this, System.Array.init([colClass1, colClass2, colClass3, colClass4, colClass5, colClass6, colClass7], ExpressCraft.Bootstrap.Rule), typos);
 
         },
         $ctor7: function (colClass1, colClass2, colClass3, colClass4, colClass5, colClass6, colClass7, colClass8, typos) {
             if (typos === void 0) { typos = []; }
 
-            ExpressCraft.Bootstrap.Col.$ctor8.call(this, System.Array.init([colClass1, colClass2, colClass3, colClass4, colClass5, colClass6, colClass7, colClass8], ExpressCraft.Bootstrap.ColClass), typos);
+            ExpressCraft.Bootstrap.Col.$ctor8.call(this, System.Array.init([colClass1, colClass2, colClass3, colClass4, colClass5, colClass6, colClass7, colClass8], ExpressCraft.Bootstrap.Rule), typos);
 
         }
     });
@@ -1334,7 +1377,9 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             if (typos === void 0) { typos = []; }
 
             this.$initialize();
-            ExpressCraft.Bootstrap.BootWidget.ctor.call(this, document.createElement("label"), typos);
+            ExpressCraft.Bootstrap.BootWidget.ctor.call(this, Bridge.merge(document.createElement('label'), {
+                className: "control-label"
+            } ), typos);
 
         },
         getSourceOnly: function () {
@@ -1342,6 +1387,12 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         },
         setSourceOnly: function (value) {
             this.setClassTrue("sr-only", value);
+        },
+        getFor: function () {
+            return this.content.htmlFor;
+        },
+        setFor: function (value) {
+            this.content.htmlFor = value;
         }
     });
 

@@ -121,6 +121,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Bridge\output\bootstrap.min.backup.css" />
     <Content Include="Bridge\output\bootstrap.min.css" />
     <Content Include="Bridge\output\bootstrap.min.js" />
     <Content Include="Bridge\output\ExpressCraft.css" />
