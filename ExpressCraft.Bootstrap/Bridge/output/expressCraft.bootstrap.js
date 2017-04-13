@@ -811,14 +811,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
     Bridge.define("ExpressCraft.Bootstrap.Program", {
         statics: {
             demo: function () {
-                ExpressCraft.Settings.setIncludeFocusRegion(false);
-                ExpressCraft.Settings.allowCloseWithoutQuestion = true;
-
-                ExpressCraft.Application.setApplicationDefinition();
-
                 var buttonClick = $asm.$.ExpressCraft.Bootstrap.Program.f1;
-
-                ExpressCraft.Bootstrap.BootWindow.setupMetaTags();
 
                 ExpressCraft.Application.run(Bridge.merge(new ExpressCraft.Bootstrap.BootWindow([new ExpressCraft.Bootstrap.Panel(ExpressCraft.Bootstrap.BootTheme.Default, [new ExpressCraft.Bootstrap.PanelHeading(["Welcome to ExpressCraft-Bootstrap"]), new ExpressCraft.Bootstrap.PanelBody([new ExpressCraft.Bootstrap.BootSelectionWidget([new ExpressCraft.Bootstrap.FormGroupList([new ExpressCraft.Bootstrap.TextBox.$ctor1("Textbox"), new ExpressCraft.Bootstrap.CheckBox("checkbox", true), new ExpressCraft.Bootstrap.FormGroup([Bridge.merge(new ExpressCraft.Bootstrap.CheckBox("checkbox-inline 1", true), {
                     setInline: true
@@ -906,7 +899,11 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             }
         },
         $main: function () {
+            ExpressCraft.Settings.setIncludeFocusRegion(false);
+            ExpressCraft.Settings.allowCloseWithoutQuestion = true;
+            ExpressCraft.Application.setApplicationDefinition();
 
+            ExpressCraft.Bootstrap.BootWindow.setupMetaTags();
         }
     });
 

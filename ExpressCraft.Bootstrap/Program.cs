@@ -14,16 +14,9 @@ namespace ExpressCraft.Bootstrap
 	public class Program
 	{
 		public static void Demo()
-		{
-			Settings.IncludeFocusRegion = false;
-			Settings.AllowCloseWithoutQuestion = true;
-
-			Application.SetApplicationDefinition();
-
+		{			
 			Action<MouseEvent> buttonClick = (ev) => { Global.Alert(ev.CurrentTarget.As<HTMLElement>().InnerHTML); };
-
-			BootWindow.SetupMetaTags();
-
+			
 			Application.Run(
 				new BootWindow(
 					new Panel(BootTheme.Default,
@@ -221,7 +214,11 @@ body.Row(8).Theme = BootRowCellTheme.Danger;
 
 		public static void Main()
 		{
-					
+			Settings.IncludeFocusRegion = false;
+			Settings.AllowCloseWithoutQuestion = true;
+			Application.SetApplicationDefinition();
+			
+			BootWindow.SetupMetaTags();
 		}
 	}
 }
