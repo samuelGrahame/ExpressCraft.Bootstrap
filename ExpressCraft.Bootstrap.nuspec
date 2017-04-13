@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>ExpressCraft.Bootstrap</id>
-    <version>0.0.0.1</version>
+    <version>0.0.0.3</version>
     <title>ExpressCraft.Bootstrap (For Bridge.Net)</title>
     <authors>SG - BL - PH</authors>
     <owners>SG - BL - PH</owners>
@@ -24,7 +24,7 @@ Handles Modal and Non-Modal Forms - When using Dialogues you can assign call-bac
 	  </dependencies>
   </metadata>
   <files>
-	<file src="ExpressCraft.Bootstrap\bin\Release\ExpressCraft.dll" target="lib\ExpressCraft.Bootstrap.dll" />		
+	<file src="ExpressCraft.Bootstrap\bin\Release\ExpressCraft.Bootstrap.dll" target="lib\ExpressCraft.Bootstrap.dll" />		
 	<file src="ExpressCraft.Bootstrap\Bridge\output\bootstrap.min.css" target="content\Bridge\www" />
 	<file src="ExpressCraft.Bootstrap\Bridge\output\bootstrap.min.js" target="content\Bridge\www" />
   </files>
