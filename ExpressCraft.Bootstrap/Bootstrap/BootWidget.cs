@@ -14,8 +14,14 @@ namespace ExpressCraft.Bootstrap
 		{
 			get { return Content.Id; }
 			set { Content.Id = value; }
-		}		
-
+		}
+		
+		public int BootWindowHandle
+		{
+			get { return GetAttributei("bsh"); }
+			set { SetAttribute("bsh", value); }
+		}
+		
 		public static BootWidget GetWidgetById(string id)
 		{
 			var widget = Document.GetElementById(id);

@@ -25,6 +25,9 @@ namespace ExpressCraft.Bootstrap
 		private HTMLDivElement prevBody = null;
 		private HTMLCanvasElement canvas = null;
 
+		protected static int bootWindowHandles = 0;
+		protected string assignedBootWindow = string.Empty;
+
 		public static void SetupMetaTags()
 		{
 			if(hasSetupMetaTags)
@@ -36,23 +39,33 @@ namespace ExpressCraft.Bootstrap
 			Document.Body.AppendChild(privateSyle);
 		}
 
+		public static int CreateWindowHandle()
+		{
+			return (bootWindowHandles++);
+		}
+
+		public BootWindow(int handle, params Union<string, Control, HTMLElement>[] typos) : this(typos)
+		{			
+			assignedBootWindow = handle.ToString();			
+		}
+
 		public BootWindow(params Union<string, Control, HTMLElement>[] typos) : base("")
-		{		
-			var container = (HTMLDivElement)(new BootStyleWidget("container-fluid")).Content;
-			
-			
+		{
+			if(assignedBootWindow == string.Empty)
+				assignedBootWindow = CreateWindowHandle().ToString();
+			var container = (new BootStyleWidget("container-fluid"));			
+
 			this.BackColor = Color.White;
-			this.Body.AppendChild(container);
+			this.Body.AppendChild(container.Content);
 			this.BodyStyle.OverflowY = Overflow.Auto;
 			prevBody = this.Body;
 
-			this.Body = container;						
+			this.Body = (HTMLDivElement)container.Content;
 			this.BodyStyle.Padding = "0";
 
 			SetCalcSize();
 			
-			BootWidget.AppendTypos(this.Body, typos);
-			
+			BootWidget.AppendTypos(this.Body, typos);			
 		}
 
 		protected void SetCalcSize()
@@ -65,9 +78,39 @@ namespace ExpressCraft.Bootstrap
 			
 			base.OnGotFocus();
 			CalcSizeOnChange();			
-
 		}
-				
+
+		/// <summary>
+		/// Multi Form Responsive
+		/// </summary>
+		/// <returns></returns>
+		public BootWindow AssignHandles()
+		{
+			AssignHandles(prevBody, prevBody.ChildElementCount);
+			return this;
+		}
+
+		/// <summary>
+		/// Multi Form Responsive
+		/// </summary>
+		/// <param name="parent"></param>
+		/// <param name="length"></param>
+		public void AssignHandles(HTMLElement parent, int length)
+		{			
+			for(int i = 0; i < length; i++)
+			{
+				var child = parent.Children[i];
+				var l = child.ChildElementCount;
+				if(l > 0)
+				{
+					AssignHandles(child, l);
+				}else
+				{
+					child.SetAttribute("bsh", assignedBootWindow);
+				}
+			}
+		}
+
 		private void CalcSizeOnChange()
 		{
 			//var clientRect = this.Content.GetBoundingClientRect();
