@@ -18,3 +18,20 @@ public class Program
 	}
 }
 ```
+
+# How to create BootstrapWindow's Responsive
+
+```csharp
+
+// AssignHandles() To assign Form Handle - Assign Responsive Class
+
+public class Program
+{
+	public static void Main()
+	{			
+		Application.Run(
+			new BootWindow().AssignHandles()
+		);
+	}
+}
+```
