@@ -16,6 +16,24 @@ namespace ExpressCraft.Bootstrap
 		public Action<BootBaseBox, KeyboardEvent> OnKeyUp = null;
 		public Action<BootBaseBox, KeyboardEvent> OnKeyPress = null;
 
+		public string AriaDescribedBy
+		{
+			get { return GetAttribute("aria-describedby"); }
+			set
+			{
+				SetAttribute("aria-describedby", value);
+			}
+		}
+
+		public string AriaLabel
+		{
+			get { return GetAttribute("aria-label"); }
+			set
+			{
+				SetAttribute("aria-label", value);
+			}
+		}
+
 		public string Placeholder
 		{
 			get { return GetAttribute("placeholder"); }

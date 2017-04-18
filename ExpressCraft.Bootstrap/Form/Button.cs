@@ -61,25 +61,25 @@ namespace ExpressCraft.Bootstrap
 			}
 		}
 
-		public ButtonSize ButtonSize
+		public BootSize ButtonSize
 		{
 			get
 			{
-				var x = GetEnumClassValue("btn-", typeof(ButtonSize)).As<Enum>();
+				var x = GetEnumClassValue("btn-", typeof(BootSize)).As<Enum>();
 				if(x == null)
-					return ButtonSize.None;
+					return BootSize.None;
 				else
-					return x.As<ButtonSize>();
+					return x.As<BootSize>();
 			}
 			set
 			{
-				if(value == ButtonSize.None)
+				if(value == BootSize.None)
 				{
-					ClearEnumClassValue("btn-", typeof(ButtonSize));
+					ClearEnumClassValue("btn-", typeof(BootSize));
 				}
 				else
 				{
-					SetEnumClassValue("btn-", typeof(ButtonSize), value.GetEnumToClass());
+					SetEnumClassValue("btn-", typeof(BootSize), value.GetEnumToClass());
 				}
 			}
 		}

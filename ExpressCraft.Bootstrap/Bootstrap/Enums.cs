@@ -18,7 +18,7 @@ namespace ExpressCraft.Bootstrap
 		Link
 	}
 
-	public enum ButtonSize
+	public enum BootSize
 	{		
 		None,
 		LG,
