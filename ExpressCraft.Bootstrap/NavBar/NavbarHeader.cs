@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class NarbarHeader : BootStyleWidget
+	public class NavbarHeader : BootStyleWidget
 	{
-		public NarbarHeader(Union<string, Control, Bridge.Html5.HTMLElement>[] typos) : base("navbar-header", typos)
+		public NavbarHeader(params Union<string, Control, Bridge.Html5.HTMLElement>[] typos) : base("navbar-header", typos)
 		{
 
 		}

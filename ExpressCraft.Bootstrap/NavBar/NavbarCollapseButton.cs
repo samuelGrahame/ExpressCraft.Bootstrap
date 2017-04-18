@@ -8,7 +8,7 @@ using Bridge.Html5;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class NavbarCollapseButton : BootWidget
+	public class NavbarCollapseButton : BootWidgetClickBase
 	{
 		public NavbarCollapseButton(string _id) : base(new HTMLButtonElement() { Type = ButtonType.Button, ClassName = "navbar-toggle collapsed" })
 		{
@@ -16,9 +16,11 @@ namespace ExpressCraft.Bootstrap
 			{
 				_id = "#" + _id;
 			}
-			AppendTypos(new SourceOnly("Toggle navigation"), new IconBar(), new IconBar(), new IconBar());
+			AppendTypos(this, new SourceOnly("Toggle navigation"), new IconBar(), new IconBar(), new IconBar());
 			SetAttribute("data-toggle", "collapse");
 			SetAttribute("data-target", _id);
+			
+			SetAttribute("aria-expanded", "false");
 		}
 	}
 }

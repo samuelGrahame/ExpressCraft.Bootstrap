@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrap\BootForm.cs" />
+    <Compile Include="Form\BootWidgetClickBase.cs" />
     <Compile Include="Form\ButtonGroup.cs" />
     <Compile Include="Form\CheckBoxBase.cs" />
     <Compile Include="Form\InputGroup.cs" />
@@ -77,8 +78,8 @@
     <Compile Include="Typography\Anchor.cs" />
     <Compile Include="Typography\SourceOnly.cs" />
     <Compile Include="NavBar\IconBar.cs" />
-    <Compile Include="NavBar\Narbar.cs" />
-    <Compile Include="NavBar\NarbarHeader.cs" />
+    <Compile Include="NavBar\Navbar.cs" />
+    <Compile Include="NavBar\NavbarHeader.cs" />
     <Compile Include="NavBar\NavbarCollapseButton.cs" />
     <Compile Include="Panel\Panel.cs" />
     <Compile Include="Panel\PanelBody.cs" />

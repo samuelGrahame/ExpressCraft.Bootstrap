@@ -114,6 +114,13 @@ namespace ExpressCraft.Bootstrap
 			CalcSizeOnChange();			
 		}
 
+		protected override void OnShowing()
+		{
+			base.OnShowing();
+
+			AssignHandles();
+		}
+
 		/// <summary>
 		/// Multi Form Responsive
 		/// </summary>
@@ -170,7 +177,7 @@ namespace ExpressCraft.Bootstrap
 					{
 						if(!string.IsNullOrWhiteSpace(uqItem[i]))
 						{
-							element.SetAttribute(uqItem[i], element.GetAttribute(uqItem[i]) + "$" + assignedBootWindow);
+							element.SetAttribute(uqItem[i], element.GetAttribute(uqItem[i]) + "-w" + assignedBootWindow);
 						}
 					}					
 				}

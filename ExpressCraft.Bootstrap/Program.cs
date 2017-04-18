@@ -22,7 +22,34 @@ namespace ExpressCraft.Bootstrap
 						new PanelHeading(new Heading(HeadingType.H4, "ExpressCraft.Bootstrap Examples")),
 						new PanelBody(
 								new Button("Table", BootTheme.Info) { Block = true },
-								new Button("Navbar", BootTheme.Info) { Block = true },
+								new Button("Navbar", BootTheme.Info) { Block = true, OnClick = (ev) => {
+										new BootWindow(
+												new Navbar(
+													new NavbarHeader(
+														new NavbarCollapseButton("navbarContent") { UnqiueAttributes = "data-target" }
+													),
+													new NavbarContent("navbarContent",
+														new UnorderedList(
+															new ListItem(new Anchor("#", "Link ", new SourceOnly("(current)"))) { Active = true },
+															new ListItem(new Anchor("#", "Link")),
+															new ListItem(
+																new Anchor("#", "Dropdown ", new Caret()) { Dropdown = true  },
+																new UnorderedList(
+																	new ListItem(new Anchor("#", "Action")),
+																	new ListItem(new Anchor("#", "Another Action")),
+																	new ListItem(new Anchor("#", "Something else here")),
+																	new ListItem() { Divider = true },
+																	new ListItem(new Anchor("#", "Separated link"))
+																	)
+																{ DropdownMenu = true }
+															) { Dropdown = true }
+														)
+														{ Nav = true }														
+													) { UnqiueAttributes = "id" }
+												)
+											) { Fluid = true }.Show();
+									}
+								},
 								new Button("Typography", BootTheme.Info) { Block = true },
 								new Button("Grid", BootTheme.Info) { Block = true },
 								new Button("Panel", BootTheme.Info) { Block = true },
@@ -31,7 +58,7 @@ namespace ExpressCraft.Bootstrap
 						new PanelFooter("Copyright © " + DateTime.Today.Year + " Samuel Grahame")
 					)
 				)
-			{ Windowstate = WindowState.Maximized } .AssignHandles());
+			{ Windowstate = WindowState.Maximized });
 
 			//Action<MouseEvent> buttonClick = (ev) => { Global.Alert(ev.CurrentTarget.As<HTMLElement>().InnerHTML); };			
 //			Application.Run(

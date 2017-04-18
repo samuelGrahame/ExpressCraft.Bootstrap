@@ -8,9 +8,8 @@ using ExpressCraft;
 
 namespace ExpressCraft.Bootstrap
 {
-    public class Button : BootWidget
-    {
-		public Action<MouseEvent> OnClick { get { return this.Content.OnClick;  } set { this.Content.OnClick = value; } }
+    public class Button : BootWidgetClickBase
+	{		
 		public Button(string text = "", BootTheme type = BootTheme.Default, ButtonType buttonType = ButtonType.Button) : base(new HTMLButtonElement() { Type = buttonType, ClassName = "btn" + Extension.GetClassTheme(" btn-", type)})
 		{									
 			if (!string.IsNullOrWhiteSpace(text))			
@@ -89,28 +88,6 @@ namespace ExpressCraft.Bootstrap
 				{
 					SetEnumClassValue("btn-", typeof(BootSize), value.GetEnumToClass());
 				}
-			}
-		}
-
-
-		public bool Dropdown
-		{
-			get { return GetClassTrue("dropdown-toggle"); }
-			set
-			{
-				if(value)
-				{
-					SetAttribute("data-toggle", "dropdown");
-					SetAttribute("aria-haspopup", "true");
-					SetAttribute("aria-expanded", "false");
-				}
-				else
-				{
-					SetAttribute("data-toggle", null);
-					SetAttribute("aria-haspopup", null);
-					SetAttribute("aria-expanded", null);
-				}
-				SetClassTrue("dropdown-toggle", value);
 			}
 		}
 	}

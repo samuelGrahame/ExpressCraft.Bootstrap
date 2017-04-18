@@ -410,6 +410,11 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             ExpressCraft.Form.prototype.onGotFocus.call(this);
             this.calcSizeOnChange();
         },
+        onShowing: function () {
+            ExpressCraft.Form.prototype.onShowing.call(this);
+
+            this.assignHandles();
+        },
         /**
          * Multi Form Responsive
          *
@@ -467,7 +472,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
                     var length = uqItem.length;
                     for (var i = 0; i < length; i = (i + 1) | 0) {
                         if (!System.String.isNullOrWhiteSpace(uqItem[i])) {
-                            element.setAttribute(uqItem[i], System.String.concat(element.getAttribute(uqItem[i]), "$", this.assignedBootWindow));
+                            element.setAttribute(uqItem[i], System.String.concat(element.getAttribute(uqItem[i]), "-w", this.assignedBootWindow));
                         }
                     }
                 }
@@ -614,7 +619,8 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
                 ExpressCraft.Application.run(Bridge.merge(new ExpressCraft.Bootstrap.BootWindow.ctor([new ExpressCraft.Bootstrap.Panel(ExpressCraft.Bootstrap.BootTheme.Info, [new ExpressCraft.Bootstrap.PanelHeading([new ExpressCraft.Bootstrap.Heading("h4", ["ExpressCraft.Bootstrap Examples"])]), new ExpressCraft.Bootstrap.PanelBody([Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor3("Table", ExpressCraft.Bootstrap.BootTheme.Info), {
                     setBlock: true
                 } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor3("Navbar", ExpressCraft.Bootstrap.BootTheme.Info), {
-                    setBlock: true
+                    setBlock: true,
+                    setOnClick: $asm.$.ExpressCraft.Bootstrap.Program.f1
                 } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor3("Typography", ExpressCraft.Bootstrap.BootTheme.Info), {
                     setBlock: true
                 } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor3("Grid", ExpressCraft.Bootstrap.BootTheme.Info), {
@@ -625,7 +631,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
                     setBlock: true
                 } )]), new ExpressCraft.Bootstrap.PanelFooter(["Copyright © " + Bridge.Date.today().getFullYear() + " Samuel Grahame"])])]), {
                     setWindowstate: ExpressCraft.WindowState.Maximized
-                } ).assignHandles());
+                } ));
 
                 //Action<MouseEvent> buttonClick = (ev) => { Global.Alert(ev.CurrentTarget.As<HTMLElement>().InnerHTML); };			
                 //			Application.Run(
@@ -829,6 +835,32 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             ExpressCraft.Application.setApplicationDefinition();
 
             ExpressCraft.Bootstrap.BootWindow.setupMetaTags();
+        }
+    });
+
+    Bridge.ns("ExpressCraft.Bootstrap.Program", $asm.$);
+
+    Bridge.apply($asm.$.ExpressCraft.Bootstrap.Program, {
+        f1: function (ev) {
+            Bridge.merge(new ExpressCraft.Bootstrap.BootWindow.ctor([new ExpressCraft.Bootstrap.Navbar([new ExpressCraft.Bootstrap.NavbarHeader([Bridge.merge(new ExpressCraft.Bootstrap.NavbarCollapseButton("navbarContent"), {
+                setUnqiueAttributes: "data-target"
+            } )]), Bridge.merge(new ExpressCraft.Bootstrap.NavbarContent("navbarContent", [Bridge.merge(new ExpressCraft.Bootstrap.UnorderedList([Bridge.merge(new ExpressCraft.Bootstrap.ListItem([new ExpressCraft.Bootstrap.Anchor("#", ["Link ", new ExpressCraft.Bootstrap.SourceOnly(["(current)"])])]), {
+                setActive: true
+            } ), new ExpressCraft.Bootstrap.ListItem([new ExpressCraft.Bootstrap.Anchor("#", ["Link"])]), Bridge.merge(new ExpressCraft.Bootstrap.ListItem([Bridge.merge(new ExpressCraft.Bootstrap.Anchor("#", ["Dropdown ", new ExpressCraft.Bootstrap.Caret()]), {
+                setDropdown: true
+            } ), Bridge.merge(new ExpressCraft.Bootstrap.UnorderedList([new ExpressCraft.Bootstrap.ListItem([new ExpressCraft.Bootstrap.Anchor("#", ["Action"])]), new ExpressCraft.Bootstrap.ListItem([new ExpressCraft.Bootstrap.Anchor("#", ["Another Action"])]), new ExpressCraft.Bootstrap.ListItem([new ExpressCraft.Bootstrap.Anchor("#", ["Something else here"])]), Bridge.merge(new ExpressCraft.Bootstrap.ListItem(), {
+                setDivider: true
+            } ), new ExpressCraft.Bootstrap.ListItem([new ExpressCraft.Bootstrap.Anchor("#", ["Separated link"])])]), {
+                setDropdownMenu: true
+            } )]), {
+                setDropdown: true
+            } )]), {
+                setNav: true
+            } )]), {
+                setUnqiueAttributes: "id"
+            } )])]), {
+                setFluid: true
+            } ).show();
         }
     });
 
@@ -1306,17 +1338,40 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         }
     });
 
-    Bridge.define("ExpressCraft.Bootstrap.Anchor", {
+    Bridge.define("ExpressCraft.Bootstrap.BootWidgetClickBase", {
         inherits: [ExpressCraft.Bootstrap.BootWidget],
-        ctor: function (href, typos) {
-            if (href === void 0) { href = ""; }
+        ctor: function (element) {
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootWidget.ctor.call(this, element);
+
+        },
+        $ctor1: function (element, typos) {
             if (typos === void 0) { typos = []; }
 
             this.$initialize();
-            ExpressCraft.Bootstrap.BootWidget.ctor.call(this, document.createElement('a'), typos);
-            if (!System.String.isNullOrWhiteSpace(href)) {
-                this.content.href = href;
+            ExpressCraft.Bootstrap.BootWidget.ctor.call(this, element, typos);
+
+        },
+        getOnClick: function () {
+            return this.content.onclick;
+        },
+        setOnClick: function (value) {
+            this.content.onclick = value;
+        },
+        getDropdown: function () {
+            return this.getClassTrue("dropdown-toggle");
+        },
+        setDropdown: function (value) {
+            if (value) {
+                this.setAttribute("data-toggle", "dropdown");
+                this.setAttribute("aria-haspopup", "true");
+                this.setAttribute("aria-expanded", "false");
+            } else {
+                this.setAttribute("data-toggle", null);
+                this.setAttribute("aria-haspopup", null);
+                this.setAttribute("aria-expanded", null);
             }
+            this.setClassTrue("dropdown-toggle", value);
         }
     });
 
@@ -1518,104 +1573,6 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
                 className: className
             } ), typos);
 
-        }
-    });
-
-    Bridge.define("ExpressCraft.Bootstrap.Button", {
-        inherits: [ExpressCraft.Bootstrap.BootWidget],
-        $ctor3: function (text, type, buttonType) {
-            if (text === void 0) { text = ""; }
-            if (type === void 0) { type = 1; }
-            if (buttonType === void 0) { buttonType = 2; }
-
-            this.$initialize();
-            ExpressCraft.Bootstrap.BootWidget.ctor.call(this, Bridge.merge(document.createElement('button'), {
-                type: buttonType,
-                className: System.String.concat("btn", ExpressCraft.Bootstrap.Extension.getClassTheme(" btn-", type))
-            } ));
-            if (!System.String.isNullOrWhiteSpace(text)) {
-                this.content.innerHTML = text;
-            }
-        },
-        $ctor2: function (text, buttonType) {
-            if (text === void 0) { text = ""; }
-            if (buttonType === void 0) { buttonType = 2; }
-
-            ExpressCraft.Bootstrap.Button.$ctor3.call(this, text, ExpressCraft.Bootstrap.BootTheme.Default, buttonType);
-
-        },
-        $ctor1: function (text) {
-            if (text === void 0) { text = ""; }
-
-            ExpressCraft.Bootstrap.Button.$ctor3.call(this, text, ExpressCraft.Bootstrap.BootTheme.Default);
-
-        },
-        ctor: function () {
-            ExpressCraft.Bootstrap.Button.$ctor3.call(this, "", ExpressCraft.Bootstrap.BootTheme.Default);
-
-        },
-        getOnClick: function () {
-            return this.content.onclick;
-        },
-        setOnClick: function (value) {
-            this.content.onclick = value;
-        },
-        getNavbarButton: function () {
-            return this.getClassTrue("navbar-btn");
-        },
-        setNavbarButton: function (value) {
-            this.setClassTrue("navbar-btn", value);
-        },
-        getBlock: function () {
-            return this.getClassTrue("btn-block");
-        },
-        setBlock: function (value) {
-            this.setClassTrue("btn-block", value);
-        },
-        getTheme: function () {
-            var x = this.getEnumClassValue("btn-", ExpressCraft.Bootstrap.BootTheme);
-            if (x == null) {
-                return ExpressCraft.Bootstrap.BootTheme.None;
-            } else {
-                return x;
-            }
-        },
-        setTheme: function (value) {
-            if (value === ExpressCraft.Bootstrap.BootTheme.None) {
-                this.clearEnumClassValue("btn-", ExpressCraft.Bootstrap.BootRowCellTheme);
-            } else {
-                this.setEnumClassValue("btn-", ExpressCraft.Bootstrap.BootRowCellTheme, ExpressCraft.Bootstrap.Extension.getEnumToClass(value));
-            }
-        },
-        getButtonSize: function () {
-            var x = this.getEnumClassValue("btn-", ExpressCraft.Bootstrap.BootSize);
-            if (x == null) {
-                return ExpressCraft.Bootstrap.BootSize.None;
-            } else {
-                return x;
-            }
-        },
-        setButtonSize: function (value) {
-            if (value === ExpressCraft.Bootstrap.BootSize.None) {
-                this.clearEnumClassValue("btn-", ExpressCraft.Bootstrap.BootSize);
-            } else {
-                this.setEnumClassValue("btn-", ExpressCraft.Bootstrap.BootSize, ExpressCraft.Bootstrap.Extension.getEnumToClass(value));
-            }
-        },
-        getDropdown: function () {
-            return this.getClassTrue("dropdown-toggle");
-        },
-        setDropdown: function (value) {
-            if (value) {
-                this.setAttribute("data-toggle", "dropdown");
-                this.setAttribute("aria-haspopup", "true");
-                this.setAttribute("aria-expanded", "false");
-            } else {
-                this.setAttribute("data-toggle", null);
-                this.setAttribute("aria-haspopup", null);
-                this.setAttribute("aria-expanded", null);
-            }
-            this.setClassTrue("dropdown-toggle", value);
         }
     });
 
@@ -1968,23 +1925,6 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
                 className: "navbar-brand"
             } ), typos);
 
-        }
-    });
-
-    Bridge.define("ExpressCraft.Bootstrap.NavbarCollapseButton", {
-        inherits: [ExpressCraft.Bootstrap.BootWidget],
-        ctor: function (_id) {
-            this.$initialize();
-            ExpressCraft.Bootstrap.BootWidget.ctor.call(this, Bridge.merge(document.createElement('button'), {
-                type: "button",
-                className: "navbar-toggle collapsed"
-            } ));
-            if (!System.String.isNullOrWhiteSpace(_id) && !System.String.startsWith(_id, "#")) {
-                _id = System.String.concat("#", _id);
-            }
-            ExpressCraft.Bootstrap.BootWidget.appendTypos$1(new ExpressCraft.Bootstrap.SourceOnly(["Toggle navigation"]), [new ExpressCraft.Bootstrap.IconBar(), new ExpressCraft.Bootstrap.IconBar(), new ExpressCraft.Bootstrap.IconBar()]);
-            this.setAttribute("data-toggle", "collapse");
-            this.setAttribute("data-target", _id);
         }
     });
 
@@ -2548,6 +2488,97 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         }
     });
 
+    Bridge.define("ExpressCraft.Bootstrap.Anchor", {
+        inherits: [ExpressCraft.Bootstrap.BootWidgetClickBase],
+        ctor: function (href, typos) {
+            if (href === void 0) { href = ""; }
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootWidgetClickBase.$ctor1.call(this, document.createElement('a'), typos);
+            if (!System.String.isNullOrWhiteSpace(href)) {
+                this.content.href = href;
+            }
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.Button", {
+        inherits: [ExpressCraft.Bootstrap.BootWidgetClickBase],
+        $ctor3: function (text, type, buttonType) {
+            if (text === void 0) { text = ""; }
+            if (type === void 0) { type = 1; }
+            if (buttonType === void 0) { buttonType = 2; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootWidgetClickBase.ctor.call(this, Bridge.merge(document.createElement('button'), {
+                type: buttonType,
+                className: System.String.concat("btn", ExpressCraft.Bootstrap.Extension.getClassTheme(" btn-", type))
+            } ));
+            if (!System.String.isNullOrWhiteSpace(text)) {
+                this.content.innerHTML = text;
+            }
+        },
+        $ctor2: function (text, buttonType) {
+            if (text === void 0) { text = ""; }
+            if (buttonType === void 0) { buttonType = 2; }
+
+            ExpressCraft.Bootstrap.Button.$ctor3.call(this, text, ExpressCraft.Bootstrap.BootTheme.Default, buttonType);
+
+        },
+        $ctor1: function (text) {
+            if (text === void 0) { text = ""; }
+
+            ExpressCraft.Bootstrap.Button.$ctor3.call(this, text, ExpressCraft.Bootstrap.BootTheme.Default);
+
+        },
+        ctor: function () {
+            ExpressCraft.Bootstrap.Button.$ctor3.call(this, "", ExpressCraft.Bootstrap.BootTheme.Default);
+
+        },
+        getNavbarButton: function () {
+            return this.getClassTrue("navbar-btn");
+        },
+        setNavbarButton: function (value) {
+            this.setClassTrue("navbar-btn", value);
+        },
+        getBlock: function () {
+            return this.getClassTrue("btn-block");
+        },
+        setBlock: function (value) {
+            this.setClassTrue("btn-block", value);
+        },
+        getTheme: function () {
+            var x = this.getEnumClassValue("btn-", ExpressCraft.Bootstrap.BootTheme);
+            if (x == null) {
+                return ExpressCraft.Bootstrap.BootTheme.None;
+            } else {
+                return x;
+            }
+        },
+        setTheme: function (value) {
+            if (value === ExpressCraft.Bootstrap.BootTheme.None) {
+                this.clearEnumClassValue("btn-", ExpressCraft.Bootstrap.BootRowCellTheme);
+            } else {
+                this.setEnumClassValue("btn-", ExpressCraft.Bootstrap.BootRowCellTheme, ExpressCraft.Bootstrap.Extension.getEnumToClass(value));
+            }
+        },
+        getButtonSize: function () {
+            var x = this.getEnumClassValue("btn-", ExpressCraft.Bootstrap.BootSize);
+            if (x == null) {
+                return ExpressCraft.Bootstrap.BootSize.None;
+            } else {
+                return x;
+            }
+        },
+        setButtonSize: function (value) {
+            if (value === ExpressCraft.Bootstrap.BootSize.None) {
+                this.clearEnumClassValue("btn-", ExpressCraft.Bootstrap.BootSize);
+            } else {
+                this.setEnumClassValue("btn-", ExpressCraft.Bootstrap.BootSize, ExpressCraft.Bootstrap.Extension.getEnumToClass(value));
+            }
+        }
+    });
+
     Bridge.define("ExpressCraft.Bootstrap.ButtonGroup", {
         inherits: [ExpressCraft.Bootstrap.BootStyleWidget],
         ctor: function (typos) {
@@ -2723,7 +2754,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         }
     });
 
-    Bridge.define("ExpressCraft.Bootstrap.Narbar", {
+    Bridge.define("ExpressCraft.Bootstrap.Navbar", {
         inherits: [ExpressCraft.Bootstrap.BootStyleWidget],
         ctor: function (typos) {
             if (typos === void 0) { typos = []; }
@@ -2744,12 +2775,22 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         }
     });
 
-    Bridge.define("ExpressCraft.Bootstrap.NarbarHeader", {
-        inherits: [ExpressCraft.Bootstrap.BootStyleWidget],
-        ctor: function (typos) {
+    Bridge.define("ExpressCraft.Bootstrap.NavbarCollapseButton", {
+        inherits: [ExpressCraft.Bootstrap.BootWidgetClickBase],
+        ctor: function (_id) {
             this.$initialize();
-            ExpressCraft.Bootstrap.BootStyleWidget.ctor.call(this, "navbar-header", typos);
+            ExpressCraft.Bootstrap.BootWidgetClickBase.ctor.call(this, Bridge.merge(document.createElement('button'), {
+                type: "button",
+                className: "navbar-toggle collapsed"
+            } ));
+            if (!System.String.isNullOrWhiteSpace(_id) && !System.String.startsWith(_id, "#")) {
+                _id = System.String.concat("#", _id);
+            }
+            ExpressCraft.Bootstrap.BootWidget.appendTypos$1(this, [new ExpressCraft.Bootstrap.SourceOnly(["Toggle navigation"]), new ExpressCraft.Bootstrap.IconBar(), new ExpressCraft.Bootstrap.IconBar(), new ExpressCraft.Bootstrap.IconBar()]);
+            this.setAttribute("data-toggle", "collapse");
+            this.setAttribute("data-target", _id);
 
+            this.setAttribute("aria-expanded", "false");
         }
     });
 
@@ -2766,6 +2807,17 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
                 }
                 this.setId(_id);
             }
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.NavbarHeader", {
+        inherits: [ExpressCraft.Bootstrap.BootStyleWidget],
+        ctor: function (typos) {
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootStyleWidget.ctor.call(this, "navbar-header", typos);
+
         }
     });
 

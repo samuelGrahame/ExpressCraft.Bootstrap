@@ -10,7 +10,7 @@ using ExpressCraft.Bootstrap;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class Anchor : BootWidget
+	public class Anchor : BootWidgetClickBase
 	{
 		public Anchor(string href = string.Empty, params Union<string, Control, HTMLElement>[] typos) : base(new HTMLAnchorElement(), typos)
 		{

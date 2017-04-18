@@ -8,9 +8,9 @@ using Bridge.Html5;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class Narbar : BootStyleWidget
+	public class Navbar : BootStyleWidget
 	{
-		public Narbar(params Union<string, Control, HTMLElement>[] typos) : base("navbar navbar-default")
+		public Navbar(params Union<string, Control, HTMLElement>[] typos) : base("navbar navbar-default")
 		{
 			var container = (new BootStyleWidget("container-fluid"));
 			
