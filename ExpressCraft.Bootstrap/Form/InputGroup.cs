@@ -9,7 +9,7 @@ namespace ExpressCraft.Bootstrap
 {
 	public class InputGroup : BootStyleWidget
 	{
-		public InputGroup(Union<string, Control, Bridge.Html5.HTMLElement>[] typos) : base("input-group", typos)
+		public InputGroup(params Union<string, Control, Bridge.Html5.HTMLElement>[] typos) : base("input-group", typos)
 		{
 
 		}

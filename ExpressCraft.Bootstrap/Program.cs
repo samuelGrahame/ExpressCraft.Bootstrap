@@ -21,12 +21,12 @@ namespace ExpressCraft.Bootstrap
 						BootTheme.Info,
 						new PanelHeading(new Heading(HeadingType.H4, "ExpressCraft.Bootstrap Examples")),
 						new PanelBody(
-							new Button("Table", BootTheme.Info) { Block = true },
-							new Button("Nabar", BootTheme.Info) { Block = true },
-							new Button("Typography", BootTheme.Info) { Block = true },
-							new Button("Grid", BootTheme.Info) { Block = true },
-							new Button("Panel", BootTheme.Info) { Block = true },
-							new Button("Form", BootTheme.Info) { Block = true }
+								new Button("Table", BootTheme.Info) { Block = true },
+								new Button("Nabar", BootTheme.Info) { Block = true },
+								new Button("Typography", BootTheme.Info) { Block = true },
+								new Button("Grid", BootTheme.Info) { Block = true },
+								new Button("Panel", BootTheme.Info) { Block = true },
+								new Button("Form", BootTheme.Info) { Block = true }
 							),
 						new PanelFooter("Copyright © " + DateTime.Today.Year + " Samuel Grahame")
 					)

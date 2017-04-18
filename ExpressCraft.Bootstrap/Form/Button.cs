@@ -20,6 +20,14 @@ namespace ExpressCraft.Bootstrap
 		{
 			
 		}
+		public Button(string text = "") : this(text, BootTheme.Default)
+		{
+
+		}
+		public Button() : this("", BootTheme.Default)
+		{
+
+		}
 
 		public bool NavbarButton
 		{

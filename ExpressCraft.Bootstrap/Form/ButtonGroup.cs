@@ -9,7 +9,7 @@ namespace ExpressCraft.Bootstrap
 {
 	public class ButtonGroup : BootStyleWidget
 	{
-		public ButtonGroup(Union<string, Control, Bridge.Html5.HTMLElement>[] typos) : base("btn-group", typos)
+		public ButtonGroup(params Union<string, Control, Bridge.Html5.HTMLElement>[] typos) : base("btn-group", typos)
 		{
 			SetAttribute("role", "group");
 		}

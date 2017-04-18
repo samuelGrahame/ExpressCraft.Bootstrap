@@ -49,6 +49,32 @@ namespace ExpressCraft.Bootstrap
 			assignedBootWindow = handle.ToString();			
 		}
 
+		public bool Fluid
+		{
+			get { return GetClassTrue("container-fluid"); }
+			set
+			{
+				SetClassTrue("container", !value);
+				SetClassTrue("container-fluid", value);
+			}
+		}
+
+		public bool GetClassTrue(string classStr)
+		{
+			return Body.ClassList.Contains(classStr);
+		}
+		public void SetClassTrue(string classStr, bool value)
+		{
+			if(value == GetClassTrue(classStr))
+			{
+				return;
+			}
+			if(value)
+				Body.ClassList.Add(classStr);
+			else
+				Body.ClassList.Remove(classStr);
+		}
+
 		public BootWindow(params Union<string, Control, HTMLElement>[] typos) : base("")
 		{
 			
@@ -61,7 +87,7 @@ namespace ExpressCraft.Bootstrap
 			privateSyle = new HTMLStyleElement();
 			this.Body.AppendChild(privateSyle);
 
-			var container = (new BootStyleWidget("container-fluid"));			
+			var container = (new BootStyleWidget("container"));          // fluid
 
 			this.BackColor = Color.White;
 			this.Body.AppendChild(container.Content);
@@ -176,7 +202,7 @@ namespace ExpressCraft.Bootstrap
 			var states = new StyleStates();
 
 			var styleBuilder = new StringBuilder();
-			var clientRect = this.Body.GetBoundingClientRect();
+			var clientRect = this.prevBody.GetBoundingClientRect();
 
 			if(clientRect.Width >= 480 && Window.InnerWidth > Window.InnerHeight)
 			{
