@@ -13,9 +13,10 @@ namespace ExpressCraft.Bootstrap
 {
 	public class Program
 	{
-		public static void Demo()
-		{
+		public static Random r = new Random();
 
+		public static void Demo()
+		{			
 			Application.Run(new BootWindow(
 				new Panel(
 						BootTheme.Info,
@@ -49,8 +50,8 @@ namespace ExpressCraft.Bootstrap
 														{ Nav = true }
 													)
 													{ UnqiueAttributes = "id" }
-												)
-												{ NavbarLocation = NavBarLocation.Static_Top },
+												)												
+												{ NavbarLocation = NavBarLocation.Static_Top, Theme = r.Next(0, 2) == 1 ? NavBarTheme.NavBar_Inverse : NavBarTheme.NavBar_Default },
 												new Table(
 													new TableHeader(
 														new TableHeaderRow(

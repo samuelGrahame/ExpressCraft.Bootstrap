@@ -687,8 +687,13 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
     Bridge.define("ExpressCraft.Bootstrap.Program", {
         statics: {
+            r: null,
+            config: {
+                init: function () {
+                    this.r = new System.Random.ctor();
+                }
+            },
             demo: function () {
-
                 ExpressCraft.Application.run(Bridge.merge(new ExpressCraft.Bootstrap.BootWindow.ctor([new ExpressCraft.Bootstrap.Panel(ExpressCraft.Bootstrap.BootTheme.Info, [new ExpressCraft.Bootstrap.PanelHeading([new ExpressCraft.Bootstrap.Heading("h4", ["ExpressCraft.Bootstrap Examples"])]), new ExpressCraft.Bootstrap.PanelBody([Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor3("Table", ExpressCraft.Bootstrap.BootTheme.Info), {
                     setBlock: true
                 } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor3("Navbar", ExpressCraft.Bootstrap.BootTheme.Info), {
@@ -935,7 +940,8 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             } )]), {
                 setUnqiueAttributes: "id"
             } )]), {
-                setNavbarLocation: ExpressCraft.Bootstrap.NavBarLocation.Static_Top
+                setNavbarLocation: ExpressCraft.Bootstrap.NavBarLocation.Static_Top,
+                setTheme: ExpressCraft.Bootstrap.Program.r.next$2(0, 2) === 1 ? ExpressCraft.Bootstrap.NavBarTheme.NavBar_Inverse : ExpressCraft.Bootstrap.NavBarTheme.NavBar_Default
             } ), Bridge.merge(new ExpressCraft.Bootstrap.Table([new ExpressCraft.Bootstrap.TableHeader([new ExpressCraft.Bootstrap.TableHeaderRow.ctor(["#", "Table heading", "Table heading", "Table heading", "Table heading", "Table heading", "Table heading"])]), new ExpressCraft.Bootstrap.TableBody(System.Linq.Enumerable.range(0, 9).select($asm.$.ExpressCraft.Bootstrap.Program.f1).toArray())]), {
                 setId: "DemoTable",
                 setUnqiueAttributes: "id"
