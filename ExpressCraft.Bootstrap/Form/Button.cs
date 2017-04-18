@@ -29,5 +29,82 @@ namespace ExpressCraft.Bootstrap
 				SetClassTrue("navbar-btn", value);
 			}
 		}
+
+		public bool Block
+		{
+			get { return GetClassTrue("btn-block"); }
+			set
+			{
+				SetClassTrue("btn-block", value);
+			}
+		}
+
+		public BootTheme Theme
+		{
+			get
+			{
+				var x = GetEnumClassValue("btn-", typeof(BootTheme)).As<Enum>();
+				if(x == null)
+					return BootTheme.None;
+				else
+					return x.As<BootTheme>();
+			}
+			set {
+				if(value == BootTheme.None)
+				{
+					ClearEnumClassValue("btn-", typeof(BootRowCellTheme));
+				}
+				else
+				{
+					SetEnumClassValue("btn-", typeof(BootRowCellTheme), value.GetEnumToClass());
+				}				
+			}
+		}
+
+		public ButtonSize ButtonSize
+		{
+			get
+			{
+				var x = GetEnumClassValue("btn-", typeof(ButtonSize)).As<Enum>();
+				if(x == null)
+					return ButtonSize.None;
+				else
+					return x.As<ButtonSize>();
+			}
+			set
+			{
+				if(value == ButtonSize.None)
+				{
+					ClearEnumClassValue("btn-", typeof(ButtonSize));
+				}
+				else
+				{
+					SetEnumClassValue("btn-", typeof(ButtonSize), value.GetEnumToClass());
+				}
+			}
+		}
+
+
+		public bool Dropdown
+		{
+			get { return GetClassTrue("dropdown-toggle"); }
+			set
+			{
+				if(value)
+				{
+					SetAttribute("data-toggle", "dropdown");
+					SetAttribute("aria-haspopup", "true");
+					SetAttribute("aria-expanded", "false");
+				}
+				else
+				{
+					SetAttribute("data-toggle", null);
+					SetAttribute("aria-haspopup", null);
+					SetAttribute("aria-expanded", null);
+				}
+				SetClassTrue("dropdown-toggle", value);
+			}
+		}
 	}
+
 }

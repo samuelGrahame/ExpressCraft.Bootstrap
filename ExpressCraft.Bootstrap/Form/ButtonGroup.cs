@@ -1,0 +1,68 @@
+﻿using Bridge;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ExpressCraft.Bootstrap
+{
+	public class ButtonGroup : BootStyleWidget
+	{
+		public ButtonGroup(Union<string, Control, Bridge.Html5.HTMLElement>[] typos) : base("btn-group", typos)
+		{
+			SetAttribute("role", "group");
+		}
+
+		public ButtonSize ButtonSize
+		{
+			get
+			{
+				var x = GetEnumClassValue("btn-group-", typeof(ButtonSize)).As<Enum>();
+				if(x == null)
+					return ButtonSize.None;
+				else
+					return x.As<ButtonSize>();
+			}
+			set
+			{
+				if(value == ButtonSize.None)
+				{
+					ClearEnumClassValue("btn-group-", typeof(ButtonSize));
+				}
+				else
+				{
+					SetEnumClassValue("btn-group-", typeof(ButtonSize), value.GetEnumToClass());
+				}
+			}
+		}
+
+		public bool Vertical
+		{
+			get { return GetClassTrue("btn-group-vertical"); }
+			set
+			{
+				SetClassTrue("btn-group", !value);
+				SetClassTrue("btn-group-vertical", value);
+			}
+		}
+
+		public bool Justified
+		{
+			get { return GetClassTrue("btn-group-justified"); }
+			set
+			{				
+				SetClassTrue("btn-group-justified", value);
+			}
+		}
+
+		public bool Dropup
+		{
+			get { return GetClassTrue("dropup"); }
+			set
+			{				
+				SetClassTrue("dropup", value);
+			}
+		}
+	}
+}

@@ -44,16 +44,7 @@ namespace ExpressCraft.Bootstrap
 
 			}
 			BootWidget.AppendTypos(control, list);
-		}
-
-		public bool Active
-		{
-			get { return GetClassTrue("active"); }
-			set
-			{
-				SetClassTrue("active", value);
-			}
-		}
+		}		
 
 		public bool Dropdown
 		{

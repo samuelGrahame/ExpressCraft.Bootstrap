@@ -18,6 +18,15 @@ namespace ExpressCraft.Bootstrap
 		Link
 	}
 
+	public enum ButtonSize
+	{		
+		None,
+		LG,
+		MD,
+		SM,
+		XS		
+	}
+
 	public enum BootRowCellTheme
 	{		
 		Active,

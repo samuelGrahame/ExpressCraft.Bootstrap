@@ -55,31 +55,64 @@ namespace ExpressCraft.Bootstrap
 		
 		public Enum GetEnumClassValue(Type type)
 		{
+			return GetEnumClassValue(string.Empty, type);			
+		}
+
+		public void ClearEnumClassValue(Type type)
+		{
+			ClearEnumClassValue(string.Empty, type);			
+		}
+
+		public void SetEnumClassValue(Type type, string value)
+		{
+			SetEnumClassValue(string.Empty, type, value);			
+		}
+
+		public Enum GetEnumClassValue(string prefix, Type type)
+		{
 			var names = Enum.GetNames(type);
 			for(int i = 0; i < names.Length; i++)
 			{
 				foreach(var item1 in this.ClassList)
 				{
-					if(item1 == names[i].ToLower().Replace("_", "-"))
+					if(item1 == prefix + names[i].ToLower().Replace("_", "-"))
 						return Enum.GetValues(type)[i].As<Enum>();
 				}
 			}
 			return null;
 		}
 
-		public void ClearEnumClassValue(Type type)
-		{			
+		public bool Active
+		{
+			get { return GetClassTrue("active"); }
+			set
+			{
+				SetClassTrue("active", value);
+			}
+		}
+
+		public bool Disabled
+		{
+			get { return GetClassTrue("disabled"); }
+			set
+			{
+				SetClassTrue("disabled", value);
+			}
+		}
+
+		public void ClearEnumClassValue(string prefix, Type type)
+		{
 			var names = Enum.GetNames(type);
 			for(int i = 0; i < names.Length; i++)
 			{
-				this.ClassList.Remove(names[i].ToLower().Replace("_", "-"));
-			}			
+				this.ClassList.Remove(prefix + names[i].ToLower().Replace("_", "-"));
+			}
 		}
 
-		public void SetEnumClassValue(Type type, string value)
+		public void SetEnumClassValue(string prefix, Type type, string value)
 		{
-			ClearEnumClassValue(type);			
-			this.ClassList.Add(value);
+			ClearEnumClassValue(prefix, type);
+			this.ClassList.Add(prefix + value);
 		}
 
 		public bool GetClassTrue(string classStr)

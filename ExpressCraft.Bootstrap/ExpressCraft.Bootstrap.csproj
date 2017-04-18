@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrap\BootForm.cs" />
+    <Compile Include="Form\ButtonGroup.cs" />
     <Compile Include="Form\CheckBoxBase.cs" />
     <Compile Include="Form\Label.cs" />
     <Compile Include="Bootstrap\BootWindow.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Grid\ClearFix.cs" />
     <Compile Include="Grid\Col.cs" />
     <Compile Include="Grid\Row.cs" />
+    <Compile Include="Typography\Caret.cs" />
     <Compile Include="NavBar\NavbarContent.cs" />
     <Compile Include="NavBar\NavbarBrand.cs" />
     <Compile Include="Typography\Anchor.cs" />
