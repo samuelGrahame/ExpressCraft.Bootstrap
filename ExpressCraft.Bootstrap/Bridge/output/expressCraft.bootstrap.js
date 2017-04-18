@@ -613,7 +613,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
                 ExpressCraft.Application.run(Bridge.merge(new ExpressCraft.Bootstrap.BootWindow.ctor([new ExpressCraft.Bootstrap.Panel(ExpressCraft.Bootstrap.BootTheme.Info, [new ExpressCraft.Bootstrap.PanelHeading([new ExpressCraft.Bootstrap.Heading("h4", ["ExpressCraft.Bootstrap Examples"])]), new ExpressCraft.Bootstrap.PanelBody([Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor3("Table", ExpressCraft.Bootstrap.BootTheme.Info), {
                     setBlock: true
-                } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor3("Nabar", ExpressCraft.Bootstrap.BootTheme.Info), {
+                } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor3("Navbar", ExpressCraft.Bootstrap.BootTheme.Info), {
                     setBlock: true
                 } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor3("Typography", ExpressCraft.Bootstrap.BootTheme.Info), {
                     setBlock: true

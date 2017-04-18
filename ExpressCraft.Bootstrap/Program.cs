@@ -22,7 +22,7 @@ namespace ExpressCraft.Bootstrap
 						new PanelHeading(new Heading(HeadingType.H4, "ExpressCraft.Bootstrap Examples")),
 						new PanelBody(
 								new Button("Table", BootTheme.Info) { Block = true },
-								new Button("Nabar", BootTheme.Info) { Block = true },
+								new Button("Navbar", BootTheme.Info) { Block = true },
 								new Button("Typography", BootTheme.Info) { Block = true },
 								new Button("Grid", BootTheme.Info) { Block = true },
 								new Button("Panel", BootTheme.Info) { Block = true },
