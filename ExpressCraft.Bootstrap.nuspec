@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>ExpressCraft.Bootstrap</id>
-    <version>0.0.0.5</version>
+    <version>0.0.0.7</version>
     <title>ExpressCraft.Bootstrap (For Bridge.Net)</title>
     <authors>SG - BL - PH</authors>
     <owners>SG - BL - PH</owners>
@@ -11,7 +11,7 @@
     <description>ExpressCraft.Bootstrap (For Bridge.Net) - Create a Windows Application using ExpressCraft UI and Bridge for the Browser.
 Handles Modal and Non-Modal Forms - When using Dialogues you can assign call-backs based on the Dialogue Result.
 </description>
-    <releaseNotes></releaseNotes>
+    <releaseNotes>Support Phones/Tablets</releaseNotes>
     <copyright>Copyright 2017</copyright>
     <tags>Bridge Bridge.net Javascript Forms ExpressCraft C# UI jQuery HTML Bootstrap</tags>
 	<dependencies>
@@ -20,7 +20,7 @@ Handles Modal and Non-Modal Forms - When using Dialogues you can assign call-bac
 		<dependency id="Bridge.Html5" version="[15.7.0]"/>
 		<dependency id="Bridge.jQuery" version="[2.9.2]"/>
 		<dependency id="Bridge.Min" version="[15.7.0]"/>
-		<dependency id="ExpressCraft" version="[0.0.2.9]"/>
+		<dependency id="ExpressCraft" version="[0.0.3]"/>
 	  </dependencies>
   </metadata>
   <files>

@@ -2010,6 +2010,10 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             ExpressCraft.Bootstrap.BootWidget.appendTypos$1(container, typos);
 
             this.content.appendChild(ExpressCraft.Control.op_Implicit(container));
+
+            this.content.addEventListener("mousedown", $asm.$.ExpressCraft.Bootstrap.Navbar.f1);
+            this.content.addEventListener("mousemove", $asm.$.ExpressCraft.Bootstrap.Navbar.f1);
+            this.content.addEventListener("mouseup", $asm.$.ExpressCraft.Bootstrap.Navbar.f1);
         },
         getTheme: function () {
             return this.getEnumClassValue$1(ExpressCraft.Bootstrap.NavBarTheme);
@@ -2031,6 +2035,14 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             } else {
                 this.setEnumClassValue("navbar-", ExpressCraft.Bootstrap.NavBarLocation, System.String.replaceAll(System.Enum.format(ExpressCraft.Bootstrap.NavBarLocation, value, "G").toLowerCase(), "_", "-"));
             }
+        }
+    });
+
+    Bridge.ns("ExpressCraft.Bootstrap.Navbar", $asm.$);
+
+    Bridge.apply($asm.$.ExpressCraft.Bootstrap.Navbar, {
+        f1: function (ev) {
+            ev.stopPropagation();
         }
     });
 

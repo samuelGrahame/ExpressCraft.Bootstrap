@@ -19,6 +19,10 @@ namespace ExpressCraft.Bootstrap
 			AppendTypos(container, typos);
 
 			Content.AppendChild(container);
+
+			this.Content.AddEventListener(EventType.MouseDown, (ev) => { ev.StopPropagation(); });
+			this.Content.AddEventListener(EventType.MouseMove, (ev) => { ev.StopPropagation(); });
+			this.Content.AddEventListener(EventType.MouseUp, (ev) => { ev.StopPropagation(); });
 		}
 
 		public NavBarTheme Theme
