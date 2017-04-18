@@ -170,12 +170,32 @@ namespace ExpressCraft.Bootstrap
 			CalcSizeOnChange();			
 		}
 
+		private Action<Event> backButtonEvent = null;
+
 		protected override void OnShowing()
 		{
 			base.OnShowing();
 
 			AssignHandles();
-		}
+
+			if(Browser.IsAndroid && (Browser.IsPhone || Browser.IsTablet))
+			{
+				this.Windowstate = WindowState.Maximized;
+				this.ShowMaximize = false;
+				this.ShowMinimize = false;
+				this.AllowSizeChange = false;
+				this.AllowMoveChange = false;
+
+
+				backButtonEvent = (ev) =>
+				{
+					this.Close();
+					Document.RemoveEventListener("backbutton", backButtonEvent);
+				};
+
+				Document.AddEventListener("backbutton", backButtonEvent);
+			}
+		}		
 
 		/// <summary>
 		/// Multi Form Responsive

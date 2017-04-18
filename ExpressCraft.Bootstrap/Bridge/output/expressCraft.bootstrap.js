@@ -341,6 +341,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         prevBody: null,
         assignedBootWindow: "",
         responsiveClass: null,
+        backButtonEvent: null,
         config: {
             init: function () {
                 this.previouStates = new ExpressCraft.Bootstrap.BootWindow.StyleStates();
@@ -457,6 +458,19 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             ExpressCraft.Form.prototype.onShowing.call(this);
 
             this.assignHandles();
+
+            if (Bridge.Browser.isAndroid && (Bridge.Browser.isPhone || Bridge.Browser.isTablet)) {
+                this.setWindowstate(ExpressCraft.WindowState.Maximized);
+                this.setShowMaximize(false);
+                this.setShowMinimize(false);
+                this.allowSizeChange = false;
+                this.allowMoveChange = false;
+
+
+                this.backButtonEvent = Bridge.fn.bind(this, $asm.$.ExpressCraft.Bootstrap.BootWindow.f1);
+
+                document.addEventListener("backbutton", this.backButtonEvent);
+            }
         },
         /**
          * Multi Form Responsive
@@ -569,6 +583,15 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             ExpressCraft.Form.prototype.onResizing.call(this);
 
             this.calcSizeOnChange();
+        }
+    });
+
+    Bridge.ns("ExpressCraft.Bootstrap.BootWindow", $asm.$);
+
+    Bridge.apply($asm.$.ExpressCraft.Bootstrap.BootWindow, {
+        f1: function (ev) {
+            this.close();
+            document.removeEventListener("backbutton", this.backButtonEvent);
         }
     });
 
