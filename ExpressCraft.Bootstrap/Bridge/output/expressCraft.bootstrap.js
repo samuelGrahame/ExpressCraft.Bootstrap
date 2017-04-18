@@ -172,7 +172,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             if (value === ExpressCraft.Bootstrap.NavBarPosition.None) {
                 this.clearEnumClassValue$1(ExpressCraft.Bootstrap.NavBarPosition);
             } else {
-                this.setEnumClassValue$1(ExpressCraft.Bootstrap.NavBarPosition, ExpressCraft.Bootstrap.Extension.getEnumToClass(value));
+                this.setEnumClassValue$1(ExpressCraft.Bootstrap.NavBarPosition, System.String.replaceAll(System.Enum.format(ExpressCraft.Bootstrap.NavBarPosition, value, "G").toLowerCase(), "_", "-"));
             }
         },
         getEnumClassValue$1: function (type) {
@@ -357,8 +357,6 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
             this.$initialize();
             ExpressCraft.Form.ctor.call(this, "");
-
-
             if (Bridge.referenceEquals(this.assignedBootWindow, "")) {
                 this.assignedBootWindow = ExpressCraft.Bootstrap.BootWindow.createWindowHandle().toString();
             }
@@ -380,7 +378,29 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
             this.setCalcSize();
 
-            ExpressCraft.Bootstrap.BootWidget.appendTypos(this.getBody(), typos);
+            if (typos != null) {
+                var length = typos.length;
+                for (var i = 0; i < length; i = (i + 1) | 0) {
+                    if (Bridge.is(typos[i], String)) {
+                        this.getBody().appendChild(document.createTextNode(typos[i]));
+                    } else {
+                        if (Bridge.is(typos[i], ExpressCraft.Control)) {
+                            if (Bridge.is(typos[i], ExpressCraft.Bootstrap.Navbar)) {
+                                this.makeChangesForNav(typos[i]);
+                            } else {
+                                this.getBody().appendChild(ExpressCraft.Control.op_Implicit(typos[i]));
+                            }
+                        } else if (Bridge.is(typos[i], HTMLElement)) {
+                            if (Bridge.referenceEquals(typos[i].tagName.toUpperCase(), "NAV")) {
+                                this.makeChangesForNav(ExpressCraft.Bootstrap.BootWidget.castElement(ExpressCraft.Bootstrap.Navbar, typos[i]));
+                            } else {
+                                this.getBody().appendChild(typos[i]);
+                            }
+                        }
+                    }
+
+                }
+            }
         },
         getFluid: function () {
             return this.getClassTrue("container-fluid");
@@ -401,6 +421,29 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             } else {
                 this.getBody().classList.remove(classStr);
             }
+        },
+        makeChangesForNav: function (bar) {
+            if (bar == null) {
+                return;
+            }
+            switch (bar.getNavbarLocation()) {
+                case ExpressCraft.Bootstrap.NavBarLocation.Fixed_Top: 
+                    this.getBodyStyle().paddingTop = "70px";
+                    break;
+                case ExpressCraft.Bootstrap.NavBarLocation.Fixed_Bottom: 
+                    this.getBodyStyle().paddingBottom = "70px";
+                    break;
+                case ExpressCraft.Bootstrap.NavBarLocation.Static_Top: 
+                    bar.getStyle().top = "30px";
+                    this.getBodyStyle().paddingTop = "20px";
+                    this.prevBody.style.top = "80px";
+                    this.prevBody.style.height = "calc(100% - 80px)";
+                    this.getBodyOverLay().style.top = "80px";
+                    this.getBodyOverLay().style.height = "calc(100% - 80px)";
+                    this.content.insertBefore(ExpressCraft.Control.op_Implicit(bar), this.prevBody);
+                    return;
+            }
+            this.prevBody.insertBefore(ExpressCraft.Control.op_Implicit(bar), this.getBody());
         },
         setCalcSize: function () {
             //	this.Body.SetSize("calc(100% - 28px)", this.Body.Style.Height);
@@ -425,7 +468,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
          * @return  {ExpressCraft.Bootstrap.BootWindow}
          */
         assignHandles: function () {
-            this.assignHandles$1(this.prevBody, this.prevBody.childElementCount);
+            this.assignHandles$1(this.content, this.content.childElementCount);
             return this;
         },
         /**
@@ -588,10 +631,17 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
                     return "";
                 }
                 return System.String.concat(cls, System.Enum.format(ExpressCraft.Bootstrap.BootTheme, type, "G").toLowerCase());
-            },
-            getEnumToClass: function (type) {
-                return System.String.replaceAll(System.Enum.format(System.Enum, type, "G").toLowerCase(), "_", "-");
             }
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.NavBarLocation", {
+        $kind: "enum",
+        statics: {
+            None: 0,
+            Fixed_Top: 1,
+            Fixed_Bottom: 2,
+            Static_Top: 3
         }
     });
 
@@ -620,7 +670,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
                     setBlock: true
                 } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor3("Navbar", ExpressCraft.Bootstrap.BootTheme.Info), {
                     setBlock: true,
-                    setOnClick: $asm.$.ExpressCraft.Bootstrap.Program.f1
+                    setOnClick: $asm.$.ExpressCraft.Bootstrap.Program.f2
                 } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor3("Typography", ExpressCraft.Bootstrap.BootTheme.Info), {
                     setBlock: true
                 } ), Bridge.merge(new ExpressCraft.Bootstrap.Button.$ctor3("Grid", ExpressCraft.Bootstrap.BootTheme.Info), {
@@ -841,8 +891,11 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
     Bridge.ns("ExpressCraft.Bootstrap.Program", $asm.$);
 
     Bridge.apply($asm.$.ExpressCraft.Bootstrap.Program, {
-        f1: function (ev) {
-            Bridge.merge(new ExpressCraft.Bootstrap.BootWindow.ctor([new ExpressCraft.Bootstrap.Navbar([new ExpressCraft.Bootstrap.NavbarHeader([Bridge.merge(new ExpressCraft.Bootstrap.NavbarCollapseButton("navbarContent"), {
+        f1: function (x, index) {
+            return new ExpressCraft.Bootstrap.TableRow.ctor([new ExpressCraft.Bootstrap.TableHeaderCell.ctor([(((index + 1) | 0)).toString()]), "Table cell", "Table cell", "Table cell", "Table cell", "Table cell", "Table cell"]);
+        },
+        f2: function (ev) {
+            Bridge.merge(new ExpressCraft.Bootstrap.BootWindow.ctor([Bridge.merge(new ExpressCraft.Bootstrap.Navbar([new ExpressCraft.Bootstrap.NavbarHeader([Bridge.merge(new ExpressCraft.Bootstrap.NavbarCollapseButton("navbarContent"), {
                 setUnqiueAttributes: "data-target"
             } ), new ExpressCraft.Bootstrap.NavbarBrand("#", ["Brand"])]), Bridge.merge(new ExpressCraft.Bootstrap.NavbarContent("navbarContent", [Bridge.merge(new ExpressCraft.Bootstrap.UnorderedList([Bridge.merge(new ExpressCraft.Bootstrap.ListItem([new ExpressCraft.Bootstrap.Anchor("#", ["Link ", new ExpressCraft.Bootstrap.SourceOnly(["(current)"])])]), {
                 setActive: true
@@ -858,7 +911,12 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
                 setNav: true
             } )]), {
                 setUnqiueAttributes: "id"
-            } )])]), {
+            } )]), {
+                setNavbarLocation: ExpressCraft.Bootstrap.NavBarLocation.Static_Top
+            } ), Bridge.merge(new ExpressCraft.Bootstrap.Table([new ExpressCraft.Bootstrap.TableHeader([new ExpressCraft.Bootstrap.TableHeaderRow.ctor(["#", "Table heading", "Table heading", "Table heading", "Table heading", "Table heading", "Table heading"])]), new ExpressCraft.Bootstrap.TableBody(System.Linq.Enumerable.range(0, 9).select($asm.$.ExpressCraft.Bootstrap.Program.f1).toArray())]), {
+                setId: "DemoTable",
+                setUnqiueAttributes: "id"
+            } )]), {
                 setFluid: true
             } ).show();
         }
@@ -1915,6 +1973,44 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         }
     });
 
+    Bridge.define("ExpressCraft.Bootstrap.Navbar", {
+        inherits: [ExpressCraft.Bootstrap.BootWidget],
+        ctor: function (typos) {
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootWidget.ctor.call(this, document.createElement("nav"));
+            this.content.className = "navbar navbar-default";
+
+            var container = (new ExpressCraft.Bootstrap.BootStyleWidget("container-fluid"));
+
+            ExpressCraft.Bootstrap.BootWidget.appendTypos$1(container, typos);
+
+            this.content.appendChild(ExpressCraft.Control.op_Implicit(container));
+        },
+        getTheme: function () {
+            return this.getEnumClassValue$1(ExpressCraft.Bootstrap.NavBarTheme);
+        },
+        setTheme: function (value) {
+            this.setEnumClassValue$1(ExpressCraft.Bootstrap.NavBarTheme, System.String.replaceAll(System.Enum.format(ExpressCraft.Bootstrap.NavBarTheme, value, "G").toLowerCase(), "_", "-"));
+        },
+        getNavbarLocation: function () {
+            var x = this.getEnumClassValue("navbar-", ExpressCraft.Bootstrap.NavBarLocation);
+            if (x == null) {
+                return ExpressCraft.Bootstrap.NavBarLocation.None;
+            } else {
+                return x;
+            }
+        },
+        setNavbarLocation: function (value) {
+            if (value === ExpressCraft.Bootstrap.NavBarLocation.None) {
+                this.clearEnumClassValue("navbar-", ExpressCraft.Bootstrap.NavBarLocation);
+            } else {
+                this.setEnumClassValue("navbar-", ExpressCraft.Bootstrap.NavBarLocation, System.String.replaceAll(System.Enum.format(ExpressCraft.Bootstrap.NavBarLocation, value, "G").toLowerCase(), "_", "-"));
+            }
+        }
+    });
+
     Bridge.define("ExpressCraft.Bootstrap.OrderedList", {
         inherits: [ExpressCraft.Bootstrap.BootWidget],
         ctor: function (typos) {
@@ -1935,6 +2031,12 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         },
         setInline: function (value) {
             this.setClassTrue("list-inline", value);
+        },
+        getBreadcrumb: function () {
+            return this.getClassTrue("breadcrumb");
+        },
+        setBreadcrumb: function (value) {
+            this.setClassTrue("breadcrumb", value);
         }
     });
 
@@ -1985,12 +2087,6 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         },
         setNavbarText: function (value) {
             this.setClassTrue("navbar-text", value);
-        },
-        getNavbarRight: function () {
-            return this.getClassTrue("navbar-right");
-        },
-        setNavbarRight: function (value) {
-            this.setClassTrue("navbar-right", value);
         },
         getLead: function () {
             return this.getClassTrue("lead");
@@ -2242,7 +2338,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             return this.getEnumClassValue$1(ExpressCraft.Bootstrap.BootRowCellTheme);
         },
         setTheme: function (value) {
-            this.setEnumClassValue$1(ExpressCraft.Bootstrap.BootRowCellTheme, ExpressCraft.Bootstrap.Extension.getEnumToClass(value));
+            this.setEnumClassValue$1(ExpressCraft.Bootstrap.BootRowCellTheme, System.String.replaceAll(System.Enum.format(ExpressCraft.Bootstrap.BootRowCellTheme, value, "G").toLowerCase(), "_", "-"));
         },
         clearTheme: function () {
             this.clearEnumClassValue$1(ExpressCraft.Bootstrap.BootRowCellTheme);
@@ -2330,7 +2426,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             return this.getEnumClassValue$1(ExpressCraft.Bootstrap.BootRowCellTheme);
         },
         setTheme: function (value) {
-            this.setEnumClassValue$1(ExpressCraft.Bootstrap.BootRowCellTheme, ExpressCraft.Bootstrap.Extension.getEnumToClass(value));
+            this.setEnumClassValue$1(ExpressCraft.Bootstrap.BootRowCellTheme, System.String.replaceAll(System.Enum.format(ExpressCraft.Bootstrap.BootRowCellTheme, value, "G").toLowerCase(), "_", "-"));
         },
         clearTheme: function () {
             this.clearEnumClassValue$1(ExpressCraft.Bootstrap.BootRowCellTheme);
@@ -2367,7 +2463,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             return this.getEnumClassValue$1(ExpressCraft.Bootstrap.BootRowCellTheme);
         },
         setTheme: function (value) {
-            this.setEnumClassValue$1(ExpressCraft.Bootstrap.BootRowCellTheme, ExpressCraft.Bootstrap.Extension.getEnumToClass(value));
+            this.setEnumClassValue$1(ExpressCraft.Bootstrap.BootRowCellTheme, System.String.replaceAll(System.Enum.format(ExpressCraft.Bootstrap.BootRowCellTheme, value, "G").toLowerCase(), "_", "-"));
         },
         headerCell: function (index) {
             return ExpressCraft.Bootstrap.BootWidget.castElement(ExpressCraft.Bootstrap.TableHeaderCell, this.content.children[index]);
@@ -2486,6 +2582,12 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             if (!System.String.isNullOrWhiteSpace(href)) {
                 this.content.href = href;
             }
+        },
+        getNavbarLink: function () {
+            return this.getClassTrue("navbar-link");
+        },
+        setNavbarLink: function (value) {
+            this.setClassTrue("navbar-link", value);
         }
     });
 
@@ -2546,7 +2648,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             if (value === ExpressCraft.Bootstrap.BootTheme.None) {
                 this.clearEnumClassValue("btn-", ExpressCraft.Bootstrap.BootRowCellTheme);
             } else {
-                this.setEnumClassValue("btn-", ExpressCraft.Bootstrap.BootRowCellTheme, ExpressCraft.Bootstrap.Extension.getEnumToClass(value));
+                this.setEnumClassValue("btn-", ExpressCraft.Bootstrap.BootRowCellTheme, System.String.replaceAll(System.Enum.format(ExpressCraft.Bootstrap.BootTheme, value, "G").toLowerCase(), "_", "-"));
             }
         },
         getButtonSize: function () {
@@ -2561,7 +2663,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             if (value === ExpressCraft.Bootstrap.BootSize.None) {
                 this.clearEnumClassValue("btn-", ExpressCraft.Bootstrap.BootSize);
             } else {
-                this.setEnumClassValue("btn-", ExpressCraft.Bootstrap.BootSize, ExpressCraft.Bootstrap.Extension.getEnumToClass(value));
+                this.setEnumClassValue("btn-", ExpressCraft.Bootstrap.BootSize, System.String.replaceAll(System.Enum.format(ExpressCraft.Bootstrap.BootSize, value, "G").toLowerCase(), "_", "-"));
             }
         }
     });
@@ -2587,7 +2689,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             if (value === ExpressCraft.Bootstrap.BootSize.None) {
                 this.clearEnumClassValue("btn-group-", ExpressCraft.Bootstrap.BootSize);
             } else {
-                this.setEnumClassValue("btn-group-", ExpressCraft.Bootstrap.BootSize, ExpressCraft.Bootstrap.Extension.getEnumToClass(value));
+                this.setEnumClassValue("btn-group-", ExpressCraft.Bootstrap.BootSize, System.String.replaceAll(System.Enum.format(ExpressCraft.Bootstrap.BootSize, value, "G").toLowerCase(), "_", "-"));
             }
         },
         getVertical: function () {
@@ -2736,29 +2838,8 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             if (value === ExpressCraft.Bootstrap.BootSize.None) {
                 this.clearEnumClassValue("input-group-", ExpressCraft.Bootstrap.BootSize);
             } else {
-                this.setEnumClassValue("input-group-", ExpressCraft.Bootstrap.BootSize, ExpressCraft.Bootstrap.Extension.getEnumToClass(value));
+                this.setEnumClassValue("input-group-", ExpressCraft.Bootstrap.BootSize, System.String.replaceAll(System.Enum.format(ExpressCraft.Bootstrap.BootSize, value, "G").toLowerCase(), "_", "-"));
             }
-        }
-    });
-
-    Bridge.define("ExpressCraft.Bootstrap.Navbar", {
-        inherits: [ExpressCraft.Bootstrap.BootStyleWidget],
-        ctor: function (typos) {
-            if (typos === void 0) { typos = []; }
-
-            this.$initialize();
-            ExpressCraft.Bootstrap.BootStyleWidget.ctor.call(this, "navbar navbar-default");
-            var container = (new ExpressCraft.Bootstrap.BootStyleWidget("container-fluid"));
-
-            ExpressCraft.Bootstrap.BootWidget.appendTypos$1(container, typos);
-
-            this.content.appendChild(ExpressCraft.Control.op_Implicit(container));
-        },
-        getTheme: function () {
-            return this.getEnumClassValue$1(ExpressCraft.Bootstrap.NavBarTheme);
-        },
-        setTheme: function (value) {
-            this.setEnumClassValue$1(ExpressCraft.Bootstrap.NavBarTheme, ExpressCraft.Bootstrap.Extension.getEnumToClass(value));
         }
     });
 

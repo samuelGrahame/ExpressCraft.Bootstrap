@@ -63,7 +63,7 @@ namespace ExpressCraft.Bootstrap
 				}
 				else
 				{
-					SetEnumClassValue("btn-", typeof(BootRowCellTheme), value.GetEnumToClass());
+					SetEnumClassValue("btn-", typeof(BootRowCellTheme), value.ToString("G").ToLower().Replace("_", "-"));
 				}				
 			}
 		}
@@ -86,7 +86,7 @@ namespace ExpressCraft.Bootstrap
 				}
 				else
 				{
-					SetEnumClassValue("btn-", typeof(BootSize), value.GetEnumToClass());
+					SetEnumClassValue("btn-", typeof(BootSize), value.ToString("G").ToLower().Replace("_", "-"));
 				}
 			}
 		}

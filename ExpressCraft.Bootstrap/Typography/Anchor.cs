@@ -16,6 +16,16 @@ namespace ExpressCraft.Bootstrap
 		{
 			if(!string.IsNullOrWhiteSpace(href))
 				this.Content.As<HTMLAnchorElement>().Href = href;
-		}		
+		}
+
+		public bool NavbarLink
+		{
+			get { return GetClassTrue("navbar-link"); }
+			set
+			{
+				SetClassTrue("navbar-link", value);
+			}
+		}
+
 	}
 }

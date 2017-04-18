@@ -34,7 +34,7 @@ namespace ExpressCraft.Bootstrap
 															new ListItem(new Anchor("#", "Link ", new SourceOnly("(current)"))) { Active = true },
 															new ListItem(new Anchor("#", "Link")),
 															new ListItem(
-																new Anchor("#", "Dropdown ", new Caret()) { Dropdown = true  },
+																new Anchor("#", "Dropdown ", new Caret()) { Dropdown = true },
 																new UnorderedList(
 																	new ListItem(new Anchor("#", "Action")),
 																	new ListItem(new Anchor("#", "Another Action")),
@@ -43,12 +43,34 @@ namespace ExpressCraft.Bootstrap
 																	new ListItem(new Anchor("#", "Separated link"))
 																	)
 																{ DropdownMenu = true }
-															) { Dropdown = true }
+															)
+															{ Dropdown = true }
 														)
-														{ Nav = true }														
-													) { UnqiueAttributes = "id" }
+														{ Nav = true }
+													)
+													{ UnqiueAttributes = "id" }
 												)
-											) { Fluid = true }.Show();
+												{ NavbarLocation = NavBarLocation.Static_Top },
+												new Table(
+													new TableHeader(
+														new TableHeaderRow(
+															"#",
+															"Table heading",
+															"Table heading",
+															"Table heading",
+															"Table heading",
+															"Table heading",
+															"Table heading"
+															)
+														),
+													new TableBody(
+														Enumerable.Range(0, 9).Select((x, index) => (Union<string, Control, HTMLElement>)new TableRow(
+														new TableHeaderCell((index + 1).ToString()), "Table cell", "Table cell", "Table cell", "Table cell", "Table cell", "Table cell")).ToArray()
+													)
+												)
+												{ Id = "DemoTable", UnqiueAttributes = "id" }												
+											)
+											{ Fluid = true }.Show();
 									}
 								},
 								new Button("Typography", BootTheme.Info) { Block = true },

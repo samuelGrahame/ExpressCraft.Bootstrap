@@ -34,5 +34,13 @@ namespace ExpressCraft.Bootstrap
 				SetClassTrue("list-inline", value);
 			}
 		}
+		public bool Breadcrumb
+		{
+			get { return GetClassTrue("breadcrumb"); }
+			set
+			{
+				SetClassTrue("breadcrumb", value);
+			}
+		}
 	}
 }

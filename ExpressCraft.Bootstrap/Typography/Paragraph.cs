@@ -46,16 +46,7 @@ namespace ExpressCraft.Bootstrap
 				SetClassTrue("navbar-text", value);
 			}
 		}
-
-		public bool NavbarRight
-		{
-			get { return GetClassTrue("navbar-right"); }
-			set
-			{
-				SetClassTrue("navbar-right", value);
-			}
-		}
-
+		
 		public bool Lead
 		{
 			get { return GetClassTrue("lead"); }

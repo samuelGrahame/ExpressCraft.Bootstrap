@@ -42,6 +42,14 @@ namespace ExpressCraft.Bootstrap
 		NavBar_Inverse
 	}
 
+	public enum NavBarLocation
+	{
+		None,
+		Fixed_Top,
+		Fixed_Bottom,
+		Static_Top
+	}
+
 	public enum NavBarPosition
 	{
 		None,
@@ -79,12 +87,7 @@ namespace ExpressCraft.Bootstrap
 			if (type == BootTheme.None)
 				return string.Empty;
 			return cls + type.ToString("G").ToLower();
-		}
-
-		public static string GetEnumToClass(this Enum type)
-		{
-			return type.ToString("G").ToLower().Replace("_", "-");
-		}
+		}		
 	}	
 
 	public class RuleTier

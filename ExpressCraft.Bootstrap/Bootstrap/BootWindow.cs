@@ -75,10 +75,35 @@ namespace ExpressCraft.Bootstrap
 				Body.ClassList.Remove(classStr);
 		}
 
-		public BootWindow(params Union<string, Control, HTMLElement>[] typos) : base("")
+		private void makeChangesForNav(Navbar bar)
 		{
-			
+			if(bar == null)
+				return;
+			switch(bar.NavbarLocation)
+			{				
+				case NavBarLocation.Fixed_Top:
+					this.BodyStyle.PaddingTop = "70px";
+					break;
+				case NavBarLocation.Fixed_Bottom:
+					this.BodyStyle.PaddingBottom = "70px";
+					break;
+				case NavBarLocation.Static_Top:
+					bar.Style.Top = "30px";
+					this.BodyStyle.PaddingTop = "20px";
+					this.prevBody.Style.Top = "80px";
+					this.prevBody.Style.Height = "calc(100% - 80px)";
 
+					this.BodyOverLay.Style.Top = "80px";
+					this.BodyOverLay.Style.Height = "calc(100% - 80px)";
+
+					this.Content.InsertBefore(bar, this.prevBody);
+					return;									
+			}
+			this.prevBody.InsertBefore(bar, this.Body);
+		}
+
+		public BootWindow(params Union<string, Control, HTMLElement>[] typos) : base("")
+		{			
 			if(assignedBootWindow == string.Empty)
 				assignedBootWindow = CreateWindowHandle().ToString();
 
@@ -98,8 +123,39 @@ namespace ExpressCraft.Bootstrap
 			this.BodyStyle.Padding = "0";
 
 			SetCalcSize();
-			
-			BootWidget.AppendTypos(this.Body, typos);			
+
+			if(typos != null)
+			{
+				int length = typos.Length;
+				for(int i = 0; i < length; i++)
+				{
+					if(typos[i].Is<string>())
+						this.Body.AppendChild(Document.CreateTextNode((string)typos[i]));
+					else if(typos[i].Is<Control>())
+					{
+						if(typos[i].Is<Navbar>())
+						{							
+							makeChangesForNav((Navbar)typos[i]);
+						}
+						else
+						{
+							this.Body.AppendChild((Control)typos[i]);
+						}						
+					}
+					else if(typos[i].Is<HTMLElement>())
+					{
+						if(((HTMLElement)typos[i]).TagName.ToUpper() == "NAV")
+						{							
+							makeChangesForNav(BootWidget.CastElement<Navbar>((HTMLElement)typos[i]));
+						}
+						else
+						{
+							this.Body.AppendChild((HTMLElement)typos[i]);
+						}
+					}
+						
+				}
+			}		
 		}
 
 		protected void SetCalcSize()
@@ -127,7 +183,7 @@ namespace ExpressCraft.Bootstrap
 		/// <returns></returns>
 		public BootWindow AssignHandles()
 		{
-			AssignHandles(prevBody, prevBody.ChildElementCount);
+			AssignHandles(Content, Content.ChildElementCount);
 			return this;
 		}
 

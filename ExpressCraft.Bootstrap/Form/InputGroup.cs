@@ -32,7 +32,7 @@ namespace ExpressCraft.Bootstrap
 				}
 				else
 				{
-					SetEnumClassValue("input-group-", typeof(BootSize), value.GetEnumToClass());
+					SetEnumClassValue("input-group-", typeof(BootSize), value.ToString("G").ToLower().Replace("_", "-"));
 				}
 			}
 		}

@@ -31,7 +31,7 @@ namespace ExpressCraft.Bootstrap
 			{
 				return GetEnumClassValue(typeof(BootRowCellTheme)).As<BootRowCellTheme>();
 			}
-			set { SetEnumClassValue(typeof(BootRowCellTheme), value.GetEnumToClass()); }
+			set { SetEnumClassValue(typeof(BootRowCellTheme), value.ToString("G").ToLower().Replace("_", "-")); }
 		}
 
 		public static void AppendHeaderDataRow(Control control, params Union<string, Control, HTMLElement>[] typos)

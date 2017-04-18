@@ -242,7 +242,7 @@ namespace ExpressCraft.Bootstrap
 				if(value == NavBarPosition.None)
 					ClearEnumClassValue(typeof(NavBarPosition));
 				else
-					SetEnumClassValue(typeof(NavBarPosition), value.GetEnumToClass()); }
+					SetEnumClassValue(typeof(NavBarPosition), value.ToString("G").ToLower().Replace("_", "-")); }
 		}
 
 	}
