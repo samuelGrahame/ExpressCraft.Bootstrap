@@ -26,7 +26,8 @@ namespace ExpressCraft.Bootstrap
 										new BootWindow(
 												new Navbar(
 													new NavbarHeader(
-														new NavbarCollapseButton("navbarContent") { UnqiueAttributes = "data-target" }
+														new NavbarCollapseButton("navbarContent") { UnqiueAttributes = "data-target" },
+														new NavbarBrand("#", "Brand")
 													),
 													new NavbarContent("navbarContent",
 														new UnorderedList(

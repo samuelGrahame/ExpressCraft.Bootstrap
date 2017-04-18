@@ -8,11 +8,12 @@ using Bridge.Html5;
 
 namespace ExpressCraft.Bootstrap
 {
-	public class NavbarBrand : BootWidget
+	public class NavbarBrand : BootWidgetClickBase
 	{
-		public NavbarBrand(params Union<string, Control, HTMLElement>[] typos) : base(new HTMLAnchorElement() { ClassName = "navbar-brand" }, typos)
+		public NavbarBrand(string href = string.Empty, params Union<string, Control, HTMLElement>[] typos) : base(new HTMLAnchorElement() { ClassName = "navbar-brand" }, typos)
 		{
-
+			if(!string.IsNullOrWhiteSpace(href))
+				this.Content.As<HTMLAnchorElement>().Href = href;
 		}
 	}
 }

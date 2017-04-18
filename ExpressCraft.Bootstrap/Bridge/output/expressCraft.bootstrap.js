@@ -844,7 +844,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         f1: function (ev) {
             Bridge.merge(new ExpressCraft.Bootstrap.BootWindow.ctor([new ExpressCraft.Bootstrap.Navbar([new ExpressCraft.Bootstrap.NavbarHeader([Bridge.merge(new ExpressCraft.Bootstrap.NavbarCollapseButton("navbarContent"), {
                 setUnqiueAttributes: "data-target"
-            } )]), Bridge.merge(new ExpressCraft.Bootstrap.NavbarContent("navbarContent", [Bridge.merge(new ExpressCraft.Bootstrap.UnorderedList([Bridge.merge(new ExpressCraft.Bootstrap.ListItem([new ExpressCraft.Bootstrap.Anchor("#", ["Link ", new ExpressCraft.Bootstrap.SourceOnly(["(current)"])])]), {
+            } ), new ExpressCraft.Bootstrap.NavbarBrand("#", ["Brand"])]), Bridge.merge(new ExpressCraft.Bootstrap.NavbarContent("navbarContent", [Bridge.merge(new ExpressCraft.Bootstrap.UnorderedList([Bridge.merge(new ExpressCraft.Bootstrap.ListItem([new ExpressCraft.Bootstrap.Anchor("#", ["Link ", new ExpressCraft.Bootstrap.SourceOnly(["(current)"])])]), {
                 setActive: true
             } ), new ExpressCraft.Bootstrap.ListItem([new ExpressCraft.Bootstrap.Anchor("#", ["Link"])]), Bridge.merge(new ExpressCraft.Bootstrap.ListItem([Bridge.merge(new ExpressCraft.Bootstrap.Anchor("#", ["Dropdown ", new ExpressCraft.Bootstrap.Caret()]), {
                 setDropdown: true
@@ -1915,19 +1915,6 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         }
     });
 
-    Bridge.define("ExpressCraft.Bootstrap.NavbarBrand", {
-        inherits: [ExpressCraft.Bootstrap.BootWidget],
-        ctor: function (typos) {
-            if (typos === void 0) { typos = []; }
-
-            this.$initialize();
-            ExpressCraft.Bootstrap.BootWidget.ctor.call(this, Bridge.merge(document.createElement('a'), {
-                className: "navbar-brand"
-            } ), typos);
-
-        }
-    });
-
     Bridge.define("ExpressCraft.Bootstrap.OrderedList", {
         inherits: [ExpressCraft.Bootstrap.BootWidget],
         ctor: function (typos) {
@@ -2772,6 +2759,22 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         },
         setTheme: function (value) {
             this.setEnumClassValue$1(ExpressCraft.Bootstrap.NavBarTheme, ExpressCraft.Bootstrap.Extension.getEnumToClass(value));
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.NavbarBrand", {
+        inherits: [ExpressCraft.Bootstrap.BootWidgetClickBase],
+        ctor: function (href, typos) {
+            if (href === void 0) { href = ""; }
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootWidgetClickBase.$ctor1.call(this, Bridge.merge(document.createElement('a'), {
+                className: "navbar-brand"
+            } ), typos);
+            if (!System.String.isNullOrWhiteSpace(href)) {
+                this.content.href = href;
+            }
         }
     });
 
