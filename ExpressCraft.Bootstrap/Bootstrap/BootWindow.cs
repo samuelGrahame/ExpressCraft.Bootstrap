@@ -178,22 +178,23 @@ namespace ExpressCraft.Bootstrap
 
 			AssignHandles();
 
-			if(Browser.IsAndroid && (Browser.IsPhone || Browser.IsTablet))
+			if(Browser.IsPhone || Browser.IsTablet)
 			{
 				this.Windowstate = WindowState.Maximized;
 				this.ShowMaximize = false;
 				this.ShowMinimize = false;
 				this.AllowSizeChange = false;
 				this.AllowMoveChange = false;
-
-
-				backButtonEvent = (ev) =>
+				if(Browser.IsAndroid)
 				{
-					this.Close();
-					Document.RemoveEventListener("backbutton", backButtonEvent);
-				};
+					backButtonEvent = (ev) =>
+					{
+						this.Close();
+						Document.RemoveEventListener("backbutton", backButtonEvent);
+					};
 
-				Document.AddEventListener("backbutton", backButtonEvent);
+					Document.AddEventListener("backbutton", backButtonEvent);
+				}				
 			}
 		}		
 

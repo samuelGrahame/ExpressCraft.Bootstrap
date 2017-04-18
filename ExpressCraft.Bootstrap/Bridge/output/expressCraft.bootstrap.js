@@ -459,17 +459,17 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
             this.assignHandles();
 
-            if (Bridge.Browser.isAndroid && (Bridge.Browser.isPhone || Bridge.Browser.isTablet)) {
+            if (Bridge.Browser.isPhone || Bridge.Browser.isTablet) {
                 this.setWindowstate(ExpressCraft.WindowState.Maximized);
                 this.setShowMaximize(false);
                 this.setShowMinimize(false);
                 this.allowSizeChange = false;
                 this.allowMoveChange = false;
+                if (Bridge.Browser.isAndroid) {
+                    this.backButtonEvent = Bridge.fn.bind(this, $asm.$.ExpressCraft.Bootstrap.BootWindow.f1);
 
-
-                this.backButtonEvent = Bridge.fn.bind(this, $asm.$.ExpressCraft.Bootstrap.BootWindow.f1);
-
-                document.addEventListener("backbutton", this.backButtonEvent);
+                    document.addEventListener("backbutton", this.backButtonEvent);
+                }
             }
         },
         /**
