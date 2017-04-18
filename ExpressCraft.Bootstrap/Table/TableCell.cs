@@ -65,7 +65,7 @@ namespace ExpressCraft.Bootstrap
 			{
 				return GetEnumClassValue(typeof(BootRowCellTheme)).As<BootRowCellTheme>();
 			}
-			set { SetEnumClassValue(typeof(BootRowCellTheme), value.ToString("G").ToLower()); }
+			set { SetEnumClassValue(typeof(BootRowCellTheme), value.GetEnumToClass()); }
 		}
 	}
 }

@@ -21,7 +21,16 @@ namespace ExpressCraft.Bootstrap
 			get { return GetAttributei("bsh"); }
 			set { SetAttribute("bsh", value); }
 		}
-		
+
+		/// <summary>
+		/// So that you can have multiple of the same form - instances
+		/// </summary>
+		public string UnqiueAttributes
+		{
+			get { return GetAttribute("ua"); }
+			set { SetAttribute("ua", value); }
+		}
+
 		public static BootWidget GetWidgetById(string id)
 		{
 			var widget = Document.GetElementById(id);
@@ -51,7 +60,7 @@ namespace ExpressCraft.Bootstrap
 			{
 				foreach(var item1 in this.ClassList)
 				{
-					if(item1 == names[i].ToLower())
+					if(item1 == names[i].ToLower().Replace("_", "-"))
 						return Enum.GetValues(type)[i].As<Enum>();
 				}
 			}
@@ -63,7 +72,7 @@ namespace ExpressCraft.Bootstrap
 			var names = Enum.GetNames(type);
 			for(int i = 0; i < names.Length; i++)
 			{
-				this.ClassList.Remove(names[i].ToLower());
+				this.ClassList.Remove(names[i].ToLower().Replace("_", "-"));
 			}			
 		}
 
@@ -184,6 +193,23 @@ namespace ExpressCraft.Bootstrap
 			{
 				ClassList.Add(value);
 			}
+		}
+		
+		public NavBarPosition NavBarPosition
+		{
+			get
+			{
+				var x = GetEnumClassValue(typeof(NavBarPosition)).As<Enum>();
+				if(x == null)
+					return NavBarPosition.None;
+				else
+					return x.As<NavBarPosition>();
+			}
+			set {
+				if(value == NavBarPosition.None)
+					ClearEnumClassValue(typeof(NavBarPosition));
+				else
+					SetEnumClassValue(typeof(NavBarPosition), value.GetEnumToClass()); }
 		}
 
 	}

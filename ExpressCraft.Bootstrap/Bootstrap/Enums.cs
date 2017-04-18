@@ -27,6 +27,19 @@ namespace ExpressCraft.Bootstrap
 		Info
 	}
 
+	public enum NavBarTheme
+	{
+		NavBar_Default,
+		NavBar_Inverse
+	}
+
+	public enum NavBarPosition
+	{
+		None,
+		NavBar_Left,
+		NavBar_Right
+	}
+
 	public enum BootParagraphAlignment
 	{
 		Left,
@@ -57,6 +70,11 @@ namespace ExpressCraft.Bootstrap
 			if (type == BootTheme.None)
 				return string.Empty;
 			return cls + type.ToString("G").ToLower();
+		}
+
+		public static string GetEnumToClass(this Enum type)
+		{
+			return type.ToString("G").ToLower().Replace("_", "-");
 		}
 	}	
 

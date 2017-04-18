@@ -34,5 +34,24 @@ namespace ExpressCraft.Bootstrap
 				SetClassTrue("list-inline", value);
 			}
 		}
+
+		public bool Nav
+		{
+			get { return GetClassTrue("nav") && GetClassTrue("navbar-nav"); }
+			set
+			{
+				SetClassTrue("nav", value);
+				SetClassTrue("navbar-nav", value);
+			}
+		}
+
+		public bool DropdownMenu
+		{
+			get { return GetClassTrue("dropdown-menu");  }
+			set
+			{
+				SetClassTrue("dropdown-menu", value);				
+			}
+		}
 	}
 }

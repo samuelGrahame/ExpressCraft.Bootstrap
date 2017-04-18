@@ -106,10 +106,8 @@ namespace ExpressCraft.Bootstrap
 		public void AssignHandles(HTMLElement parent, int length, bool IncludeSelf = false)
 		{			
 			if(IncludeSelf)
-			{
-				parent.SetAttribute("bsh", assignedBootWindow);
-				if(!parent.ClassList.Contains(responsiveClass))
-					parent.ClassList.Add(responsiveClass);
+			{				
+				assignWindowHandle(parent);
 			}
 
 			for(int i = 0; i < length; i++)
@@ -121,12 +119,36 @@ namespace ExpressCraft.Bootstrap
 					AssignHandles(child, l, true);
 				}else
 				{
-					child.SetAttribute("bsh", assignedBootWindow);
-					
-					if(!child.ClassList.Contains(responsiveClass))
-						child.ClassList.Add(responsiveClass);
+					assignWindowHandle(child);					
 				}
 			}			
+		}
+
+		private void assignWindowHandle(HTMLElement element)
+		{
+			var x = element.GetAttribute("bsh");
+			if(x != assignedBootWindow)
+			{				
+				element.SetAttribute("bsh", assignedBootWindow);
+
+				if(!element.ClassList.Contains(responsiveClass))
+					element.ClassList.Add(responsiveClass);
+
+				var uq = element.GetAttribute("ua");
+				if(!string.IsNullOrWhiteSpace(uq))
+				{
+					uq = uq.Trim();
+					var uqItem = uq.Split(",");
+					var length = uqItem.Length;
+					for(int i = 0; i < length; i++)
+					{
+						if(!string.IsNullOrWhiteSpace(uqItem[i]))
+						{
+							element.SetAttribute(uqItem[i], element.GetAttribute(uqItem[i]) + "$" + assignedBootWindow);
+						}
+					}					
+				}
+			}
 		}
 
 		private class StyleStates

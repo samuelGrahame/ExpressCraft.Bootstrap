@@ -45,5 +45,43 @@ namespace ExpressCraft.Bootstrap
 			}
 			BootWidget.AppendTypos(control, list);
 		}
+
+		public bool Active
+		{
+			get { return GetClassTrue("active"); }
+			set
+			{
+				SetClassTrue("active", value);
+			}
+		}
+
+		public bool Dropdown
+		{
+			get { return GetClassTrue("dropdown"); }
+			set
+			{
+				SetClassTrue("dropdown", value);
+			}
+		}
+
+		public bool Divider
+		{
+			get { return GetClassTrue("divider"); }
+			set
+			{
+				if(value)
+				{
+					SetAttribute("role", "separator");
+				}else
+				{
+					var x = GetAttribute("role");
+					if(x == "separator")
+					{
+						SetAttribute("role", null);
+					}
+				}
+				SetClassTrue("divider", value);
+			}
+		}
 	}
 }

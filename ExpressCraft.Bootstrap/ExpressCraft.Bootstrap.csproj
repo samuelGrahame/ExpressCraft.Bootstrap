@@ -51,6 +51,7 @@
       <HintPath>..\packages\ExpressCraft.0.0.2.9\lib\ExpressCraft.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrap\BootForm.cs" />
@@ -67,6 +68,14 @@
     <Compile Include="Grid\ClearFix.cs" />
     <Compile Include="Grid\Col.cs" />
     <Compile Include="Grid\Row.cs" />
+    <Compile Include="NavBar\NavbarContent.cs" />
+    <Compile Include="NavBar\NavbarBrand.cs" />
+    <Compile Include="Typography\Anchor.cs" />
+    <Compile Include="Typography\SourceOnly.cs" />
+    <Compile Include="NavBar\IconBar.cs" />
+    <Compile Include="NavBar\Narbar.cs" />
+    <Compile Include="NavBar\NarbarHeader.cs" />
+    <Compile Include="NavBar\NavbarCollapseButton.cs" />
     <Compile Include="Panel\Panel.cs" />
     <Compile Include="Panel\PanelBody.cs" />
     <Compile Include="Panel\PanelFooter.cs" />

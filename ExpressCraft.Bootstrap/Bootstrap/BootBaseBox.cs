@@ -15,7 +15,16 @@ namespace ExpressCraft.Bootstrap
 		public Action<BootBaseBox, KeyboardEvent> OnKeyDown = null;
 		public Action<BootBaseBox, KeyboardEvent> OnKeyUp = null;
 		public Action<BootBaseBox, KeyboardEvent> OnKeyPress = null;
-		
+
+		public string Placeholder
+		{
+			get { return GetAttribute("placeholder"); }
+			set
+			{
+				SetAttribute("placeholder", value);
+			}
+		}
+
 		public BootBaseBox(HTMLElement element) : base(element)
 		{			
 			this.Content.OnChange = (ev) => {

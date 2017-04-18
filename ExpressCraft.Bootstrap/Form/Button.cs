@@ -8,18 +8,26 @@ using ExpressCraft;
 
 namespace ExpressCraft.Bootstrap
 {
-    public class Button : Control
+    public class Button : BootWidget
     {
 		public Action<MouseEvent> OnClick { get { return this.Content.OnClick;  } set { this.Content.OnClick = value; } }
 		public Button(string text = "", BootTheme type = BootTheme.Default, ButtonType buttonType = ButtonType.Button) : base(new HTMLButtonElement() { Type = buttonType, ClassName = "btn" + Extension.GetClassTheme(" btn-", type)})
 		{									
 			if (!string.IsNullOrWhiteSpace(text))			
-				Content.InnerHTML = text;
-			this.Size = new Vector2("", "");
+				Content.InnerHTML = text;			
 		}
 		public Button(string text = "", ButtonType buttonType = ButtonType.Button) : this(text, BootTheme.Default, buttonType)
 		{
 			
+		}
+
+		public bool NavbarButton
+		{
+			get { return GetClassTrue("navbar-btn"); }
+			set
+			{
+				SetClassTrue("navbar-btn", value);
+			}
 		}
 	}
 }

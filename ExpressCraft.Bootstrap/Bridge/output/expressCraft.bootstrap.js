@@ -88,6 +88,54 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         setBootWindowHandle: function (value) {
             this.setAttribute("bsh", value);
         },
+        /**
+         * So that you can have multiple of the same form - instances
+         *
+         * @instance
+         * @public
+         * @this ExpressCraft.Bootstrap.BootWidget
+         * @memberof ExpressCraft.Bootstrap.BootWidget
+         * @function getUnqiueAttributes
+         * @return  {string}
+         */
+        /**
+         * So that you can have multiple of the same form - instances
+         *
+         * @instance
+         * @public
+         * @this ExpressCraft.Bootstrap.BootWidget
+         * @memberof ExpressCraft.Bootstrap.BootWidget
+         * @function setUnqiueAttributes
+         * @param   {string}    value
+         * @return  {void}
+         */
+        getUnqiueAttributes: function () {
+            return this.getAttribute("ua");
+        },
+        /**
+         * So that you can have multiple of the same form - instances
+         *
+         * @instance
+         * @public
+         * @this ExpressCraft.Bootstrap.BootWidget
+         * @memberof ExpressCraft.Bootstrap.BootWidget
+         * @function getUnqiueAttributes
+         * @return  {string}
+         */
+        /**
+         * So that you can have multiple of the same form - instances
+         *
+         * @instance
+         * @public
+         * @this ExpressCraft.Bootstrap.BootWidget
+         * @memberof ExpressCraft.Bootstrap.BootWidget
+         * @function setUnqiueAttributes
+         * @param   {string}    value
+         * @return  {void}
+         */
+        setUnqiueAttributes: function (value) {
+            this.setAttribute("ua", value);
+        },
         getContextualText: function () {
             return this.getContextual("text-");
         },
@@ -107,7 +155,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
                 $t = Bridge.getEnumerator(this.getClassList());
                 while ($t.moveNext()) {
                     var item1 = $t.getCurrent();
-                    if (Bridge.referenceEquals(item1, names[i].toLowerCase())) {
+                    if (Bridge.referenceEquals(item1, System.String.replaceAll(names[i].toLowerCase(), "_", "-"))) {
                         return System.Enum.getValues(type)[i];
                     }
                 }
@@ -117,7 +165,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         clearEnumClassValue: function (type) {
             var names = System.Enum.getNames(type);
             for (var i = 0; i < names.length; i = (i + 1) | 0) {
-                this.getClassList().remove(names[i].toLowerCase());
+                this.getClassList().remove(System.String.replaceAll(names[i].toLowerCase(), "_", "-"));
             }
         },
         setEnumClassValue: function (type, value) {
@@ -338,10 +386,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         assignHandles$1: function (parent, length, IncludeSelf) {
             if (IncludeSelf === void 0) { IncludeSelf = false; }
             if (IncludeSelf) {
-                parent.setAttribute("bsh", this.assignedBootWindow);
-                if (!parent.classList.contains(this.responsiveClass)) {
-                    parent.classList.add(this.responsiveClass);
-                }
+                this.assignWindowHandle(parent);
             }
 
             for (var i = 0; i < length; i = (i + 1) | 0) {
@@ -350,10 +395,28 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
                 if (l > 0) {
                     this.assignHandles$1(child, l, true);
                 } else {
-                    child.setAttribute("bsh", this.assignedBootWindow);
+                    this.assignWindowHandle(child);
+                }
+            }
+        },
+        assignWindowHandle: function (element) {
+            var x = element.getAttribute("bsh");
+            if (!Bridge.referenceEquals(x, this.assignedBootWindow)) {
+                element.setAttribute("bsh", this.assignedBootWindow);
 
-                    if (!child.classList.contains(this.responsiveClass)) {
-                        child.classList.add(this.responsiveClass);
+                if (!element.classList.contains(this.responsiveClass)) {
+                    element.classList.add(this.responsiveClass);
+                }
+
+                var uq = element.getAttribute("ua");
+                if (!System.String.isNullOrWhiteSpace(uq)) {
+                    uq = uq.trim();
+                    var uqItem = uq.split(",");
+                    var length = uqItem.length;
+                    for (var i = 0; i < length; i = (i + 1) | 0) {
+                        if (!System.String.isNullOrWhiteSpace(uqItem[i])) {
+                            element.setAttribute(uqItem[i], System.String.concat(element.getAttribute(uqItem[i]), "$", this.assignedBootWindow));
+                        }
                     }
                 }
             }
@@ -421,38 +484,6 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         }
     });
 
-    Bridge.define("ExpressCraft.Bootstrap.Button", {
-        inherits: [ExpressCraft.Control],
-        $ctor1: function (text, type, buttonType) {
-            if (text === void 0) { text = ""; }
-            if (type === void 0) { type = 1; }
-            if (buttonType === void 0) { buttonType = 2; }
-
-            this.$initialize();
-            ExpressCraft.Control.ctor.call(this, Bridge.merge(document.createElement('button'), {
-                type: buttonType,
-                className: System.String.concat("btn", ExpressCraft.Bootstrap.Extension.getClassTheme(" btn-", type))
-            } ));
-            if (!System.String.isNullOrWhiteSpace(text)) {
-                this.content.innerHTML = text;
-            }
-            this.setSize(new ExpressCraft.Vector2.$ctor1("", ""));
-        },
-        ctor: function (text, buttonType) {
-            if (text === void 0) { text = ""; }
-            if (buttonType === void 0) { buttonType = 2; }
-
-            ExpressCraft.Bootstrap.Button.$ctor1.call(this, text, ExpressCraft.Bootstrap.BootTheme.Default, buttonType);
-
-        },
-        getOnClick: function () {
-            return this.content.onclick;
-        },
-        setOnClick: function (value) {
-            this.content.onclick = value;
-        }
-    });
-
     Bridge.define("ExpressCraft.Bootstrap.ColExtentions", {
         statics: {
             applyColumns: function (widget, colClasses) {
@@ -500,7 +531,18 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
                     return "";
                 }
                 return System.String.concat(cls, System.Enum.format(ExpressCraft.Bootstrap.BootTheme, type, "G").toLowerCase());
+            },
+            getEnumToClass: function (type) {
+                return System.String.replaceAll(System.Enum.format(System.Enum, type, "G").toLowerCase(), "_", "-");
             }
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.NavBarTheme", {
+        $kind: "enum",
+        statics: {
+            NavBar_Default: 0,
+            NavBar_Inverse: 1
         }
     });
 
@@ -1100,6 +1142,20 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         }
     });
 
+    Bridge.define("ExpressCraft.Bootstrap.Anchor", {
+        inherits: [ExpressCraft.Bootstrap.BootWidget],
+        ctor: function (href, typos) {
+            if (href === void 0) { href = ""; }
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootWidget.ctor.call(this, document.createElement('a'), typos);
+            if (!System.String.isNullOrWhiteSpace(href)) {
+                this.content.href = href;
+            }
+        }
+    });
+
     Bridge.define("ExpressCraft.Bootstrap.Blockquote", {
         inherits: [ExpressCraft.Bootstrap.BootWidget],
         ctor: function (typos) {
@@ -1259,6 +1315,43 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
                 className: className
             } ), typos);
 
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.Button", {
+        inherits: [ExpressCraft.Bootstrap.BootWidget],
+        $ctor1: function (text, type, buttonType) {
+            if (text === void 0) { text = ""; }
+            if (type === void 0) { type = 1; }
+            if (buttonType === void 0) { buttonType = 2; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootWidget.ctor.call(this, Bridge.merge(document.createElement('button'), {
+                type: buttonType,
+                className: System.String.concat("btn", ExpressCraft.Bootstrap.Extension.getClassTheme(" btn-", type))
+            } ));
+            if (!System.String.isNullOrWhiteSpace(text)) {
+                this.content.innerHTML = text;
+            }
+        },
+        ctor: function (text, buttonType) {
+            if (text === void 0) { text = ""; }
+            if (buttonType === void 0) { buttonType = 2; }
+
+            ExpressCraft.Bootstrap.Button.$ctor1.call(this, text, ExpressCraft.Bootstrap.BootTheme.Default, buttonType);
+
+        },
+        getOnClick: function () {
+            return this.content.onclick;
+        },
+        setOnClick: function (value) {
+            this.content.onclick = value;
+        },
+        getNavbarButton: function () {
+            return this.getClassTrue("navbar-btn");
+        },
+        setNavbarButton: function (value) {
+            this.setClassTrue("navbar-btn", value);
         }
     });
 
@@ -1446,6 +1539,17 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         }
     });
 
+    Bridge.define("ExpressCraft.Bootstrap.IconBar", {
+        inherits: [ExpressCraft.Bootstrap.BootWidget],
+        ctor: function () {
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootWidget.ctor.call(this, Bridge.merge(document.createElement('span'), {
+                className: "icon-bar"
+            } ));
+
+        }
+    });
+
     Bridge.define("ExpressCraft.Bootstrap.Inserted", {
         inherits: [ExpressCraft.Bootstrap.BootWidget],
         ctor: function (typos) {
@@ -1527,6 +1631,32 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             this.$initialize();
             ExpressCraft.Bootstrap.BootWidget.ctor.call(this, document.createElement("li"), typos);
 
+        },
+        getActive: function () {
+            return this.getClassTrue("active");
+        },
+        setActive: function (value) {
+            this.setClassTrue("active", value);
+        },
+        getDropdown: function () {
+            return this.getClassTrue("dropdown");
+        },
+        setDropdown: function (value) {
+            this.setClassTrue("dropdown", value);
+        },
+        getDivider: function () {
+            return this.getClassTrue("divider");
+        },
+        setDivider: function (value) {
+            if (value) {
+                this.setAttribute("role", "separator");
+            } else {
+                var x = this.getAttribute("role");
+                if (Bridge.referenceEquals(x, "separator")) {
+                    this.setAttribute("role", null);
+                }
+            }
+            this.setClassTrue("divider", value);
         }
     });
 
@@ -1538,6 +1668,36 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             this.$initialize();
             ExpressCraft.Bootstrap.BootWidget.ctor.call(this, document.createElement("mark"), typos);
 
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.NavbarBrand", {
+        inherits: [ExpressCraft.Bootstrap.BootWidget],
+        ctor: function (typos) {
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootWidget.ctor.call(this, Bridge.merge(document.createElement('a'), {
+                className: "navbar-brand"
+            } ), typos);
+
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.NavbarCollapseButton", {
+        inherits: [ExpressCraft.Bootstrap.BootWidget],
+        ctor: function (_id) {
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootWidget.ctor.call(this, Bridge.merge(document.createElement('button'), {
+                type: "button",
+                className: "navbar-toggle collapsed"
+            } ));
+            if (!System.String.isNullOrWhiteSpace(_id) && !System.String.startsWith(_id, "#")) {
+                _id = System.String.concat("#", _id);
+            }
+            ExpressCraft.Bootstrap.BootWidget.appendTypos$1(new ExpressCraft.Bootstrap.SourceOnly(["Toggle navigation"]), [new ExpressCraft.Bootstrap.IconBar(), new ExpressCraft.Bootstrap.IconBar(), new ExpressCraft.Bootstrap.IconBar()]);
+            this.setAttribute("data-toggle", "collapse");
+            this.setAttribute("data-target", _id);
         }
     });
 
@@ -1605,6 +1765,18 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         },
         setInitialism: function (value) {
             this.setClassTrue("initialism", value);
+        },
+        getNavbarText: function () {
+            return this.getClassTrue("navbar-text");
+        },
+        setNavbarText: function (value) {
+            this.setClassTrue("navbar-text", value);
+        },
+        getNavbarRight: function () {
+            return this.getClassTrue("navbar-right");
+        },
+        setNavbarRight: function (value) {
+            this.setClassTrue("navbar-right", value);
         },
         getLead: function () {
             return this.getClassTrue("lead");
@@ -1680,6 +1852,19 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
             this.$initialize();
             ExpressCraft.Bootstrap.BootWidget.ctor.call(this, document.createElement("small"), typos);
+
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.SourceOnly", {
+        inherits: [ExpressCraft.Bootstrap.BootWidget],
+        ctor: function (typos) {
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootWidget.ctor.call(this, Bridge.merge(document.createElement('span'), {
+                className: "sr-only"
+            } ), typos);
 
         }
     });
@@ -2049,6 +2234,19 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         },
         setInline: function (value) {
             this.setClassTrue("list-inline", value);
+        },
+        getNav: function () {
+            return this.getClassTrue("nav") && this.getClassTrue("navbar-nav");
+        },
+        setNav: function (value) {
+            this.setClassTrue("nav", value);
+            this.setClassTrue("navbar-nav", value);
+        },
+        getDropdownMenu: function () {
+            return this.getClassTrue("dropdown-menu");
+        },
+        setDropdownMenu: function (value) {
+            this.setClassTrue("dropdown-menu", value);
         }
     });
 
@@ -2164,6 +2362,52 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             this.$initialize();
             ExpressCraft.Bootstrap.BootStyleWidget.ctor.call(this, "form-group", typos);
 
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.Narbar", {
+        inherits: [ExpressCraft.Bootstrap.BootStyleWidget],
+        ctor: function (typos) {
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootStyleWidget.ctor.call(this, "navbar navbar-default");
+            var container = (new ExpressCraft.Bootstrap.BootStyleWidget("container-fluid"));
+
+            ExpressCraft.Bootstrap.BootWidget.appendTypos$1(container, typos);
+
+            this.content.appendChild(ExpressCraft.Control.op_Implicit(container));
+        },
+        getTheme: function () {
+            return this.getEnumClassValue(ExpressCraft.Bootstrap.NavBarTheme);
+        },
+        setTheme: function (value) {
+            this.setEnumClassValue(ExpressCraft.Bootstrap.NavBarTheme, ExpressCraft.Bootstrap.Extension.getEnumToClass(value));
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.NarbarHeader", {
+        inherits: [ExpressCraft.Bootstrap.BootStyleWidget],
+        ctor: function (typos) {
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootStyleWidget.ctor.call(this, "navbar-header", typos);
+
+        }
+    });
+
+    Bridge.define("ExpressCraft.Bootstrap.NavbarContent", {
+        inherits: [ExpressCraft.Bootstrap.BootStyleWidget],
+        ctor: function (_id, typos) {
+            if (typos === void 0) { typos = []; }
+
+            this.$initialize();
+            ExpressCraft.Bootstrap.BootStyleWidget.ctor.call(this, "collapse navbar-collapse", typos);
+            if (!System.String.isNullOrWhiteSpace(_id)) {
+                if (System.String.startsWith(_id, "#")) {
+                    _id = _id.substr(1);
+                }
+                this.setId(_id);
+            }
         }
     });
 
