@@ -439,8 +439,8 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
                     this.getBodyStyle().paddingTop = "20px";
                     this.prevBody.style.top = "80px";
                     this.prevBody.style.height = "calc(100% - 80px)";
-                    this.getBodyOverLay().style.top = "80px";
-                    this.getBodyOverLay().style.height = "calc(100% - 80px)";
+                    //this.BodyOverLay.Style.Top = "80px";
+                    //this.BodyOverLay.Style.Height = "calc(100% - 80px)";
                     this.content.insertBefore(ExpressCraft.Control.op_Implicit(bar), this.prevBody);
                     return;
             }

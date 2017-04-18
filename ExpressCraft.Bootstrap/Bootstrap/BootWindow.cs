@@ -93,8 +93,8 @@ namespace ExpressCraft.Bootstrap
 					this.prevBody.Style.Top = "80px";
 					this.prevBody.Style.Height = "calc(100% - 80px)";
 
-					this.BodyOverLay.Style.Top = "80px";
-					this.BodyOverLay.Style.Height = "calc(100% - 80px)";
+					//this.BodyOverLay.Style.Top = "80px";
+					//this.BodyOverLay.Style.Height = "calc(100% - 80px)";
 
 					this.Content.InsertBefore(bar, this.prevBody);
 					return;									
