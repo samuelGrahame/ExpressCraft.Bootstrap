@@ -2017,9 +2017,9 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
             this.content.appendChild(ExpressCraft.Control.op_Implicit(container));
 
-            this.content.addEventListener("mousedown", $asm.$.ExpressCraft.Bootstrap.Navbar.f1);
-            this.content.addEventListener("mousemove", $asm.$.ExpressCraft.Bootstrap.Navbar.f1);
-            this.content.addEventListener("mouseup", $asm.$.ExpressCraft.Bootstrap.Navbar.f1);
+            this.content.addEventListener("mousedown", Bridge.fn.bind(this, $asm.$.ExpressCraft.Bootstrap.Navbar.f1));
+            this.content.addEventListener("mousemove", $asm.$.ExpressCraft.Bootstrap.Navbar.f2);
+            this.content.addEventListener("mouseup", $asm.$.ExpressCraft.Bootstrap.Navbar.f2);
         },
         getTheme: function () {
             return this.getEnumClassValue$1(ExpressCraft.Bootstrap.NavBarTheme);
@@ -2048,6 +2048,22 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
     Bridge.apply($asm.$.ExpressCraft.Bootstrap.Navbar, {
         f1: function (ev) {
+            ev.stopPropagation();
+
+            var x = this.getBootWindowHandle();
+            var y = ExpressCraft.Form.getActiveFormCollection();
+
+            for (var i = 0; i < y.visibleForms.getCount(); i = (i + 1) | 0) {
+                if (parseInt(y.visibleForms.getItem(i).getBody().getAttribute("bsh")) === x) {
+                    ExpressCraft.Form.setActiveForm(y.visibleForms.getItem(i));
+                    return;
+                }
+            }
+            if (parseInt(y.formOwner.getBody().getAttribute("bsh")) === x) {
+                ExpressCraft.Form.setActiveForm(y.formOwner);
+            }
+        },
+        f2: function (ev) {
             ev.stopPropagation();
         }
     });
