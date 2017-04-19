@@ -48,7 +48,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="ExpressCraft, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ExpressCraft.0.0.3\lib\ExpressCraft.dll</HintPath>
+      <HintPath>..\packages\ExpressCraft.0.0.3.1\lib\ExpressCraft.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -131,7 +131,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Bridge\bridge.json" />
-    <None Include="Bridge\output\manifest.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
