@@ -97,9 +97,9 @@ namespace ExpressCraft.Bootstrap
 
 					var div = new BootWidget();
 					div.Style.Position = Position.Absolute;
-					div.Style.OverflowY = Overflow.Auto;
-					div.Size = new Vector2(prevBody.Style.Width, "calc(100% - 80px)");
-					div.Location = new Vector2(prevBody.Style.Left, 80);
+					div.Style.OverflowY = Overflow.Auto;					
+					div.Size = new Vector2("100%", "calc(100% - 50px)");
+					div.Location = new Vector2(0, 50);
 					
 					this.prevBody.InsertBefore(div, this.Body);
 

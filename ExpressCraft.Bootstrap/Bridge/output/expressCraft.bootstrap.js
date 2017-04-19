@@ -455,8 +455,8 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
                     var div = new ExpressCraft.Bootstrap.BootWidget.$ctor1();
                     div.getStyle().position = "absolute";
                     div.getStyle().overflowY = "auto";
-                    div.setSize(new ExpressCraft.Vector2.$ctor1(this.prevBody.style.width, "calc(100% - 80px)"));
-                    div.setLocation(new ExpressCraft.Vector2.$ctor1(this.prevBody.style.left, 80));
+                    div.setSize(new ExpressCraft.Vector2.$ctor1("100%", "calc(100% - 50px)"));
+                    div.setLocation(new ExpressCraft.Vector2.$ctor1(0, 50));
                     this.prevBody.insertBefore(ExpressCraft.Control.op_Implicit(div), this.getBody());
                     div.content.appendChild(this.getBody());
                     this.prevBody.insertBefore(ExpressCraft.Control.op_Implicit(bar), ExpressCraft.Control.op_Implicit(div));
