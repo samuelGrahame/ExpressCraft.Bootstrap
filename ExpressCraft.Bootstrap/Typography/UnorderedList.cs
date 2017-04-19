@@ -35,6 +35,35 @@ namespace ExpressCraft.Bootstrap
 			}
 		}
 
+		private void ApplyDataAttribute(HTMLElement htmlElement, bool value)
+		{
+			if(htmlElement == null)
+				return;
+			var length = htmlElement.ChildElementCount;
+			for(int i = 0; i < length; i++)
+			{
+				var child = htmlElement.Children[i];
+				if(child.ChildElementCount > 0)
+					ApplyDataAttribute(child, value);
+
+				if(!(child.TagName.ToUpper() == "A" && 
+					!child.ClassList.Contains("dropdown-toggle") && 
+					child.ParentElement != null && 
+					child.ParentElement.TagName.ToUpper() == "LI"))
+					continue;					
+				if(value)
+				{
+					child.SetAttribute("data-toggle", "collapse");
+					child.SetAttribute("data-target", ".navbar-collapse.in");
+				}
+				else
+				{
+					child.SetAttribute("data-toggle", "");
+					child.SetAttribute("data-target", "");
+				}
+			}
+		}
+
 		public bool Nav
 		{
 			get { return GetClassTrue("nav") && GetClassTrue("navbar-nav"); }
@@ -42,6 +71,7 @@ namespace ExpressCraft.Bootstrap
 			{
 				SetClassTrue("nav", value);
 				SetClassTrue("navbar-nav", value);
+				ApplyDataAttribute(this.Content, value);
 			}
 		}
 

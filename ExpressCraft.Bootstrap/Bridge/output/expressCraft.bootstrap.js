@@ -2608,12 +2608,36 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         setNav: function (value) {
             this.setClassTrue("nav", value);
             this.setClassTrue("navbar-nav", value);
+            this.applyDataAttribute(this.content, value);
         },
         getDropdownMenu: function () {
             return this.getClassTrue("dropdown-menu");
         },
         setDropdownMenu: function (value) {
             this.setClassTrue("dropdown-menu", value);
+        },
+        applyDataAttribute: function (htmlElement, value) {
+            if (htmlElement == null) {
+                return;
+            }
+            var length = htmlElement.childElementCount;
+            for (var i = 0; i < length; i = (i + 1) | 0) {
+                var child = htmlElement.children[i];
+                if (child.childElementCount > 0) {
+                    this.applyDataAttribute(child, value);
+                }
+
+                if (!(Bridge.referenceEquals(child.tagName.toUpperCase(), "A") && !child.classList.contains("dropdown-toggle") && child.parentElement != null && Bridge.referenceEquals(child.parentElement.tagName.toUpperCase(), "LI"))) {
+                    continue;
+                }
+                if (value) {
+                    child.setAttribute("data-toggle", "collapse");
+                    child.setAttribute("data-target", ".navbar-collapse.in");
+                } else {
+                    child.setAttribute("data-toggle", "");
+                    child.setAttribute("data-target", "");
+                }
+            }
         }
     });
 
