@@ -21,6 +21,11 @@ namespace ExpressCraft.Bootstrap
 			SetAttribute("data-target", _id);
 			
 			SetAttribute("aria-expanded", "false");
+			
+			this.Content.OnMouseDown = (ev) =>
+			{
+				ev.StopImmediatePropagation();
+			};
 		}
 	}
 }

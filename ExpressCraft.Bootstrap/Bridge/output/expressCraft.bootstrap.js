@@ -3009,6 +3009,16 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             this.setAttribute("data-target", _id);
 
             this.setAttribute("aria-expanded", "false");
+
+            this.content.onmousedown = $asm.$.ExpressCraft.Bootstrap.NavbarCollapseButton.f1;
+        }
+    });
+
+    Bridge.ns("ExpressCraft.Bootstrap.NavbarCollapseButton", $asm.$);
+
+    Bridge.apply($asm.$.ExpressCraft.Bootstrap.NavbarCollapseButton, {
+        f1: function (ev) {
+            ev.stopImmediatePropagation();
         }
     });
 

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Bridge;
 using Bridge.Html5;
+using Bridge.jQuery2;
 
 namespace ExpressCraft.Bootstrap
 {
@@ -37,7 +38,7 @@ namespace ExpressCraft.Bootstrap
 				if(Global.ParseInt(y.FormOwner.Body.GetAttribute("bsh")) == x)
 				{
 					Form.ActiveForm = y.FormOwner;
-				}
+				}				
 			});
 			this.Content.AddEventListener(EventType.MouseMove, (ev) => { ev.StopPropagation(); });
 			this.Content.AddEventListener(EventType.MouseUp, (ev) => { ev.StopPropagation(); });
