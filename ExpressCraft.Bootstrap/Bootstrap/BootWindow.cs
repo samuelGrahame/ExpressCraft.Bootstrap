@@ -167,9 +167,19 @@ namespace ExpressCraft.Bootstrap
 		//	this.Body.SetSize("calc(100% - 28px)", this.Body.Style.Height);
 		}
 
+		public static void HideNavigation()
+		{
+			var x = new Anchor();
+			x.SetAttribute("data-toggle", "collapse");
+			x.SetAttribute("data-target", ".navbar-collapse.in");
+			Document.Body.AppendChild(x);
+			x.Content.Click();
+			Document.Body.RemoveChild(x);
+		}
+
 		protected override void OnGotFocus()
-		{			
-			
+		{
+			HideNavigation();
 			base.OnGotFocus();
 			CalcSizeOnChange();			
 		}
@@ -201,6 +211,8 @@ namespace ExpressCraft.Bootstrap
 				}				
 			}
 		}		
+
+		
 
 		/// <summary>
 		/// Multi Form Responsive
@@ -327,6 +339,8 @@ namespace ExpressCraft.Bootstrap
 			{				
 				privateSyle.InnerHTML = styleBuilder.ToString().Replace("windowHandleId", responsiveClass);
 				PreviouStates = states;
+
+				HideNavigation();
 			}
 		}
 

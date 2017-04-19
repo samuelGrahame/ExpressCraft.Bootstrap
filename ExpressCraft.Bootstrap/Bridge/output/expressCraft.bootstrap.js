@@ -344,6 +344,14 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             createWindowHandle: function () {
                 var $t;
                 return (Bridge.identity(ExpressCraft.Bootstrap.BootWindow.bootWindowHandles, ($t = (ExpressCraft.Bootstrap.BootWindow.bootWindowHandles + 1) | 0, ExpressCraft.Bootstrap.BootWindow.bootWindowHandles = $t, $t)));
+            },
+            hideNavigation: function () {
+                var x = new ExpressCraft.Bootstrap.Anchor();
+                x.setAttribute("data-toggle", "collapse");
+                x.setAttribute("data-target", ".navbar-collapse.in");
+                document.body.appendChild(ExpressCraft.Control.op_Implicit(x));
+                x.content.click();
+                document.body.removeChild(ExpressCraft.Control.op_Implicit(x));
             }
         },
         privateSyle: null,
@@ -463,7 +471,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             //	this.Body.SetSize("calc(100% - 28px)", this.Body.Style.Height);
         },
         onGotFocus: function () {
-
+            ExpressCraft.Bootstrap.BootWindow.hideNavigation();
             ExpressCraft.Form.prototype.onGotFocus.call(this);
             this.calcSizeOnChange();
         },
@@ -582,6 +590,8 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             if (!states.equals(this.previouStates)) {
                 this.privateSyle.innerHTML = System.String.replaceAll(styleBuilder.toString(), "windowHandleId", this.responsiveClass);
                 this.previouStates = states;
+
+                ExpressCraft.Bootstrap.BootWindow.hideNavigation();
             }
         },
         getResponsiveClass: function () {
