@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Bridge.Html5;
 
 namespace ExpressCraft.Bootstrap
 {
@@ -88,6 +89,42 @@ namespace ExpressCraft.Bootstrap
 				return string.Empty;
 			return cls + type.ToString("G").ToLower();
 		}		
+
+		public static BootWindow GetWidgetWindow(Node element)
+		{
+			if(element == null)
+				return null;
+
+			var x = BootWidget.CastElement<BootWidget>(element.As<HTMLElement>());
+
+			if(x == null)
+				return null;
+
+			var bootHandle = x.BootWindowHandle;
+
+			for(int i = 0; i < Form.FormCollections.Count; i++)
+			{
+				if(Form.FormCollections[i].FormOwner is BootWindow)
+				{
+					if(Global.ParseInt(Form.FormCollections[i].FormOwner.As<BootWindow>().GetBootHandle()) == bootHandle)
+					{
+						return Form.FormCollections[i].FormOwner.As<BootWindow>();
+					}
+				}
+				for(int j = 0; j < Form.FormCollections[i].VisibleForms.Count; j++)
+				{
+					if(Form.FormCollections[i].VisibleForms[j] is BootWindow)
+					{
+						if(Global.ParseInt(Form.FormCollections[i].VisibleForms[j].As<BootWindow>().GetBootHandle()) == bootHandle)
+						{
+							return Form.FormCollections[i].VisibleForms[j].As<BootWindow>();
+						}
+					}
+				}
+			} 
+
+			return null;
+		}
 	}	
 
 	public class RuleTier

@@ -9,8 +9,15 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
     Bridge.define("ExpressCraft.Bootstrap.BootWidget", {
         inherits: [ExpressCraft.Control],
         statics: {
-            getWidgetById$1: function (id) {
+            getWidgetById$2: function (id) {
                 var widget = document.getElementById(id);
+                if (widget == null) {
+                    return null;
+                }
+                return new ExpressCraft.Bootstrap.BootWidget.ctor(widget);
+            },
+            getWidgetById$3: function (id, windowId) {
+                var widget = document.getElementById(System.String.concat(id, "-w", windowId));
                 if (widget == null) {
                     return null;
                 }
@@ -18,6 +25,9 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             },
             getWidgetById: function (T, id) {
                 return ExpressCraft.Bootstrap.BootWidget.castElement(T, document.getElementById(id));
+            },
+            getWidgetById$1: function (T, id, windowId) {
+                return ExpressCraft.Bootstrap.BootWidget.castElement(T, document.getElementById(System.String.concat(id, "-w", windowId)));
             },
             castElement: function (T, widget) {
                 if (widget == null) {
@@ -410,6 +420,9 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             this.setClassTrue("container", !value);
             this.setClassTrue("container-fluid", value);
         },
+        getBootHandle: function () {
+            return this.assignedBootWindow;
+        },
         getClassTrue: function (classStr) {
             return this.getBody().classList.contains(classStr);
         },
@@ -654,6 +667,36 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
                     return "";
                 }
                 return System.String.concat(cls, System.Enum.format(ExpressCraft.Bootstrap.BootTheme, type, "G").toLowerCase());
+            },
+            getWidgetWindow: function (element) {
+                if (element == null) {
+                    return null;
+                }
+
+                var x = ExpressCraft.Bootstrap.BootWidget.castElement(ExpressCraft.Bootstrap.BootWidget, element);
+
+                if (x == null) {
+                    return null;
+                }
+
+                var bootHandle = x.getBootWindowHandle();
+
+                for (var i = 0; i < ExpressCraft.Form.formCollections.getCount(); i = (i + 1) | 0) {
+                    if (Bridge.is(ExpressCraft.Form.formCollections.getItem(i).formOwner, ExpressCraft.Bootstrap.BootWindow)) {
+                        if (parseInt(ExpressCraft.Form.formCollections.getItem(i).formOwner.getBootHandle()) === bootHandle) {
+                            return ExpressCraft.Form.formCollections.getItem(i).formOwner;
+                        }
+                    }
+                    for (var j = 0; j < ExpressCraft.Form.formCollections.getItem(i).visibleForms.getCount(); j = (j + 1) | 0) {
+                        if (Bridge.is(ExpressCraft.Form.formCollections.getItem(i).visibleForms.getItem(j), ExpressCraft.Bootstrap.BootWindow)) {
+                            if (parseInt(ExpressCraft.Form.formCollections.getItem(i).visibleForms.getItem(j).getBootHandle()) === bootHandle) {
+                                return ExpressCraft.Form.formCollections.getItem(i).visibleForms.getItem(j);
+                            }
+                        }
+                    }
+                }
+
+                return null;
             }
         }
     });

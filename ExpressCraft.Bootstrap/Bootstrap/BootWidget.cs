@@ -29,7 +29,7 @@ namespace ExpressCraft.Bootstrap
 		{
 			get { return GetAttribute("ua"); }
 			set { SetAttribute("ua", value); }
-		}
+		}		
 
 		public static BootWidget GetWidgetById(string id)
 		{
@@ -39,9 +39,22 @@ namespace ExpressCraft.Bootstrap
 			return new BootWidget(widget);
 		}
 
+		public static BootWidget GetWidgetById(string id, string windowId)
+		{
+			var widget = Document.GetElementById(id + "-w" + windowId);
+			if(widget == null)
+				return null;
+			return new BootWidget(widget);
+		}
+
 		public static T GetWidgetById<T>(string id)
 		{
 			return CastElement<T>(Document.GetElementById(id));			
+		}
+
+		public static T GetWidgetById<T>(string id, string windowId)
+		{
+			return CastElement<T>(Document.GetElementById(id + "-w" + windowId));
 		}
 
 		public static T CastElement<T>(HTMLElement widget)

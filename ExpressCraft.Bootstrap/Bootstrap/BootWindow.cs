@@ -29,6 +29,10 @@ namespace ExpressCraft.Bootstrap
 		protected string assignedBootWindow = string.Empty;
 		private string responsiveClass;
 
+		public string GetBootHandle()
+		{
+			return assignedBootWindow;
+		}
 
 		public static void SetupMetaTags()
 		{
