@@ -46,8 +46,8 @@ namespace ExpressCraft.Bootstrap
 	public enum NavBarLocation
 	{
 		None,
-		Fixed_Top,
-		Fixed_Bottom,
+		//Fixed_Top,
+		//Fixed_Bottom,
 		Static_Top
 	}
 

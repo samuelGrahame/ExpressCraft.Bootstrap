@@ -85,22 +85,28 @@ namespace ExpressCraft.Bootstrap
 				return;
 			switch(bar.NavbarLocation)
 			{				
-				case NavBarLocation.Fixed_Top:
-					this.BodyStyle.PaddingTop = "70px";
-					break;
-				case NavBarLocation.Fixed_Bottom:
-					this.BodyStyle.PaddingBottom = "70px";
-					break;
+				//case NavBarLocation.Fixed_Top:
+				//	this.BodyStyle.PaddingTop = "70px";
+				//	break;
+				//case NavBarLocation.Fixed_Bottom:
+				//	this.BodyStyle.PaddingBottom = "70px";
+				//	break;
 				case NavBarLocation.Static_Top:
-					bar.Style.Top = "30px";
-					this.BodyStyle.PaddingTop = "20px";
-					this.prevBody.Style.Top = "80px";
-					this.prevBody.Style.Height = "calc(100% - 80px)";
+					bar.Style.Top = "0";
+					bar.Style.Left = "0";
 
-					//this.BodyOverLay.Style.Top = "80px";
-					//this.BodyOverLay.Style.Height = "calc(100% - 80px)";
+					var div = new BootWidget();
+					div.Style.Position = Position.Absolute;
+					div.Style.OverflowY = Overflow.Auto;
+					div.Size = new Vector2(prevBody.Style.Width, "calc(100% - 80px)");
+					div.Location = new Vector2(prevBody.Style.Left, 80);
+					
+					this.prevBody.InsertBefore(div, this.Body);
 
-					this.Content.InsertBefore(bar, this.prevBody);
+					div.Content.AppendChild(this.Body);
+
+					this.prevBody.InsertBefore(bar, div);
+					
 					return;									
 			}
 			this.prevBody.InsertBefore(bar, this.Body);

@@ -449,20 +449,17 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
                 return;
             }
             switch (bar.getNavbarLocation()) {
-                case ExpressCraft.Bootstrap.NavBarLocation.Fixed_Top: 
-                    this.getBodyStyle().paddingTop = "70px";
-                    break;
-                case ExpressCraft.Bootstrap.NavBarLocation.Fixed_Bottom: 
-                    this.getBodyStyle().paddingBottom = "70px";
-                    break;
                 case ExpressCraft.Bootstrap.NavBarLocation.Static_Top: 
-                    bar.getStyle().top = "30px";
-                    this.getBodyStyle().paddingTop = "20px";
-                    this.prevBody.style.top = "80px";
-                    this.prevBody.style.height = "calc(100% - 80px)";
-                    //this.BodyOverLay.Style.Top = "80px";
-                    //this.BodyOverLay.Style.Height = "calc(100% - 80px)";
-                    this.content.insertBefore(ExpressCraft.Control.op_Implicit(bar), this.prevBody);
+                    bar.getStyle().top = "0";
+                    bar.getStyle().left = "0";
+                    var div = new ExpressCraft.Bootstrap.BootWidget.$ctor1();
+                    div.getStyle().position = "absolute";
+                    div.getStyle().overflowY = "auto";
+                    div.setSize(new ExpressCraft.Vector2.$ctor1(this.prevBody.style.width, "calc(100% - 80px)"));
+                    div.setLocation(new ExpressCraft.Vector2.$ctor1(this.prevBody.style.left, 80));
+                    this.prevBody.insertBefore(ExpressCraft.Control.op_Implicit(div), this.getBody());
+                    div.content.appendChild(this.getBody());
+                    this.prevBody.insertBefore(ExpressCraft.Control.op_Implicit(bar), ExpressCraft.Control.op_Implicit(div));
                     return;
             }
             this.prevBody.insertBefore(ExpressCraft.Control.op_Implicit(bar), this.getBody());
@@ -715,9 +712,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         $kind: "enum",
         statics: {
             None: 0,
-            Fixed_Top: 1,
-            Fixed_Bottom: 2,
-            Static_Top: 3
+            Static_Top: 1
         }
     });
 
