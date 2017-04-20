@@ -989,12 +989,13 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
                 setUnqiueAttributes: "id"
             } )]), {
                 setNavbarLocation: ExpressCraft.Bootstrap.NavBarLocation.Static_Top,
-                setTheme: ExpressCraft.Bootstrap.Program.r.next$2(0, 2) === 1 ? ExpressCraft.Bootstrap.NavBarTheme.NavBar_Inverse : ExpressCraft.Bootstrap.NavBarTheme.NavBar_Default
+                setTheme: ExpressCraft.Bootstrap.Program.r.next$2(0, 2) === 1 ? ExpressCraft.Bootstrap.NavBarTheme.NavBar_Inverse : ExpressCraft.Bootstrap.NavBarTheme.NavBar_Default,
+                setFluid: false
             } ), Bridge.merge(new ExpressCraft.Bootstrap.Table([new ExpressCraft.Bootstrap.TableHeader([new ExpressCraft.Bootstrap.TableHeaderRow.ctor(["#", "Table heading", "Table heading", "Table heading", "Table heading", "Table heading", "Table heading"])]), new ExpressCraft.Bootstrap.TableBody(System.Linq.Enumerable.range(0, 9).select($asm.$.ExpressCraft.Bootstrap.Program.f1).toArray())]), {
                 setId: "DemoTable",
                 setUnqiueAttributes: "id"
             } )]), {
-                setFluid: true
+                setFluid: false
             } ).show();
         }
     });
@@ -2075,6 +2076,13 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         setTheme: function (value) {
             this.setEnumClassValue$1(ExpressCraft.Bootstrap.NavBarTheme, System.String.replaceAll(System.Enum.format(ExpressCraft.Bootstrap.NavBarTheme, value, "G").toLowerCase(), "_", "-"));
         },
+        getFluid: function () {
+            return this.getClassTrue$1("container-fluid");
+        },
+        setFluid: function (value) {
+            this.setClassTrue$1("container", !value);
+            this.setClassTrue$1("container-fluid", value);
+        },
         getNavbarLocation: function () {
             var x = this.getEnumClassValue("navbar-", ExpressCraft.Bootstrap.NavBarLocation);
             if (x == null) {
@@ -2088,6 +2096,19 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
                 this.clearEnumClassValue("navbar-", ExpressCraft.Bootstrap.NavBarLocation);
             } else {
                 this.setEnumClassValue("navbar-", ExpressCraft.Bootstrap.NavBarLocation, System.String.replaceAll(System.Enum.format(ExpressCraft.Bootstrap.NavBarLocation, value, "G").toLowerCase(), "_", "-"));
+            }
+        },
+        getClassTrue$1: function (classStr) {
+            return this.content.firstChild.classList.contains(classStr);
+        },
+        setClassTrue$1: function (classStr, value) {
+            if (value === this.getClassTrue$1(classStr)) {
+                return;
+            }
+            if (value) {
+                this.content.firstChild.classList.add(classStr);
+            } else {
+                this.content.firstChild.classList.remove(classStr);
             }
         }
     });

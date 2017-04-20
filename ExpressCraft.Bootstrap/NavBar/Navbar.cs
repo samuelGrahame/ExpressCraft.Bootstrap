@@ -53,6 +53,32 @@ namespace ExpressCraft.Bootstrap
 			set { SetEnumClassValue(typeof(NavBarTheme), value.ToString("G").ToLower().Replace("_", "-")); }
 		}
 
+		public bool Fluid
+		{
+			get { return GetClassTrue("container-fluid"); }
+			set
+			{
+				SetClassTrue("container", !value);
+				SetClassTrue("container-fluid", value);
+			}
+		}
+
+		public new bool GetClassTrue(string classStr)
+		{
+			return Content.FirstChild.As<HTMLElement>().ClassList.Contains(classStr);
+		}
+		public new void SetClassTrue(string classStr, bool value)
+		{
+			if(value == GetClassTrue(classStr))
+			{
+				return;
+			}
+			if(value)
+				Content.FirstChild.As<HTMLElement>().ClassList.Add(classStr);
+			else
+				Content.FirstChild.As<HTMLElement>().ClassList.Remove(classStr);
+		}
+
 		public NavBarLocation NavbarLocation
 		{
 			get

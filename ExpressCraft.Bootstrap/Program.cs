@@ -51,7 +51,7 @@ namespace ExpressCraft.Bootstrap
 													)
 													{ UnqiueAttributes = "id" }
 												)												
-												{ NavbarLocation = NavBarLocation.Static_Top, Theme = r.Next(0, 2) == 1 ? NavBarTheme.NavBar_Inverse : NavBarTheme.NavBar_Default },
+												{ NavbarLocation = NavBarLocation.Static_Top, Theme = r.Next(0, 2) == 1 ? NavBarTheme.NavBar_Inverse : NavBarTheme.NavBar_Default, Fluid = false },
 												new Table(
 													new TableHeader(
 														new TableHeaderRow(
@@ -71,7 +71,7 @@ namespace ExpressCraft.Bootstrap
 												)
 												{ Id = "DemoTable", UnqiueAttributes = "id" }												
 											)
-											{ Fluid = true }.Show();
+											{ Fluid = false }.Show();
 									}
 								},
 								new Button("Typography", BootTheme.Info) { Block = true },
