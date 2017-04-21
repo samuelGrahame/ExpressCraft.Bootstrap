@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>ExpressCraft.Bootstrap</id>
-    <version>0.0.1.4</version>
+    <version>0.0.1.5</version>
     <title>ExpressCraft.Bootstrap (For Bridge.Net)</title>
     <authors>SG - BL - PH</authors>
     <owners>SG - BL - PH</owners>
@@ -11,7 +11,7 @@
     <description>ExpressCraft.Bootstrap (For Bridge.Net) - Create a Windows Application using ExpressCraft UI and Bridge for the Browser.
 Handles Modal and Non-Modal Forms - When using Dialogues you can assign call-backs based on the Dialogue Result.
 </description>
-    <releaseNotes>Added Fluid to Navbar</releaseNotes>
+    <releaseNotes>Fixed Overlap Issue</releaseNotes>
     <copyright>Copyright 2017</copyright>
     <tags>Bridge Bridge.net Javascript Forms ExpressCraft C# UI jQuery HTML Bootstrap</tags>
 	<dependencies>

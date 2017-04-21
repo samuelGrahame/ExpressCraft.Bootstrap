@@ -192,7 +192,7 @@ namespace ExpressCraft.Bootstrap
 
 			if(activeNavar != null)
 			{
-				activeNavar.Style.ZIndex = null;
+				activeNavar.Style.ZIndex = "unset";
 			}
 			
 		}

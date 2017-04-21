@@ -473,7 +473,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             ExpressCraft.Form.prototype.onLostFocus.call(this);
 
             if (this.activeNavar != null) {
-                this.activeNavar.getStyle().zIndex = null;
+                this.activeNavar.getStyle().zIndex = "unset";
             }
 
         },
