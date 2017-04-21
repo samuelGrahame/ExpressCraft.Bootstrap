@@ -29,6 +29,8 @@ namespace ExpressCraft.Bootstrap
 		protected string assignedBootWindow = string.Empty;
 		private string responsiveClass;
 
+		private Navbar activeNavar = null;
+
 		public string GetBootHandle()
 		{
 			return assignedBootWindow;
@@ -78,7 +80,7 @@ namespace ExpressCraft.Bootstrap
 			else
 				Body.ClassList.Remove(classStr);
 		}
-
+		
 		private void makeChangesForNav(Navbar bar)
 		{
 			if(bar == null)
@@ -92,6 +94,7 @@ namespace ExpressCraft.Bootstrap
 				//	this.BodyStyle.PaddingBottom = "70px";
 				//	break;
 				case NavBarLocation.Static_Top:
+					activeNavar = bar;
 					bar.Style.Top = "0";
 					bar.Style.Left = "0";
 
@@ -183,11 +186,26 @@ namespace ExpressCraft.Bootstrap
 			Document.Body.RemoveChild(x);
 		}
 
-		protected override void OnGotFocus()
+		protected override void OnLostFocus()
 		{
-			HideNavigation();
+			base.OnLostFocus();
+
+			if(activeNavar != null)
+			{
+				activeNavar.Style.ZIndex = null;
+			}
+			
+		}
+
+		protected override void OnGotFocus()
+		{						
 			base.OnGotFocus();
-			CalcSizeOnChange();			
+			HideNavigation();
+			CalcSizeOnChange();
+			if(activeNavar != null)
+			{
+				activeNavar.Style.ZIndex = "999";
+			}
 		}
 
 		private Action<Event> backButtonEvent = null;

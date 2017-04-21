@@ -359,6 +359,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         prevBody: null,
         assignedBootWindow: "",
         responsiveClass: null,
+        activeNavar: null,
         backButtonEvent: null,
         config: {
             init: function () {
@@ -450,6 +451,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             }
             switch (bar.getNavbarLocation()) {
                 case ExpressCraft.Bootstrap.NavBarLocation.Static_Top: 
+                    this.activeNavar = bar;
                     bar.getStyle().top = "0";
                     bar.getStyle().left = "0";
                     var div = new ExpressCraft.Bootstrap.BootWidget.$ctor1();
@@ -467,10 +469,21 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         setCalcSize: function () {
             //	this.Body.SetSize("calc(100% - 28px)", this.Body.Style.Height);
         },
+        onLostFocus: function () {
+            ExpressCraft.Form.prototype.onLostFocus.call(this);
+
+            if (this.activeNavar != null) {
+                this.activeNavar.getStyle().zIndex = null;
+            }
+
+        },
         onGotFocus: function () {
-            ExpressCraft.Bootstrap.BootWindow.hideNavigation();
             ExpressCraft.Form.prototype.onGotFocus.call(this);
+            ExpressCraft.Bootstrap.BootWindow.hideNavigation();
             this.calcSizeOnChange();
+            if (this.activeNavar != null) {
+                this.activeNavar.getStyle().zIndex = "999";
+            }
         },
         onShowing: function () {
             ExpressCraft.Form.prototype.onShowing.call(this);
@@ -2066,9 +2079,27 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
             this.content.appendChild(ExpressCraft.Control.op_Implicit(container));
 
-            this.content.addEventListener("mousedown", Bridge.fn.bind(this, $asm.$.ExpressCraft.Bootstrap.Navbar.f1));
-            this.content.addEventListener("mousemove", $asm.$.ExpressCraft.Bootstrap.Navbar.f2);
-            this.content.addEventListener("mouseup", $asm.$.ExpressCraft.Bootstrap.Navbar.f2);
+            //this.Content.AddEventListener(EventType.MouseDown, (ev) => {
+            //	 ev.StopPropagation();
+
+            //	var x = BootWindowHandle;
+            //	var y = Form.GetActiveFormCollection();
+
+            //	for(int i = 0; i < y.VisibleForms.Count; i++)
+            //	{
+            //		if(Global.ParseInt(y.VisibleForms[i].Body.GetAttribute("bsh")) == x)
+            //		{
+            //			Form.ActiveForm = y.VisibleForms[i];
+            //			return;
+            //		}
+            //	}
+            //	if(Global.ParseInt(y.FormOwner.Body.GetAttribute("bsh")) == x)
+            //	{
+            //		Form.ActiveForm = y.FormOwner;
+            //	}				
+            //});
+            //this.Content.AddEventListener(EventType.MouseMove, (ev) => { ev.StopPropagation(); });
+            //this.Content.AddEventListener(EventType.MouseUp, (ev) => { ev.StopPropagation(); });
         },
         getTheme: function () {
             return this.getEnumClassValue$1(ExpressCraft.Bootstrap.NavBarTheme);
@@ -2110,30 +2141,6 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             } else {
                 this.content.firstChild.classList.remove(classStr);
             }
-        }
-    });
-
-    Bridge.ns("ExpressCraft.Bootstrap.Navbar", $asm.$);
-
-    Bridge.apply($asm.$.ExpressCraft.Bootstrap.Navbar, {
-        f1: function (ev) {
-            ev.stopPropagation();
-
-            var x = this.getBootWindowHandle();
-            var y = ExpressCraft.Form.getActiveFormCollection();
-
-            for (var i = 0; i < y.visibleForms.getCount(); i = (i + 1) | 0) {
-                if (parseInt(y.visibleForms.getItem(i).getBody().getAttribute("bsh")) === x) {
-                    ExpressCraft.Form.setActiveForm(y.visibleForms.getItem(i));
-                    return;
-                }
-            }
-            if (parseInt(y.formOwner.getBody().getAttribute("bsh")) === x) {
-                ExpressCraft.Form.setActiveForm(y.formOwner);
-            }
-        },
-        f2: function (ev) {
-            ev.stopPropagation();
         }
     });
 
@@ -3026,7 +3033,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
             this.setAttribute("aria-expanded", "false");
 
-            this.content.onmousedown = $asm.$.ExpressCraft.Bootstrap.NavbarCollapseButton.f1;
+            this.content.onmousedown = Bridge.fn.bind(this, $asm.$.ExpressCraft.Bootstrap.NavbarCollapseButton.f1);
         }
     });
 
@@ -3035,6 +3042,24 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
     Bridge.apply($asm.$.ExpressCraft.Bootstrap.NavbarCollapseButton, {
         f1: function (ev) {
             ev.stopImmediatePropagation();
+            var x = this.getBootWindowHandle();
+            var y = ExpressCraft.Form.getActiveFormCollection();
+
+            for (var i = 0; i < y.visibleForms.getCount(); i = (i + 1) | 0) {
+                if (parseInt(y.visibleForms.getItem(i).getBody().getAttribute("bsh")) === x) {
+                    if (!Bridge.referenceEquals(ExpressCraft.Form.getActiveForm(), y.visibleForms.getItem(i))) {
+                        ExpressCraft.Form.setActiveForm(y.visibleForms.getItem(i));
+                        this.content.click();
+                    }
+                    return;
+                }
+            }
+            if (parseInt(y.formOwner.getBody().getAttribute("bsh")) === x) {
+                if (!Bridge.referenceEquals(ExpressCraft.Form.getActiveForm(), y.formOwner)) {
+                    ExpressCraft.Form.setActiveForm(y.formOwner);
+                    this.content.click();
+                }
+            }
         }
     });
 

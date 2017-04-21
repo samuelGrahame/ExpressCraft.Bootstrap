@@ -25,6 +25,29 @@ namespace ExpressCraft.Bootstrap
 			this.Content.OnMouseDown = (ev) =>
 			{
 				ev.StopImmediatePropagation();
+				var x = BootWindowHandle;
+				var y = Form.GetActiveFormCollection();
+
+				for(int i = 0; i < y.VisibleForms.Count; i++)
+				{
+					if(Global.ParseInt(y.VisibleForms[i].Body.GetAttribute("bsh")) == x)
+					{					
+						if(Form.ActiveForm != y.VisibleForms[i])
+						{
+							Form.ActiveForm = y.VisibleForms[i];
+							Content.Click();
+						}
+						return;
+					}
+				}
+				if(Global.ParseInt(y.FormOwner.Body.GetAttribute("bsh")) == x)
+				{
+					if(Form.ActiveForm != y.FormOwner)
+					{
+						Form.ActiveForm = y.FormOwner;
+						Content.Click();
+					}
+				}
 			};
 		}
 	}

@@ -21,27 +21,27 @@ namespace ExpressCraft.Bootstrap
 
 			Content.AppendChild(container);
 
-			this.Content.AddEventListener(EventType.MouseDown, (ev) => {
-				 ev.StopPropagation();
+			//this.Content.AddEventListener(EventType.MouseDown, (ev) => {
+			//	 ev.StopPropagation();
 
-				var x = BootWindowHandle;
-				var y = Form.GetActiveFormCollection();
+			//	var x = BootWindowHandle;
+			//	var y = Form.GetActiveFormCollection();
 
-				for(int i = 0; i < y.VisibleForms.Count; i++)
-				{
-					if(Global.ParseInt(y.VisibleForms[i].Body.GetAttribute("bsh")) == x)
-					{
-						Form.ActiveForm = y.VisibleForms[i];
-						return;
-					}
-				}
-				if(Global.ParseInt(y.FormOwner.Body.GetAttribute("bsh")) == x)
-				{
-					Form.ActiveForm = y.FormOwner;
-				}				
-			});
-			this.Content.AddEventListener(EventType.MouseMove, (ev) => { ev.StopPropagation(); });
-			this.Content.AddEventListener(EventType.MouseUp, (ev) => { ev.StopPropagation(); });
+			//	for(int i = 0; i < y.VisibleForms.Count; i++)
+			//	{
+			//		if(Global.ParseInt(y.VisibleForms[i].Body.GetAttribute("bsh")) == x)
+			//		{
+			//			Form.ActiveForm = y.VisibleForms[i];
+			//			return;
+			//		}
+			//	}
+			//	if(Global.ParseInt(y.FormOwner.Body.GetAttribute("bsh")) == x)
+			//	{
+			//		Form.ActiveForm = y.FormOwner;
+			//	}				
+			//});
+			//this.Content.AddEventListener(EventType.MouseMove, (ev) => { ev.StopPropagation(); });
+			//this.Content.AddEventListener(EventType.MouseUp, (ev) => { ev.StopPropagation(); });
 		}
 
 		public NavBarTheme Theme
