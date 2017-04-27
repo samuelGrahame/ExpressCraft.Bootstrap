@@ -146,6 +146,12 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
         setUnqiueAttributes: function (value) {
             this.setAttribute("ua", value);
         },
+        getTabIndex: function () {
+            return this.content.tabIndex;
+        },
+        setTabIndex: function (value) {
+            this.content.tabIndex = value;
+        },
         getActive: function () {
             return this.getClassTrue("active");
         },

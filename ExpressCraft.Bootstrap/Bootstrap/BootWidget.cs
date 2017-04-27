@@ -75,6 +75,12 @@ namespace ExpressCraft.Bootstrap
 		{
 			ClearEnumClassValue(string.Empty, type);			
 		}
+		
+		public int TabIndex
+		{
+			get { return Content.TabIndex; }
+			set { Content.TabIndex = value; }
+		}
 
 		public void SetEnumClassValue(Type type, string value)
 		{
