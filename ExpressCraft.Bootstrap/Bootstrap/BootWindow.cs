@@ -130,6 +130,8 @@ namespace ExpressCraft.Bootstrap
 			this.BackColor = Color.White;
 			this.Body.AppendChild(container.Content);
 			this.BodyStyle.OverflowY = Overflow.Auto;
+			this.BodyStyle.OverflowX = Overflow.Hidden;
+
 			prevBody = this.Body;
 
 			this.Body = (HTMLDivElement)container.Content;
@@ -216,7 +218,7 @@ namespace ExpressCraft.Bootstrap
 
 			AssignHandles();
 
-			if(Browser.IsPhone || Browser.IsTablet)
+			if(Browser.IsPhone || Browser.IsTablet || Browser.IsiPhone || Browser.IsAndroid || Browser.IsiPad)
 			{
 				this.Windowstate = WindowState.Maximized;
 				this.ShowMaximize = false;

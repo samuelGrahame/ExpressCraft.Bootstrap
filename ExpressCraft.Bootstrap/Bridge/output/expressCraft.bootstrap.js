@@ -344,7 +344,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
                 ExpressCraft.Bootstrap.BootWindow.hasSetupMetaTags = true;
                 document.head.appendChild(Bridge.merge(document.createElement('meta'), {
                     name: "viewport",
-                    content: "width=device-width, initial-scale=1"
+                    content: "width=device-width, initial-scale=0.9"
                 } ));
             },
             createWindowHandle: function () {
@@ -397,6 +397,8 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
             this.setBackColor(ExpressCraft.Color.op_Implicit$1(ExpressCraft.Color.getWhite().$clone()));
             this.getBody().appendChild(container.content);
             this.getBodyStyle().overflowY = "auto";
+            this.getBodyStyle().overflowX = "hidden";
+
             this.prevBody = this.getBody();
 
             this.setBody(Bridge.cast(container.content, HTMLDivElement));
@@ -496,7 +498,7 @@ Bridge.assembly("ExpressCraft.Bootstrap", function ($asm, globals) {
 
             this.assignHandles();
 
-            if (Bridge.Browser.isPhone || Bridge.Browser.isTablet) {
+            if (Bridge.Browser.isPhone || Bridge.Browser.isTablet || Bridge.Browser.isiPhone || Bridge.Browser.isAndroid || Bridge.Browser.isiPad) {
                 this.setWindowstate(ExpressCraft.WindowState.Maximized);
                 this.setShowMaximize(false);
                 this.setShowMinimize(false);
